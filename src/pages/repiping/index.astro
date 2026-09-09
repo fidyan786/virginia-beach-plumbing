@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['repiping'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/repiping.jpg"
+  imageAlt="Brass push-fit plumbing fittings (illustrative stock photo)"
+/>

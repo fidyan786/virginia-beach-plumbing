@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, telHref } from '../../config/site';
+
+const phone = telHref();
+---
+
+<BaseLayout
+  title="Thank You | Virginia Beach Plumbing"
+  description="Call Virginia Beach Plumbing for the fastest help after using the request form."
+  canonicalPath="/thank-you/"
+  noindex={true}
+  stickyVariant="none"
+>
+  <section class="section">
+    <div class="container" style="max-width:40rem;text-align:center">
+      <h1>Request received</h1>
+      <p class="lead" style="margin-inline:auto">
+        If you just submitted the form, we have the details. This is not a dispatch confirmation and does not include an arrival time. If the problem is urgent, call {siteConfig.phoneDisplay}. We are open 24/7.
+      </p>
+      <div class="btn-group" style="justify-content:center">
+        <a class="btn btn--primary" href={phone} data-track="phone_click" data-track-location="thank_you">
+          Call {siteConfig.phoneDisplay}
+        </a>
+        <a class="btn btn--secondary" href="/">Back to home</a>
+        <a class="btn btn--secondary" href="/emergency-plumber/">Emergency info</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

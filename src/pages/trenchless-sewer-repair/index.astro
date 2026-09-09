@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['trenchless-sewer-repair'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/trenchless.jpg"
+  imageAlt="Plumber working on pipes in an opened floor trench (illustrative stock photo)"
+/>

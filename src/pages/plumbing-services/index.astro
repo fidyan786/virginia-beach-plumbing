@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { siteConfig, p0Services, p1Services, telHref } from '../../config/site';
+import {
+  breadcrumbList,
+  itemListNode,
+  originFromSite,
+  plumberContractorNode,
+  webPageNode,
+  withContext,
+  offerCatalogNode,
+} from '../../lib/schema';
+
+const phone = telHref();
+const origin = originFromSite(Astro.site);
+const title = 'Plumbing Services Virginia Beach VA | Local Service Menu';
+const description =
+  `Browse Virginia Beach plumbing services — emergency, drains, sewer, water heaters, leaks, commercial, and more. Call ${siteConfig.phoneDisplay}.`;
+
+const allCards = [...p0Services, ...p1Services];
+const schemas = [
+  withContext({
+    ...plumberContractorNode(origin),
+    hasOfferCatalog: offerCatalogNode(origin),
+  }),
+  withContext(
+    webPageNode(origin, {
+      name: title,
+      description,
+      path: '/plumbing-services/',
+    })
+  ),
+  withContext(
+    breadcrumbList(origin, [
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/plumbing-services/' },
+    ])
+  ),
+  withContext(
+    itemListNode(allCards.map((s) => ({ name: s.title, url: `${origin}${s.href}` })))
+  ),
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/plumbing-services/" schemaJson={schemas}>
+  <section class="section">
+    <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Services' }]} />
+    <div class="container">
+      <h1>Plumbing Services in Virginia Beach</h1>
+      <p class="lead">
+        Choose the Virginia Beach plumbing service that matches your problem. Each page explains signs, what to expect, and how to request help.
+      </p>
+      <p>
+        Prefer to talk? <a href={phone} data-track="phone_click">{siteConfig.phoneDisplay}</a>
+        — {siteConfig.hoursDisplay}
+      </p>
+
+      <h2>Core services</h2>
+      <div class="service-grid">
+        {
+          p0Services.map((s) => (
+            <a class="service-card" href={s.href}>
+              {s.image && (
+                <div class="service-card__media">
+                  <img src={s.image} alt={s.imageAlt || ''} width="480" height="300" loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="service-card__body">
+                <h3>{s.title}</h3>
+                <p>{s.description}</p>
+                <span class="card-cta">See details</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+
+      <h2 class="section-subhead">Additional services</h2>
+      <div class="service-grid">
+        {
+          p1Services.map((s) => (
+            <a class="service-card" href={s.href}>
+              {s.image && (
+                <div class="service-card__media">
+                  <img src={s.image} alt={s.imageAlt || ''} width="480" height="300" loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="service-card__body">
+                <h3>{s.title}</h3>
+                <p>{s.description}</p>
+                <span class="card-cta">See details</span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

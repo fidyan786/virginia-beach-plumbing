@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { siteConfig, telHref } from '../../config/site';
+import { originFromSite, plumberContractorNode, breadcrumbList, withContext } from '../../lib/schema';
+
+const phone = telHref();
+const title = 'Contact Virginia Beach Plumbing | Request Service';
+const description =
+  `Contact Virginia Beach Plumbing — call ${siteConfig.phoneDisplay} anytime (open 24/7) or request service online. Serving Virginia Beach, VA.`;
+
+const origin = originFromSite(Astro.site);
+const schemas = [
+  withContext({
+    '@type': 'ContactPage',
+    name: title,
+    description,
+    url: `${origin}/contact/`,
+    mainEntity: { '@id': `${origin}/#plumbing-contractor` },
+  }),
+  withContext(
+    breadcrumbList(origin, [
+      { name: 'Home', path: '/' },
+      { name: 'Contact', path: '/contact/' },
+    ])
+  ),
+  withContext(plumberContractorNode(origin)),
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/contact/" schemaJson={schemas}>
+  <section class="section">
+    <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+    <div class="container two-col">
+      <div>
+        <h1>Contact Virginia Beach Plumbing</h1>
+        <p class="lead">Call for urgent needs anytime. Use the form for scheduled service, quotes, and commercial requests.</p>
+
+        <div class="contact-block">
+          <h2>Phone</h2>
+          <p>
+            <a class="big-phone" href={phone} data-track="phone_click" data-track-location="contact">
+              {siteConfig.phoneDisplay}
+            </a>
+          </p>
+        </div>
+
+        <div class="contact-block">
+          <h2>Hours</h2>
+          <p><span class="hours-badge">{siteConfig.hoursDisplay}</span></p>
+        </div>
+
+        <div class="contact-block">
+          <h2>Service area</h2>
+          <p>{siteConfig.addressLine2}</p>
+          <p class="muted">We come to you throughout Virginia Beach. There is no public storefront on this site.</p>
+        </div>
+
+        <figure class="prose-figure">
+          <img
+            src="/images/about-plumbing.jpg"
+            alt="Pipe wrenches and copper fittings on a workbench (illustrative photo)"
+            width="800"
+            height="500"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+        <p>
+          For urgent flooding or backups, visit
+          <a href="/emergency-plumber/">emergency plumbing</a> or call now.
+        </p>
+      </div>
+
+      <LeadForm variant="routine" heading="Request service" formId="contact-form" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-block {
+    margin-bottom: var(--space-5);
+  }
+  .contact-block h2 {
+    font-size: 1.05rem;
+    margin-bottom: var(--space-2);
+  }
+  .big-phone {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 1.85rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .big-phone:hover {
+    color: var(--color-cta);
+  }
+</style>

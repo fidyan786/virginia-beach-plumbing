@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['backflow-testing'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/backflow.jpg"
+  imageAlt="Disassembled brass valve components on a workbench (illustrative stock photo)"
+/>

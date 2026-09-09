@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { siteConfig, telHref } from '../../config/site';
+import { originFromSite, plumberContractorNode, breadcrumbList, withContext } from '../../lib/schema';
+
+const phone = telHref();
+const origin = originFromSite(Astro.site);
+const title = 'Plumbing Service Areas | Virginia Beach VA';
+const description =
+  `Virginia Beach Plumbing service area — serving Virginia Beach, VA. Call ${siteConfig.phoneDisplay} anytime.`;
+
+const schemas = [
+  withContext({
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: `${origin}/service-areas/`,
+    about: { '@id': `${origin}/#plumbing-contractor` },
+  }),
+  withContext(
+    breadcrumbList(origin, [
+      { name: 'Home', path: '/' },
+      { name: 'Service Area', path: '/service-areas/' },
+    ])
+  ),
+  withContext(plumberContractorNode(origin)),
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/service-areas/" schemaJson={schemas}>
+  <section class="section">
+    <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Service Area' }]} />
+    <div class="container">
+      <div class="media-banner">
+        <div class="media-banner__img">
+          <img
+            src="/images/virginia-beach-coast.jpg"
+            alt="Coastal Virginia Beach scenery representing the local service area"
+            width="900"
+            height="560"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <div class="media-banner__body prose">
+          <h1>Plumbing Service Area: Virginia Beach</h1>
+          <p class="lead">
+            We serve Virginia Beach, Virginia. The neighborhoods below are parts of the city we work in.
+          </p>
+          <div class="btn-group">
+            <a class="btn btn--primary" href={phone}>Call {siteConfig.phoneDisplay}</a>
+            <a class="btn btn--secondary" href="/contact/">Request Service</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prose" style="margin-top:2.5rem">
+        <h2>Neighborhoods we serve</h2>
+        <p>
+          We serve Virginia Beach communities including Oceanfront, Kempsville, Lynnhaven, Town Center, Princess Anne, Great Neck, Pungo, Bayside, Red Mill, and Sandbridge. These are parts of the city we work in — not separate office locations.
+        </p>
+        <h3>Oceanfront and hospitality</h3>
+        <p>
+          Hotels, restaurants, and short-term rentals near the Oceanfront often need after-hours drain, water heater, and guest-room fixture help. See <a href="/commercial-plumbing/">commercial plumbing</a>.
+        </p>
+        <h3>Sandbridge and coastal exposure</h3>
+        <p>
+          Salt air and humidity can wear outdoor piping and fixtures faster. Details are on our <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing</a> guide.
+        </p>
+        <h3>Pungo and septic vs city sewer</h3>
+        <p>
+          Some properties in southern Virginia Beach use septic systems rather than city sewer. This site is for plumbing and sewer laterals, not a septic pumping company. Confirm your system type when you call.
+        </p>
+        <h2>Outside Virginia Beach?</h2>
+        <p>
+          If you are just outside the city, call and we will tell you whether we can take the job.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

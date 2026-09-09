@@ -1,0 +1,172 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import StickyCta from '../components/StickyCta.astro';
+import ChatWidget from '../components/ChatWidget.astro';
+import { siteConfig } from '../config/site';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  ogType?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  noindex?: boolean;
+  omitCanonical?: boolean;
+  stickyVariant?: 'default' | 'emergency' | 'none';
+  schemaJson?: object | object[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogType = 'website',
+  ogImage = '/images/hero-plumbing.jpg',
+  ogImageAlt = 'Illustrative plumbing photography — not a photo of our staff or a specific job',
+  noindex = false,
+  omitCanonical = false,
+  stickyVariant = 'default',
+  schemaJson,
+} = Astro.props;
+
+const siteOrigin = Astro.site?.origin ?? 'https://example.com';
+const canonical = new URL(canonicalPath, siteOrigin).href;
+const ogImageAbs = new URL(ogImage, siteOrigin).href;
+const schemas = schemaJson
+  ? Array.isArray(schemaJson)
+    ? schemaJson
+    : [schemaJson]
+  : [];
+---
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {!omitCanonical && <link rel="canonical" href={canonical} />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    {!omitCanonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content={siteConfig.brandName} />
+    <meta name="theme-color" content="#15202b" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageAbs} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {
+      schemas.map((schema) => (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+      ))
+    }
+    <!-- Analytics load only when a real measurement ID is configured. -->
+    <script is:inline define:vars={{ gaId: siteConfig.analytics.ga4MeasurementId }}>
+      window.__SITE_ANALYTICS__ = {
+        ga4: gaId,
+        ready: !String(gaId).includes('REQUIRED'),
+      };
+      window.trackEvent = function trackEvent(name, params) {
+        try {
+          if (window.__SITE_ANALYTICS__?.ready && window.gtag) {
+            window.gtag('event', name, params || {});
+          } else if (window.dataLayer) {
+            window.dataLayer.push({ event: name, ...(params || {}) });
+          }
+        } catch {
+          /* keep the page usable if analytics fails */
+        }
+      };
+      document.addEventListener(
+        'click',
+        function (e) {
+          const el = e.target && e.target.closest ? e.target.closest('[data-track]') : null;
+          if (!el) return;
+          window.trackEvent(el.getAttribute('data-track'), {
+            location: el.getAttribute('data-track-location') || undefined,
+            label: el.getAttribute('data-track-label') || undefined,
+          });
+        },
+        true
+      );
+      if (window.__SITE_ANALYTICS__.ready) {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+        window.gtag('config', window.__SITE_ANALYTICS__.ga4);
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(window.__SITE_ANALYTICS__.ga4);
+        document.head.appendChild(s);
+      }
+    </script>
+  </head>
+  <body class={stickyVariant !== 'none' ? 'has-sticky-cta' : undefined}>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    {stickyVariant !== 'none' && <StickyCta variant={stickyVariant === 'emergency' ? 'emergency' : 'default'} />}
+    <ChatWidget />
+    <script is:inline>
+      document.addEventListener(
+        'error',
+        function (e) {
+          var t = e.target;
+          if (t && t.tagName === 'IMG') t.classList.add('is-broken');
+        },
+        true
+      );
+
+      (function () {
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var nodes = document.querySelectorAll('[data-reveal]');
+        if (reduce || !('IntersectionObserver' in window)) {
+          nodes.forEach(function (el) {
+            el.classList.add('is-in');
+          });
+          return;
+        }
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-in');
+              io.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -6% 0px' }
+        );
+        nodes.forEach(function (el) {
+          io.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>

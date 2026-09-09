@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['drain-cleaning'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/drain-cleaning.jpg"
+  imageAlt="Under-sink drain pipes and supply lines (illustrative stock photo)"
+/>

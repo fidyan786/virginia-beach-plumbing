@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['gas-line-services'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/gas-line.jpg"
+  imageAlt="Outdoor gas meters and piping (illustrative stock photo)"
+/>

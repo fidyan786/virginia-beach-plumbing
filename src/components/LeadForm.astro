@@ -1,0 +1,404 @@
+---
+import { siteConfig } from '../config/site';
+
+interface Props {
+  variant?: 'routine' | 'emergency' | 'commercial' | 'quote';
+  heading?: string;
+  formId?: string;
+}
+
+const {
+  variant = 'routine',
+  heading = 'Request service',
+  formId = 'lead-form',
+} = Astro.props;
+
+const isEmergency = variant === 'emergency';
+const isCommercial = variant === 'commercial';
+---
+
+<form
+  class="form"
+  id={formId}
+  method="post"
+  action={Astro.url.pathname}
+  data-lead-form
+  data-variant={variant}
+  data-endpoint={siteConfig.formEndpoint}
+  data-phone-display={siteConfig.phoneDisplay}
+  data-phone-tel={siteConfig.phoneTel}
+>
+  <h2 class="form-heading">{heading}</h2>
+  <p class="muted form-intro">
+    {
+      isEmergency
+        ? `If you can call, that is faster. Use this form only if you need a callback: ${siteConfig.phoneDisplay}.`
+        : 'Share your name, phone, ZIP, and the plumbing problem. We use this to follow up — it is not a dispatch confirmation.'
+    }
+  </p>
+  <noscript>
+    <p class="form-alert is-error">
+      This form needs JavaScript. Please call
+      <a href={`tel:+1${siteConfig.phoneTel}`}>{siteConfig.phoneDisplay}</a>
+      to request service.
+    </p>
+  </noscript>
+  <div class="form-alert" data-form-status role="status" aria-live="assertive" aria-atomic="true" hidden></div>
+
+  <input type="hidden" name="form_variant" value={variant} />
+  <input type="hidden" name="landing_path" value={Astro.url.pathname} />
+  <input type="hidden" name="submitted_at" value="" data-timestamp />
+
+  <div class="hp-field" aria-hidden="true">
+    <label for={`${formId}-company`} aria-hidden="true">Company</label>
+    <input type="text" id={`${formId}-company`} name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  </div>
+
+  <div class="form-row">
+    <div class="form-field" data-field="name">
+      <label for={`${formId}-name`}>Name <span aria-hidden="true">*</span></label>
+      <input id={`${formId}-name`} name="name" type="text" autocomplete="name" required />
+      <p class="error">Please enter your name.</p>
+    </div>
+
+    <div class="form-field" data-field="phone">
+      <label for={`${formId}-phone`}>Phone <span aria-hidden="true">*</span></label>
+      <input id={`${formId}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
+      <p class="error">Please enter a valid phone number.</p>
+    </div>
+  </div>
+
+  {
+    (isCommercial || variant === 'quote' || variant === 'routine') && !isEmergency && (
+      <div class="form-field" data-field="email">
+        <label for={`${formId}-email`}>
+          Email {isCommercial ? <span aria-hidden="true">*</span> : <span class="hint">(optional)</span>}
+        </label>
+        <input
+          id={`${formId}-email`}
+          name="email"
+          type="email"
+          autocomplete="email"
+          required={isCommercial}
+        />
+        <p class="error">Please enter a valid email.</p>
+      </div>
+    )
+  }
+
+  {
+    isCommercial && (
+      <>
+        <div class="form-field" data-field="business">
+          <label for={`${formId}-business`}>
+            Business name <span aria-hidden="true">*</span>
+          </label>
+          <input id={`${formId}-business`} name="business_name" type="text" required />
+          <p class="error">Please enter your business name.</p>
+        </div>
+        <div class="form-field" data-field="property_type">
+          <label for={`${formId}-property`}>
+            Property type <span aria-hidden="true">*</span>
+          </label>
+          <select id={`${formId}-property`} name="property_type" required>
+            <option value="">Select…</option>
+            <option>Restaurant / kitchen</option>
+            <option>Hotel / hospitality</option>
+            <option>Office / retail</option>
+            <option>Multi-unit / apartments</option>
+            <option>Property management</option>
+            <option>Other commercial</option>
+          </select>
+          <p class="error">Please select a property type.</p>
+        </div>
+      </>
+    )
+  }
+
+  <div class="form-field" data-field="zip">
+    <label for={`${formId}-zip`}>
+      ZIP code <span aria-hidden="true">*</span>
+      <span class="hint">Serving Virginia Beach, VA</span>
+    </label>
+    <input
+      id={`${formId}-zip`}
+      name="zip"
+      type="text"
+      inputmode="numeric"
+      autocomplete="postal-code"
+      pattern="[0-9]{5}"
+      maxlength="5"
+      required
+    />
+    <p class="error">Enter a 5-digit ZIP code.</p>
+    <p class="zip-note muted" data-zip-note hidden>
+      We primarily serve Virginia Beach. If this ZIP is outside the city, we may not be able to take the job.
+    </p>
+  </div>
+
+  <div class="form-field" data-field="service">
+    <label for={`${formId}-service`}>
+      {isEmergency ? 'Emergency type' : 'Service needed'} <span aria-hidden="true">*</span>
+    </label>
+    <select id={`${formId}-service`} name="service_needed" required>
+      <option value="">Select…</option>
+      {
+        isEmergency ? (
+          <>
+            <option>Burst pipe / major leak</option>
+            <option>Sewer backup</option>
+            <option>No water / major water issue</option>
+            <option>Overflowing fixture</option>
+            <option>Other urgent plumbing</option>
+          </>
+        ) : isCommercial ? (
+          <>
+            <option>Commercial drain / grease</option>
+            <option>Commercial water heater</option>
+            <option>Backflow / compliance</option>
+            <option>Repair / maintenance</option>
+            <option>New install / remodel</option>
+            <option>Other commercial need</option>
+          </>
+        ) : (
+          <>
+            <option>Drain cleaning</option>
+            <option>Water heater</option>
+            <option>Leak detection</option>
+            <option>Slab leak</option>
+            <option>Sewer / trenchless</option>
+            <option>Repiping</option>
+            <option>Gas line</option>
+            <option>Backflow testing</option>
+            <option>Sump pump</option>
+            <option>Fixture repair</option>
+            <option>Quote / inspection</option>
+            <option>Emergency plumbing</option>
+            <option>Other</option>
+          </>
+        )
+      }
+    </select>
+    <p class="error">Please select an option.</p>
+  </div>
+
+  <div class="form-field" data-field="message">
+    <label for={`${formId}-message`}>
+      {isEmergency ? 'Short description' : 'Message'} <span class="hint">(optional)</span>
+    </label>
+    <textarea id={`${formId}-message`} name="message" rows={isEmergency ? 3 : 4}></textarea>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn--primary btn--block"
+    data-track="cta_click"
+    data-track-label={`${variant}_form_submit`}
+  >
+    {isEmergency ? 'Request Callback' : isCommercial ? 'Request Commercial Service' : 'Submit Request'}
+  </button>
+  <p class="muted form-note">
+    By submitting, you agree to be contacted about this plumbing request. Prefer to call?
+    <a href={`tel:+1${siteConfig.phoneTel}`}>{siteConfig.phoneDisplay}</a>
+  </p>
+</form>
+
+<style>
+  .form-heading {
+    font-size: 1.28rem;
+    margin-bottom: var(--space-2);
+  }
+  .form-intro {
+    margin-bottom: var(--space-5);
+    max-width: none;
+  }
+  .form-note {
+    font-size: 0.85rem;
+    margin-top: var(--space-4);
+    margin-bottom: 0;
+  }
+</style>
+
+<script>
+  import { looksLikeVirginiaBeachZip } from '../lib/chat/validate';
+
+  function validPhone(value: string) {
+    const digits = value.replace(/\D/g, '');
+    return digits.length >= 10;
+  }
+
+  function validEmail(value: string) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function isLiveEndpoint(value: string) {
+    const trimmed = (value || '').trim();
+    if (!trimmed) return false;
+    if (trimmed.includes('REQUIRED') || trimmed.includes('OPTIONAL')) return false;
+    if (trimmed.startsWith('[')) return false;
+    return /^https?:\/\//i.test(trimmed) || trimmed.startsWith('/');
+  }
+
+  function phoneDigits(value: string) {
+    const digits = value.replace(/\D/g, '');
+    return digits.length === 11 && digits.startsWith('1') ? digits.slice(1) : digits;
+  }
+
+  document.querySelectorAll<HTMLFormElement>('[data-lead-form]').forEach((form) => {
+    const statusBox = form.querySelector<HTMLElement>('[data-form-status]');
+    const ts = form.querySelector<HTMLInputElement>('[data-timestamp]');
+    const zipInput = form.querySelector<HTMLInputElement>('[name="zip"]');
+    const zipNote = form.querySelector<HTMLElement>('[data-zip-note]');
+    const submitBtn = form.querySelector<HTMLButtonElement>('[type="submit"]');
+    const phoneDisplay = form.getAttribute('data-phone-display') || '(703) 703-7855';
+    const phoneTel = form.getAttribute('data-phone-tel') || '7037037855';
+    const callLink = `<a href="tel:+1${phoneTel}">${phoneDisplay}</a>`;
+
+    const clearStatus = () => {
+      if (!statusBox) return;
+      statusBox.hidden = true;
+      statusBox.classList.remove('is-error', 'is-success');
+      statusBox.replaceChildren();
+    };
+
+    const showError = (html: string) => {
+      if (!statusBox) return;
+      statusBox.classList.remove('is-success');
+      statusBox.classList.add('is-error');
+      statusBox.innerHTML = html;
+      statusBox.hidden = false;
+    };
+
+    zipInput?.addEventListener('input', () => {
+      const zip = zipInput.value.trim();
+      if (zipNote) {
+        zipNote.hidden = !(zip.length === 5 && !looksLikeVirginiaBeachZip(zip));
+      }
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (ts) ts.value = new Date().toISOString();
+      clearStatus();
+
+      let ok = true;
+      form.querySelectorAll('.form-field').forEach((field) => field.classList.remove('is-invalid'));
+
+      const name = form.querySelector<HTMLInputElement>('[name="name"]');
+      const phone = form.querySelector<HTMLInputElement>('[name="phone"]');
+      const zip = form.querySelector<HTMLInputElement>('[name="zip"]');
+      const service = form.querySelector<HTMLSelectElement>('[name="service_needed"]');
+      const email = form.querySelector<HTMLInputElement>('[name="email"]');
+      const business = form.querySelector<HTMLInputElement>('[name="business_name"]');
+      const property = form.querySelector<HTMLSelectElement>('[name="property_type"]');
+      const honeypot = form.querySelector<HTMLInputElement>('[name="company_website"]');
+
+      if (honeypot?.value) {
+        form.reset();
+        clearStatus();
+        return;
+      }
+
+      if (!name?.value.trim()) {
+        name?.closest('.form-field')?.classList.add('is-invalid');
+        ok = false;
+      }
+      if (!phone || !validPhone(phone.value)) {
+        phone?.closest('.form-field')?.classList.add('is-invalid');
+        ok = false;
+      }
+      if (!zip || !/^\d{5}$/.test(zip.value.trim())) {
+        zip?.closest('.form-field')?.classList.add('is-invalid');
+        ok = false;
+      }
+      if (!service?.value) {
+        service?.closest('.form-field')?.classList.add('is-invalid');
+        ok = false;
+      }
+      if (email?.required && (!email.value || !validEmail(email.value))) {
+        email.closest('.form-field')?.classList.add('is-invalid');
+        ok = false;
+      }
+      if (business?.required && !business.value.trim()) {
+        business.closest('.form-field')?.classList.add('is-invalid');
+        ok = false;
+      }
+      if (property?.required && !property.value) {
+        property.closest('.form-field')?.classList.add('is-invalid');
+        ok = false;
+      }
+
+      if (!ok) {
+        form.querySelector<HTMLElement>('.is-invalid input, .is-invalid select')?.focus();
+        return;
+      }
+
+      const endpoint = form.getAttribute('data-endpoint') || '';
+      const fd = new FormData(form);
+      const variant = form.getAttribute('data-variant') || 'routine';
+      const nameVal = String(fd.get('name') || '');
+      const phoneVal = String(fd.get('phone') || '');
+      const zipVal = String(fd.get('zip') || '');
+      const issue = String(fd.get('service_needed') || '');
+      const message = String(fd.get('message') || '');
+      const payload = {
+        source: 'web_form',
+        lead_source: 'web_form',
+        form_variant: variant,
+        name: nameVal,
+        caller_name: nameVal,
+        phone: phoneVal,
+        caller_phone: phoneVal,
+        phone_digits: phoneDigits(phoneVal),
+        zip: zipVal,
+        service_address: zipVal ? `Virginia Beach ZIP ${zipVal}` : '',
+        service_needed: issue,
+        problem_description: message || issue,
+        message,
+        preferred_time: '',
+        customer_type: variant === 'commercial' ? 'commercial' : 'unknown',
+        emergency_status: variant === 'emergency' ? 'emergency' : 'routine',
+        landing_path: String(fd.get('landing_path') || window.location.pathname),
+        page_url: window.location.href,
+        submitted_at: String(fd.get('submitted_at') || new Date().toISOString()),
+        business_name: String(fd.get('business_name') || ''),
+        property_type: String(fd.get('property_type') || ''),
+        email: String(fd.get('email') || ''),
+        lead_status: 'confirmed',
+      };
+
+      if (!isLiveEndpoint(endpoint)) {
+        showError(
+          `Online requests are temporarily unavailable. Please call ${callLink} to request service.`
+        );
+        return;
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+      try {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = (await res.json().catch(() => ({}))) as { submitted?: boolean };
+        if (!res.ok || data.submitted === false) {
+          showError(`The request could not be delivered. Please call ${callLink} so we do not miss you.`);
+          return;
+        }
+      } catch {
+        showError(`The request could not be delivered. Please call ${callLink} so we do not miss you.`);
+        return;
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+
+      window.trackEvent?.('lead_form_submit', {
+        variant: form.getAttribute('data-variant'),
+        path: window.location.pathname,
+      });
+
+      window.location.href = '/thank-you/';
+    });
+  });
+</script>

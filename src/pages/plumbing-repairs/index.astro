@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['plumbing-repairs'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/plumbing-repairs.jpg"
+  imageAlt="Bathroom faucet and chrome fixtures — illustrative photo, not a company job"
+/>

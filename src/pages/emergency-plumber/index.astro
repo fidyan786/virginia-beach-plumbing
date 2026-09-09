@@ -1,0 +1,238 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import LeadForm from '../../components/LeadForm.astro';
+import FaqList from '../../components/FaqList.astro';
+import { siteConfig, telHref } from '../../config/site';
+import {
+  breadcrumbList,
+  faqPage,
+  originFromSite,
+  plumberContractorNode,
+  serviceNode,
+  webPageNode,
+  withContext,
+} from '../../lib/schema';
+
+const phone = telHref();
+const title = 'Emergency Plumber Virginia Beach | 24-Hour Plumbing Help';
+const description =
+  `24/7 emergency plumber in Virginia Beach for burst pipes, sewer backups, and major leaks. Call ${siteConfig.phoneDisplay} for urgent plumbing help.`;
+
+const faqs = [
+  {
+    question: 'What counts as a plumbing emergency?',
+    answer:
+      'Active flooding, burst pipes, sewage backup into living spaces, major uncontrolled leaks, and complete loss of water in some situations. If you smell gas, leave and contact the utility or emergency services first.',
+  },
+  {
+    question: 'What should I do before a plumber arrives?',
+    answer:
+      'If safe, shut off the main water valve, keep electrical devices away from standing water, move valuables, and document damage for insurance. See our <a href="/resources/emergency-plumbing-checklist/">emergency checklist</a>.',
+  },
+  {
+    question: 'Is this a city water/sewer emergency or a private plumbing issue?',
+    answer: `Street flooding from city mains or municipal stoppages may be handled by Virginia Beach Public Utilities (${siteConfig.cityUtilitiesEmergencyPhone}). Private laterals and indoor plumbing are typically the property owner’s responsibility.`,
+  },
+  {
+    question: 'Are you really open 24/7?',
+    answer: `Yes — Virginia Beach Plumbing is open 24/7 for emergency plumbing help. Call <a href="${phone}">${siteConfig.phoneDisplay}</a>.`,
+  },
+  {
+    question: 'Do you handle overflowing toilets and burst pipes after hours?',
+    answer: `Yes. Nights and weekends are included. Call ${siteConfig.phoneDisplay}. A running toilet that is not overflowing can wait for a scheduled plumbing repair visit.`,
+  },
+];
+
+const origin = originFromSite(Astro.site);
+const schemas = [
+  withContext(plumberContractorNode(origin)),
+  withContext(
+    webPageNode(origin, {
+      name: title,
+      description,
+      path: '/emergency-plumber/',
+      image: '/images/emergency-plumbing.jpg',
+    })
+  ),
+  withContext(
+    breadcrumbList(origin, [
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/plumbing-services/' },
+      { name: 'Emergency Plumber', path: '/emergency-plumber/' },
+    ])
+  ),
+  withContext(
+    serviceNode(origin, {
+      name: 'Emergency Plumbing — Virginia Beach',
+      description,
+      urlPath: '/emergency-plumber/',
+    })
+  ),
+  withContext(faqPage(faqs)),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/emergency-plumber/"
+  ogImage="/images/emergency-plumbing.jpg"
+  ogImageAlt="Water spraying from a copper pipe — illustrative emergency plumbing photo, not a company job"
+  stickyVariant="emergency"
+  schemaJson={schemas}
+>
+  <section class="section section--emergency hero-emergency">
+    <Breadcrumb
+      items={[
+        { label: 'Home', href: '/' },
+        { label: 'Services', href: '/plumbing-services/' },
+        { label: 'Emergency Plumber' },
+      ]}
+    />
+    <div class="container emergency-grid">
+      <div>
+        <p class="hours-badge hours-badge--on-dark">Open 24/7</p>
+        <h1>Emergency Plumber in Virginia Beach</h1>
+        <p class="lead">
+          Call now for burst pipes, major leaks, and sewer backups. We will talk through the situation on the phone and do not quote arrival times on this website.
+        </p>
+        <div class="btn-group">
+          <a
+            class="btn btn--emergency"
+            href={phone}
+            data-track="emergency_call"
+            data-track-location="emergency_hero"
+          >
+            Call {siteConfig.phoneDisplay}
+          </a>
+          <a class="btn btn--ghost" href="#callback-form">Request a Callback</a>
+        </div>
+      </div>
+      <img
+        class="emergency-photo"
+        src="/images/emergency-plumbing.jpg"
+        alt="Water spraying from a copper pipe while gloved hands work a valve — illustrative emergency plumbing photo"
+        width="720"
+        height="480"
+        sizes="(max-width: 899px) calc(100vw - 2rem), 720px"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      <h2>What we treat as urgent</h2>
+      <ul>
+        <li>Burst or broken pipes with active flooding</li>
+        <li>Major uncontrolled leaks</li>
+        <li>Sewer backups into the home</li>
+        <li>Overflowing toilets that will not stop</li>
+        <li>Sudden loss of water related to plumbing failure</li>
+      </ul>
+
+      <figure class="prose-figure">
+          <img
+            src="/images/leak-detection.jpg"
+            alt="Kitchen faucet and sink (illustrative photo)"
+            width="960"
+            height="540"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+
+      <h2>What to do (and avoid)</h2>
+      <h3>Do</h3>
+      <ul>
+        <li>Shut off the main water if you can do so safely</li>
+        <li>Keep people and pets away from sewage</li>
+        <li>Move electronics and valuables out of wet areas</li>
+      </ul>
+      <h3>Don’t</h3>
+      <ul>
+        <li>Don’t ignore sewage exposure — limit contact and ventilate if safe</li>
+        <li>Don’t use electrical switches in standing water</li>
+        <li>Don’t wait on chemical drain products during an active backup</li>
+      </ul>
+      <p>
+        Full steps: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a> ·
+        <a href="/resources/what-to-do-when-a-pipe-bursts/">what to do when a pipe bursts</a>
+      </p>
+
+      <h2>Gas smell — different protocol</h2>
+      <p>
+        If you smell gas: leave immediately, avoid switches and flames, and call the gas utility or emergency services from a safe location.
+        Only contact a plumber after the area is safe. See <a href="/gas-line-services/">gas line services</a>.
+      </p>
+
+      <h2>City vs private plumbing emergencies</h2>
+      <p>
+        Issues on the municipal system may belong to Virginia Beach Public Utilities
+        (<a href={siteConfig.cityUtilitiesEmergencyUrl} rel="noopener noreferrer" target="_blank">vbgov.com</a>,
+        {siteConfig.cityUtilitiesEmergencyPhone}). Private laterals and indoor plumbing are typically the property owner’s responsibility.
+        Longer explainer: <a href="/resources/city-vs-private-plumbing-emergency/">city vs private plumbing emergencies</a>.
+        Shutoff help: <a href="/resources/shut-off-main-water-valve/">how to shut off the main water valve</a>.
+      </p>
+
+      <h2>Related emergency services</h2>
+      <ul class="related-links">
+        <li><a href="/leak-detection/">Leak detection</a></li>
+        <li><a href="/slab-leak-repair/">Slab leak repair</a></li>
+        <li><a href="/sewer-line-repair/">Sewer line repair</a></li>
+        <li><a href="/drain-cleaning/">Drain cleaning</a></li>
+        <li><a href="/plumbing-repairs/">Toilet and fixture repairs</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="callback-form">
+    <div class="container" style="max-width:640px">
+      <LeadForm variant="emergency" heading="Request an emergency callback" formId="emergency-callback" />
+    </div>
+  </section>
+
+  <FaqList items={faqs} />
+
+  <section class="section section--emergency">
+    <div class="container">
+      <h2>Call for emergency plumbing help</h2>
+      <p>Open 24/7 — Serving Virginia Beach, VA</p>
+      <div class="btn-group">
+        <a class="btn btn--emergency" href={phone} data-track="emergency_call" data-track-location="emergency_final">
+          Call {siteConfig.phoneDisplay}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-emergency :global(.breadcrumb),
+  .hero-emergency :global(.breadcrumb a),
+  .hero-emergency :global(.breadcrumb span) {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .emergency-grid {
+    display: grid;
+    gap: var(--space-5);
+    align-items: center;
+  }
+
+  .emergency-photo {
+    width: 100%;
+    border-radius: var(--radius-card);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  @media (min-width: 900px) {
+    .emergency-grid {
+      grid-template-columns: 1.15fr 1fr;
+    }
+  }
+</style>

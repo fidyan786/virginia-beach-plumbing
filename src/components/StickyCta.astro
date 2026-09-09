@@ -1,0 +1,106 @@
+---
+import { siteConfig, telHref } from '../config/site';
+
+interface Props {
+  variant?: 'default' | 'emergency';
+}
+
+const { variant = 'default' } = Astro.props;
+const phone = telHref();
+const isEmergency = variant === 'emergency';
+---
+
+<div class:list={['sticky-cta', isEmergency && 'sticky-cta--emergency']} aria-label="Quick contact">
+  <div class="sticky-inner">
+    <a
+      class="btn btn--primary sticky-call"
+      href={phone}
+      data-track={isEmergency ? 'emergency_call' : 'phone_click'}
+      data-track-location="sticky_mobile"
+    >
+      {isEmergency ? `Call ${siteConfig.phoneDisplay}` : `Call ${siteConfig.phoneDisplay}`}
+    </a>
+    {
+      isEmergency ? (
+        <a
+          class="btn sticky-secondary"
+          href="#callback-form"
+          data-track="cta_click"
+          data-track-label="emergency_callback"
+        >
+          Request Callback
+        </a>
+      ) : (
+        <a
+          class="btn btn--secondary sticky-secondary"
+          href="/contact/"
+          data-track="cta_click"
+          data-track-label="sticky_request"
+        >
+          Request Service
+        </a>
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    background: rgba(255, 255, 255, 0.98);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+    min-height: var(--sticky-cta-h);
+    box-shadow: 0 -6px 20px rgba(15, 40, 60, 0.08);
+    contain: layout paint;
+  }
+
+  .sticky-cta--emergency {
+    background: var(--color-primary);
+    border-top-color: var(--color-cta);
+  }
+
+  .sticky-inner {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: var(--space-2);
+    width: min(100%, var(--container));
+    margin-inline: auto;
+  }
+
+  .sticky-call,
+  .sticky-secondary {
+    min-height: 48px;
+    font-size: 0.88rem;
+    padding-inline: 0.65rem;
+  }
+
+  .sticky-cta--emergency .sticky-secondary {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    color: #fff;
+    background: transparent;
+  }
+
+  .sticky-cta--emergency .sticky-secondary:hover {
+    background: #fff;
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 900px) {
+    .sticky-cta {
+      display: none;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .sticky-call,
+    .sticky-secondary {
+      font-size: 0.78rem;
+      padding-inline: 0.45rem;
+    }
+  }
+</style>

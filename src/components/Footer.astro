@@ -1,0 +1,169 @@
+---
+import Logo from './Logo.astro';
+import { siteConfig, telHref, primaryNav } from '../config/site';
+
+const phone = telHref();
+const year = new Date().getFullYear();
+const footerNav = primaryNav.filter((item) => !item.highlight);
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand-col">
+      <a class="footer-logo" href="/" aria-label="Virginia Beach Plumbing home">
+        <Logo variant="on-dark" />
+      </a>
+      <p class="footer-tag">
+        Residential and commercial plumbing for Virginia Beach homes, rentals, and businesses — with a focus on clear communication and doing the job right.
+      </p>
+      <p class="footer-nap">
+        {siteConfig.addressLine2}<br />
+        <a href={phone} data-track="phone_click" data-track-location="footer">{siteConfig.phoneDisplay}</a>
+      </p>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Navigation</h2>
+      <ul>
+        {
+          footerNav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Emergency</h2>
+      <p class="footer-emergency">Emergency Plumbing — 24/7</p>
+      <p class="muted">
+        Burst pipes, major leaks, and sewer backups cannot wait.
+        Call
+        <a href={phone} data-track="emergency_call" data-track-location="footer">{siteConfig.phoneDisplay}</a>
+        or see
+        <a href="/emergency-plumber/">emergency plumbing</a>.
+      </p>
+      <p class="muted small">
+        City water or sewer emergencies may be handled by Virginia Beach Public Utilities
+        (<a href={siteConfig.cityUtilitiesEmergencyUrl} rel="noopener noreferrer" target="_blank">vbgov.com</a>,
+        {siteConfig.cityUtilitiesEmergencyPhone}).
+      </p>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© {year} {siteConfig.brandName}. Serving Virginia Beach, VA.</p>
+    <p>
+      <a href="/privacy/">Privacy Policy</a>
+      ·
+      <a href="/terms/">Terms</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #101820;
+    color: rgba(247, 244, 239, 0.82);
+    padding: var(--space-8) 0 var(--space-6);
+    margin-top: 0;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    text-decoration: none;
+    color: inherit;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-tag {
+    color: rgba(247, 244, 239, 0.72);
+    max-width: 36ch;
+    margin-bottom: var(--space-5);
+  }
+
+  .footer-heading {
+    color: #fff;
+    font-size: 0.78rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-emergency {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+    margin: 0 0 var(--space-3);
+    line-height: 1.2;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: var(--space-7);
+  }
+
+  @media (min-width: 800px) {
+    .footer-grid {
+      grid-template-columns: 1.4fr 0.8fr 1.2fr;
+      gap: var(--space-8);
+    }
+  }
+
+  .site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .site-footer li {
+    margin-bottom: 0.55rem;
+  }
+
+  .site-footer a {
+    color: #d5cfc4;
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    color: #fff;
+  }
+
+  .footer-nap a {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.15rem;
+    font-family: var(--font-body);
+  }
+
+  .muted {
+    color: rgba(247, 244, 239, 0.68);
+  }
+
+  .small {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.875rem;
+    color: rgba(247, 244, 239, 0.55);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  .footer-bottom p {
+    color: inherit;
+    margin: 0;
+  }
+</style>

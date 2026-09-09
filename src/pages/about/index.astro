@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { siteConfig, telHref } from '../../config/site';
+import { originFromSite, plumberContractorNode, plumberId, breadcrumbList, withContext } from '../../lib/schema';
+
+const phone = telHref();
+const title = 'About Virginia Beach Plumbing';
+const description =
+  `About Virginia Beach Plumbing — residential and commercial plumbing services for Virginia Beach, VA. Open 24/7. Call ${siteConfig.phoneDisplay}.`;
+
+const origin = originFromSite(Astro.site);
+const aboutSchema = [
+  withContext({
+    '@type': 'AboutPage',
+    name: title,
+    description,
+    url: `${origin}/about/`,
+    mainEntity: { '@id': plumberId(origin) },
+  }),
+  withContext(
+    breadcrumbList(origin, [
+      { name: 'Home', path: '/' },
+      { name: 'About', path: '/about/' },
+    ])
+  ),
+  withContext(plumberContractorNode(origin)),
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/about/" schemaJson={aboutSchema}>
+  <section class="section">
+    <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
+    <div class="container two-col">
+      <div class="prose">
+        <h1>About {siteConfig.brandName}</h1>
+        <p>
+          We help Virginia Beach homeowners and businesses with drains, water heaters, leaks, sewer work, fixture repairs, and 24/7 emergency plumbing.
+        </p>
+        <p>
+          Call {siteConfig.phoneDisplay} or send a short request. For flooding or sewer backups, start with
+          <a href="/emergency-plumber/">emergency plumbing</a>.
+        </p>
+        <h2>What you can count on</h2>
+        <ul>
+          <li>Serving Virginia Beach, VA</li>
+          <li>Open 24/7 for emergency plumbing help</li>
+          <li>Phone: <a href={phone}>{siteConfig.phoneDisplay}</a></li>
+          <li>Residential and commercial service</li>
+        </ul>
+        <h2>How to get started</h2>
+        <p>
+          Call anytime, or use the <a href="/contact/">contact form</a> with your ZIP and service need. For urgent flooding or backups, go straight to
+          <a href="/emergency-plumber/">emergency plumbing</a>.
+        </p>
+        <div class="btn-group">
+          <a class="btn btn--primary" href={phone}>Call {siteConfig.phoneDisplay}</a>
+          <a class="btn btn--secondary" href="/contact/">Request Service</a>
+        </div>
+      </div>
+      <div>
+        <figure class="prose-figure" style="margin:0">
+          <img
+            src="/images/about-plumbing.jpg"
+            alt="Pipe wrenches and copper fittings on a workbench (illustrative photo)"
+            width="800"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

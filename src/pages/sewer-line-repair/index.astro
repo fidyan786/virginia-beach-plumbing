@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['sewer-line-repair'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/sewer-inspection.jpg"
+  imageAlt="Exposed sewer pipes in an excavated trench (illustrative stock photo)"
+/>

@@ -1,0 +1,26 @@
+---
+import ResourcePage from '../../components/ResourcePage.astro';
+import { resources } from '../../data/resources';
+
+export function getStaticPaths() {
+  return resources.map((r) => ({
+    params: { slug: r.slug },
+    props: { resource: r },
+  }));
+}
+
+const { resource } = Astro.props;
+---
+
+<ResourcePage
+  meta={{
+    title: resource.title,
+    description: resource.description,
+    path: `/resources/${resource.slug}/`,
+    h1: resource.h1,
+    moneyLink: resource.moneyLink,
+    sections: [...resource.sections],
+    faqs: resource.faqs,
+    related: resource.related,
+  }}
+/>

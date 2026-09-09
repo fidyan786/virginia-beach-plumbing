@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, telHref } from '../../config/site';
+
+const phone = telHref();
+---
+
+<BaseLayout
+  title="Terms of Use | Virginia Beach Plumbing"
+  description="Terms of use for the Virginia Beach Plumbing website."
+  canonicalPath="/terms/"
+>
+  <section class="section">
+    <div class="container prose" style="max-width:46rem">
+      <h1>Terms of Use</h1>
+      <p>
+        By using this website, you agree to use it for legitimate plumbing service inquiries in and around Virginia Beach, Virginia.
+      </p>
+      <h2>Service information</h2>
+      <p>
+        Website content is general information about plumbing services. It is not a substitute for on-site diagnosis. Emergency situations can change quickly — call {siteConfig.phoneDisplay} for urgent help.
+      </p>
+      <h2>Timing and estimates</h2>
+      <p>
+        Arrival times, pricing, and job outcomes depend on the specific situation. The site states that we are open 24/7 for emergency plumbing help; it does not guarantee a specific arrival window.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        {siteConfig.brandName} — <a href={phone}>{siteConfig.phoneDisplay}</a> — Serving Virginia Beach, VA.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

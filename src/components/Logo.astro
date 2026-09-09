@@ -1,0 +1,145 @@
+---
+interface Props {
+  variant?: 'default' | 'on-dark';
+  compact?: boolean;
+  class?: string;
+}
+
+const { variant = 'default', compact = false, class: className } = Astro.props;
+const onDark = variant === 'on-dark';
+---
+
+<span class:list={['brand-logo', onDark && 'brand-logo--on-dark', compact && 'brand-logo--compact', className]}>
+  <svg
+    class="brand-logo__mark"
+    viewBox="0 0 48 48"
+    role="presentation"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <rect class="brand-logo__plate" x="0" y="0" width="48" height="48" rx="10" />
+    <!-- Geometric droplet + pipe through-line: original water/plumbing mark -->
+    <path
+      class="brand-logo__drop"
+      d="M24 7.5C24 7.5 12.5 21.2 12.5 29.2c0 6.3 5.1 11.3 11.5 11.3s11.5-5 11.5-11.3C35.5 21.2 24 7.5 24 7.5z"
+    />
+    <path
+      class="brand-logo__pipe"
+      d="M16.2 28.4h15.6c.7 0 1.2.5 1.2 1.15v1.5c0 .65-.5 1.15-1.2 1.15H16.2c-.7 0-1.2-.5-1.2-1.15v-1.5c0-.65.5-1.15 1.2-1.15z"
+    />
+    <circle class="brand-logo__bore" cx="24" cy="30.3" r="2.15" />
+  </svg>
+  <span class="brand-logo__wordmark">
+    <span class="brand-logo__name">Virginia Beach</span>
+    <span class="brand-logo__trade">Plumbing</span>
+  </span>
+</span>
+
+<style>
+  .brand-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: 0;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  .brand-logo__mark {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: block;
+  }
+
+  .brand-logo__plate {
+    fill: var(--color-primary);
+  }
+
+  .brand-logo__drop {
+    fill: #f4efe6;
+  }
+
+  .brand-logo__pipe {
+    fill: var(--color-primary);
+  }
+
+  .brand-logo__bore {
+    fill: #f4efe6;
+  }
+
+  .brand-logo--on-dark {
+    color: #f7f4ef;
+  }
+
+  .brand-logo--on-dark .brand-logo__plate {
+    fill: #f4efe6;
+  }
+
+  .brand-logo--on-dark .brand-logo__drop {
+    fill: #15202b;
+  }
+
+  .brand-logo--on-dark .brand-logo__pipe {
+    fill: #f4efe6;
+  }
+
+  .brand-logo--on-dark .brand-logo__bore {
+    fill: #15202b;
+  }
+
+  .brand-logo__wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+    min-width: 0;
+  }
+
+  .brand-logo__name {
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .brand-logo--on-dark .brand-logo__name {
+    color: rgba(247, 244, 239, 0.72);
+  }
+
+  .brand-logo__trade {
+    font-family: var(--font-heading);
+    font-size: 1.12rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: currentColor;
+    white-space: nowrap;
+  }
+
+  .brand-logo--compact .brand-logo__mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-logo--compact .brand-logo__trade {
+    font-size: 1.02rem;
+  }
+
+  @media (max-width: 400px) {
+    .brand-logo__mark {
+      width: 36px;
+      height: 36px;
+    }
+
+    .brand-logo__trade {
+      font-size: 0.98rem;
+    }
+
+    .brand-logo__name {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+    }
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page Not Found"
+  description="The page you requested could not be found."
+  canonicalPath="/"
+  omitCanonical={true}
+  noindex={true}
+  stickyVariant="none"
+>
+  <section class="section">
+    <div class="container" style="max-width:40rem;text-align:center">
+      <h1>Page not found</h1>
+      <p class="lead" style="margin-inline:auto">
+        That URL is not part of this site. Try one of these useful pages:
+      </p>
+      <ul class="related-links" style="justify-content:center">
+        <li><a href="/">Home</a></li>
+        <li><a href="/plumbing-services/">Services</a></li>
+        <li><a href="/emergency-plumber/">Emergency</a></li>
+        <li><a href="/drain-cleaning/">Drain cleaning</a></li>
+        <li><a href="/water-heaters/">Water heaters</a></li>
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

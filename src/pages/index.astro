@@ -1,0 +1,922 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqList from '../components/FaqList.astro';
+import LeadForm from '../components/LeadForm.astro';
+import ServiceIcon from '../components/ServiceIcon.astro';
+import { siteConfig, homepageServices, telHref } from '../config/site';
+import { faqPage, originFromSite, plumberContractorNode, websiteNode, withContext, offerCatalogNode } from '../lib/schema';
+
+const phone = telHref();
+const origin = originFromSite(Astro.site);
+const title = 'Plumber Virginia Beach VA | Residential & Commercial Plumbing';
+const description =
+  `Local plumber in Virginia Beach, VA for drains, water heaters, leaks, sewer, fixture repairs, and 24/7 emergencies. Call ${siteConfig.phoneDisplay} or request service.`;
+
+const orgSchema = withContext({
+  ...plumberContractorNode(origin),
+  description,
+  hasOfferCatalog: offerCatalogNode(origin),
+});
+
+const websiteSchema = withContext(websiteNode(origin));
+
+const webPageSchema = withContext({
+  '@type': 'WebPage',
+  '@id': `${origin}/#webpage`,
+  url: `${origin}/`,
+  name: title,
+  description,
+  inLanguage: 'en-US',
+  isPartOf: { '@id': `${origin}/#website` },
+  about: { '@id': `${origin}/#plumbing-contractor` },
+  primaryImageOfPage: {
+    '@type': 'ImageObject',
+    url: `${origin}/images/hero-plumbing.jpg`,
+  },
+});
+
+const featured = [
+  { ...homepageServices[0], icon: 'emergency' as const },
+  { ...homepageServices[1], icon: 'drain' as const },
+  { ...homepageServices[2], icon: 'heater' as const },
+  { ...homepageServices[3], icon: 'sewer' as const },
+  { ...homepageServices[4], icon: 'leak' as const },
+  { ...homepageServices[5], icon: 'repair' as const },
+];
+
+const principles = [
+  {
+    title: 'Clear Communication',
+    copy: 'You should know what we are looking at, what we recommend, and why.',
+  },
+  {
+    title: 'Problem-Focused Service',
+    copy: 'We start with the issue in front of us: the leak, the clog, the heater, the backup. Then we talk through the right next step.',
+  },
+  {
+    title: 'Homes and businesses',
+    copy: 'Homes, rentals, restaurants, offices, hospitality, and property managers all need plumbing that works. We serve both.',
+  },
+  {
+    title: 'Virginia Beach Focus',
+    copy: 'This is a local service company. Coverage is focused on Virginia Beach.',
+  },
+];
+
+const steps = [
+  {
+    num: '01',
+    title: 'Tell Us What’s Wrong',
+    copy: 'Call or send a short request with your ZIP and the plumbing problem you are dealing with.',
+  },
+  {
+    num: '02',
+    title: 'We Review the Details',
+    copy: 'We confirm the service type and whether the job is in our Virginia Beach coverage area.',
+  },
+  {
+    num: '03',
+    title: 'Get Clear Next Steps',
+    copy: 'You hear back about scheduling or emergency help based on what you described.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Do you offer emergency plumbing?',
+    answer: `Yes. Emergency plumbing help is available 24/7 for issues like burst pipes, major leaks, and sewer backups. Call <a href="${phone}">${siteConfig.phoneDisplay}</a> or see the <a href="/emergency-plumber/">emergency plumbing</a> page.`,
+  },
+  {
+    question: 'What plumbing services do you provide?',
+    answer:
+      'Core work includes emergency plumbing, drain cleaning, water heaters, sewer line repair, leak detection, fixture repairs, and related residential and commercial plumbing. Browse the <a href="/plumbing-services/">full service list</a>.',
+  },
+  {
+    question: 'Do you work with commercial properties?',
+    answer:
+      'Yes. We work with businesses, property managers, restaurants, offices, and hospitality. Start on the <a href="/commercial-plumbing/">commercial plumbing</a> page.',
+  },
+  {
+    question: 'Do you service rental properties?',
+    answer:
+      'Yes. Homeowners, landlords, and property owners can request residential plumbing help. See <a href="/residential-plumbing/">residential plumbing</a>.',
+  },
+  {
+    question: 'What should I do during a plumbing emergency?',
+    answer:
+      'If it is safe, shut off the water at the main valve, keep electricity away from standing water, and call us. Follow the steps on our <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a>.',
+  },
+  {
+    question: 'How do I request service?',
+    answer: `Call <a href="${phone}">${siteConfig.phoneDisplay}</a> anytime, or submit a short request on the <a href="/contact/">contact</a> page.`,
+  },
+  {
+    question: 'What areas do you serve?',
+    answer: `We serve Virginia Beach, Virginia — including areas such as Oceanfront, Kempsville, Lynnhaven, Town Center, and Princess Anne. Confirm coverage on the <a href="/service-areas/">service area</a> page.`,
+  },
+  {
+    question: 'Can I request service online?',
+    answer: `Yes. Use the request form on this page or on our <a href="/contact/">contact</a> page. If online requests are unavailable, call ${siteConfig.phoneDisplay} — we are open 24/7 for emergency plumbing help.`,
+  },
+];
+
+const faqSchema = withContext(faqPage(faqs));
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonicalPath="/"
+  schemaJson={[orgSchema, websiteSchema, webPageSchema, faqSchema]}
+>
+  <section class="home-hero" aria-label="Virginia Beach plumbing hero">
+    <div class="home-hero__copy">
+      <div class="home-hero__copy-inner">
+        <p class="hero-eyebrow">Virginia Beach • Residential &amp; Commercial</p>
+        <h1>
+          <span>Plumber in</span>
+          <span>Virginia Beach</span>
+        </h1>
+        <p class="hero-lead">
+          Local help for emergency leaks, clogged drains, water heaters, sewer work, and everyday fixture repairs. Call or send a short request — we will tell you the next step.
+        </p>
+        <div class="btn-group hero-ctas">
+          <a class="btn btn--primary btn--hero" href={phone} data-track="phone_click" data-track-location="home_hero">
+            Call {siteConfig.phoneDisplay}
+          </a>
+          <a class="btn btn--secondary btn--hero" href="#request-form" data-track="cta_click" data-track-label="home_hero_request">
+            Request Service
+          </a>
+        </div>
+        <p class="hero-note">Emergency plumbing available 24/7</p>
+      </div>
+    </div>
+    <div class="home-hero__media">
+      <img
+        src="/images/hero-plumbing.jpg"
+        alt="Plumber working on copper supply lines under a kitchen sink (illustrative photo)"
+        width="1800"
+        height="1200"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section class="trust-strip" aria-label="What you can count on">
+    <div class="container trust-strip__grid">
+      <p>24/7 Emergency Support</p>
+      <p>Residential &amp; Commercial</p>
+      <p>Virginia Beach Focused</p>
+      <p>Clear Communication</p>
+    </div>
+  </section>
+
+  <section class="section home-services">
+    <div class="container">
+      <div class="section-intro" data-reveal>
+        <p class="eyebrow">Services</p>
+        <h2>Solutions for the Problems That Can’t Wait</h2>
+        <p class="lead">
+          Start with the issue. These are the requests we see most — each one opens a dedicated page with clear next steps.
+        </p>
+      </div>
+      <ul class="featured-grid">
+        {
+          featured.map((s) => (
+            <li data-reveal>
+              <a class="featured-card" href={s.href}>
+                <span class="featured-card__icon">
+                  <ServiceIcon name={s.icon} />
+                </span>
+                <h3>{s.title}</h3>
+                <p>{s.description}</p>
+                <span class="card-cta">See details</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="section-more">
+        <a class="text-link" href="/plumbing-services/">View All Plumbing Services</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--emergency home-emergency">
+    <div class="container home-emergency__grid">
+      <div class="home-emergency__copy" data-reveal>
+        <p class="eyebrow eyebrow--on-dark">Emergency</p>
+        <h2>When Plumbing Can’t Wait</h2>
+        <p>
+          Burst pipes, major leaks, sewer backups, and no hot water cannot wait. Call for urgent plumbing help in Virginia Beach. We will talk through the situation on the phone — this site does not quote arrival times.
+        </p>
+        <div class="btn-group">
+          <a class="btn btn--emergency" href={phone} data-track="emergency_call" data-track-location="home">
+            Call {siteConfig.phoneDisplay}
+          </a>
+          <a class="btn btn--ghost" href="/emergency-plumber/" data-track="cta_click" data-track-label="home_emergency">
+            Emergency plumbing details
+          </a>
+        </div>
+      </div>
+      <div class="home-emergency__media" data-reveal>
+        <img
+          src="/images/emergency-plumbing.jpg"
+          alt="Burst copper pipe spraying water (illustrative photo)"
+          width="960"
+          height="720"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="home-split" aria-label="Residential and commercial plumbing">
+    <a class="split-panel" href="/residential-plumbing/" data-reveal>
+      <img
+        src="/images/residential-plumbing.jpg"
+        alt="Residential bathroom vanity and faucet (illustrative photo)"
+        width="1200"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="split-panel__content">
+        <p class="eyebrow eyebrow--on-dark">Homes &amp; rentals</p>
+        <h2>Residential Plumbing</h2>
+        <p>Reliable plumbing support for homes, rentals, and property owners.</p>
+        <span class="split-panel__cta">Residential Services</span>
+      </div>
+    </a>
+    <a class="split-panel" href="/commercial-plumbing/" data-reveal>
+      <img
+        src="/images/commercial-plumbing.jpg"
+        alt="Commercial utility room with meters, valves, and copper piping (illustrative photo)"
+        width="1200"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="split-panel__content">
+        <p class="eyebrow eyebrow--on-dark">Businesses</p>
+        <h2>Commercial Plumbing</h2>
+        <p>Practical plumbing support for businesses, property managers, restaurants, offices, and hospitality.</p>
+        <span class="split-panel__cta">Commercial Services</span>
+      </div>
+    </a>
+  </section>
+
+  <section class="section home-why">
+    <div class="container home-why__grid">
+      <div data-reveal>
+        <p class="eyebrow">Why choose us</p>
+        <h2>Clear Work. Straight Answers.</h2>
+        <p class="lead">
+          Plumbing problems are stressful enough. We keep the conversation honest: what we can do, what we need from you, and how to get started in Virginia Beach.
+        </p>
+      </div>
+      <ol class="principle-list">
+        {
+          principles.map((item, i) => (
+            <li data-reveal>
+              <span class="principle-list__num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3>{item.title}</h3>
+                <p>{item.copy}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--surface home-process">
+    <div class="container">
+      <div class="section-intro" data-reveal>
+        <p class="eyebrow">How it works</p>
+        <h2>Three steps. No runaround.</h2>
+      </div>
+      <ol class="process-grid">
+        {
+          steps.map((step) => (
+            <li data-reveal>
+              <span class="process-grid__num">{step.num}</span>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section home-local">
+    <div class="container home-local__grid">
+      <div class="home-local__media" data-reveal>
+        <img
+          src="/images/home-virginia-beach.jpg"
+          alt="Wooden boardwalk through coastal dunes at Virginia Beach at dusk"
+          width="1400"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+      <div class="home-local__copy" data-reveal>
+        <p class="eyebrow">Service area</p>
+        <h2>Plumbing Help, Focused on Virginia Beach</h2>
+        <p>
+          We work with Virginia Beach homeowners, landlords, businesses, and property managers. Coastal homes, established neighborhoods, and everyday rentals all need plumbing help that is local and specific to this city.
+        </p>
+        <ul class="place-list">
+          {siteConfig.neighborhoods.map((place) => <li>{place}</li>)}
+        </ul>
+        <a class="text-link" href="/service-areas/">View service area</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="request-form">
+    <div class="container home-form">
+      <div data-reveal>
+        <p class="eyebrow">Request service</p>
+        <p class="lead">
+          Share your name, phone, ZIP, and the plumbing problem. For flooding, burst pipes, or sewer backups, calling is faster.
+        </p>
+        <a class="btn btn--primary" href={phone} data-track="phone_click" data-track-location="home_form">
+          Call {siteConfig.phoneDisplay}
+        </a>
+      </div>
+      <LeadForm variant="routine" heading="Request service" formId="home-lead-form" />
+    </div>
+  </section>
+
+  <FaqList items={faqs} heading="Frequently asked questions" />
+
+  <section class="section section--primary home-final">
+    <div class="container home-final__inner" data-reveal>
+      <h2>Need a plumber in Virginia Beach?</h2>
+      <p>
+        Call anytime, or send a short request with your ZIP and the problem you are dealing with.
+      </p>
+      <div class="btn-group">
+        <a class="btn btn--on-dark" href={phone} data-track="phone_click" data-track-location="home_final">
+          Call {siteConfig.phoneDisplay}
+        </a>
+        <a class="btn btn--ghost" href="#request-form" data-track="cta_click" data-track-label="home_final_request">
+          Request Service
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-hero {
+    display: grid;
+    background: var(--color-bg);
+    overflow: hidden;
+  }
+
+  .home-hero__copy {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 2.4rem 0 2.2rem;
+  }
+
+  .home-hero__copy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.45;
+    background:
+      radial-gradient(ellipse at 0% 100%, rgba(61, 111, 130, 0.12), transparent 55%),
+      linear-gradient(180deg, rgba(21, 32, 43, 0.03), transparent 40%);
+  }
+
+  .home-hero__copy-inner {
+    position: relative;
+    width: min(100% - 2rem, var(--container));
+    margin-inline: auto;
+  }
+
+  .hero-eyebrow {
+    margin: 0 0 1rem;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+  }
+
+  .home-hero h1 {
+    margin: 0 0 1.1rem;
+    font-size: clamp(2.2rem, 1rem + 5.2vw, 4.7rem);
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.038em;
+    color: var(--color-primary);
+  }
+
+  .home-hero h1 span {
+    display: block;
+  }
+
+  .hero-lead {
+    margin: 0 0 1.6rem;
+    max-width: 36rem;
+    font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.2rem);
+    line-height: 1.6;
+    color: var(--color-muted);
+  }
+
+  .hero-ctas {
+    margin: 0 0 1rem;
+    gap: 0.75rem;
+  }
+
+  .btn--hero {
+    min-height: 52px;
+    padding-inline: 1.35rem;
+  }
+
+  .hero-note {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--color-muted);
+  }
+
+  .home-hero__media {
+    min-height: 18rem;
+    background: #1a2430;
+  }
+
+  .home-hero__media img {
+    width: 100%;
+    height: 100%;
+    min-height: 18rem;
+    max-height: 28rem;
+    object-fit: cover;
+    object-position: 62% 40%;
+  }
+
+  .trust-strip {
+    background: var(--color-primary);
+    color: var(--color-on-dark);
+    padding: 1.15rem 0;
+  }
+
+  .trust-strip__grid {
+    display: grid;
+    gap: 0.85rem 1.5rem;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .trust-strip p {
+    margin: 0;
+    font-size: 0.82rem;
+    font-weight: 650;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(247, 244, 239, 0.88);
+  }
+
+  .section-intro {
+    max-width: 40rem;
+    margin-bottom: var(--space-6);
+  }
+
+  .featured-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .featured-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 1rem;
+    row-gap: 0.35rem;
+    padding: 1.45rem 0.15rem;
+    border-bottom: 1px solid var(--color-border);
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.18s ease;
+  }
+
+  .featured-card:hover {
+    color: inherit;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.55);
+  }
+
+  .featured-card__icon {
+    grid-row: 1 / span 3;
+    color: var(--color-secondary);
+    padding-top: 0.15rem;
+  }
+
+  .featured-card h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+
+  .featured-card p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 0.98rem;
+  }
+
+  .featured-card .card-cta {
+    font-family: var(--font-body);
+    font-weight: 650;
+    font-size: 0.88rem;
+    color: var(--color-cta);
+    letter-spacing: 0.02em;
+  }
+
+  .featured-card:hover .card-cta {
+    color: var(--color-cta-hover);
+  }
+
+  .text-link {
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .text-link:hover {
+    color: var(--color-cta);
+  }
+
+  .home-emergency__grid {
+    display: grid;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .home-emergency__copy p:not(.eyebrow) {
+    max-width: 38rem;
+  }
+
+  .home-emergency__media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .home-split {
+    display: grid;
+  }
+
+  .split-panel {
+    position: relative;
+    min-height: 28rem;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    isolation: isolate;
+  }
+
+  .split-panel:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .split-panel img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .split-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(16, 24, 32, 0.1) 20%, rgba(16, 24, 32, 0.78) 100%);
+    z-index: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .split-panel:hover img {
+      transform: scale(1.04);
+    }
+  }
+
+  .split-panel__content {
+    position: relative;
+    z-index: 2;
+    min-height: 28rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem 1.5rem 2.1rem;
+  }
+
+  .split-panel h2 {
+    color: #fff;
+    margin-bottom: 0.6rem;
+    font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.6rem);
+  }
+
+  .split-panel p {
+    color: rgba(247, 244, 239, 0.88);
+    max-width: 34ch;
+    margin-bottom: 1.1rem;
+  }
+
+  .split-panel__cta {
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .home-why__grid {
+    display: grid;
+    gap: var(--space-7);
+  }
+
+  .principle-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .principle-list li {
+    display: grid;
+    grid-template-columns: 3.2rem 1fr;
+    gap: 1rem;
+    padding: 1.35rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .principle-list__num {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--color-secondary);
+    letter-spacing: -0.03em;
+  }
+
+  .principle-list h3 {
+    margin: 0 0 0.35rem;
+    font-size: 1.35rem;
+  }
+
+  .principle-list p {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .process-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  .process-grid__num {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: clamp(3.2rem, 2rem + 4vw, 5.2rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    color: var(--color-primary);
+    margin-bottom: 0.85rem;
+    opacity: 0.92;
+  }
+
+  .process-grid h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.45rem;
+  }
+
+  .process-grid p {
+    margin: 0;
+    color: var(--color-muted);
+    max-width: 32ch;
+  }
+
+  .home-local__grid {
+    display: grid;
+    gap: var(--space-6);
+    align-items: center;
+  }
+
+  .home-local__media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .place-list {
+    list-style: none;
+    margin: 1.25rem 0 1.4rem;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.35rem;
+  }
+
+  .place-list li {
+    font-size: 0.82rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    border-right: 1px solid var(--color-border);
+    padding-right: 0.7rem;
+    margin-right: 0.35rem;
+  }
+
+  .place-list li:last-child {
+    border-right: 0;
+  }
+
+  .home-final {
+    text-align: left;
+  }
+
+  .home-final__inner {
+    max-width: 40rem;
+  }
+
+  .home-final h2 {
+    font-size: clamp(2rem, 1.3rem + 2.2vw, 3.3rem);
+  }
+
+  .home-form {
+    display: grid;
+    gap: var(--space-7);
+    align-items: start;
+  }
+
+  @media (min-width: 900px) {
+    .home-form {
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: var(--space-8);
+    }
+  }
+
+  @media (min-width: 700px) {
+    .home-hero__media img {
+      max-height: 36rem;
+      min-height: 24rem;
+    }
+
+    .trust-strip__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .featured-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2.5rem;
+    }
+
+    .home-split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 980px) {
+    .home-hero {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      min-height: calc(100svh - var(--header-h));
+      min-height: calc(100vh - var(--header-h));
+    }
+
+    .home-hero__copy {
+      padding: 4.5rem 0 4.75rem;
+      align-items: center;
+    }
+
+    .home-hero h1 span {
+      white-space: nowrap;
+    }
+
+    .home-hero__copy-inner {
+      width: min(100% - 2rem, 42rem);
+      margin-left: max(1rem, calc((100vw - var(--container)) / 2));
+      margin-right: 2rem;
+      padding-bottom: 1.5rem;
+    }
+
+    .home-hero__media {
+      min-height: 100%;
+    }
+
+    .home-hero__media img {
+      min-height: 100%;
+      max-height: none;
+      height: 100%;
+    }
+
+    .trust-strip__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .trust-strip p {
+      padding-right: 1rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .trust-strip p:last-child {
+      border-right: 0;
+    }
+
+    .process-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-7);
+    }
+
+    .home-emergency__grid,
+    .home-why__grid,
+    .home-local__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+    }
+
+    .home-emergency__media img,
+    .home-local__media img {
+      min-height: 100%;
+      aspect-ratio: 5 / 4;
+    }
+
+    .split-panel,
+    .split-panel__content {
+      min-height: 34rem;
+    }
+
+    .split-panel__content {
+      padding: 2.6rem;
+    }
+  }
+
+  @media (max-width: 599px) {
+    .hero-ctas {
+      display: grid;
+      grid-template-columns: 1fr;
+      width: 100%;
+    }
+
+    .hero-ctas .btn {
+      width: 100%;
+    }
+
+    .trust-strip__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero__copy-inner {
+      animation: heroCopy 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .home-hero__media img {
+      animation: heroImage 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+  }
+
+  @keyframes heroCopy {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes heroImage {
+    from {
+      opacity: 0;
+      transform: scale(1.04);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

@@ -1,0 +1,182 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumb from './Breadcrumb.astro';
+import LeadForm from './LeadForm.astro';
+import FaqList from './FaqList.astro';
+import { siteConfig, telHref } from '../config/site';
+import type { ServicePageData } from '../data/services';
+import {
+  breadcrumbList,
+  faqPage,
+  originFromSite,
+  plumberContractorNode,
+  serviceNode,
+  webPageNode,
+  withContext,
+} from '../lib/schema';
+
+interface Props {
+  page: ServicePageData;
+  image?: string;
+  imageAlt?: string;
+}
+
+const { page, image, imageAlt } = Astro.props;
+const phone = telHref();
+const origin = originFromSite(Astro.site);
+const crumbLabel = page.h1.replace(/ in Virginia Beach.*$/i, '').trim() || page.h1;
+const crumbs = [
+  { label: 'Home', href: '/' },
+  { label: 'Services', href: '/plumbing-services/' },
+  { label: crumbLabel },
+];
+
+const schemas = [
+  withContext(plumberContractorNode(origin)),
+  withContext(
+    webPageNode(origin, {
+      name: page.title,
+      description: page.description,
+      path: page.canonicalPath,
+      image,
+    })
+  ),
+  withContext(
+    breadcrumbList(origin, [
+      { name: 'Home', path: '/' },
+      { name: 'Services', path: '/plumbing-services/' },
+      { name: crumbLabel, path: page.canonicalPath },
+    ])
+  ),
+  withContext(
+    serviceNode(origin, {
+      name: page.h1,
+      description: page.description,
+      urlPath: page.canonicalPath,
+    })
+  ),
+  ...(page.faqs.length > 0 ? [withContext(faqPage(page.faqs))] : []),
+  ...(page.schemaExtra || []),
+];
+
+const secondaryHref = page.primaryCtaHref?.startsWith('#')
+  ? page.primaryCtaHref
+  : page.secondaryCtaHref || '#request-form';
+const secondaryLabel =
+  page.primaryCtaLabel && page.secondaryCtaLabel === 'Call Now'
+    ? page.primaryCtaLabel
+    : page.secondaryCtaLabel || page.primaryCtaLabel || 'Request Service';
+---
+
+<BaseLayout
+  title={page.title}
+  description={page.description}
+  canonicalPath={page.canonicalPath}
+  ogImage={image}
+  ogImageAlt={imageAlt || 'Illustrative plumbing photography — not a photo of our staff or a specific job'}
+  stickyVariant={page.stickyVariant || 'default'}
+  schemaJson={schemas}
+>
+  <section class="section section--tight hero-service">
+    <Breadcrumb items={crumbs} />
+    <div class="container two-col">
+      <div>
+        <h1>{page.h1}</h1>
+        <p class="lead">{page.lead}</p>
+        {
+          image && (
+            <figure class="prose-figure hero-fig">
+              <img
+                src={image}
+                alt={imageAlt || ''}
+                width="800"
+                height="450"
+                sizes="(max-width: 899px) calc(100vw - 2rem), 800px"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </figure>
+          )
+        }
+        <div class="btn-group">
+          <a
+            class="btn btn--primary"
+            href={phone}
+            data-track={page.stickyVariant === 'emergency' ? 'emergency_call' : 'phone_click'}
+            data-track-location="service_hero"
+          >
+            Call {siteConfig.phoneDisplay}
+          </a>
+          <a
+            class="btn btn--secondary"
+            href={secondaryHref}
+            data-track="cta_click"
+            data-track-label="service_secondary"
+          >
+            {secondaryLabel}
+          </a>
+        </div>
+      </div>
+      <div id="request-form">
+        <LeadForm
+          variant={page.formVariant || 'routine'}
+          heading={page.formHeading || 'Request this service'}
+          formId={`form-${page.canonicalPath.replace(/\//g, '')}`}
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container prose">
+      {
+        page.sections.map((section) => (
+          <>
+            <h2>{section.heading}</h2>
+            <div set:html={section.html} />
+          </>
+        ))
+      }
+
+      <h2>Related services</h2>
+      <ul class="related-links">
+        {page.related.map((r) => (
+          <li>
+            <a href={r.href}>{r.label}</a>
+          </li>
+        ))}
+        <li>
+          <a href="/contact/">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  {page.faqs.length > 0 && <FaqList items={page.faqs} />}
+
+  <section class="section section--primary">
+    <div class="container">
+      <h2>Need this service in Virginia Beach?</h2>
+      <p>Call anytime — we’re open 24/7 — or request service online.</p>
+      <div class="btn-group">
+        <a class="btn btn--on-dark" href={phone} data-track="phone_click" data-track-location="service_final">
+          Call {siteConfig.phoneDisplay}
+        </a>
+        <a class="btn btn--ghost" href="#request-form">Request Service</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-service {
+    background: #e8eef3;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .hero-fig {
+    margin-top: var(--space-5);
+  }
+  .hero-service .lead {
+    max-width: 38rem;
+  }
+</style>

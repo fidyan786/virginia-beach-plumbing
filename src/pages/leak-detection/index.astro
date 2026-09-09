@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['leak-detection'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/leak-detection.jpg"
+  imageAlt="Kitchen faucet and sink for fixture and leak context (illustrative stock photo)"
+/>

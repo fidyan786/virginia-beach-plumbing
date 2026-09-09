@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['sump-pump'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/sump-pump.jpg"
+  imageAlt="Basement sump pump pit and discharge pipe (illustrative stock photo)"
+/>

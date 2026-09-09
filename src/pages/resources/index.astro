@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import { resources } from '../../data/resources';
+import {
+  breadcrumbList,
+  itemListNode,
+  originFromSite,
+  plumberContractorNode,
+  webPageNode,
+  withContext,
+} from '../../lib/schema';
+
+const origin = originFromSite(Astro.site);
+const title = 'Plumbing Resources | Virginia Beach Guides';
+const description =
+  'Helpful Virginia Beach plumbing guides—emergency checklists, cost factors, and decision resources that link to service pages.';
+
+const groups = [
+  { id: 'emergency', label: 'Emergency and safety' },
+  { id: 'cost', label: 'Cost and estimates' },
+  { id: 'decision', label: 'Decisions and symptoms' },
+  { id: 'local', label: 'Virginia Beach-specific' },
+] as const;
+
+const schemas = [
+  withContext(plumberContractorNode(origin)),
+  withContext(
+    webPageNode(origin, {
+      name: title,
+      description,
+      path: '/resources/',
+    })
+  ),
+  withContext(
+    breadcrumbList(origin, [
+      { name: 'Home', path: '/' },
+      { name: 'Resources', path: '/resources/' },
+    ])
+  ),
+  withContext(
+    itemListNode(resources.map((r) => ({ name: r.h1, url: `${origin}/resources/${r.slug}/` })))
+  ),
+];
+---
+
+<BaseLayout title={title} description={description} canonicalPath="/resources/" schemaJson={schemas}>
+  <section class="section">
+    <div class="container">
+      <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'Resources' }]} />
+      <h1>Plumbing Resources</h1>
+      <p class="lead">Practical guides for emergencies, costs, and common plumbing decisions in Virginia Beach.</p>
+      {
+        groups.map((group) => {
+          const items = resources.filter((r) => r.group === group.id);
+          if (!items.length) return null;
+          return (
+            <section class="resource-group">
+              <h2>{group.label}</h2>
+              <ul class="resource-list">
+                {items.map((r) => (
+                  <li>
+                    <a href={`/resources/${r.slug}/`}>
+                      <strong>{r.h1}</strong>
+                      <span class="muted">{r.description}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .resource-group {
+    margin-top: var(--space-6);
+  }
+  .resource-group h2 {
+    margin-bottom: var(--space-3);
+    font-size: 1.2rem;
+  }
+  .resource-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) 0 0;
+  }
+  .resource-list li {
+    margin-bottom: var(--space-3);
+  }
+  .resource-list a {
+    display: block;
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    text-decoration: none;
+    color: inherit;
+  }
+  .resource-list a:hover {
+    border-color: var(--color-secondary);
+  }
+  .resource-list strong {
+    display: block;
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    margin-bottom: 0.35rem;
+  }
+  .resource-list span {
+    font-size: 0.95rem;
+  }
+</style>

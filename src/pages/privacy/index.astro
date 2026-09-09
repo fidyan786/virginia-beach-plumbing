@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, telHref } from '../../config/site';
+
+const phone = telHref();
+---
+
+<BaseLayout
+  title="Privacy Policy | Virginia Beach Plumbing"
+  description="Privacy policy for Virginia Beach Plumbing website and service requests."
+  canonicalPath="/privacy/"
+>
+  <section class="section">
+    <div class="container prose" style="max-width:46rem">
+      <h1>Privacy Policy</h1>
+      <p>
+        {siteConfig.brandName} (“we”) collects information you voluntarily submit through our contact forms — such as name, phone, email, ZIP code, and message details — so we can respond to plumbing service requests.
+      </p>
+      <p>
+        We may collect basic technical data (such as browser type or pages visited) if analytics tools are enabled on this site.
+      </p>
+      <h2>Phone calls</h2>
+      <p>
+        If you call {siteConfig.phoneDisplay}, the line may be answered by an AI assistant that identifies itself as such. We collect the same kinds of service-request details as the website forms (name, phone, address, and a description of the plumbing issue) so we can follow up.
+      </p>
+      <p>
+        Call recording and transcription are off unless the operator enables them and provides any required disclosure on the call. We do not secretly record calls.
+      </p>
+      <h2>How we use information</h2>
+      <ul>
+        <li>To respond to calls and service requests</li>
+        <li>To route inquiries to the appropriate follow-up contact</li>
+        <li>To improve website performance and usability</li>
+      </ul>
+      <h2>Sharing</h2>
+      <p>
+        Service requests may be shared with the plumbing professionals fulfilling the work. We do not sell personal information as a product.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy: call <a href={phone}>{siteConfig.phoneDisplay}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

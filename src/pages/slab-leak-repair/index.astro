@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['slab-leak-repair'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/slab-leak.jpg"
+  imageAlt="PEX plumbing tools and fittings (illustrative stock photo)"
+/>
