@@ -3,6 +3,18 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/emergency-plumbing",
+      "destination": "/emergency-plumber/",
+      "permanent": true
+    },
+    {
+      "source": "/emergency-plumbing/",
+      "destination": "/emergency-plumber/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

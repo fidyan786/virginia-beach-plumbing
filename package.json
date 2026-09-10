@@ -10,6 +10,8 @@
     "prebuild": "node scripts/generate-sitemap.mjs",
     "sitemap": "node scripts/generate-sitemap.mjs",
     "build": "astro build",
+    "postbuild": "node scripts/seo-qa.mjs",
+    "seo:qa": "node scripts/seo-qa.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "brand:assets": "node scripts/render-brand-assets.mjs"

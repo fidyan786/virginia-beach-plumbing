@@ -5,6 +5,59 @@
 
 import { siteConfig } from '../config/site';
 
+export const ownerPriorityActions = [
+  {
+    priority: 'P0',
+    what: 'Confirm GBP eligibility',
+    why: 'Lead-gen-only / online-only brands are not eligible for Google Business Profile',
+    action:
+      'Confirm the business makes in-person plumbing visits under the real business name. If yes, continue. If no, do not create GBP.',
+  },
+  {
+    priority: 'P0',
+    what: 'Create/claim Google Business Profile',
+    why: 'Local Pack / Maps prominence depends on a real verified profile',
+    action:
+      'Owner Google account → https://business.google.com/add → exact real name → Plumber → service-area if no storefront → Virginia Beach service area → authoritative phone → website → verify.',
+  },
+  {
+    priority: 'P0',
+    what: 'Connect custom domain + PUBLIC_SITE_URL',
+    why: 'Stable entity URL for GBP, Search Console, citations, and canonicals',
+    action: 'Point domain to the existing Vercel project “website”, set PUBLIC_SITE_URL, redeploy, update GBP website URL.',
+  },
+  {
+    priority: 'P0',
+    what: 'Google Search Console Domain property',
+    why: 'Indexing truth, query data, and CTR improvement loop',
+    action: 'Add Domain property for the custom domain → DNS TXT verify → submit /sitemap.xml.',
+  },
+  {
+    priority: 'P1',
+    what: 'Real Google reviews after completed jobs',
+    why: 'Review volume/velocity is the largest Local Pack gap vs Atomic, Mr. Rooter, A1, Roto-Rooter',
+    action: 'After a satisfied job, send the SMS/email templates below with the real Google review URL. Respond to every review.',
+  },
+  {
+    priority: 'P1',
+    what: 'Real photos + verified credentials',
+    why: 'Trust and profile completeness',
+    action: 'Upload real tech/vehicle/equipment/job photos to GBP and site. Paste verified license/insurance into siteConfig when ready.',
+  },
+  {
+    priority: 'P1',
+    what: 'FORM_ENDPOINT + GA4 ID',
+    why: 'Lead capture and conversion measurement',
+    action: 'Replace placeholders in siteConfig / Vercel env. Confirm form shows success only on real 200 responses.',
+  },
+  {
+    priority: 'P2',
+    what: 'Bing Places + Apple Business Connect',
+    why: 'Entity consistency beyond Google',
+    action: 'Match NAP/service-area to the website exactly. No fake addresses.',
+  },
+];
+
 export const gbpEligibilityGate = {
   title: 'Eligibility gate (read first)',
   rules: [

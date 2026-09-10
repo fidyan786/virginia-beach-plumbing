@@ -18,6 +18,7 @@ import {
   searchConsoleSteps,
   rankingMonitorTemplate,
   intentMap,
+  ownerPriorityActions,
 } from '../../data/local-presence';
 
 const hasGbp = hasGoogleBusinessProfile();
@@ -45,6 +46,21 @@ const hasGbp = hasGoogleBusinessProfile();
           {gbpEligibilityGate.rules.map((rule) => <li>{rule}</li>)}
         </ul>
       </div>
+
+      <h2>Owner priority actions (ranking attack order)</h2>
+      <ol>
+        {
+          ownerPriorityActions.map((item) => (
+            <li>
+              <strong>{item.priority} · {item.what}</strong>
+              <br />
+              <span class="muted">{item.why}</span>
+              <br />
+              {item.action}
+            </li>
+          ))
+        }
+      </ol>
 
       <h2>NAP to keep consistent</h2>
       <ul>

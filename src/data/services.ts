@@ -419,7 +419,7 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Explain whether repair, like-for-like tankless replacement, or staying with a tank fits better</li>
           <li>Outline permit-related steps when they apply</li>
         </ol>
-        <p>We do not quote conversion totals from a chat message. Access, pipe sizes, and venting change the scope.</p>`,
+        <p>Conversion pricing needs an on-site look. Access, pipe sizes, and venting change the scope, so a chat message is not enough for a solid total.</p>`,
       },
       {
         heading: 'Coastal and hard-water notes',
@@ -759,7 +759,7 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Appliance connectors for ranges, dryers, and fireplaces</li>
           <li>New or resized runs when a <a href="/water-heaters/">gas water heater</a> or tankless conversion needs more capacity</li>
         </ul>
-        <p>Permits and inspections apply to many gas jobs. We do not list unverified license numbers on this page. Ask when you call if you need that detail for a permit.</p>
+        <p>Permits and inspections apply to many gas jobs. Ask when you call if you need license or permit details for a specific job.</p>
         <p>Coastal air and moisture can wear outdoor piping and connectors. If you notice rust, damage, or a gas smell, follow the safety steps above, then call. See also <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>`,
       },
       {
@@ -781,7 +781,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Do gas line jobs need a permit in Virginia Beach?',
         answer:
-          'Many gas piping installs and modifications do. Permits and inspections are a normal part of that work. Ask when you call if you need that detail for a specific job. This page does not list unverified license numbers.',
+          'Many gas piping installs and modifications do. Permits and inspections are a normal part of that work. Ask when you call if you need that detail for a specific job.',
       },
     ],
     related: [
@@ -872,7 +872,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Do I need a battery backup?',
         answer:
-          'Backup power can help during outages when groundwater keeps rising. Whether you need one depends on risk tolerance and site conditions.',
+          'Backup power can help during outages when groundwater keeps rising. Need depends on flood risk, outage frequency, and how critical the basement is.',
       },
       {
         question: 'Is a sump pump the same as a sewer backup?',
