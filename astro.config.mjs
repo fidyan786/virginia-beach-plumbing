@@ -22,8 +22,9 @@ function productionSite() {
     return netlify.replace(/\/$/, '');
   }
 
-  // Local production builds keep a valid absolute origin until a host URL exists.
-  return 'https://example.com';
+  // Verified Vercel production host for this project. Override with PUBLIC_SITE_URL
+  // if a custom domain is connected later.
+  return 'https://website-self-nine-84.vercel.app';
 }
 
 // https://astro.build/config

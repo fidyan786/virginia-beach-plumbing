@@ -5,9 +5,9 @@ import { siteConfig, telHref } from '../../config/site';
 import { originFromSite, plumberContractorNode, plumberId, breadcrumbList, withContext } from '../../lib/schema';
 
 const phone = telHref();
-const title = 'About Virginia Beach Plumbing';
+const title = 'About Virginia Beach Plumbing | Local Plumber';
 const description =
-  `About Virginia Beach Plumbing — residential and commercial plumbing services for Virginia Beach, VA. Open 24/7. Call ${siteConfig.phoneDisplay}.`;
+  `Virginia Beach Plumbing is a local plumber for homes and businesses in Virginia Beach, VA. Open 24/7. Call ${siteConfig.phoneDisplay} or request service.`;
 
 const origin = originFromSite(Astro.site);
 const aboutSchema = [
@@ -35,23 +35,74 @@ const aboutSchema = [
       <div class="prose">
         <h1>About {siteConfig.brandName}</h1>
         <p>
-          We help Virginia Beach homeowners and businesses with drains, water heaters, leaks, sewer work, fixture repairs, and 24/7 emergency plumbing.
+          Virginia Beach Plumbing is a local plumbing company for homes, rentals, and businesses in Virginia Beach,
+          Virginia. We handle the work people actually call about: clogged drains, water heaters, leaks, sewer lines,
+          fixture repairs, and after-hours emergencies.
         </p>
         <p>
-          Call {siteConfig.phoneDisplay} or send a short request. For flooding or sewer backups, start with
-          <a href="/emergency-plumber/">emergency plumbing</a>.
+          Call <a href={phone}>{siteConfig.phoneDisplay}</a> or send a short request with your ZIP and the problem.
+          For flooding or sewer backups, start with <a href="/emergency-plumber/">emergency plumbing</a>.
         </p>
-        <h2>What you can count on</h2>
+
+        <h2>How we work</h2>
+        <p>
+          You describe what is happening. We confirm it is in our Virginia Beach coverage area and whether it is
+          urgent. Then we talk through the next step — a scheduled visit, an emergency call, or a different page if
+          the issue belongs with the city rather than a private plumber.
+        </p>
+        <p>
+          We do not quote arrival times or job prices from a website form. Access, pipe condition, and what we find
+          on site change the work. You should hear what we are looking at and why we recommend a repair, a replacement,
+          or more diagnosis.
+        </p>
+
+        <h2>What we serve</h2>
         <ul>
-          <li>Serving Virginia Beach, VA</li>
-          <li>Open 24/7 for emergency plumbing help</li>
-          <li>Phone: <a href={phone}>{siteConfig.phoneDisplay}</a></li>
-          <li>Residential and commercial service</li>
+          <li>
+            <a href="/residential-plumbing/">Residential plumbing</a> for homeowners, landlords, and rental turnovers
+          </li>
+          <li>
+            <a href="/commercial-plumbing/">Commercial plumbing</a> for restaurants, offices, hospitality, and property
+            managers
+          </li>
+          <li>
+            <a href="/emergency-plumber/">24/7 emergency plumbing</a> for burst pipes, major leaks, and sewer backups
+          </li>
         </ul>
+        <p>
+          The full menu is on <a href="/plumbing-services/">plumbing services</a>. Specialty work such as trenchless
+          sewer, slab leaks, gas piping, and backflow testing is listed there when it is the right path after diagnosis.
+        </p>
+
+        <h2>Virginia Beach, not a regional dump</h2>
+        <p>
+          Coverage is focused on Virginia Beach — including areas such as the Oceanfront, Kempsville, Lynnhaven, Town
+          Center, Princess Anne, Great Neck, Pungo, Bayside, Red Mill, and Sandbridge. Those are parts of the city we
+          work in, not separate offices. Confirm the ZIP on the <a href="/service-areas/">service area</a> page or when
+          you call.
+        </p>
+        <p>
+          Coastal housing, older supply lines, and hospitality properties near the ocean have different failure patterns
+          than a brand-new inland house. We keep that context on the relevant service pages instead of pretending every
+          job is the same.
+        </p>
+
+        <h2>What this page will not invent</h2>
+        <p>
+          This site does not list license numbers, insurance policy numbers, years in business, awards, or customer
+          reviews unless they are verified for this company. If you need credential details, ask when you call. We would
+          rather leave a field blank than publish a claim we cannot stand behind.
+        </p>
+        <p>
+          There is no public storefront on this website. We come to the property. Phone:
+          <a href={phone}>{siteConfig.phoneDisplay}</a>. Hours: {siteConfig.hoursDisplay}.
+        </p>
+
         <h2>How to get started</h2>
         <p>
-          Call anytime, or use the <a href="/contact/">contact form</a> with your ZIP and service need. For urgent flooding or backups, go straight to
-          <a href="/emergency-plumber/">emergency plumbing</a>.
+          Call anytime, or use the <a href="/contact/">contact form</a> with your ZIP and service need. For urgent
+          flooding or backups, go straight to <a href="/emergency-plumber/">emergency plumbing</a>. Practical steps
+          while you wait are on the <a href="/resources/emergency-plumbing-checklist/">emergency checklist</a>.
         </p>
         <div class="btn-group">
           <a class="btn btn--primary" href={phone}>Call {siteConfig.phoneDisplay}</a>

@@ -4,7 +4,7 @@ export const PHONE_E164 = schemaTelephone();
 export const OPENING_HOURS = 'Mo-Su 00:00-23:59';
 
 export function originFromSite(site: URL | undefined): string {
-  return (site?.origin || 'https://example.com').replace(/\/$/, '');
+  return (site?.origin || 'https://website-self-nine-84.vercel.app').replace(/\/$/, '');
 }
 
 export function plumberId(origin: string): string {
@@ -54,35 +54,57 @@ export function plumberContractorNode(origin: string) {
       addressCountry: 'US',
     },
     areaServed: areaServedCity(),
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: PHONE_E164,
-      contactType: 'customer service',
-      areaServed: areaServedCity(),
-      availableLanguage: 'English',
-      hoursAvailable: openingHoursSpec(),
-    },
-    serviceType: [
-      'Emergency plumbing',
-      'Drain cleaning',
-      'Sewer line repair',
-      'Water heater repair',
-      'Leak detection',
-      'Commercial plumbing',
-      'Residential plumbing',
-      'Plumbing repair',
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        telephone: PHONE_E164,
+        contactType: 'customer service',
+        areaServed: areaServedCity(),
+        availableLanguage: 'English',
+        hoursAvailable: openingHoursSpec(),
+      },
+      {
+        '@type': 'ContactPoint',
+        telephone: PHONE_E164,
+        contactType: 'emergency',
+        areaServed: areaServedCity(),
+        availableLanguage: 'English',
+        hoursAvailable: openingHoursSpec(),
+      },
     ],
-    knowsAbout: [
+    serviceType: [
       'Emergency plumbing',
       'Drain cleaning',
       'Sewer line repair',
       'Trenchless sewer repair',
       'Water heater repair',
+      'Tankless water heater installation',
+      'Leak detection',
+      'Slab leak repair',
+      'Commercial plumbing',
+      'Residential plumbing',
+      'Plumbing repair',
+      'Repiping',
+      'Gas line repair',
+      'Backflow testing',
+      'Sump pump repair',
+    ],
+    knowsAbout: [
+      'Emergency plumbing',
+      '24 hour plumber',
+      'Drain cleaning',
+      'Hydro jetting',
+      'Sewer line repair',
+      'Trenchless sewer repair',
+      'Water heater repair',
+      'Tankless water heaters',
       'Leak detection',
       'Slab leak repair',
       'Residential plumbing',
       'Commercial plumbing',
-      'Virginia Beach',
+      'Virginia Beach plumbing',
+      'Backflow testing',
+      'Gas line services',
     ],
     hasOfferCatalog: offerCatalogNode(origin),
   };

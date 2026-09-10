@@ -276,6 +276,16 @@ export const p1Services: ServiceCard[] = [
 
 export const allServices = [...p0Services, ...p1Services];
 
+/** Footer money-page links — crawlable, not a second navigation system. */
+export const footerServiceLinks = [
+  { label: 'Emergency Plumbing', href: '/emergency-plumber/' },
+  { label: 'Drain Cleaning', href: '/drain-cleaning/' },
+  { label: 'Water Heaters', href: '/water-heaters/' },
+  { label: 'Sewer Line Repair', href: '/sewer-line-repair/' },
+  { label: 'Leak Detection', href: '/leak-detection/' },
+  { label: 'Plumbing Repairs', href: '/plumbing-repairs/' },
+] as const;
+
 /** Single source for desktop dropdown + mobile accordion — no extra URLs. */
 export const navServiceGroups = [
   { heading: 'Core services', items: p0Services },

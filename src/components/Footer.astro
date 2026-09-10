@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { siteConfig, telHref, primaryNav } from '../config/site';
+import { siteConfig, telHref, primaryNav, footerServiceLinks } from '../config/site';
 
 const phone = telHref();
 const year = new Date().getFullYear();
@@ -23,7 +23,23 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
     </div>
 
     <div>
-      <h2 class="footer-heading">Navigation</h2>
+      <h2 class="footer-heading">Services</h2>
+      <ul>
+        {
+          footerServiceLinks.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+        <li>
+          <a href="/plumbing-services/">All plumbing services</a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="footer-heading">Company</h2>
       <ul>
         {
           footerNav.map((item) => (
@@ -32,6 +48,9 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
             </li>
           ))
         }
+        <li>
+          <a href="/resources/">Plumbing guides</a>
+        </li>
       </ul>
     </div>
 
@@ -111,8 +130,8 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
 
   @media (min-width: 800px) {
     .footer-grid {
-      grid-template-columns: 1.4fr 0.8fr 1.2fr;
-      gap: var(--space-8);
+      grid-template-columns: 1.3fr 0.9fr 0.9fr 1.2fr;
+      gap: var(--space-7);
     }
   }
 

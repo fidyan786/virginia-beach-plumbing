@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FaqList from '../../components/FaqList.astro';
 import { siteConfig, p0Services, p1Services, telHref } from '../../config/site';
 import {
   breadcrumbList,
+  faqPage,
   itemListNode,
   originFromSite,
   plumberContractorNode,
@@ -16,7 +18,24 @@ const phone = telHref();
 const origin = originFromSite(Astro.site);
 const title = 'Plumbing Services Virginia Beach VA | Local Service Menu';
 const description =
-  `Browse Virginia Beach plumbing services — emergency, drains, sewer, water heaters, leaks, commercial, and more. Call ${siteConfig.phoneDisplay}.`;
+  `Browse Virginia Beach plumbing services — emergency, drains, sewer, water heaters, leaks, fixture repairs, commercial, and more. Call ${siteConfig.phoneDisplay}.`;
+
+const faqs = [
+  {
+    question: 'Which plumbing service should I choose?',
+    answer:
+      'Match the symptom: flooding or sewage in the home is emergency plumbing. One slow fixture is drain cleaning. Several fixtures at once may be the sewer line. No hot water is the water heater page. Toilets, faucets, and disposals are plumbing repairs.',
+  },
+  {
+    question: 'Do you handle both homes and businesses?',
+    answer:
+      'Yes. Residential and commercial plumbing are listed separately so you can add access notes, then pick the specific repair page you need.',
+  },
+  {
+    question: 'Can I just call instead of picking a page?',
+    answer: `Yes. Call ${siteConfig.phoneDisplay} anytime — we are open 24/7 — and describe the problem. The pages exist so you can land on the right service if you already know what you need.`,
+  },
+];
 
 const allCards = [...p0Services, ...p1Services];
 const schemas = [
@@ -40,6 +59,7 @@ const schemas = [
   withContext(
     itemListNode(allCards.map((s) => ({ name: s.title, url: `${origin}${s.href}` })))
   ),
+  withContext(faqPage(faqs)),
 ];
 ---
 
@@ -55,6 +75,18 @@ const schemas = [
         Prefer to talk? <a href={phone} data-track="phone_click">{siteConfig.phoneDisplay}</a>
         — {siteConfig.hoursDisplay}
       </p>
+
+      <div class="prose choose-block">
+        <h2>Not sure which page?</h2>
+        <ul>
+          <li>Water on the floor, a burst pipe, or sewage in the house → <a href="/emergency-plumber/">emergency plumber</a></li>
+          <li>One slow sink, tub, or shower → <a href="/drain-cleaning/">drain cleaning</a></li>
+          <li>Several fixtures backing up, gurgling toilets, or a sewage smell → <a href="/sewer-line-repair/">sewer line repair</a></li>
+          <li>No hot water or a leaking tank → <a href="/water-heaters/">water heaters</a></li>
+          <li>Running toilet, dripping faucet, or jammed disposal → <a href="/plumbing-repairs/">plumbing repairs</a></li>
+          <li>High bill, damp floor, or water you cannot find → <a href="/leak-detection/">leak detection</a></li>
+        </ul>
+      </div>
 
       <h2>Core services</h2>
       <div class="service-grid">
@@ -97,4 +129,13 @@ const schemas = [
       </div>
     </div>
   </section>
+
+  <FaqList items={faqs} heading="Plumbing services FAQs" />
 </BaseLayout>
+
+<style>
+  .choose-block {
+    margin: 1.75rem 0 2.25rem;
+    max-width: 46rem;
+  }
+</style>

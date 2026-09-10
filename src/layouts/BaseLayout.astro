@@ -32,7 +32,7 @@ const {
   schemaJson,
 } = Astro.props;
 
-const siteOrigin = Astro.site?.origin ?? 'https://example.com';
+const siteOrigin = Astro.site?.origin ?? 'https://website-self-nine-84.vercel.app';
 const canonical = new URL(canonicalPath, siteOrigin).href;
 const ogImageAbs = new URL(ogImage, siteOrigin).href;
 const schemas = schemaJson

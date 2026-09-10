@@ -1,7 +1,9 @@
 import type { APIRoute } from 'astro';
 
+export const prerender = true;
+
 export const GET: APIRoute = ({ site }) => {
-  const origin = (site?.origin || 'https://example.com').replace(/\/$/, '');
+  const origin = (site?.origin || 'https://website-self-nine-84.vercel.app').replace(/\/$/, '');
   const body = `User-agent: *
 Allow: /
 

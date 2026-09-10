@@ -2,8 +2,11 @@ import type { APIRoute } from 'astro';
 import { p0Services, p1Services } from '../config/site';
 import { resources } from '../data/resources';
 
+export const prerender = true;
+
 export const GET: APIRoute = ({ site }) => {
-  const origin = (site?.origin || 'https://example.com').replace(/\/$/, '');
+  const origin = (site?.origin || 'https://website-self-nine-84.vercel.app').replace(/\/$/, '');
+  const lastmod = new Date().toISOString().slice(0, 10);
 
   const staticPaths = [
     '/',
@@ -27,7 +30,9 @@ export const GET: APIRoute = ({ site }) => {
   function urlMeta(path: string) {
     if (path === '/') return { changefreq: 'weekly', priority: '1.0' };
     if (path === '/emergency-plumber/') return { changefreq: 'weekly', priority: '0.9' };
-    if (p0Hrefs.has(path) || path === '/contact/') return { changefreq: 'monthly', priority: '0.85' };
+    if (p0Hrefs.has(path) || path === '/contact/' || path === '/plumbing-repairs/') {
+      return { changefreq: 'monthly', priority: '0.85' };
+    }
     if (path === '/plumbing-services/' || path === '/residential-plumbing/' || path === '/service-areas/') {
       return { changefreq: 'monthly', priority: '0.75' };
     }
@@ -43,6 +48,7 @@ ${urls
     const { changefreq, priority } = urlMeta(path);
     return `  <url>
     <loc>${origin}${path}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`;

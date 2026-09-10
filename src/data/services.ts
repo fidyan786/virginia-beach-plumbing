@@ -76,7 +76,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         heading: 'Kitchen, bath, and main-line clogs',
         html: `<p>Kitchen lines often collect grease and food waste. Bathroom drains more often collect hair and soap film. When several fixtures slow at once, the issue may be the main line rather than a single trap.</p>
-        <p>Older Virginia Beach housing and coastal properties can also see root intrusion and grease buildup that returns after a single snake. Recurring clogs are a reason to inspect rather than keep punching through the same blockage.</p>`,
+        <p>Older Virginia Beach housing and coastal properties can also see root intrusion and grease buildup that returns after a single snake. Sandy soils and mature trees along laterals make recurring main-line clogs more than a “hair in the trap” problem. Recurring clogs are a reason to inspect rather than keep punching through the same blockage.</p>`
       },
       {
         heading: 'Residential and commercial drain cleaning',
@@ -268,9 +268,9 @@ export const servicePages: Record<string, ServicePageData> = {
   },
 
   'water-heaters': {
-    title: 'Water Heater Repair & Replacement Virginia Beach',
+    title: 'Water Heater Repair & Replacement Virginia Beach | Tank & Tankless',
     description:
-      'Water heater repair, replacement, and installation in Virginia Beach—tank and tankless options. Call or request service online.',
+      'Water heater repair, replacement, and installation in Virginia Beach for tank and tankless units. Call (703) 703-7855 or request service.',
     canonicalPath: '/water-heaters/',
     h1: 'Water Heater Repair and Replacement in Virginia Beach',
     lead: 'No hot water, lukewarm showers, or a leaking tank? We help Virginia Beach homes decide whether repair or replacement fits the unit.',
@@ -296,16 +296,15 @@ export const servicePages: Record<string, ServicePageData> = {
         html: `<p>Age, leak location, efficiency, and repair cost relative to a new unit all matter. A leaking tank usually points toward replacement. Element, thermostat, or anode issues may be repairable. Use our decision guide: <a href="/resources/repair-or-replace-water-heater/">repair or replace a water heater</a>.</p>`,
       },
       {
-        heading: 'Tank and tankless options',
-        html: `<p>Traditional tanks remain common. Tankless systems heat on demand and have different venting, gas-line, and maintenance needs. Tankless is covered here as a section of this hub — not a separate money page — so repair and replacement intent stay in one place.</p>
-        <h3>No hot water — a short check</h3>
-        <p>If a gas tank has no hot water, confirm the unit has power or a lit/igniting control and that the gas supply is on. If an electric tank is cold, a tripped breaker or failed element is common. A tank that runs out of hot water quickly can be sediment, undersized recovery, or a dip-tube issue. None of those are a diagnosis from a webpage — they are reasons to request water heater service rather than waiting through another cold shower.</p>
-`,
+        heading: 'Tank vs tankless',
+        html: `<p>Most Virginia Beach homes still have a tank. Tankless units heat water as it flows, which can help if you run out of hot water during back-to-back showers — but they are not a drop-in swap. Gas tankless usually needs enough gas supply and the right venting. Electric tankless needs electrical capacity the panel may not have.</p>
+        <p>Hard water and mineral scale are a maintenance issue on tankless coils. Periodic descaling matters more than it does on a conventional tank. Coastal humidity does not change that, but it does make a leaking or corroded unit worth catching early.</p>
+        <p>If you already have tankless and it is erroring, producing lukewarm water, or shutting down, say so when you request service. If you are comparing a tank replacement to a tankless conversion, we look at the existing hookups before recommending either. Related: <a href="/gas-line-services/">gas line services</a> when a new gas run is part of the job.</p>`,
       },
       {
-        heading: 'Gas vs electric considerations',
-        html: `<p>Fuel type, venting, electrical capacity, and code requirements affect installation. Gas appliance connections are covered on our <a href="/gas-line-services/">gas line services</a> page with a safety-first protocol.</p>
-`,
+        heading: 'No hot water — a short check',
+        html: `<p>If a gas tank has no hot water, confirm the unit has power or a lit/igniting control and that the gas supply is on. If an electric tank is cold, a tripped breaker or failed element is common. A tank that runs out of hot water quickly can be sediment, undersized recovery, or a dip-tube issue. None of those are a diagnosis from a webpage — they are reasons to request water heater service rather than waiting through another cold shower.</p>
+        <p>A tank leaking onto the floor is urgent. Lukewarm water with no leak is usually a scheduled visit. See <a href="/emergency-plumber/">emergency plumbing</a> when water is spreading.</p>`,
       },
       {
         heading: 'Emergency and leaking water heaters',
@@ -645,10 +644,18 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Typical gas plumbing requests',
-        html: `<p>Possible scopes include gas line repair, appliance connectors, and new runs for water heaters or ranges — subject to permit, inspection, and applicable licensing requirements.</p>
-        <p>Coastal air and moisture can wear outdoor piping and connectors. If you notice rust, damage, or a gas smell, follow the safety steps above, then call. See also <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>
-        <p>Gas water heater connections are coordinated with <a href="/water-heaters/">water heater</a> work when both are in scope. A gas smell is never a “schedule later” item — follow the safety protocol above first.</p>
-`,
+        html: `<p>After the area is safe, typical work includes:</p>
+        <ul>
+          <li>Repairing damaged or corroded gas piping</li>
+          <li>Appliance connectors for ranges, dryers, and fireplaces</li>
+          <li>New or resized runs when a <a href="/water-heaters/">gas water heater</a> or tankless conversion needs more capacity</li>
+        </ul>
+        <p>Permits and inspections apply to many gas jobs. We do not list unverified license numbers on this page — ask when you call if you need that detail for a permit.</p>
+        <p>Coastal air and moisture can wear outdoor piping and connectors. If you notice rust, damage, or a gas smell, follow the safety steps above, then call. See also <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>`,
+      },
+      {
+        heading: 'What a visit is for',
+        html: `<p>A visit is how we see the existing piping, shutoffs, and whether the request is a connector, a leak on the house side, or a new run. We will not diagnose a gas smell over a form. If you already called the utility, tell us that when you request service.</p>`,
       },
     ],
     faqs: [
@@ -731,10 +738,20 @@ export const servicePages: Record<string, ServicePageData> = {
         html: `<p>Heavy rain and high water tables in parts of coastal Virginia make basement and crawlspace water management a practical concern. Whether a sump is the right fit depends on the pit, discharge path, and how the property handles groundwater.</p>`,
       },
       {
+        heading: 'Signs the pump is failing',
+        html: `<ul>
+          <li>Water in the basement or crawlspace after rain</li>
+          <li>The pump runs constantly or short-cycles</li>
+          <li>The pump never runs, even after a storm</li>
+          <li>Grinding, humming, or a float that sticks</li>
+          <li>Discharge line that is frozen, crushed, or draining back into the pit</li>
+        </ul>
+        <p>A sump moves groundwater or storm water from a pit. Sewage backing up into fixtures is a different problem — see <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
+      },
+      {
         heading: 'Install, repair, and maintenance',
         html: `<p>Scopes may include new installs, float switch replacement, check valve issues, and backup power discussions. Test the pump before hurricane season and after long idle periods. A sump that never runs can seize; one that runs constantly may have a check-valve, discharge, or groundwater issue.</p>
-        <p>Storm prep belongs with <a href="/resources/storm-plumbing-prep-virginia-beach/">storm plumbing prep</a>. Active flooding in living space is <a href="/emergency-plumber/">emergency plumbing</a>.</p>
-`,
+        <p>Storm prep belongs with <a href="/resources/storm-plumbing-prep-virginia-beach/">storm plumbing prep</a>. Active flooding in living space is <a href="/emergency-plumber/">emergency plumbing</a>.</p>`,
       },
     ],
     faqs: [
@@ -771,7 +788,16 @@ export const servicePages: Record<string, ServicePageData> = {
     sections: [
       {
         heading: 'Homeowner services',
-        html: `<p>Common residential needs include <a href="/plumbing-repairs/">toilet, faucet, and disposal repairs</a>, <a href="/drain-cleaning/">drain cleaning</a>, <a href="/water-heaters/">water heaters</a>, <a href="/leak-detection/">leak detection</a>, and <a href="/sewer-line-repair/">sewer repair</a>.</p>`,
+        html: `<p>Common residential needs include <a href="/plumbing-repairs/">toilet, faucet, and disposal repairs</a>, <a href="/drain-cleaning/">drain cleaning</a>, <a href="/water-heaters/">water heaters</a>, <a href="/leak-detection/">leak detection</a>, and <a href="/sewer-line-repair/">sewer repair</a>.</p>
+        <p>If you already know the problem, go straight to that page. This page is for homeowners and landlords who need the right door — not a second copy of every service.</p>
+        <ul>
+          <li>One fixture clogged → drain cleaning</li>
+          <li>Toilet running or faucet dripping → plumbing repairs</li>
+          <li>No hot water → water heaters</li>
+          <li>Several drains failing together → sewer line repair</li>
+          <li>Water you cannot find → leak detection</li>
+          <li>Flooding or sewage in the house → emergency plumbing</li>
+        </ul>`,
       },
       {
         heading: 'Landlords and property turnover',
