@@ -40,7 +40,7 @@ const faqs = [
       'A leaking tank, scalding discharge, or water spreading across the floor is urgent. A tank that simply will not heat is usually a scheduled water heater visit unless you have no other safe way to manage it. See <a href="/water-heaters/">water heater repair</a> for repair versus replacement.',
   },
   {
-    question: 'Are you really open 24/7?',
+    question: 'Are you a 24-hour plumber in Virginia Beach?',
     answer: `Yes — Virginia Beach Plumbing is open 24/7 for emergency plumbing help. Call <a href="${phone}">${siteConfig.phoneDisplay}</a>.`,
   },
   {
@@ -51,7 +51,7 @@ const faqs = [
 
 const origin = originFromSite(Astro.site);
 const schemas = [
-  withContext(plumberContractorNode(origin)),
+  withContext(plumberContractorNode(origin, 'lean')),
   withContext(
     webPageNode(origin, {
       name: title,

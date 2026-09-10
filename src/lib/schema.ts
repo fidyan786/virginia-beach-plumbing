@@ -32,21 +32,31 @@ function openingHoursSpec() {
   };
 }
 
-/** City/state only — no street address, ratings, or reviews. */
-export function plumberContractorNode(origin: string) {
+function logoImage(origin: string) {
   return {
+    '@type': 'ImageObject',
+    url: `${origin}/logo.png`,
+    contentUrl: `${origin}/logo.png`,
+  };
+}
+
+/** City/state only — no street address, ratings, or reviews. */
+export function plumberContractorNode(origin: string, variant: 'full' | 'lean' = 'full') {
+  const core = {
     '@type': ['Plumber', 'PlumbingContractor', 'LocalBusiness'],
     '@id': plumberId(origin),
     name: siteConfig.brandName,
     url: `${origin}/`,
     telephone: PHONE_E164,
-    image: {
-      '@type': 'ImageObject',
-      url: `${origin}/images/hero-plumbing.jpg`,
-      contentUrl: `${origin}/images/hero-plumbing.jpg`,
-    },
-    openingHours: OPENING_HOURS,
-    openingHoursSpecification: openingHoursSpec(),
+    logo: logoImage(origin),
+    image: [
+      {
+        '@type': 'ImageObject',
+        url: `${origin}/images/hero-plumbing.jpg`,
+        contentUrl: `${origin}/images/hero-plumbing.jpg`,
+      },
+      logoImage(origin),
+    ],
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Virginia Beach',
@@ -54,6 +64,16 @@ export function plumberContractorNode(origin: string) {
       addressCountry: 'US',
     },
     areaServed: areaServedCity(),
+  };
+
+  if (variant === 'lean') {
+    return core;
+  }
+
+  return {
+    ...core,
+    openingHours: OPENING_HOURS,
+    openingHoursSpecification: openingHoursSpec(),
     contactPoint: [
       {
         '@type': 'ContactPoint',

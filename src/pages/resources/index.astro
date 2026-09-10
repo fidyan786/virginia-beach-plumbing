@@ -24,7 +24,7 @@ const groups = [
 ] as const;
 
 const schemas = [
-  withContext(plumberContractorNode(origin)),
+  withContext(plumberContractorNode(origin, 'lean')),
   withContext(
     webPageNode(origin, {
       name: title,

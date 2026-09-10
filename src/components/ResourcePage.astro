@@ -40,8 +40,8 @@ const articleSchema = {
   headline: meta.h1,
   description: meta.description,
   mainEntityOfPage: new URL(meta.path, origin).href,
-  author: { '@id': plumberId(origin), '@type': 'Organization', name: siteConfig.brandName },
-  publisher: { '@id': plumberId(origin), '@type': 'Organization', name: siteConfig.brandName },
+  author: { '@id': plumberId(origin) },
+  publisher: { '@id': plumberId(origin) },
 };
 
 const schemas = [

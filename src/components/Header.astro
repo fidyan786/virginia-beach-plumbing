@@ -167,6 +167,7 @@ const callText = phoneLabel();
     z-index: 100;
     background: #f6f4f0;
     border-bottom: 1px solid transparent;
+    box-shadow: inset 0 3px 0 var(--color-cta);
     transition:
       background-color 0.25s ease,
       border-color 0.25s ease,
@@ -183,7 +184,9 @@ const callText = phoneLabel();
   .site-header.is-compact .header-bar {
     background: rgba(255, 255, 255, 0.96);
     border-bottom-color: var(--color-border);
-    box-shadow: 0 8px 24px rgba(21, 32, 43, 0.06);
+    box-shadow:
+      inset 0 3px 0 var(--color-cta),
+      0 8px 24px rgba(21, 32, 43, 0.06);
   }
 
   .header-inner {
@@ -203,6 +206,10 @@ const callText = phoneLabel();
   .site-header.is-compact :global(.brand-logo__mark) {
     width: 36px;
     height: 36px;
+  }
+
+  .site-header.is-compact :global(.brand-logo__rule) {
+    height: 1.5rem;
   }
 
   .logo {

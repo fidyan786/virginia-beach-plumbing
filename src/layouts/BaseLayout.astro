@@ -24,8 +24,8 @@ const {
   description,
   canonicalPath,
   ogType = 'website',
-  ogImage = '/images/hero-plumbing.jpg',
-  ogImageAlt = 'Illustrative plumbing photography — not a photo of our staff or a specific job',
+  ogImage = '/og-image.png',
+  ogImageAlt = 'Virginia Beach Plumbing — local plumber in Virginia Beach, VA',
   noindex = false,
   omitCanonical = false,
   stickyVariant = 'default',
@@ -77,6 +77,9 @@ const schemas = schemaJson
       rel="stylesheet"
     />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#15202b" />
     {
       schemas.map((schema) => (
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />

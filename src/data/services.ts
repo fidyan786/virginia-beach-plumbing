@@ -26,12 +26,12 @@ export interface ServicePageData {
 
 export const servicePages: Record<string, ServicePageData> = {
   'drain-cleaning': {
-    title: 'Drain Cleaning Virginia Beach | Clogged Drain & Hydro Jetting',
+    title: 'Drain Cleaning Virginia Beach | Clogged Drains & Hydro Jetting',
     description:
-      'Professional drain cleaning for kitchens, baths, and main lines in Virginia Beach. Snaking, hydro jetting when appropriate, and camera diagnostics when needed. Call (703) 703-7855.',
+      'Clogged drain cleaning for kitchens, baths, and main lines in Virginia Beach. Snaking, hydro jetting when appropriate, and camera diagnostics when needed. Call (703) 703-7855.',
     canonicalPath: '/drain-cleaning/',
     h1: 'Drain Cleaning in Virginia Beach',
-    lead: 'Slow or clogged drains need the right method—not guesswork. We help Virginia Beach homes and businesses clear fixtures and main lines and explain when snaking or hydro jetting may fit.',
+    lead: 'Slow or clogged drains need the right method — not guesswork. We help Virginia Beach homes and businesses clear fixtures and main lines, and explain when snaking or hydro jetting may fit.',
     primaryCtaLabel: 'Schedule Drain Cleaning',
     primaryCtaHref: '/contact/',
     secondaryCtaLabel: 'Call Now',
@@ -102,6 +102,11 @@ export const servicePages: Record<string, ServicePageData> = {
         question: 'When is a clog actually a sewer problem?',
         answer:
           'If more than one fixture backs up, you smell sewage, or a floor drain overflows, the issue may be the sewer lateral. See our sewer line repair page and consider camera inspection.',
+      },
+      {
+        question: 'Do you hydro jet drains in Virginia Beach?',
+        answer:
+          'When the line condition and access make it appropriate, yes. Hydro jetting is not automatic — many household clogs clear with snaking. Recurring grease or main-line buildup is when jetting usually comes up. Compare methods in our <a href="/resources/hydro-jetting-vs-snaking/">hydro jetting vs snaking</a> guide.',
       },
     ],
     related: [
@@ -338,6 +343,11 @@ export const servicePages: Record<string, ServicePageData> = {
         question: 'A leaking tank — repair or replace?',
         answer:
           'A leaking tank usually points toward replacement. Use the repair-versus-replace guide, then request service. If water is on the floor, shut off power or gas if safe, shut the cold supply, and call.',
+      },
+      {
+        question: 'Do you repair tankless water heaters?',
+        answer:
+          'Yes. Tank and tankless service stay on this page so you are not sent to a second water-heater URL. Error codes, lukewarm water, ignition faults, and scale-related shutdowns are common tankless calls. Gas supply and venting still matter on gas units — see <a href="/gas-line-services/">gas line services</a> if a new run is part of the job.',
       },
     ],
     related: [
@@ -668,6 +678,11 @@ export const servicePages: Record<string, ServicePageData> = {
         question: 'Can you repair or install a gas line?',
         answer:
           'Yes, after the area is safe. If you smell gas, leave and contact the utility or emergency services first. Call us for piping work once the hazard is controlled.',
+      },
+      {
+        question: 'Do gas line jobs need a permit in Virginia Beach?',
+        answer:
+          'Many gas piping installs and modifications do. Permits and inspections are a normal part of that work. Ask when you call if you need that detail for a specific job. This page does not list unverified license numbers.',
       },
     ],
     related: [
