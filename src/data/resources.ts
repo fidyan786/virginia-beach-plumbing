@@ -892,4 +892,56 @@ export const resources: ResourceGuide[] = [
       { label: 'City vs private emergency', href: '/resources/city-vs-private-plumbing-emergency/' },
     ],
   },
+  {
+    slug: 'foul-drain-odor',
+    title: 'Foul Drain Smell | Causes and When to Call',
+    description:
+      'Why a drain smells like sewage or rotten eggs, safe checks at home, and when odor means a plumbing or sewer problem in Virginia Beach.',
+    h1: 'Why a Drain Smells Bad',
+    moneyLink: { label: 'Drain cleaning', href: '/drain-cleaning/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'What the smell often means',
+        html: `<p>A rotten or sewage smell at one sink often points to a dry P-trap, biofilm in the overflow, or debris in the fixture. A strong sewer smell in several rooms, or outdoors near a cleanout, can mean a vent issue, a dry trap elsewhere, or a sewer line problem.</p>`,
+      },
+      {
+        heading: 'Safe checks first',
+        html: `<ul>
+          <li>Run water in unused sinks, tubs, and floor drains for 30–60 seconds so traps refill.</li>
+          <li>Check the garbage disposal for trapped food if the kitchen sink smells.</li>
+          <li>Look for slow drainage or bubbling when another fixture runs.</li>
+          <li>If you smell gas (sharp, distinct from sewage), leave and call the utility or emergency services first.</li>
+        </ul>
+        <p>Do not pour harsh chemical cleaners into a smelling drain as a first step. They rarely fix vent or sewer issues and can damage pipes.</p>`,
+      },
+      {
+        heading: 'When it needs a plumber',
+        html: `<p>Call if the odor returns after traps are wet, multiple fixtures smell, drains are also slow, or you hear gurgling. Those patterns can mean a shared line, vent, or sewer issue rather than one dirty sink.</p>
+        <p>Related: <a href="/drain-cleaning/">drain cleaning</a> · <a href="/resources/recurring-drain-clogs/">recurring drain clogs</a> · <a href="/sewer-line-repair/">sewer line repair</a> · <a href="/resources/sewer-backup/">sewer backup</a>.</p>`,
+      },
+      {
+        heading: 'Coastal and rental notes',
+        html: `<p>Guest rooms and seasonal rentals near the Oceanfront often sit unused long enough for traps to dry. Running water after a vacancy is a simple first step. Persistent whole-unit odors still deserve a real look at vents and the building drain.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can a dry P-trap cause a sewer smell?',
+        answer:
+          'Yes. The water seal in the trap blocks sewer gas. If a fixture sits unused, that seal can evaporate. Running water often clears it. If the smell stays after that, keep looking.',
+      },
+      {
+        question: 'Is a foul drain smell an emergency?',
+        answer:
+          'Not usually by itself. Treat it as urgent if sewage is backing up, people feel ill from strong fumes, or you also smell natural gas. Otherwise schedule drain or sewer diagnosis.',
+      },
+    ],
+    related: [
+      { label: 'Drain cleaning', href: '/drain-cleaning/' },
+      { label: 'Recurring drain clogs', href: '/resources/recurring-drain-clogs/' },
+      { label: 'Sewer line repair', href: '/sewer-line-repair/' },
+      { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
+    ],
+  },
 ];

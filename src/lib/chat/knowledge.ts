@@ -314,7 +314,7 @@ export function pricingReply(): string {
 }
 
 export function humanReply(cfg: PublicChatConfig): string {
-  return `The fastest option is to call ${cfg.phoneDisplay}. We're open 24/7.`;
+  return `The surest option is to call ${cfg.phoneDisplay}. We're open 24/7.`;
 }
 
 export function gasSafetyReply(cfg: PublicChatConfig): string {

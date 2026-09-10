@@ -16,6 +16,7 @@ import {
   reviewResponseTemplates,
   citationTargets,
   searchConsoleSteps,
+  rankingMonitorTemplate,
   intentMap,
 } from '../../data/local-presence';
 
@@ -174,6 +175,16 @@ const hasGbp = hasGoogleBusinessProfile();
           </tbody>
         </table>
       </div>
+
+      <h2>Free ranking monitor fields</h2>
+      <p>Use a spreadsheet with these columns. One browser search is not proof of Maps or organic rank.</p>
+      <ul>
+        {rankingMonitorTemplate.map((row) => (
+          <li>
+            <code>{row.field}</code>: {row.note}
+          </li>
+        ))}
+      </ul>
     </div>
   </section>
 </BaseLayout>

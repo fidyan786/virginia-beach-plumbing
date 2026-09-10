@@ -7,7 +7,7 @@ import { originFromSite, plumberContractorNode, plumberId, breadcrumbList, withC
 const phone = telHref();
 const title = 'About Virginia Beach Plumbing | Local Plumber';
 const description =
-  `Virginia Beach Plumbing is a local plumber for homes and businesses in Virginia Beach, VA. Open 24/7. Call ${siteConfig.phoneDisplay} or request service.`;
+  `Virginia Beach Plumbing helps homes and businesses with drains, water heaters, leaks, sewer work, and emergencies in Virginia Beach, VA. Call ${siteConfig.phoneDisplay}.`;
 
 const origin = originFromSite(Astro.site);
 const aboutSchema = [
@@ -47,13 +47,13 @@ const aboutSchema = [
         <h2>How we work</h2>
         <p>
           You describe what is happening. We confirm it is in our Virginia Beach coverage area and whether it is
-          urgent. Then we talk through the next step: a scheduled visit, an emergency call, or a different page if
+          urgent. Then we talk through the next step: a scheduled visit, an emergency call, or a different path if
           the issue belongs with the city rather than a private plumber.
         </p>
         <p>
-          We do not quote arrival times or job prices from a website form. Access, pipe condition, and what we find
-          on site change the work. You should hear what we are looking at and why we recommend a repair, a replacement,
-          or more diagnosis.
+          Pricing and timing depend on access, pipe condition, and what we find on site. A website form cannot quote
+          those accurately. On a visit, you should hear what we are looking at and why we recommend a repair, a
+          replacement, or more diagnosis.
         </p>
 
         <h2>What we serve</h2>
@@ -74,28 +74,25 @@ const aboutSchema = [
           sewer, slab leaks, gas piping, and backflow testing is listed there when it is the right path after diagnosis.
         </p>
 
-        <h2>Focused on Virginia Beach</h2>
+        <h2>Serving Virginia Beach</h2>
         <p>
-          Coverage is focused on Virginia Beach, including areas such as the Oceanfront, Kempsville, Lynnhaven, Town
-          Center, Princess Anne, Great Neck, Pungo, Bayside, Red Mill, and Sandbridge. Those are parts of the city we
-          work in, not separate offices. Confirm the ZIP on the <a href="/service-areas/">service area</a> page or when
-          you call.
+          We work across Virginia Beach, including areas such as the Oceanfront, Kempsville, Lynnhaven, Town Center,
+          Princess Anne, Great Neck, Pungo, Bayside, Red Mill, and Sandbridge. Those are parts of the city we serve, not
+          separate offices. Confirm the ZIP on the <a href="/service-areas/">service area</a> page or when you call.
         </p>
         <p>
-          Coastal housing, older supply lines, and hospitality properties near the ocean have different failure patterns
-          than a brand-new inland house. We keep that context on the relevant service pages instead of pretending every
-          job is the same.
+          Coastal housing, older supply lines, and hospitality properties near the ocean can fail differently than a
+          brand-new inland house. That context lives on the relevant service pages and guides.
         </p>
 
-        <h2>What this page will not invent</h2>
+        <h2>Coming to you</h2>
         <p>
-          This site does not list license numbers, insurance policy numbers, years in business, awards, or customer
-          reviews unless they are verified for this company. If you need credential details, ask when you call. We would
-          rather leave a field blank than publish a claim we cannot stand behind.
+          There is no public storefront listed on this website. We come to the property. Phone:
+          <a href={phone}>{siteConfig.phoneDisplay}</a>. Hours: {siteConfig.hoursDisplay}.
         </p>
         <p>
-          There is no public storefront on this website. We come to the property. Phone:
-          <a href={phone}>{siteConfig.phoneDisplay}</a>. Hours: {siteConfig.hoursDisplay}.
+          If you need license, insurance, or other credential details for a property manager or HOA, ask when you call
+          or request service. We share verified information on request rather than posting unverified claims.
         </p>
 
         <h2>How to get started</h2>

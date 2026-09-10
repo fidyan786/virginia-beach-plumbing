@@ -681,7 +681,7 @@ export function submittedMessages(cfg: PublicChatConfig, name: string): ChatMess
   return [
     msg(
       'assistant',
-      `Done — your service request has been sent${name ? `, ${name}` : ''}. This isn't a dispatch confirmation. If it's urgent, call ${cfg.phoneDisplay}. We're open 24/7.`,
+      `Done. Your service request has been sent${name ? `, ${name}` : ''}. This is not a dispatch confirmation. If it is urgent, call ${cfg.phoneDisplay}. We are open 24/7.`,
       [callAction(cfg), { id: 'start-over', label: 'Ask something else', type: 'quick' }]
     ),
   ];

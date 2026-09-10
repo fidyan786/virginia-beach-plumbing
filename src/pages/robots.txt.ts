@@ -8,8 +8,9 @@ export const GET: APIRoute = ({ site }) => {
   const body = `User-agent: *
 Allow: /
 
-# Thank-you is also noindex in HTML
+# Utility / owner pages (also noindex in HTML)
 Disallow: /thank-you/
+Disallow: /local-presence/
 
 Sitemap: ${origin}/sitemap.xml
 `;

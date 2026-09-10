@@ -113,6 +113,17 @@ export const searchConsoleSteps = [
   'Watch Pages report for crawled-not-indexed, canonical conflicts, and 404s',
 ];
 
+export const rankingMonitorTemplate = [
+  { field: 'week_of', note: 'ISO week start date' },
+  { field: 'query', note: 'Exact search phrase checked' },
+  { field: 'device', note: 'mobile or desktop' },
+  { field: 'location_context', note: 'Searcher city / approximate area (not a guarantee of Map Pack)' },
+  { field: 'organic_url', note: 'Which of our URLs appeared, if any' },
+  { field: 'organic_position', note: 'Observed position or not visible' },
+  { field: 'map_pack', note: 'yes / no / unknown' },
+  { field: 'notes', note: 'Competitor names, PAA themes, snippet issues' },
+];
+
 export const intentMap = [
   { intent: 'plumber Virginia Beach', url: '/', notes: 'Homepage primary' },
   { intent: 'emergency / 24 hour plumber', url: '/emergency-plumber/', notes: 'Money page' },
@@ -128,6 +139,7 @@ export const intentMap = [
   { intent: 'leaking water heater', url: '/resources/water-heater-leaking/', notes: 'Problem guide' },
   { intent: 'leak detection', url: '/leak-detection/', notes: 'Money page' },
   { intent: 'slab leak', url: '/slab-leak-repair/', notes: 'Money page' },
+  { intent: 'foul drain smell / sewer odor', url: '/resources/foul-drain-odor/', notes: 'Problem → drain/sewer' },
   { intent: 'clogged toilet', url: '/resources/clogged-toilet/', notes: 'Problem → repairs' },
   { intent: 'running toilet', url: '/resources/running-toilet/', notes: 'Problem guide' },
   { intent: 'commercial plumber', url: '/commercial-plumbing/', notes: 'Audience page' },

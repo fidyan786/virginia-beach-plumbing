@@ -76,7 +76,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         heading: 'Kitchen, bath, and main-line clogs',
         html: `<p>Kitchen lines often collect grease and food waste. Bathroom drains more often collect hair and soap film. When several fixtures slow at once, the issue may be the main line rather than a single trap.</p>
-        <p>Older Virginia Beach housing and coastal properties can also see root intrusion and grease buildup that returns after a single snake. Sandy soils and mature trees along laterals make recurring main-line clogs more than a “hair in the trap” problem. Recurring clogs are a reason to inspect rather than keep punching through the same blockage. See <a href="/resources/recurring-drain-clogs/">drain keeps clogging</a>.</p>`
+        <p>Older Virginia Beach housing and coastal properties can also see root intrusion and grease buildup that returns after a single snake. Sandy soils and mature trees along laterals make recurring main-line clogs more than a “hair in the trap” problem. Recurring clogs are a reason to inspect rather than keep punching through the same blockage. See <a href="/resources/recurring-drain-clogs/">drain keeps clogging</a>. Persistent sewer smells without a clear clog: <a href="/resources/foul-drain-odor/">foul drain odor</a>.</p>`
       },
       {
         heading: 'Residential and commercial drain cleaning',
@@ -104,6 +104,11 @@ export const servicePages: Record<string, ServicePageData> = {
           'If more than one fixture backs up, you smell sewage, or a floor drain overflows, the issue may be the sewer lateral. See our sewer line repair page and consider camera inspection. Sewage in living space: <a href="/resources/sewer-backup/">sewer backup guide</a>.',
       },
       {
+        question: 'Why does my drain smell like sewage?',
+        answer:
+          'A dry trap, debris in the fixture, or a shared-line issue can all cause odor. Start with the <a href="/resources/foul-drain-odor/">foul drain odor</a> guide. If several rooms smell or drains are also slow, call for diagnosis.',
+      },
+      {
         question: 'Do you hydro jet drains in Virginia Beach?',
         answer:
           'When the line condition and access make it appropriate, yes. Hydro jetting is not automatic. Many household clogs clear with snaking. Recurring grease or main-line buildup is when jetting usually comes up. Compare methods in our <a href="/resources/hydro-jetting-vs-snaking/">hydro jetting vs snaking</a> guide.',
@@ -116,6 +121,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
       { label: 'Hydro jetting vs snaking', href: '/resources/hydro-jetting-vs-snaking/' },
       { label: 'Recurring drain clogs', href: '/resources/recurring-drain-clogs/' },
+      { label: 'Foul drain odor', href: '/resources/foul-drain-odor/' },
     ],
   },
 
