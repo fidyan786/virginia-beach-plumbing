@@ -27,17 +27,72 @@ walk(dist);
 const errors = [];
 const warnings = [];
 const titles = new Map();
+const descriptions = new Map();
 const utilityNoindex = ['thank-you', 'local-presence', '404'];
+const requiredRoutes = [
+  '/',
+  '/about/',
+  '/plumbing-services/',
+  '/emergency-plumber/',
+  '/drain-cleaning/',
+  '/sewer-line-repair/',
+  '/trenchless-sewer-repair/',
+  '/water-heaters/',
+  '/tankless-water-heaters/',
+  '/leak-detection/',
+  '/slab-leak-repair/',
+  '/commercial-plumbing/',
+  '/residential-plumbing/',
+  '/plumbing-repairs/',
+  '/contact/',
+  '/service-areas/',
+  '/resources/',
+  '/resources/foul-drain-odor/',
+  '/resources/recurring-drain-clogs/',
+  '/resources/sewer-backup/',
+];
+
+function routeToFile(route) {
+  if (route === '/') return join(dist, 'index.html');
+  return join(dist, route.replace(/^\//, '').replace(/\/$/, ''), 'index.html');
+}
+
+for (const route of requiredRoutes) {
+  if (!existsSync(routeToFile(route))) {
+    errors.push(`missing required route output: ${route}`);
+  }
+}
+
+const vercelJsonPath = join(root, 'vercel.json');
+if (existsSync(vercelJsonPath)) {
+  const vercel = JSON.parse(readFileSync(vercelJsonPath, 'utf8'));
+  const redirects = vercel.redirects || [];
+  const hasEmergency = redirects.some(
+    (r) => String(r.source || '').includes('emergency-plumbing') && String(r.destination || '').includes('emergency-plumber')
+  );
+  if (!hasEmergency) errors.push('vercel.json missing /emergency-plumbing → /emergency-plumber/ redirect');
+} else {
+  errors.push('vercel.json missing');
+}
 
 for (const file of htmlFiles) {
   const rel = file.slice(dist.length).replace(/\\/g, '/');
   const html = readFileSync(file, 'utf8');
   const is404 = rel.includes('/404');
   const isUtility = utilityNoindex.some((u) => rel.includes(`/${u}`));
+  const isMoney =
+    !is404 &&
+    !isUtility &&
+    !rel.includes('/privacy') &&
+    !rel.includes('/terms');
 
   const title = (html.match(/<title>([^<]*)<\/title>/i) || [])[1] || '';
-  const canonical = (html.match(/rel=["']canonical["'][^>]*href=["']([^"']+)["']/i) ||
-    html.match(/href=["']([^"']+)["'][^>]*rel=["']canonical["']/i) || [])[1] || '';
+  const description =
+    (html.match(/name=["']description["'][^>]*content=["']([^"']*)["']/i) ||
+      html.match(/content=["']([^"']*)["'][^>]*name=["']description["']/i) || [])[1] || '';
+  const canonical =
+    (html.match(/rel=["']canonical["'][^>]*href=["']([^"']+)["']/i) ||
+      html.match(/href=["']([^"']+)["'][^>]*rel=["']canonical["']/i) || [])[1] || '';
   const robots = (html.match(/name=["']robots["'][^>]*content=["']([^"']+)["']/i) || [])[1] || '';
   const h1s = [...html.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
 
@@ -49,19 +104,45 @@ for (const file of htmlFiles) {
   if (isUtility && !/noindex/i.test(robots) && !is404) {
     errors.push(`${rel}: utility page missing noindex`);
   }
+  if (isMoney && /noindex/i.test(robots)) {
+    errors.push(`${rel}: important page is noindex`);
+  }
 
   if (title) {
     const key = title.trim().toLowerCase();
     if (!titles.has(key)) titles.set(key, []);
     titles.get(key).push(rel);
   }
+  if (description && isMoney) {
+    const key = description.trim().toLowerCase();
+    if (!descriptions.has(key)) descriptions.set(key, []);
+    descriptions.get(key).push(rel);
+  }
 
   if (/AggregateRating|reviewRating|"@type"\s*:\s*"Review"/i.test(html)) {
     errors.push(`${rel}: fabricated review schema suspected`);
   }
-  if (/streetAddress/i.test(html) && /application\/ld\+json/i.test(html)) {
-    // Allow only if intentionally present; currently should not exist
-    warnings.push(`${rel}: streetAddress appears in HTML/schema — confirm it is verified`);
+
+  // Internal link existence (site-root paths only)
+  const hrefs = [...html.matchAll(/href=["'](\/[^"'#?]*)["']/gi)].map((m) => m[1]);
+  for (const href of hrefs) {
+    if (href.startsWith('//')) continue;
+    let path = href.split('#')[0].split('?')[0];
+    if (!path.endsWith('/') && !path.includes('.')) path = `${path}/`;
+    if (path.includes('.') && !path.endsWith('/')) continue; // asset
+    if (['/thank-you/', '/local-presence/'].includes(path)) continue;
+    if (path === '/emergency-plumbing/' || path === '/emergency-plumbing') continue; // redirected
+    const filePath =
+      path === '/'
+        ? join(dist, 'index.html')
+        : join(dist, path.replace(/^\//, '').replace(/\/$/, ''), 'index.html');
+    if (!existsSync(filePath) && !existsSync(join(dist, path.replace(/^\//, '')))) {
+      // allow public assets
+      const publicAsset = join(root, 'public', path.replace(/^\//, ''));
+      if (!existsSync(publicAsset)) {
+        errors.push(`${rel}: broken internal link ${href}`);
+      }
+    }
   }
 }
 
@@ -69,6 +150,12 @@ for (const [title, files] of titles) {
   const indexable = files.filter((f) => !utilityNoindex.some((u) => f.includes(`/${u}`)) && !f.includes('/404'));
   if (indexable.length > 1) {
     errors.push(`duplicate title "${title}" on: ${indexable.join(', ')}`);
+  }
+}
+
+for (const [desc, files] of descriptions) {
+  if (files.length > 1) {
+    warnings.push(`duplicate meta description on: ${files.join(', ')}`);
   }
 }
 
@@ -81,6 +168,10 @@ if (existsSync(smFile)) {
   if (/\/local-presence\//.test(sm)) errors.push('sitemap includes /local-presence/');
   if (!/\/tankless-water-heaters\//.test(sm)) warnings.push('sitemap missing tankless URL');
   if (!/\/resources\/foul-drain-odor\//.test(sm)) warnings.push('sitemap missing foul-drain-odor');
+  for (const route of requiredRoutes) {
+    if (route === '/') continue;
+    if (!sm.includes(route)) warnings.push(`sitemap may be missing ${route}`);
+  }
 } else {
   errors.push('sitemap.xml not found in dist/ or public/');
 }

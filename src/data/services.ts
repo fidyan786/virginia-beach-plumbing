@@ -195,6 +195,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { label: 'Trenchless sewer repair', href: '/trenchless-sewer-repair/' },
       { label: 'Drain cleaning', href: '/drain-cleaning/' },
       { label: 'Emergency plumber', href: '/emergency-plumber/' },
+      { label: 'Sewer backup guide', href: '/resources/sewer-backup/' },
       { label: 'Sewer cost factors', href: '/resources/sewer-line-repair-cost-virginia-beach/' },
     ],
   },
@@ -942,6 +943,8 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     related: [
       { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+      { label: 'Drain cleaning', href: '/drain-cleaning/' },
+      { label: 'Water heaters', href: '/water-heaters/' },
       { label: 'Plumbing services', href: '/plumbing-services/' },
       { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
       { label: 'Emergency', href: '/emergency-plumber/' },
