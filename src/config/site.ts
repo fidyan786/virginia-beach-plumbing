@@ -276,6 +276,12 @@ export const p1Services: ServiceCard[] = [
 
 export const allServices = [...p0Services, ...p1Services];
 
+/** Single source for desktop dropdown + mobile accordion — no extra URLs. */
+export const navServiceGroups = [
+  { heading: 'Core services', items: p0Services },
+  { heading: 'Additional services', items: p1Services },
+] as const;
+
 export function telHref(): string {
   return `tel:+1${siteConfig.phoneTel}`;
 }

@@ -1,57 +1,98 @@
 ---
 import Logo from './Logo.astro';
-import { telHref, primaryNav, phoneLabel } from '../config/site';
+import { telHref, primaryNav, phoneLabel, navServiceGroups } from '../config/site';
 
 const phone = telHref();
 const callText = phoneLabel();
 ---
 
 <header class="site-header" data-site-header>
-  <div class="container header-inner">
-    <a class="logo" href="/" aria-label="Virginia Beach Plumbing home">
-      <Logo />
-    </a>
-
-    <nav class="nav-desktop" aria-label="Primary">
-      <ul class="nav-list">
-        {
-          primaryNav.map((item) => (
-            <li>
-              <a href={item.href} class={item.highlight ? 'nav-emergency' : undefined}>{item.label}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-
-    <div class="header-actions">
-      <a
-        class="btn btn--text header-call"
-        href={phone}
-        data-track="phone_click"
-        data-track-location="header"
-      >
-        {callText}
+  <div class="header-bar">
+    <div class="container header-inner">
+      <a class="logo" href="/" aria-label="Virginia Beach Plumbing home">
+        <Logo />
       </a>
-      <a
-        class="btn btn--primary header-cta"
-        href="/contact/"
-        data-track="cta_click"
-        data-track-label="request_service_header"
-      >
-        Request Service
-      </a>
-      <button
-        type="button"
-        class="menu-toggle"
-        aria-expanded="false"
-        aria-controls="mobile-menu"
-        data-menu-toggle
-      >
-        <span class="visually-hidden" data-menu-label>Open menu</span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <ul class="nav-list">
+          {
+            primaryNav.map((item) =>
+              item.href === '/plumbing-services/' ? (
+                <li class="has-services" data-nav-services>
+                  <a class="nav-top-link" href={item.href}>{item.label}</a>
+                  <button
+                    type="button"
+                    class="nav-services-toggle"
+                    aria-expanded="false"
+                    aria-haspopup="menu"
+                    aria-controls="services-menu"
+                    data-services-trigger
+                  >
+                    <span class="visually-hidden">Open services menu</span>
+                    <span class="nav-chevron" aria-hidden="true"></span>
+                  </button>
+                  <div id="services-menu" class="nav-dropdown" data-services-panel>
+                    {
+                      navServiceGroups.map((group) => (
+                        <div class="nav-dropdown__group">
+                          <p class="nav-dropdown__label">{group.heading}</p>
+                          <ul class="nav-dropdown__list">
+                            {group.items.map((service) => (
+                              <li>
+                                <a href={service.href}>
+                                  <span class="nav-dropdown__title">{service.title}</span>
+                                  <span class="nav-dropdown__desc">{service.description}</span>
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))
+                    }
+                    <a class="nav-dropdown__all" href="/plumbing-services/">View all services</a>
+                  </div>
+                </li>
+              ) : (
+                <li>
+                  <a href={item.href} class:list={[item.highlight && 'nav-emergency', 'nav-top-link']}>
+                    {item.label}
+                  </a>
+                </li>
+              )
+            )
+          }
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          class="btn btn--text header-call"
+          href={phone}
+          data-track="phone_click"
+          data-track-location="header"
+        >
+          {callText}
+        </a>
+        <a
+          class="btn btn--primary header-cta"
+          href="/contact/"
+          data-track="cta_click"
+          data-track-label="request_service_header"
+        >
+          Request Service
+        </a>
+        <button
+          type="button"
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-menu-toggle
+        >
+          <span class="visually-hidden" data-menu-label>Open menu</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -59,11 +100,44 @@ const callText = phoneLabel();
     <nav aria-label="Mobile" class="container">
       <ul>
         {
-          primaryNav.map((item) => (
-            <li>
-              <a href={item.href} class={item.highlight ? 'nav-emergency' : undefined}>{item.label}</a>
-            </li>
-          ))
+          primaryNav.map((item) =>
+            item.href === '/plumbing-services/' ? (
+              <li class="mobile-services" data-mobile-services>
+                <button
+                  type="button"
+                  class="mobile-services__trigger"
+                  aria-expanded="false"
+                  aria-controls="mobile-services-list"
+                  data-mobile-services-trigger
+                >
+                  {item.label}
+                  <span class="nav-chevron" aria-hidden="true"></span>
+                </button>
+                <div id="mobile-services-list" class="mobile-services__panel" hidden data-mobile-services-panel>
+                  <ul>
+                    {
+                      navServiceGroups.flatMap((group) =>
+                        group.items.map((service) => (
+                          <li>
+                            <a href={service.href}>{service.title}</a>
+                          </li>
+                        ))
+                      )
+                    }
+                    <li>
+                      <a class="mobile-services__all" href="/plumbing-services/">View all services</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            ) : (
+              <li>
+                <a href={item.href} class={item.highlight ? 'nav-emergency' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            )
+          )
         }
       </ul>
       <a
@@ -87,7 +161,7 @@ const callText = phoneLabel();
 </header>
 
 <style>
-  .site-header {
+  .header-bar {
     position: sticky;
     top: 0;
     z-index: 100;
@@ -100,13 +174,13 @@ const callText = phoneLabel();
   }
 
   @media (min-width: 900px) {
-    .site-header {
+    .header-bar {
       background: rgba(246, 244, 240, 0.92);
       backdrop-filter: saturate(1.2) blur(14px);
     }
   }
 
-  .site-header.is-compact {
+  .site-header.is-compact .header-bar {
     background: rgba(255, 255, 255, 0.96);
     border-bottom-color: var(--color-border);
     box-shadow: 0 8px 24px rgba(21, 32, 43, 0.06);
@@ -157,7 +231,11 @@ const callText = phoneLabel();
     padding: 0;
   }
 
-  .nav-desktop a {
+  .nav-list > li {
+    position: relative;
+  }
+
+  .nav-top-link {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 600;
@@ -171,7 +249,7 @@ const callText = phoneLabel();
     position: relative;
   }
 
-  .nav-desktop a::after {
+  .nav-top-link::after {
     content: '';
     position: absolute;
     left: 0.7rem;
@@ -184,13 +262,13 @@ const callText = phoneLabel();
     transition: transform 0.2s ease;
   }
 
-  .nav-desktop a:hover,
-  .nav-desktop a:focus-visible {
+  .nav-top-link:hover,
+  .nav-top-link:focus-visible {
     color: var(--color-primary);
   }
 
-  .nav-desktop a:hover::after,
-  .nav-desktop a:focus-visible::after {
+  .nav-top-link:hover::after,
+  .nav-top-link:focus-visible::after {
     transform: scaleX(1);
   }
 
@@ -200,6 +278,155 @@ const callText = phoneLabel();
 
   .nav-emergency::after {
     background: var(--color-cta);
+  }
+
+  .has-services {
+    display: flex;
+    align-items: center;
+  }
+
+  .has-services .nav-top-link {
+    padding-right: 0.2rem;
+  }
+
+  .nav-services-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 44px;
+    margin-left: -0.25rem;
+    border: 0;
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .nav-services-toggle:hover,
+  .nav-services-toggle:focus-visible {
+    color: var(--color-primary);
+  }
+
+  .nav-chevron {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-1px);
+    transition: transform 0.15s ease;
+  }
+
+  .has-services.is-open .nav-chevron,
+  .has-services:hover .nav-services-toggle .nav-chevron,
+  .mobile-services__trigger[aria-expanded='true'] .nav-chevron {
+    transform: rotate(225deg) translateY(-1px);
+  }
+
+  .nav-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 120;
+    width: min(38rem, calc(100vw - 2rem));
+    padding: 1rem 1.1rem 1.05rem;
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition:
+      opacity 0.15s ease,
+      transform 0.15s ease,
+      visibility 0.15s ease;
+  }
+
+  .nav-dropdown::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -12px;
+    height: 12px;
+  }
+
+  .has-services.is-open .nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav-dropdown__group + .nav-dropdown__group {
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .nav-dropdown__label {
+    margin: 0 0 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .nav-dropdown__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1rem 0.75rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-dropdown__list a {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.12rem;
+    min-height: 44px;
+    padding: 0.45rem 0.5rem;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .nav-dropdown__list a:hover,
+  .nav-dropdown__list a:focus-visible {
+    color: var(--color-primary);
+    background: var(--color-bg);
+  }
+
+  .nav-dropdown__title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  .nav-dropdown__desc {
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--color-muted);
+  }
+
+  .nav-dropdown__all {
+    display: inline-flex;
+    margin-top: 0.75rem;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+    text-decoration: none;
+  }
+
+  .nav-dropdown__all:hover,
+  .nav-dropdown__all:focus-visible {
+    color: var(--color-primary);
   }
 
   .mobile-menu .nav-emergency {
@@ -270,16 +497,59 @@ const callText = phoneLabel();
     padding: 0;
   }
 
-  .mobile-menu a:not(.btn) {
+  .mobile-menu > nav > ul {
+    margin-bottom: var(--space-5);
+  }
+
+  .mobile-menu > nav > ul > li > a,
+  .mobile-services__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 52px;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-text);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 1.05rem;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .mobile-services__trigger:focus-visible,
+  .mobile-menu a:focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  .mobile-services__panel {
+    background: var(--color-bg-alt);
+  }
+
+  .mobile-services__panel ul {
+    margin: 0;
+  }
+
+  .mobile-services__panel a {
     display: flex;
     align-items: center;
     width: 100%;
-    min-height: 52px;
+    min-height: 48px;
+    padding: 0 0.9rem;
     text-decoration: none;
     color: var(--color-text);
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 1rem;
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-services__all {
+    color: var(--color-secondary) !important;
   }
 
   .mobile-call {
@@ -329,7 +599,7 @@ const callText = phoneLabel();
   }
 
   @media (min-width: 1280px) and (max-width: 1439px) {
-    .nav-desktop a {
+    .nav-top-link {
       padding: 0.45rem 0.45rem;
       font-size: 0.84rem;
     }
@@ -339,13 +609,26 @@ const callText = phoneLabel();
       padding-inline: 0.6rem;
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .nav-dropdown {
+      transition: none;
+    }
+  }
 </style>
 
 <script>
   const header = document.querySelector('[data-site-header]');
   const menuToggle = document.querySelector('[data-menu-toggle]');
   const mobileMenu = document.querySelector('[data-mobile-menu]');
+  const servicesRoot = document.querySelector('[data-nav-services]');
+  const servicesTrigger = document.querySelector('[data-services-trigger]');
+  const servicesPanel = document.querySelector('[data-services-panel]');
+  const mobileServicesTrigger = document.querySelector('[data-mobile-services-trigger]');
+  const mobileServicesPanel = document.querySelector('[data-mobile-services-panel]');
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
   let compactTicking = false;
+  let closedByEscape = false;
 
   function setCompact() {
     if (!header) return;
@@ -366,9 +649,25 @@ const callText = phoneLabel();
     menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     const label = menuToggle.querySelector('[data-menu-label]');
     if (label) label.textContent = open ? 'Close menu' : 'Open menu';
-    document.documentElement.classList.toggle('nav-open', open);
     if (open) mobileMenu.removeAttribute('hidden');
-    else mobileMenu.setAttribute('hidden', '');
+    else {
+      mobileMenu.setAttribute('hidden', '');
+      setMobileServicesOpen(false);
+    }
+  }
+
+  function setDesktopServicesOpen(open) {
+    if (!servicesTrigger || !servicesRoot) return;
+    if (open) closedByEscape = false;
+    servicesTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    servicesRoot.classList.toggle('is-open', open);
+  }
+
+  function setMobileServicesOpen(open) {
+    if (!mobileServicesTrigger || !mobileServicesPanel) return;
+    mobileServicesTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) mobileServicesPanel.removeAttribute('hidden');
+    else mobileServicesPanel.setAttribute('hidden', '');
   }
 
   setCompact();
@@ -379,7 +678,60 @@ const callText = phoneLabel();
     setMobileMenuOpen(!open);
   });
 
+  servicesTrigger?.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const open = servicesTrigger.getAttribute('aria-expanded') !== 'true';
+    setDesktopServicesOpen(open);
+  });
+
+  servicesTrigger?.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setDesktopServicesOpen(true);
+      servicesPanel?.querySelector('a')?.focus();
+    }
+  });
+
+  if (servicesRoot && finePointer.matches) {
+    servicesRoot.addEventListener('mouseenter', () => setDesktopServicesOpen(true));
+    servicesRoot.addEventListener('mouseleave', () => {
+      if (servicesRoot.contains(document.activeElement)) return;
+      setDesktopServicesOpen(false);
+    });
+  }
+
+  servicesRoot?.addEventListener('focusin', () => {
+    if (closedByEscape) return;
+    if (window.matchMedia('(min-width: 1280px)').matches) {
+      setDesktopServicesOpen(true);
+    }
+  });
+
+  servicesRoot?.addEventListener('focusout', (event) => {
+    if (servicesRoot.contains(event.relatedTarget)) return;
+    closedByEscape = false;
+    setDesktopServicesOpen(false);
+  });
+
+  document.addEventListener('click', (event) => {
+    if (servicesRoot && !servicesRoot.contains(event.target)) {
+      setDesktopServicesOpen(false);
+    }
+  });
+
+  mobileServicesTrigger?.addEventListener('click', () => {
+    const open = mobileServicesTrigger.getAttribute('aria-expanded') !== 'true';
+    setMobileServicesOpen(open);
+  });
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') setMobileMenuOpen(false);
+    if (e.key !== 'Escape') return;
+    if (servicesTrigger?.getAttribute('aria-expanded') === 'true') {
+      closedByEscape = true;
+      setDesktopServicesOpen(false);
+      servicesTrigger.focus();
+      return;
+    }
+    setMobileMenuOpen(false);
   });
 </script>
