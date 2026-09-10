@@ -1,6 +1,6 @@
 ---
 import Logo from './Logo.astro';
-import { siteConfig, telHref, primaryNav, footerServiceLinks } from '../config/site';
+import { siteConfig, telHref, primaryNav, footerServiceLinks, footerGuideLinks } from '../config/site';
 
 const phone = telHref();
 const year = new Date().getFullYear();
@@ -14,12 +14,14 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
         <Logo variant="on-dark" />
       </a>
       <p class="footer-tag">
-        Residential and commercial plumbing for Virginia Beach homes, rentals, and businesses — with a focus on clear communication and doing the job right.
+        Local plumbing for Virginia Beach homes, rentals, and businesses. Clear answers, useful guides, and a direct
+        phone line when something breaks.
       </p>
       <p class="footer-nap">
         {siteConfig.addressLine2}<br />
         <a href={phone} data-track="phone_click" data-track-location="footer">{siteConfig.phoneDisplay}</a>
       </p>
+      <p class="footer-hours">{siteConfig.hoursDisplay}</p>
     </div>
 
     <div>
@@ -39,6 +41,19 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
     </div>
 
     <div>
+      <h2 class="footer-heading">Guides</h2>
+      <ul>
+        {
+          footerGuideLinks.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div>
       <h2 class="footer-heading">Company</h2>
       <ul>
         {
@@ -48,24 +63,17 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
             </li>
           ))
         }
-        <li>
-          <a href="/resources/">Plumbing guides</a>
-        </li>
       </ul>
-    </div>
-
-    <div>
-      <h2 class="footer-heading">Emergency</h2>
-      <p class="footer-emergency">Emergency Plumbing — 24/7</p>
+      <p class="footer-emergency">24/7 Emergency Plumbing</p>
       <p class="muted">
-        Burst pipes, major leaks, and sewer backups cannot wait.
+        Burst pipes, major leaks, and sewer backups.
         Call
         <a href={phone} data-track="emergency_call" data-track-location="footer">{siteConfig.phoneDisplay}</a>
         or see
         <a href="/emergency-plumber/">emergency plumbing</a>.
       </p>
       <p class="muted small">
-        City water or sewer emergencies may be handled by Virginia Beach Public Utilities
+        City water or sewer emergencies may belong to Virginia Beach Public Utilities
         (<a href={siteConfig.cityUtilitiesEmergencyUrl} rel="noopener noreferrer" target="_blank">vbgov.com</a>,
         {siteConfig.cityUtilitiesEmergencyPhone}).
       </p>
@@ -104,6 +112,12 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
     margin-bottom: var(--space-5);
   }
 
+  .footer-hours {
+    margin: 0.35rem 0 0;
+    color: rgba(247, 244, 239, 0.6);
+    font-size: 0.92rem;
+  }
+
   .footer-heading {
     color: #fff;
     font-size: 0.78rem;
@@ -116,11 +130,11 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
 
   .footer-emergency {
     font-family: var(--font-heading);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 600;
     color: #fff;
     letter-spacing: -0.02em;
-    margin: 0 0 var(--space-3);
+    margin: var(--space-5) 0 var(--space-3);
     line-height: 1.2;
   }
 
@@ -129,9 +143,9 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
     gap: var(--space-7);
   }
 
-  @media (min-width: 800px) {
+  @media (min-width: 900px) {
     .footer-grid {
-      grid-template-columns: 1.3fr 0.9fr 0.9fr 1.2fr;
+      grid-template-columns: 1.35fr 0.85fr 0.85fr 1.15fr;
       gap: var(--space-7);
     }
   }

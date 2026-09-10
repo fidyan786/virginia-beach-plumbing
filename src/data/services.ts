@@ -31,7 +31,7 @@ export const servicePages: Record<string, ServicePageData> = {
       'Clogged drain cleaning for kitchens, baths, and main lines in Virginia Beach. Snaking, hydro jetting when appropriate, and camera diagnostics when needed. Call (703) 703-7855.',
     canonicalPath: '/drain-cleaning/',
     h1: 'Drain Cleaning in Virginia Beach',
-    lead: 'Slow or clogged drains need the right method — not guesswork. We help Virginia Beach homes and businesses clear fixtures and main lines, and explain when snaking or hydro jetting may fit.',
+    lead: 'Slow or clogged drains need the right method, not guesswork. We help Virginia Beach homes and businesses clear fixtures and main lines, and explain when snaking or hydro jetting may fit.',
     primaryCtaLabel: 'Schedule Drain Cleaning',
     primaryCtaHref: '/contact/',
     secondaryCtaLabel: 'Call Now',
@@ -50,7 +50,7 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Fixture drains vs main line',
-        html: `<p>A single clogged sink is often a fixture or branch line issue. When several fixtures fail together—or a floor drain backs up—the problem may be farther down the line toward the sewer lateral.</p>
+        html: `<p>A single clogged sink is often a fixture or branch line issue. When several fixtures fail together - or a floor drain backs up - the problem may be farther down the line toward the sewer lateral.</p>
         <p>For sewer lateral concerns, see <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
       },
       {
@@ -61,7 +61,7 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Camera diagnostics when needed',
-        html: `<p>If clogs keep returning, a camera inspection can help identify roots, offset joints, collapsed sections, or heavy buildup—so repair decisions are based on evidence rather than guesswork.</p>`,
+        html: `<p>If clogs keep returning, a camera inspection can help identify roots, offset joints, collapsed sections, or heavy buildup - so repair decisions are based on evidence rather than guesswork.</p>`,
       },
       {
         heading: 'What to expect on a visit',
@@ -106,7 +106,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Do you hydro jet drains in Virginia Beach?',
         answer:
-          'When the line condition and access make it appropriate, yes. Hydro jetting is not automatic — many household clogs clear with snaking. Recurring grease or main-line buildup is when jetting usually comes up. Compare methods in our <a href="/resources/hydro-jetting-vs-snaking/">hydro jetting vs snaking</a> guide.',
+          'When the line condition and access make it appropriate, yes. Hydro jetting is not automatic. Many household clogs clear with snaking. Recurring grease or main-line buildup is when jetting usually comes up. Compare methods in our <a href="/resources/hydro-jetting-vs-snaking/">hydro jetting vs snaking</a> guide.',
       },
     ],
     related: [
@@ -137,12 +137,12 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Multiple drains backing up</li>
           <li>Sewage odors indoors or outdoors</li>
           <li>Gurgling toilets when other fixtures run</li>
-          <li>Wet or unusually green patches in the yard (possible leak indicators—not a diagnosis alone)</li>
+          <li>Wet or unusually green patches in the yard (possible leak indicators - not a diagnosis alone)</li>
         </ul>`,
       },
       {
         heading: 'Camera inspection first',
-        html: `<p>A sewer camera inspection documents the condition of the accessible lateral so repair recommendations match the actual problem—blockage, root intrusion, offset joints, or collapse.</p>`,
+        html: `<p>A sewer camera inspection documents the condition of the accessible lateral so repair recommendations match the actual problem - blockage, root intrusion, offset joints, or collapse.</p>`,
       },
       {
         heading: 'Repair vs replacement',
@@ -159,17 +159,17 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Coastal and older-housing notes',
-        html: `<p>Some Virginia Beach laterals run through sandy soils, mature tree roots, or older clay/cast-iron pipe. Camera inspection is more useful than guessing from a single backup. Properties in areas such as Pungo may have septic systems rather than city sewer — we do not treat this page as septic pumping service.</p>
+        html: `<p>Some Virginia Beach laterals run through sandy soils, mature tree roots, or older clay/cast-iron pipe. Camera inspection is more useful than guessing from a single backup. Properties in areas such as Pungo may have septic systems rather than city sewer. We do not treat this page as septic pumping service.</p>
         <p>More symptoms: <a href="/resources/signs-of-sewer-line-problems/">signs of a sewer line problem</a>.</p>`,
       },
       {
         heading: 'What affects the price',
-        html: `<p>Costs vary with length of pipe, depth, landscaping/hardscape, method, permits, and findings on camera. Read <a href="/resources/sewer-line-repair-cost-virginia-beach/">sewer line repair cost factors</a> for an honest overview—then request an inspection-based quote.</p>`,
+        html: `<p>Costs vary with length of pipe, depth, landscaping/hardscape, method, permits, and findings on camera. Read <a href="/resources/sewer-line-repair-cost-virginia-beach/">sewer line repair cost factors</a> for an honest overview - then request an inspection-based quote.</p>`,
       },
     ],
     faqs: [
       {
-        question: 'Who pays for sewer line repair—homeowner or city?',
+        question: 'Who pays for sewer line repair - homeowner or city?',
         answer:
           'Typically, the private lateral from the home to the connection point is the property owner’s responsibility, while city mains are municipal. Confirm details with Virginia Beach Public Utilities for your situation.',
       },
@@ -195,7 +195,7 @@ export const servicePages: Record<string, ServicePageData> = {
   'trenchless-sewer-repair': {
     title: 'Trenchless Sewer Repair Virginia Beach | Pipe Lining & CIPP',
     description:
-      'Learn when trenchless sewer repair works for Virginia Beach properties—pipe lining concepts, camera assessment, and alternatives to full dig.',
+      'Learn when trenchless sewer repair works for Virginia Beach properties - pipe lining concepts, camera assessment, and alternatives to full dig.',
     canonicalPath: '/trenchless-sewer-repair/',
     h1: 'Trenchless Sewer Repair in Virginia Beach',
     lead: 'Trenchless methods can rehabilitate some sewer lines with less excavation when a camera inspection shows they are a fit. This page covers options, limits, and when a traditional dig may be better.',
@@ -236,12 +236,12 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Discuss symptoms and property access</li>
           <li>Camera inspection of the line</li>
           <li>Review of options (clean, spot repair, trenchless, dig)</li>
-          <li>Quote based on findings—not a phone guess</li>
+          <li>Quote based on findings - not a phone guess</li>
         </ol>`,
       },
       {
         heading: 'Yard, driveway, and landscaping impact',
-        html: `<p>Trenchless methods can reduce how much lawn, driveway, or landscaping is opened — which is often the main reason homeowners ask about lining. Access pits, cleanouts, and restoration still exist. Traditional dig may still be the cleaner repair when the pipe is missing, collapsed beyond method limits, or poorly aligned.</p>`,
+        html: `<p>Trenchless methods can reduce how much lawn, driveway, or landscaping is opened, which is often the main reason homeowners ask about lining. Access pits, cleanouts, and restoration still exist. Traditional dig may still be the cleaner repair when the pipe is missing, collapsed beyond method limits, or poorly aligned.</p>`,
       },
       {
         heading: 'What affects the price',
@@ -302,18 +302,19 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Tank vs tankless',
-        html: `<p>Most Virginia Beach homes still have a tank. Tankless units heat water as it flows, which can help if you run out of hot water during back-to-back showers — but they are not a drop-in swap. Gas tankless usually needs enough gas supply and the right venting. Electric tankless needs electrical capacity the panel may not have.</p>
+        html: `<p>Most Virginia Beach homes still have a tank. Tankless units heat water as it flows, which can help if you run out of hot water during back-to-back showers, but they are not a drop-in swap. Gas tankless usually needs enough gas supply and the right venting. Electric tankless needs electrical capacity the panel may not have.</p>
         <p>Hard water and mineral scale are a maintenance issue on tankless coils. Periodic descaling matters more than it does on a conventional tank. Coastal humidity does not change that, but it does make a leaking or corroded unit worth catching early.</p>
         <p>If you already have tankless and it is erroring, producing lukewarm water, or shutting down, say so when you request service. If you are comparing a tank replacement to a tankless conversion, we look at the existing hookups before recommending either. Related: <a href="/gas-line-services/">gas line services</a> when a new gas run is part of the job.</p>`,
       },
       {
-        heading: 'No hot water — a short check',
-        html: `<p>If a gas tank has no hot water, confirm the unit has power or a lit/igniting control and that the gas supply is on. If an electric tank is cold, a tripped breaker or failed element is common. A tank that runs out of hot water quickly can be sediment, undersized recovery, or a dip-tube issue. None of those are a diagnosis from a webpage — they are reasons to request water heater service rather than waiting through another cold shower.</p>
+        heading: 'No hot water: a short check',
+        html: `<p>If a gas tank has no hot water, confirm the unit has power or a lit/igniting control and that the gas supply is on. If an electric tank is cold, a tripped breaker or failed element is common. A tank that runs out of hot water quickly can be sediment, undersized recovery, or a dip-tube issue. None of those are a diagnosis from a webpage. They are reasons to request water heater service rather than waiting through another cold shower.</p>
         <p>A tank leaking onto the floor is urgent. Lukewarm water with no leak is usually a scheduled visit. See <a href="/emergency-plumber/">emergency plumbing</a> when water is spreading.</p>`,
       },
       {
         heading: 'Emergency and leaking water heaters',
-        html: `<p>A tank leaking onto the floor, scalding water, or a T&amp;P valve discharging heavily should be treated as urgent. Shut off power or gas to the unit if you can do so safely, shut off the cold-water supply, and call. See <a href="/emergency-plumber/">emergency plumbing</a>.</p>`,
+        html: `<p>A tank leaking onto the floor, scalding water, or a T&amp;P valve discharging heavily should be treated as urgent. Shut off power or gas to the unit if you can do so safely, shut off the cold-water supply, and call. See <a href="/emergency-plumber/">emergency plumbing</a>.</p>
+        <p>For a fuller breakdown of bottom leaks vs fitting drips, read <a href="/resources/water-heater-leaking/">water heater leaking</a>.</p>`,
       },
       {
         heading: 'Maintenance that can extend life',
@@ -335,23 +336,24 @@ export const servicePages: Record<string, ServicePageData> = {
         answer: `Availability depends on inventory, permits, and schedule. Call ${siteConfig.phoneDisplay} for current options.`,
       },
       {
-        question: 'Tank or tankless — which is better?',
+        question: 'Tank or tankless, which is better?',
         answer:
           'It depends on fuel type, venting, electrical or gas capacity, and how you use hot water. Tankless is not automatically the right upgrade. We discuss options after looking at the existing setup.',
       },
       {
-        question: 'A leaking tank — repair or replace?',
+        question: 'A leaking tank: repair or replace?',
         answer:
           'A leaking tank usually points toward replacement. Use the repair-versus-replace guide, then request service. If water is on the floor, shut off power or gas if safe, shut the cold supply, and call.',
       },
       {
         question: 'Do you repair tankless water heaters?',
         answer:
-          'Yes. Tank and tankless service stay on this page so you are not sent to a second water-heater URL. Error codes, lukewarm water, ignition faults, and scale-related shutdowns are common tankless calls. Gas supply and venting still matter on gas units — see <a href="/gas-line-services/">gas line services</a> if a new run is part of the job.',
+          'Yes. Tank and tankless service stay on this page so you are not sent to a second water-heater URL. Error codes, lukewarm water, ignition faults, and scale-related shutdowns are common tankless calls. Gas supply and venting still matter on gas units. See <a href="/gas-line-services/">gas line services</a> if a new run is part of the job.',
       },
     ],
     related: [
       { label: 'Gas line services', href: '/gas-line-services/' },
+      { label: 'Leaking water heater guide', href: '/resources/water-heater-leaking/' },
       { label: 'Repair vs replace guide', href: '/resources/repair-or-replace-water-heater/' },
       { label: 'Cost factors', href: '/resources/water-heater-replacement-cost-virginia-beach/' },
       { label: 'Emergency plumber', href: '/emergency-plumber/' },
@@ -361,10 +363,10 @@ export const servicePages: Record<string, ServicePageData> = {
   'leak-detection': {
     title: 'Leak Detection Virginia Beach | Find Hidden Pipe Leaks',
     description:
-      'Professional leak detection for Virginia Beach homes—hidden pipe leaks and water line issues. Schedule diagnosis or call for help.',
+      'Professional leak detection for Virginia Beach homes - hidden pipe leaks and water line issues. Schedule diagnosis or call for help.',
     canonicalPath: '/leak-detection/',
     h1: 'Leak Detection in Virginia Beach',
-    lead: 'Hidden leaks waste water and damage structures. Professional detection focuses on plumbing supply and drain lines—not pool leak specialists that often dominate Map Pack results.',
+    lead: 'Hidden leaks waste water and damage structures. Professional detection focuses on plumbing supply and drain lines - not pool leak specialists that often dominate Map Pack results.',
     primaryCtaLabel: 'Schedule Leak Detection',
     primaryCtaHref: '/contact/',
     secondaryCtaLabel: 'Call Now',
@@ -387,11 +389,11 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         heading: 'Detection approach',
         html: `<p>Technicians may use acoustic listening, moisture meters, pressure tests, or camera tools depending on the situation and available equipment.</p>
-        <p>Findings should lead to a clear repair path—not endless testing.</p>`,
+        <p>Findings should lead to a clear repair path - not endless testing.</p>`,
       },
       {
         heading: 'Indoor vs outdoor leaks',
-        html: `<p>Indoor leaks may show as stains, musty odors, or wet cabinets. Outdoor or buried water-line leaks may show as meter movement, soggy yard patches, or pressure loss with little visible indoor water. Both still belong to plumbing leak detection — not pool leak companies.</p>
+        html: `<p>Indoor leaks may show as stains, musty odors, or wet cabinets. Outdoor or buried water-line leaks may show as meter movement, soggy yard patches, or pressure loss with little visible indoor water. Both still belong to plumbing leak detection, not pool leak companies.</p>
         <p>If you need to shut the house down, see <a href="/resources/shut-off-main-water-valve/">how to shut off the main water valve</a>.</p>`,
       },
       {
@@ -458,7 +460,7 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Local context (qualitative only)',
-        html: `<p>Coastal Virginia Beach conditions—including high water tables in some areas—can complicate underground moisture issues. A visit is how we see what is actually happening at the property.</p>`,
+        html: `<p>Coastal Virginia Beach conditions - including high water tables in some areas - can complicate underground moisture issues. A visit is how we see what is actually happening at the property.</p>`,
       },
       {
         heading: 'Detection and repair options framework',
@@ -479,7 +481,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'How urgent is a slab leak?',
         answer:
-          'A confirmed pressurized leak under the slab is worth prompt inspection. Waiting can spread moisture into flooring and waste water. Active flooding is an emergency — call now.',
+          'A confirmed pressurized leak under the slab is worth prompt inspection. Waiting can spread moisture into flooring and waste water. Active flooding is an emergency. Call now.',
       },
       {
         question: 'Do you always have to open the slab?',
@@ -516,14 +518,14 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Commercial water heaters</li>
           <li>Fixture and restroom repairs</li>
           <li>Leak response and pipe repair</li>
-          <li>Backflow-related needs — see <a href="/backflow-testing/">backflow testing</a></li>
+          <li>Backflow-related needs. See <a href="/backflow-testing/">backflow testing</a></li>
         </ul>
 `,
       },
       {
         heading: 'Restaurants and commercial kitchens',
         html: `<p>Grease, floor drains, and high-use fixtures create recurring demand. Share equipment access notes and preferred service windows when you request help.</p>
-        <p>Kitchen lines fail differently than house drains: grease emulsifies when hot, then sets in the line. Recurring floor-drain backups are a reason to clear and inspect, not to keep pouring chemicals. Grease interceptor / trap servicing is a related commercial need — describe what you have on site when you request work rather than assuming a residential snake is enough.</p>
+        <p>Kitchen lines fail differently than house drains: grease emulsifies when hot, then sets in the line. Recurring floor-drain backups are a reason to clear and inspect, not to keep pouring chemicals. Grease interceptor / trap servicing is a related commercial need. Describe what you have on site when you request work rather than assuming a residential snake is enough.</p>
         <p>Use our <a href="/resources/commercial-kitchen-plumbing-checklist/">commercial kitchen plumbing checklist</a> to prepare before a visit.</p>`,
       },
       {
@@ -553,7 +555,7 @@ export const servicePages: Record<string, ServicePageData> = {
     faqs: [
       {
         question: 'Do you offer after-hours commercial service?',
-        answer: `Yes — we are open 24/7. Call for after-hours commercial needs and we will confirm next steps.`,
+        answer: `Yes. We are open 24/7. Call for after-hours commercial needs and we will confirm next steps.`,
       },
       {
         question: 'Can property managers set up recurring service?',
@@ -572,10 +574,10 @@ export const servicePages: Record<string, ServicePageData> = {
   repiping: {
     title: 'Repiping Virginia Beach | Galvanized Pipe Replacement',
     description:
-      'Whole-home and galvanized pipe repiping in Virginia Beach. Learn signs, process, and cost factors—then request a quote.',
+      'Whole-home and galvanized pipe repiping in Virginia Beach. Learn signs, process, and cost factors - then request a quote.',
     canonicalPath: '/repiping/',
     h1: 'Repiping in Virginia Beach',
-    lead: 'Low pressure, discolored water, and frequent leaks can point to aging supply lines. Repiping replaces problematic piping with a planned scope—not patch-after-patch guessing.',
+    lead: 'Low pressure, discolored water, and frequent leaks can point to aging supply lines. Repiping replaces problematic piping with a planned scope - not patch-after-patch guessing.',
     primaryCtaLabel: 'Request Repipe Quote',
     primaryCtaHref: '/contact/',
     secondaryCtaLabel: 'Call Now',
@@ -644,7 +646,7 @@ export const servicePages: Record<string, ServicePageData> = {
     formVariant: 'routine',
     sections: [
       {
-        heading: 'Gas smell — safety protocol first',
+        heading: 'Gas smell: safety protocol first',
         html: `<ol>
           <li>Leave the area immediately</li>
           <li>Do not operate lights, switches, or phones inside the hazard area</li>
@@ -660,7 +662,7 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Appliance connectors for ranges, dryers, and fireplaces</li>
           <li>New or resized runs when a <a href="/water-heaters/">gas water heater</a> or tankless conversion needs more capacity</li>
         </ul>
-        <p>Permits and inspections apply to many gas jobs. We do not list unverified license numbers on this page — ask when you call if you need that detail for a permit.</p>
+        <p>Permits and inspections apply to many gas jobs. We do not list unverified license numbers on this page. Ask when you call if you need that detail for a permit.</p>
         <p>Coastal air and moisture can wear outdoor piping and connectors. If you notice rust, damage, or a gas smell, follow the safety steps above, then call. See also <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>`,
       },
       {
@@ -761,7 +763,7 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Grinding, humming, or a float that sticks</li>
           <li>Discharge line that is frozen, crushed, or draining back into the pit</li>
         </ul>
-        <p>A sump moves groundwater or storm water from a pit. Sewage backing up into fixtures is a different problem — see <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
+        <p>A sump moves groundwater or storm water from a pit. Sewage backing up into fixtures is a different problem. See <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
       },
       {
         heading: 'Install, repair, and maintenance',
@@ -778,7 +780,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Is a sump pump the same as a sewer backup?',
         answer:
-          'No. A sump pump moves groundwater or storm water from a pit. Sewage backing up into fixtures is a different problem — see sewer line repair or emergency plumbing.',
+          'No. A sump pump moves groundwater or storm water from a pit. Sewage backing up into fixtures is a different problem. See sewer line repair or emergency plumbing.',
       },
     ],
     related: [
@@ -791,10 +793,10 @@ export const servicePages: Record<string, ServicePageData> = {
   'residential-plumbing': {
     title: 'Residential Plumber Virginia Beach | Home Plumbing Services',
     description:
-      'Residential plumbing for Virginia Beach homeowners and landlords—drains, water heaters, leaks, and more. Call or request service.',
+      'Residential plumbing for Virginia Beach homeowners and landlords - drains, water heaters, leaks, and more. Call or request service.',
     canonicalPath: '/residential-plumbing/',
     h1: 'Residential Plumber in Virginia Beach',
-    lead: 'From routine fixture issues to larger repairs, residential plumbing should be easy to navigate. Choose the service that matches your problem—or request help and we will route it.',
+    lead: 'Fixture issues, drain clogs, water heaters, and larger repairs all fall under residential plumbing. Pick the service that matches the problem, or request help and we will route it.',
     primaryCtaLabel: 'Request Residential Service',
     primaryCtaHref: '/contact/',
     secondaryCtaLabel: 'View All Services',
@@ -804,7 +806,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         heading: 'Homeowner services',
         html: `<p>Common residential needs include <a href="/plumbing-repairs/">toilet, faucet, and disposal repairs</a>, <a href="/drain-cleaning/">drain cleaning</a>, <a href="/water-heaters/">water heaters</a>, <a href="/leak-detection/">leak detection</a>, and <a href="/sewer-line-repair/">sewer repair</a>.</p>
-        <p>If you already know the problem, go straight to that page. This page is for homeowners and landlords who need the right door — not a second copy of every service.</p>
+        <p>If you already know the problem, go straight to that page. This page is for homeowners and landlords who need the right door, not a second copy of every service.</p>
         <ul>
           <li>One fixture clogged → drain cleaning</li>
           <li>Toilet running or faucet dripping → plumbing repairs</li>
@@ -816,7 +818,7 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Landlords and property turnover',
-        html: `<p>Rental turnovers, move-outs, and military PCS seasons can stack toilet, faucet, disposal, and water-heater punch-list items in a short window. Share gate codes, unit numbers, and whether tenants will be home. This page does not advertise a military discount — we simply serve Virginia Beach homes, including areas near NAS Oceana and Little Creek, when you need a plumber.</p>
+        html: `<p>Rental turnovers, move-outs, and military PCS seasons can stack toilet, faucet, disposal, and water-heater punch-list items in a short window. Share gate codes, unit numbers, and whether tenants will be home. This page does not advertise a military discount. We simply serve Virginia Beach homes, including areas near NAS Oceana and Little Creek, when you need a plumber.</p>
 `,
       },
       {
@@ -855,7 +857,7 @@ export const servicePages: Record<string, ServicePageData> = {
       'Toilet repair, faucet repair, and garbage disposal service in Virginia Beach. Call (703) 703-7855 or request a visit for fixture plumbing repairs.',
     canonicalPath: '/plumbing-repairs/',
     h1: 'Plumbing Repairs in Virginia Beach',
-    lead: 'Running toilets, dripping faucets, and jammed disposals are everyday plumbing jobs — until they waste water or overflow. This page covers fixture repairs for Virginia Beach homes and rentals, and points you to emergency help when water will not stop.',
+    lead: 'Running toilets, dripping faucets, and jammed disposals are everyday plumbing jobs until they waste water or overflow. This page covers fixture repairs for Virginia Beach homes and rentals, and points you to emergency help when water will not stop.',
     primaryCtaLabel: 'Schedule a Repair',
     primaryCtaHref: '/contact/',
     secondaryCtaLabel: 'Call Now',
@@ -864,16 +866,16 @@ export const servicePages: Record<string, ServicePageData> = {
     sections: [
       {
         heading: 'What plumbing repairs cover',
-        html: `<p>Plumbing repairs here means fixture-level work: toilets, faucets, sinks, and garbage disposals. It is not the page for a main-line backup, a leaking water heater tank, or a sewer lateral — those have their own service pages so search intent stays clear.</p>
+        html: `<p>Plumbing repairs here means fixture-level work: toilets, faucets, sinks, and garbage disposals. It is not the page for a main-line backup, a leaking water heater tank, or a sewer lateral. Those have their own service pages so search intent stays clear.</p>
         <p>If one fixture is the problem, start here. If several fixtures fail at once, see <a href="/drain-cleaning/">drain cleaning</a> or <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
       },
       {
         heading: 'Toilet repair',
         html: `<p>Common toilet calls in Virginia Beach homes include a toilet that keeps running, a weak or incomplete flush, a clog that will not clear with a plunger, leaking at the base, or a fill valve that never shuts off.</p>
         <ul>
-          <li><strong>Running toilet:</strong> Usually a flapper, fill valve, or chain issue. It wastes water even when nobody is in the bathroom.</li>
+          <li><strong>Running toilet:</strong> Usually a flapper, fill valve, or chain issue. It wastes water even when nobody is in the bathroom. See the <a href="/resources/running-toilet/">running toilet guide</a>.</li>
           <li><strong>Clogged toilet:</strong> A single clogged toilet is often a fixture or branch-line issue. If the tub or shower backs up when you flush, treat it as a drain or sewer problem.</li>
-          <li><strong>Overflowing toilet:</strong> Shut the supply valve at the wall if you can do so safely. If water is spreading, use <a href="/emergency-plumber/">emergency plumbing</a>.</li>
+          <li><strong>Overflowing toilet:</strong> Shut the supply valve at the wall if you can do so safely. Step-by-step: <a href="/resources/toilet-overflowing/">toilet overflowing</a>. If water is spreading, use <a href="/emergency-plumber/">emergency plumbing</a>.</li>
         </ul>`,
       },
       {
@@ -883,7 +885,7 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Garbage disposal repair',
-        html: `<p>Humming without spinning, frequent resets, leaks at the sink flange, and persistent odors are typical disposal issues. Reset buttons and hex-key turns can free a jammed impeller — but never put your hand in the chamber, even with the breaker off unless you are sure power is isolated.</p>
+        html: `<p>Humming without spinning, frequent resets, leaks at the sink flange, and persistent odors are typical disposal issues. Reset buttons and hex-key turns can free a jammed impeller, but never put your hand in the chamber, even with the breaker off unless you are sure power is isolated.</p>
         <p>A disposal that backs water into the other sink bowl is often a drain clog, not a failed motor. That belongs with <a href="/drain-cleaning/">drain cleaning</a>.</p>`,
       },
       {
@@ -893,7 +895,7 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Supply line spraying under a sink</li>
           <li>Sewage smell with more than one fixture backing up</li>
         </ul>
-        <p>Call ${siteConfig.phoneDisplay} anytime — we are open 24/7. Safety steps: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a>.</p>`,
+        <p>Call ${siteConfig.phoneDisplay} anytime. We are open 24/7. Safety steps: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a>.</p>`,
       },
       {
         heading: 'What to expect on a visit',
@@ -930,6 +932,8 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     related: [
       { label: 'Residential plumbing', href: '/residential-plumbing/' },
+      { label: 'Running toilet guide', href: '/resources/running-toilet/' },
+      { label: 'Toilet overflowing', href: '/resources/toilet-overflowing/' },
       { label: 'Drain cleaning', href: '/drain-cleaning/' },
       { label: 'Leak detection', href: '/leak-detection/' },
       { label: 'Emergency plumber', href: '/emergency-plumber/' },

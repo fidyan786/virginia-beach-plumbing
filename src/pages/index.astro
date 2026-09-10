@@ -8,9 +8,9 @@ import { faqPage, originFromSite, plumberContractorNode, websiteNode, withContex
 
 const phone = telHref();
 const origin = originFromSite(Astro.site);
-const title = 'Plumber Virginia Beach VA | Residential & Commercial Plumbing';
+const title = 'Plumber Virginia Beach VA | Drains, Water Heaters & 24/7 Help';
 const description =
-  `Local plumber in Virginia Beach, VA for drains, water heaters, leaks, sewer, fixture repairs, and 24/7 emergencies. Call ${siteConfig.phoneDisplay} or request service.`;
+  `Local plumber in Virginia Beach for clogged drains, water heaters, leaks, sewer work, fixture repairs, and 24/7 emergencies. Call ${siteConfig.phoneDisplay} or request service.`;
 
 const orgSchema = withContext({
   ...plumberContractorNode(origin),
@@ -90,26 +90,26 @@ const homeGuides = [
     copy: 'Shutoff, safety, and when to call versus waiting.',
   },
   {
-    href: '/resources/plumber-cost-virginia-beach/',
-    title: 'What affects plumber cost',
-    copy: 'Urgency, access, parts, and why a phone quote is not a bid.',
+    href: '/resources/running-toilet/',
+    title: 'Toilet keeps running',
+    copy: 'Flapper, fill valve, and when a quiet runner still needs a visit.',
   },
   {
-    href: '/resources/signs-of-sewer-line-problems/',
-    title: 'Signs of a sewer line problem',
-    copy: 'When one clog is really a lateral issue.',
+    href: '/resources/water-heater-leaking/',
+    title: 'Water heater leaking',
+    copy: 'Bottom leak vs fitting drip, and when to shut the unit off.',
   },
   {
-    href: '/resources/coastal-plumbing-challenges-virginia-beach/',
-    title: 'Coastal plumbing in Virginia Beach',
-    copy: 'Salt air, humidity, and what fails faster near the ocean.',
+    href: '/resources/low-water-pressure/',
+    title: 'Low water pressure',
+    copy: 'One fixture vs whole house, and when leak detection matters.',
   },
 ];
 
 const faqs = [
   {
     question: 'Are you a 24-hour plumber in Virginia Beach?',
-    answer: `Yes. We are open 24/7 for emergency plumbing — burst pipes, major leaks, and sewer backups. Call <a href="${phone}">${siteConfig.phoneDisplay}</a> or see the <a href="/emergency-plumber/">emergency plumbing</a> page.`,
+    answer: `Yes. We are open 24/7 for emergency plumbing: burst pipes, major leaks, and sewer backups. Call <a href="${phone}">${siteConfig.phoneDisplay}</a> or see the <a href="/emergency-plumber/">emergency plumbing</a> page.`,
   },
   {
     question: 'What plumbing services do you provide?',
@@ -142,11 +142,11 @@ const faqs = [
   },
   {
     question: 'What areas do you serve?',
-    answer: `We serve Virginia Beach, Virginia — including areas such as Oceanfront, Kempsville, Lynnhaven, Town Center, and Princess Anne. Confirm coverage on the <a href="/service-areas/">service area</a> page.`,
+    answer: `We serve Virginia Beach, Virginia, including areas such as Oceanfront, Kempsville, Lynnhaven, Town Center, and Princess Anne. Confirm coverage on the <a href="/service-areas/">service area</a> page.`,
   },
   {
     question: 'Can I request service online?',
-    answer: `Yes. Use the request form on this page or on our <a href="/contact/">contact</a> page. If online requests are unavailable, call ${siteConfig.phoneDisplay} — we are open 24/7 for emergency plumbing help.`,
+    answer: `Yes. Use the request form on this page or on our <a href="/contact/">contact</a> page. If online requests are unavailable, call ${siteConfig.phoneDisplay}. We are open 24/7 for emergency plumbing help.`,
   },
 ];
 
@@ -168,7 +168,7 @@ const faqSchema = withContext(faqPage(faqs));
           <span>Virginia Beach</span>
         </h1>
         <p class="hero-lead">
-          Local help for emergency leaks, clogged drains, water heaters, sewer work, and everyday fixture repairs. Call or send a short request — we will tell you the next step.
+          Local help for emergency leaks, clogged drains, water heaters, sewer work, and everyday fixture repairs. Call or send a short request. We will tell you the next step.
         </p>
         <div class="btn-group hero-ctas">
           <a class="btn btn--primary btn--hero" href={phone} data-track="phone_click" data-track-location="home_hero">
@@ -208,7 +208,7 @@ const faqSchema = withContext(faqPage(faqs));
         <p class="eyebrow">Services</p>
         <h2>Plumbing work we handle in Virginia Beach</h2>
         <p class="lead">
-          Start with the problem. These are the calls we get most — each page explains signs, what to expect, and how to request help.
+          Start with the problem. These are the calls we get most. Each page explains signs, what to expect, and how to request help.
         </p>
       </div>
       <ul class="featured-grid">
@@ -251,7 +251,7 @@ const faqSchema = withContext(faqPage(faqs));
         <p class="eyebrow eyebrow--on-dark">Emergency</p>
         <h2>When Plumbing Can’t Wait</h2>
         <p>
-          Burst pipes, major leaks, and sewer backups cannot wait. A water heater dumping water on the floor is urgent; a tank that simply will not heat is usually a scheduled visit. Call and we will sort it — this site does not quote arrival times.
+          Burst pipes, major leaks, and sewer backups cannot wait. A water heater dumping water on the floor is urgent; a tank that simply will not heat is usually a scheduled visit. Call and we will sort it. This site does not quote arrival times.
         </p>
         <div class="btn-group">
           <a class="btn btn--emergency" href={phone} data-track="emergency_call" data-track-location="home">
@@ -387,7 +387,7 @@ const faqSchema = withContext(faqPage(faqs));
         <p class="eyebrow">Guides</p>
         <h2>Read this before you guess</h2>
         <p class="lead">
-          Short pages for the questions people ask while water is still running — or while they decide whether to call.
+          Short pages for the questions people ask while water is still running, or while they decide whether to call.
         </p>
       </div>
       <ul class="guide-grid">

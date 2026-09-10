@@ -17,7 +17,7 @@ export const resources: ResourceGuide[] = [
     slug: 'emergency-plumbing-checklist',
     title: 'Emergency Plumbing Checklist | Virginia Beach',
     description:
-      'Practical checklist for plumbing emergencies—shutoff steps, safety, and when to call a plumber in Virginia Beach.',
+      'Practical checklist for plumbing emergencies - shutoff steps, safety, and when to call a plumber in Virginia Beach.',
     h1: 'Emergency Plumbing Checklist',
     moneyLink: { label: 'Emergency plumber page', href: '/emergency-plumber/' },
     group: 'emergency',
@@ -43,7 +43,7 @@ export const resources: ResourceGuide[] = [
           <li>A major leak you cannot stop at a fixture</li>
           <li>A water heater tank dumping water on the floor</li>
         </ul>
-        <p>A slow drain or a dripping faucet can usually wait for scheduled service. If water is damaging the home, call (703) 703-7855 — we are open 24/7.</p>`,
+        <p>A slow drain or a dripping faucet can usually wait for scheduled service. If water is damaging the home, call (703) 703-7855. We are open 24/7.</p>`,
       },
     ],
     related: [
@@ -56,7 +56,7 @@ export const resources: ResourceGuide[] = [
     slug: 'plumber-cost-virginia-beach',
     title: 'How Much Does a Plumber Cost in Virginia Beach? | Cost Factors',
     description:
-      'Plumbing cost factors for Virginia Beach—trip fees, labor, parts, and urgency.',
+      'Plumbing cost factors for Virginia Beach - trip fees, labor, parts, and urgency.',
     h1: 'Plumbing Cost Factors in Virginia Beach',
     moneyLink: { label: 'Request an estimate', href: '/contact/' },
     group: 'cost',
@@ -77,7 +77,7 @@ export const resources: ResourceGuide[] = [
     slug: 'water-heater-replacement-cost-virginia-beach',
     title: 'Water Heater Replacement Cost Virginia Beach | Factors',
     description:
-      'What affects water heater replacement cost in Virginia Beach—unit type, labor, permits, and upgrades.',
+      'What affects water heater replacement cost in Virginia Beach - unit type, labor, permits, and upgrades.',
     h1: 'Water Heater Replacement Cost Factors',
     moneyLink: { label: 'Water heater services', href: '/water-heaters/' },
     group: 'cost',
@@ -96,7 +96,7 @@ export const resources: ResourceGuide[] = [
     slug: 'repair-or-replace-water-heater',
     title: 'Repair or Replace a Water Heater? | Decision Guide',
     description:
-      'How to think about repairing vs replacing a water heater—age, leaks, and efficiency—then get local help in Virginia Beach.',
+      'How to think about repairing vs replacing a water heater - age, leaks, and efficiency - then get local help in Virginia Beach.',
     h1: 'Is It Worth Repairing a Water Heater?',
     moneyLink: { label: 'Water heater services', href: '/water-heaters/' },
     group: 'decision',
@@ -119,7 +119,7 @@ export const resources: ResourceGuide[] = [
     slug: 'sewer-line-repair-cost-virginia-beach',
     title: 'Sewer Line Repair Cost Virginia Beach | Factors',
     description:
-      'Sewer repair cost factors for Virginia Beach—camera findings, length, depth, method, and restoration.',
+      'Sewer repair cost factors for Virginia Beach - camera findings, length, depth, method, and restoration.',
     h1: 'Sewer Line Repair Cost Factors',
     moneyLink: { label: 'Sewer line repair', href: '/sewer-line-repair/' },
     group: 'cost',
@@ -127,7 +127,7 @@ export const resources: ResourceGuide[] = [
       {
         heading: 'What changes the price',
         html: `<ul><li>Camera findings</li><li>Length and depth of pipe</li><li>Dig vs trenchless suitability</li><li>Landscaping and hardscape restoration</li><li>Permits and inspections</li></ul>
-        <p>A phone description cannot price a sewer job honestly. Camera inspection shows whether you are looking at a blockage, roots, a broken joint, or a collapse — and that finding drives method and restoration.</p>`,
+        <p>A phone description cannot price a sewer job honestly. Camera inspection shows whether you are looking at a blockage, roots, a broken joint, or a collapse, and that finding drives method and restoration.</p>`,
       },
       {
         heading: 'Private lateral vs city main',
@@ -154,14 +154,14 @@ export const resources: ResourceGuide[] = [
     slug: 'trenchless-vs-traditional-sewer-repair',
     title: 'Trenchless vs Traditional Sewer Repair | Comparison',
     description:
-      'Compare trenchless and traditional sewer repair approaches—when lining may work and when digging is better.',
+      'Compare trenchless and traditional sewer repair approaches - when lining may work and when digging is better.',
     h1: 'Trenchless vs Traditional Sewer Repair',
     moneyLink: { label: 'Trenchless sewer repair', href: '/trenchless-sewer-repair/' },
     group: 'decision',
     sections: [
       {
         heading: 'Quick comparison',
-        html: `<p><strong>Traditional dig</strong> excavates to replace or repair pipe—reliable for collapses but more disruptive.</p><p><strong>Trenchless</strong> can reduce excavation when the host pipe and codes allow lining or similar methods.</p>`,
+        html: `<p><strong>Traditional dig</strong> excavates to replace or repair pipe - reliable for collapses but more disruptive.</p><p><strong>Trenchless</strong> can reduce excavation when the host pipe and codes allow lining or similar methods.</p>`,
       },
       {
         heading: 'How to choose without guessing',
@@ -173,7 +173,7 @@ export const resources: ResourceGuide[] = [
     slug: 'signs-of-slab-leak',
     title: 'Signs of a Slab Leak | Virginia Beach Homeowners',
     description:
-      'Warning signs of a possible slab leak—high bills, hot spots, and meter movement—plus when to request inspection.',
+      'Warning signs of a possible slab leak - high bills, hot spots, and meter movement - plus when to request inspection.',
     h1: 'Signs of a Slab Leak',
     moneyLink: { label: 'Slab leak repair', href: '/slab-leak-repair/' },
     group: 'decision',
@@ -185,7 +185,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'A quick meter check',
-        html: `<p>If you can do so safely: make sure fixtures are off, then watch the water meter. Movement with nothing running is a reason to investigate a leak — still not a diagnosis of <em>where</em>.</p>`,
+        html: `<p>If you can do so safely: make sure fixtures are off, then watch the water meter. Movement with nothing running is a reason to investigate a leak, still not a diagnosis of <em>where</em>.</p>`,
       },
       {
         heading: 'What to do next',
@@ -208,7 +208,7 @@ export const resources: ResourceGuide[] = [
     slug: 'hydro-jetting-vs-snaking',
     title: 'Hydro Jetting vs Snaking | Drain Cleaning Methods',
     description:
-      'How snaking and hydro jetting differ for drain cleaning—and when each approach may fit.',
+      'How snaking and hydro jetting differ for drain cleaning - and when each approach may fit.',
     h1: 'Hydro Jetting vs Snaking',
     moneyLink: { label: 'Drain cleaning', href: '/drain-cleaning/' },
     group: 'decision',
@@ -238,7 +238,7 @@ export const resources: ResourceGuide[] = [
     slug: 'what-to-do-when-a-pipe-bursts',
     title: 'What to Do When a Pipe Bursts | Shutoff Steps',
     description:
-      'Step-by-step guidance when a pipe bursts—shut off water, stay safe, and call for emergency plumbing help.',
+      'Step-by-step guidance when a pipe bursts - shut off water, stay safe, and call for emergency plumbing help.',
     h1: 'What to Do When a Pipe Bursts',
     moneyLink: { label: 'Emergency plumber', href: '/emergency-plumber/' },
     group: 'emergency',
@@ -269,7 +269,7 @@ export const resources: ResourceGuide[] = [
     sections: [
       {
         heading: 'Local compliance',
-        html: `<p>Virginia Beach Public Utilities maintains a cross-connection/backflow program. Many assemblies must be tested on a schedule the city publishes — often annually — and results are commonly submitted through the city’s chosen workflow (frequently referenced as SwiftComply). Always verify current rules on official .gov pages rather than relying on a marketing site.</p>
+        html: `<p>Virginia Beach Public Utilities maintains a cross-connection/backflow program. Many assemblies must be tested on a schedule the city publishes, often annually, and results are commonly submitted through the city’s chosen workflow (frequently referenced as SwiftComply). Always verify current rules on official .gov pages rather than relying on a marketing site.</p>
         <p><a href="https://www.vbgov.com/government/departments/public-utilities/" rel="noopener noreferrer" target="_blank">Virginia Beach Public Utilities</a></p>`,
       },
       {
@@ -282,14 +282,14 @@ export const resources: ResourceGuide[] = [
     slug: 'city-vs-private-plumbing-emergency',
     title: 'City vs Private Plumbing Emergency | Virginia Beach',
     description:
-      'How to tell a private plumbing failure from a Virginia Beach Public Utilities water or sewer emergency — and who to call first.',
+      'How to tell a private plumbing failure from a Virginia Beach Public Utilities water or sewer emergency, and who to call first.',
     h1: 'City vs Private Plumbing Emergencies in Virginia Beach',
     moneyLink: { label: 'Emergency plumber', href: '/emergency-plumber/' },
     group: 'emergency',
     sections: [
       {
         heading: 'Why this distinction matters',
-        html: `<p>Google’s emergency plumbing results in this market often include city utility pages. That is useful — some problems are municipal, not a private plumber’s to fix. Calling the wrong number delays help.</p>`,
+        html: `<p>Google’s emergency plumbing results in this market often include city utility pages. That is useful: some problems are municipal, not a private plumber’s to fix. Calling the wrong number delays help.</p>`,
       },
       {
         heading: 'Usually a private plumbing issue',
@@ -349,7 +349,7 @@ export const resources: ResourceGuide[] = [
     slug: 'shut-off-main-water-valve',
     title: 'How to Shut Off the Main Water Valve | Safety Steps',
     description:
-      'How to find and shut off a home’s main water valve during a leak or burst pipe — then call for plumbing help in Virginia Beach.',
+      'How to find and shut off a home’s main water valve during a leak or burst pipe, then call for plumbing help in Virginia Beach.',
     h1: 'How to Shut Off the Main Water Valve',
     moneyLink: { label: 'Emergency plumber', href: '/emergency-plumber/' },
     group: 'emergency',
@@ -361,9 +361,9 @@ export const resources: ResourceGuide[] = [
       {
         heading: 'Where the valve often is',
         html: `<ul>
-          <li>Where the water line enters the house — basement, crawlspace, garage, or utility closet</li>
+          <li>Where the water line enters the house: basement, crawlspace, garage, or utility closet</li>
           <li>Near the water heater or a labeled “main” valve</li>
-          <li>In a meter box in the yard (some properties) — use caution lifting lids and never force frozen or rusty valves</li>
+          <li>In a meter box in the yard (some properties). Use caution lifting lids and never force frozen or rusty valves</li>
         </ul>
         <p>Valve style varies (gate, ball). A quarter-turn ball valve is usually closed when the handle is perpendicular to the pipe.</p>`,
       },
@@ -392,7 +392,7 @@ export const resources: ResourceGuide[] = [
           <li>Exterior hose bibbs, gas connectors, and exposed valves near the ocean</li>
           <li>Water heaters and mechanical rooms in damp garages or closets</li>
           <li>Sewer laterals and older galvanized supply lines in aging housing</li>
-          <li>Hospitality properties at the Oceanfront with high fixture turnover — see <a href="/commercial-plumbing/">commercial plumbing</a></li>
+          <li>Hospitality properties at the Oceanfront with high fixture turnover. See <a href="/commercial-plumbing/">commercial plumbing</a></li>
         </ul>`,
       },
       {
@@ -405,7 +405,7 @@ export const resources: ResourceGuide[] = [
     slug: 'commercial-kitchen-plumbing-checklist',
     title: 'Commercial Kitchen Plumbing Checklist | Virginia Beach',
     description:
-      'A practical checklist for Virginia Beach restaurants and commercial kitchens before a plumbing service visit — drains, grease, access, and after-hours notes.',
+      'A practical checklist for Virginia Beach restaurants and commercial kitchens before a plumbing service visit: drains, grease, access, and after-hours notes.',
     h1: 'Commercial Kitchen Plumbing Checklist',
     moneyLink: { label: 'Request commercial service', href: '/commercial-plumbing/' },
     group: 'local',
@@ -421,7 +421,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'Issues kitchens see often',
-        html: `<p>Grease and food solids in floor drains, high-use restroom fixtures, commercial water heaters, and backflow assemblies on the water supply. None of those should be diagnosed from a checklist alone — the list is so the visit starts with the right access and details.</p>`,
+        html: `<p>Grease and food solids in floor drains, high-use restroom fixtures, commercial water heaters, and backflow assemblies on the water supply. None of those should be diagnosed from a checklist alone. The list is so the visit starts with the right access and details.</p>`,
       },
       {
         heading: 'After hours',
@@ -433,14 +433,14 @@ export const resources: ResourceGuide[] = [
     slug: 'low-water-pressure',
     title: 'Low Water Pressure | Causes and When to Call a Plumber',
     description:
-      'Why water pressure drops in a home — one fixture vs whole-house — and when leak detection or repiping may be the next step in Virginia Beach.',
+      'Why water pressure drops in a home: one fixture vs whole-house, and when leak detection or repiping may be the next step in Virginia Beach.',
     h1: 'Low Water Pressure: What It Can Mean',
     moneyLink: { label: 'Leak detection', href: '/leak-detection/' },
     group: 'decision',
     sections: [
       {
         heading: 'One fixture or the whole house?',
-        html: `<p>Low pressure at a single faucet is often a clogged aerator, a failing supply stop, or that fixture’s valve. Low pressure everywhere — showers, laundry, and kitchen at once — points farther back: a partially closed main, a failing pressure regulator, mineral buildup, or a leak on the supply side.</p>`,
+        html: `<p>Low pressure at a single faucet is often a clogged aerator, a failing supply stop, or that fixture’s valve. Low pressure everywhere (showers, laundry, and kitchen at once points farther back: a partially closed main, a failing pressure regulator, mineral buildup, or a leak on the supply side.</p>`,
       },
       {
         heading: 'Clues that it is not “just the showerhead”',
@@ -454,14 +454,14 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'What to check before you call',
-        html: `<p>Confirm the main valve is fully open. If only one fixture is weak, unscrew the aerator and look for debris — if you are comfortable doing that. Do not force a frozen or corroded valve. If pressure is down throughout the house, skip DIY pipe work and request service.</p>`,
+        html: `<p>Confirm the main valve is fully open. If only one fixture is weak, unscrew the aerator and look for debris if you are comfortable doing that. Do not force a frozen or corroded valve. If pressure is down throughout the house, skip DIY pipe work and request service.</p>`,
       },
     ],
     faqs: [
       {
         question: 'Can a hidden leak cause low pressure?',
         answer:
-          'Yes. A supply leak can steal pressure before water reaches fixtures. It is one possible cause, not the only one — diagnosis still needs a look at the system.',
+          'Yes. A supply leak can steal pressure before water reaches fixtures. It is one possible cause, not the only one. Diagnosis still needs a look at the system.',
       },
     ],
     related: [
@@ -474,19 +474,19 @@ export const resources: ResourceGuide[] = [
     slug: 'storm-plumbing-prep-virginia-beach',
     title: 'Storm Plumbing Prep in Virginia Beach | Before Heavy Rain',
     description:
-      'Practical plumbing prep before heavy rain or coastal storms in Virginia Beach — drains, sump pumps, and when a backup is a plumbing issue versus a city emergency.',
+      'Practical plumbing prep before heavy rain or coastal storms in Virginia Beach: drains, sump pumps, and when a backup is a plumbing issue versus a city emergency.',
     h1: 'Storm Plumbing Prep in Virginia Beach',
     moneyLink: { label: 'Sump pump services', href: '/sump-pump/' },
     group: 'local',
     sections: [
       {
         heading: 'What this page is for',
-        html: `<p>Coastal storms and heavy rain put extra load on drains, laterals, and basement pumps. This is a prep list — not a flood-insurance guide and not a claim that we handle city infrastructure.</p>`,
+        html: `<p>Coastal storms and heavy rain put extra load on drains, laterals, and basement pumps. This is a prep list, not a flood-insurance guide and not a claim that we handle city infrastructure.</p>`,
       },
       {
         heading: 'Before the rain',
         html: `<ul>
-          <li>Clear leaves and debris from yard drains and the area around outdoor cleanouts — only if it is safe</li>
+          <li>Clear leaves and debris from yard drains and the area around outdoor cleanouts, only if it is safe</li>
           <li>If you have a sump pump, test that it runs and that the discharge path is open. See <a href="/sump-pump/">sump pump services</a></li>
           <li>Know where the main water shutoff is: <a href="/resources/shut-off-main-water-valve/">shutoff steps</a></li>
           <li>Move valuables off basement floors if you already take on water in storms</li>
@@ -494,7 +494,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'During a backup or flood',
-        html: `<p>Sewage in the home is a private plumbing emergency until proven otherwise — limit contact and call. Street flooding from a main or hydrant belongs to Virginia Beach Public Utilities. Sort that distinction here: <a href="/resources/city-vs-private-plumbing-emergency/">city vs private</a>.</p>
+        html: `<p>Sewage in the home is a private plumbing emergency until proven otherwise. Limit contact and call. Street flooding from a main or hydrant belongs to Virginia Beach Public Utilities. Sort that distinction here: <a href="/resources/city-vs-private-plumbing-emergency/">city vs private</a>.</p>
         <p>Do not run a shop-vac on sewage. Do not use electrical devices in standing water.</p>`,
       },
     ],
@@ -508,19 +508,169 @@ export const resources: ResourceGuide[] = [
     slug: 'frozen-pipe-prevention-hampton-roads',
     title: 'Frozen Pipe Prevention in Hampton Roads | Virginia Beach',
     description:
-      'How to reduce frozen-pipe risk during rare Virginia Beach cold snaps — outdoor hose bibbs, crawlspaces, and what to do if a pipe freezes.',
+      'How to reduce frozen-pipe risk during rare Virginia Beach cold snaps: outdoor hose bibbs, crawlspaces, and what to do if a pipe freezes.',
     h1: 'Frozen Pipe Prevention in Virginia Beach',
     moneyLink: { label: 'Emergency plumber', href: '/emergency-plumber/' },
     group: 'emergency',
     sections: [
       {
-        heading: 'Cold snaps are uncommon — pipes still freeze',
+        heading: 'Cold snaps are uncommon, but pipes still freeze',
         html: `<p>Hampton Roads does not have long winters, but a hard freeze can still burst poorly protected pipes: outdoor hose bibbs, uninsulated crawlspaces, garage walls, and vacant houses with the heat off. Disconnect hoses. Open cabinet doors on exterior-wall sinks during a freeze warning.</p>`,
       },
       {
         heading: 'If a pipe is frozen',
         html: `<p>Do not use an open flame. Warm the area slowly with room air if it is safe. If the pipe has already burst, shut the main and call. Full steps: <a href="/resources/what-to-do-when-a-pipe-bursts/">what to do when a pipe bursts</a>.</p>`,
       },
+    ],
+  },
+  {
+    slug: 'running-toilet',
+    title: 'Toilet Keeps Running | Causes and When to Call',
+    description:
+      'Why a toilet keeps running, what you can check safely, and when to request toilet repair in Virginia Beach.',
+    h1: 'Why a Toilet Keeps Running',
+    moneyLink: { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'What “running” usually means',
+        html: `<p>Water keeps entering the bowl or you hear the tank refill when nobody flushed. That wastes water and can raise the bill even when the bathroom looks fine.</p>`,
+      },
+      {
+        heading: 'Common causes',
+        html: `<ul>
+          <li>Flapper that does not seal</li>
+          <li>Fill valve that never shuts off</li>
+          <li>Chain too tight or tangled</li>
+          <li>Water level set too high and spilling into the overflow tube</li>
+        </ul>
+        <p>You do not need the exact part name before you call. Describe the sound and whether water is visible at the bowl.</p>`,
+      },
+      {
+        heading: 'Safe checks at home',
+        html: `<p>Shut the supply valve behind the toilet if you can reach it. That stops the waste while you wait. Dropping a dye tablet or a few drops of food coloring in the tank can show a silent flapper leak if color appears in the bowl without flushing. Do not force a stuck valve or take the tank apart if you are unsure.</p>`,
+      },
+      {
+        heading: 'When it is urgent',
+        html: `<p>Overflowing onto the floor, a crack in the tank, or a supply line spraying is urgent. Shut the main if the wall valve will not close, then call. See <a href="/emergency-plumber/">emergency plumbing</a>.</p>
+        <p>A quiet runner that only wastes water can usually wait for a scheduled <a href="/plumbing-repairs/">plumbing repair</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I keep using a running toilet?',
+        answer:
+          'Yes for short periods if it is not overflowing. Shut the supply valve behind the toilet when you can. Do not leave a known runner for weeks; it wastes water and the parts usually get worse.',
+      },
+      {
+        question: 'Is a running toilet a drain problem?',
+        answer:
+          'Usually not. Running is a tank or fill-valve issue. A clogged toilet that will not flush is different. If the tub backs up when you flush, see drain cleaning or sewer line repair.',
+      },
+    ],
+    related: [
+      { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+      { label: 'Residential plumbing', href: '/residential-plumbing/' },
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+    ],
+  },
+  {
+    slug: 'water-heater-leaking',
+    title: 'Water Heater Leaking | Bottom Leak vs Fitting Leak',
+    description:
+      'What a leaking water heater can mean, how to tell a tank leak from a fitting drip, and when to shut the unit off in Virginia Beach.',
+    h1: 'Water Heater Leaking: What to Check',
+    moneyLink: { label: 'Water heater services', href: '/water-heaters/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'Why the location of the water matters',
+        html: `<p>A drip at a connection is not the same problem as water coming from the tank body. Fitting leaks and T&amp;P discharge can sometimes be repaired. A corroded tank that is leaking from the bottom usually means replacement.</p>`,
+      },
+      {
+        heading: 'Common sources',
+        html: `<ul>
+          <li>Inlet or outlet fittings and flexible connectors</li>
+          <li>Drain valve drip</li>
+          <li>Temperature and pressure (T&amp;P) relief valve discharge</li>
+          <li>Condensation on a cold tank in a humid room (not always a leak)</li>
+          <li>Leak through the tank shell or base</li>
+        </ul>`,
+      },
+      {
+        heading: 'What to do right away',
+        html: `<ol>
+          <li>If water is pooling on the floor, keep people and electricity away from standing water.</li>
+          <li>Shut off power at the breaker for electric units, or set the gas control to off/pilot only if you can do so safely.</li>
+          <li>Shut the cold-water supply valve on top of the heater if you can reach it.</li>
+          <li>Call for help. A tank dumping water is urgent.</li>
+        </ol>
+        <p>Emergency path: <a href="/emergency-plumber/">emergency plumbing</a>. Repair vs replace: <a href="/resources/repair-or-replace-water-heater/">repair or replace guide</a>.</p>`,
+      },
+      {
+        heading: 'Not every drip is a failed tank',
+        html: `<p>A small drip at a threaded fitting after a recent install, or a T&amp;P line that drips when the system over-pressurizes, needs diagnosis, not an automatic full replacement. Lukewarm water with a dry floor is usually a scheduled visit, not an emergency.</p>
+        <p>Request service on the <a href="/water-heaters/">water heaters</a> page, or call if water is still spreading.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is a leaking water heater always an emergency?',
+        answer:
+          'If water is spreading across the floor or the tank itself is leaking, treat it as urgent. A slow drip at a fitting with the floor mostly dry can often wait for a same-day or next visit, but do not ignore it.',
+      },
+      {
+        question: 'Should I drain the tank myself?',
+        answer:
+          'Only if you know the drain path and can do it safely. Many homeowners should shut supply and power/gas first, then wait for a technician rather than wrestling a stuck drain valve.',
+      },
+    ],
+    related: [
+      { label: 'Water heaters', href: '/water-heaters/' },
+      { label: 'Repair vs replace', href: '/resources/repair-or-replace-water-heater/' },
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+    ],
+  },
+  {
+    slug: 'toilet-overflowing',
+    title: 'Toilet Overflowing | Shutoff Steps and When to Call',
+    description:
+      'What to do when a toilet overflows, how to shut the supply, and when overflow means a drain or sewer problem in Virginia Beach.',
+    h1: 'What to Do When a Toilet Overflows',
+    moneyLink: { label: 'Emergency plumber', href: '/emergency-plumber/' },
+    group: 'emergency',
+    sections: [
+      {
+        heading: 'Stop the water first',
+        html: `<ol>
+          <li>Do not keep flushing.</li>
+          <li>Turn the supply valve at the wall clockwise if you can reach it.</li>
+          <li>If that valve will not close, shut the main water valve for the house.</li>
+          <li>Keep kids and pets away. Avoid electrical outlets near standing water.</li>
+        </ol>
+        <p>Main valve help: <a href="/resources/shut-off-main-water-valve/">how to shut off the main water valve</a>.</p>`,
+      },
+      {
+        heading: 'Fixture clog vs sewer backup',
+        html: `<p>One toilet that overflows after a clog is often a fixture or nearby branch-line issue. If the shower or tub also rises when you flush, or other drains gurgle and back up, treat it as a main-line or sewer problem.</p>
+        <p>Related: <a href="/plumbing-repairs/">plumbing repairs</a> for a single toilet · <a href="/drain-cleaning/">drain cleaning</a> · <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
+      },
+      {
+        heading: 'Sewage on the floor',
+        html: `<p>Limit contact. Do not use a household vacuum on sewage. Call (703) 703-7855. We are open 24/7. Full safety list: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should I plunge an overflowing toilet?',
+        answer:
+          'Only after the water is under control and the bowl is not still rising. If sewage is already on the floor or multiple fixtures are involved, call instead of forcing more water into a blocked line.',
+      },
+    ],
+    related: [
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+      { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+      { label: 'Drain cleaning', href: '/drain-cleaning/' },
     ],
   },
 ];

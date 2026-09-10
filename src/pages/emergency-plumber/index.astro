@@ -15,7 +15,7 @@ import {
 } from '../../lib/schema';
 
 const phone = telHref();
-const title = 'Emergency Plumber Virginia Beach | 24-Hour Plumbing Help';
+const title = 'Emergency Plumber Virginia Beach | 24/7 Burst Pipes & Backups';
 const description =
   `24/7 emergency plumber in Virginia Beach for burst pipes, sewer backups, and major leaks. Call ${siteConfig.phoneDisplay} for urgent plumbing help.`;
 
@@ -41,11 +41,11 @@ const faqs = [
   },
   {
     question: 'Are you a 24-hour plumber in Virginia Beach?',
-    answer: `Yes — Virginia Beach Plumbing is open 24/7 for emergency plumbing help. Call <a href="${phone}">${siteConfig.phoneDisplay}</a>.`,
+    answer: `Yes. Virginia Beach Plumbing is open 24/7 for emergency plumbing help. Call <a href="${phone}">${siteConfig.phoneDisplay}</a>.`,
   },
   {
     question: 'Do you handle overflowing toilets and burst pipes after hours?',
-    answer: `Yes. Nights and weekends are included. Call ${siteConfig.phoneDisplay}. A running toilet that is not overflowing can wait for a scheduled plumbing repair visit.`,
+    answer: `Yes. Nights and weekends are included. Call ${siteConfig.phoneDisplay}. A running toilet that is not overflowing can wait for a scheduled plumbing repair visit. Overflow shutoff steps: <a href="/resources/toilet-overflowing/">toilet overflowing</a>.`,
   },
 ];
 
@@ -69,7 +69,7 @@ const schemas = [
   ),
   withContext(
     serviceNode(origin, {
-      name: 'Emergency Plumbing — Virginia Beach',
+      name: 'Emergency Plumbing in Virginia Beach',
       description,
       urlPath: '/emergency-plumber/',
     })
@@ -83,7 +83,7 @@ const schemas = [
   description={description}
   canonicalPath="/emergency-plumber/"
   ogImage="/images/emergency-plumbing.jpg"
-  ogImageAlt="Water spraying from a copper pipe — illustrative emergency plumbing photo, not a company job"
+  ogImageAlt="Water spraying from a copper pipe (illustrative emergency plumbing photo, not a company job)"
   stickyVariant="emergency"
   schemaJson={schemas}
 >
@@ -117,7 +117,7 @@ const schemas = [
       <img
         class="emergency-photo"
         src="/images/emergency-plumbing.jpg"
-        alt="Water spraying from a copper pipe while gloved hands work a valve — illustrative emergency plumbing photo"
+        alt="Water spraying from a copper pipe while gloved hands work a valve (illustrative emergency plumbing photo)"
         width="720"
         height="480"
         sizes="(max-width: 899px) calc(100vw - 2rem), 720px"
@@ -139,7 +139,7 @@ const schemas = [
         <li>Sudden loss of water related to plumbing failure</li>
       </ul>
       <p>
-        No hot water by itself is usually a scheduled <a href="/water-heaters/">water heater</a> visit — unless the tank is leaking or scalding water is discharging. A single slow drain can wait for <a href="/drain-cleaning/">drain cleaning</a>. If sewage is coming up, treat it as urgent.
+        No hot water by itself is usually a scheduled <a href="/water-heaters/">water heater</a> visit, unless the tank is leaking or scalding water is discharging. A single slow drain can wait for <a href="/drain-cleaning/">drain cleaning</a>. If sewage is coming up, treat it as urgent.
       </p>
 
       <figure class="prose-figure">
@@ -162,7 +162,7 @@ const schemas = [
       </ul>
       <h3>Don’t</h3>
       <ul>
-        <li>Don’t ignore sewage exposure — limit contact and ventilate if safe</li>
+        <li>Don’t ignore sewage exposure. Limit contact and ventilate if safe</li>
         <li>Don’t use electrical switches in standing water</li>
         <li>Don’t wait on chemical drain products during an active backup</li>
       </ul>
@@ -171,7 +171,7 @@ const schemas = [
         <a href="/resources/what-to-do-when-a-pipe-bursts/">what to do when a pipe bursts</a>
       </p>
 
-      <h2>Gas smell — different protocol</h2>
+      <h2>Gas smell: different protocol</h2>
       <p>
         If you smell gas: leave immediately, avoid switches and flames, and call the gas utility or emergency services from a safe location.
         Only contact a plumber after the area is safe. See <a href="/gas-line-services/">gas line services</a>.
@@ -208,7 +208,7 @@ const schemas = [
   <section class="section section--emergency">
     <div class="container">
       <h2>Call for emergency plumbing help</h2>
-      <p>Open 24/7 — Serving Virginia Beach, VA</p>
+      <p>Open 24/7. Serving Virginia Beach, VA</p>
       <div class="btn-group">
         <a class="btn btn--emergency" href={phone} data-track="emergency_call" data-track-location="emergency_final">
           Call {siteConfig.phoneDisplay}

@@ -1,10 +1,11 @@
 import { allServices, siteConfig, schemaTelephone } from '../config/site';
+import { resolveSiteOrigin } from './site-url';
 
 export const PHONE_E164 = schemaTelephone();
 export const OPENING_HOURS = 'Mo-Su 00:00-23:59';
 
 export function originFromSite(site: URL | undefined): string {
-  return (site?.origin || 'https://website-self-nine-84.vercel.app').replace(/\/$/, '');
+  return resolveSiteOrigin(site);
 }
 
 export function plumberId(origin: string): string {
@@ -40,7 +41,7 @@ function logoImage(origin: string) {
   };
 }
 
-/** City/state only — no street address, ratings, or reviews. */
+/** City/state only. No street address, ratings, or reviews. */
 export function plumberContractorNode(origin: string, variant: 'full' | 'lean' = 'full') {
   const core = {
     '@type': ['Plumber', 'PlumbingContractor', 'LocalBusiness'],

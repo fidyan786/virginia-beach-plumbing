@@ -111,7 +111,7 @@ export const homepageServices: ServiceCard[] = [
   {
     title: 'Emergency Plumbing',
     href: '/emergency-plumber/',
-    description: 'Burst pipes, major leaks, and sewer backups — help when the problem cannot wait.',
+    description: 'Burst pipes, major leaks, and sewer backups when the problem cannot wait.',
     priority: 'P0',
   },
   {
@@ -284,6 +284,15 @@ export const footerServiceLinks = [
   { label: 'Sewer Line Repair', href: '/sewer-line-repair/' },
   { label: 'Leak Detection', href: '/leak-detection/' },
   { label: 'Plumbing Repairs', href: '/plumbing-repairs/' },
+] as const;
+
+/** High-value guides for footer crawl paths (not a keyword dump). */
+export const footerGuideLinks = [
+  { label: 'Emergency checklist', href: '/resources/emergency-plumbing-checklist/' },
+  { label: 'Running toilet', href: '/resources/running-toilet/' },
+  { label: 'Leaking water heater', href: '/resources/water-heater-leaking/' },
+  { label: 'Low water pressure', href: '/resources/low-water-pressure/' },
+  { label: 'All plumbing guides', href: '/resources/' },
 ] as const;
 
 /** Single source for desktop dropdown + mobile accordion — no extra URLs. */
