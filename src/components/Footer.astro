@@ -5,78 +5,104 @@ import { siteConfig, telHref, primaryNav, footerServiceLinks, footerGuideLinks }
 const phone = telHref();
 const year = new Date().getFullYear();
 const footerNav = primaryNav.filter((item) => !item.highlight);
+const areaPreview = siteConfig.neighborhoods.slice(0, 6);
 ---
 
 <footer class="site-footer">
-  <div class="container footer-grid">
+  <div class="container footer-top">
     <div class="footer-brand-col">
       <a class="footer-logo" href="/" aria-label="Virginia Beach Plumbing home">
         <Logo variant="on-dark" />
       </a>
       <p class="footer-tag">
-        Local plumbing for Virginia Beach homes, rentals, and businesses. Clear answers, useful guides, and a direct
-        phone line when something breaks.
+        Virginia Beach Plumbing serves homes, rentals, and businesses across the city. Call when something breaks, or
+        read a short guide first if you are still sorting out the problem.
       </p>
       <p class="footer-nap">
-        {siteConfig.addressLine2}<br />
-        <a href={phone} data-track="phone_click" data-track-location="footer">{siteConfig.phoneDisplay}</a>
+        <span class="footer-nap__label">{siteConfig.addressLine2}</span>
+        <a class="footer-nap__phone" href={phone} data-track="phone_click" data-track-location="footer"
+          >{siteConfig.phoneDisplay}</a
+        >
+        <span class="footer-hours">{siteConfig.hoursDisplay}</span>
       </p>
-      <p class="footer-hours">{siteConfig.hoursDisplay}</p>
+      <div class="footer-brand-ctas">
+        <a class="btn btn--on-dark" href={phone} data-track="phone_click" data-track-location="footer_cta">Call now</a>
+        <a class="btn btn--ghost" href="/contact/" data-track="cta_click" data-track-label="footer_request"
+          >Request service</a
+        >
+      </div>
     </div>
 
-    <div>
-      <h2 class="footer-heading">Services</h2>
-      <ul>
-        {
-          footerServiceLinks.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))
-        }
-        <li>
-          <a href="/plumbing-services/">All plumbing services</a>
-        </li>
-      </ul>
-    </div>
+    <div class="footer-cols">
+      <div>
+        <h2 class="footer-heading">Services</h2>
+        <ul>
+          {
+            footerServiceLinks.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+          <li>
+            <a href="/tankless-water-heaters/">Tankless Water Heaters</a>
+          </li>
+          <li>
+            <a href="/plumbing-services/">All plumbing services</a>
+          </li>
+        </ul>
+      </div>
 
-    <div>
-      <h2 class="footer-heading">Guides</h2>
-      <ul>
-        {
-          footerGuideLinks.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+      <div>
+        <h2 class="footer-heading">Company</h2>
+        <ul>
+          {
+            footerNav.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
-    <div>
-      <h2 class="footer-heading">Company</h2>
-      <ul>
-        {
-          footerNav.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))
-        }
-      </ul>
-      <p class="footer-emergency">24/7 Emergency Plumbing</p>
-      <p class="muted">
-        Burst pipes, major leaks, and sewer backups.
-        Call
-        <a href={phone} data-track="emergency_call" data-track-location="footer">{siteConfig.phoneDisplay}</a>
-        or see
-        <a href="/emergency-plumber/">emergency plumbing</a>.
-      </p>
-      <p class="muted small">
-        City water or sewer emergencies may belong to Virginia Beach Public Utilities
-        (<a href={siteConfig.cityUtilitiesEmergencyUrl} rel="noopener noreferrer" target="_blank">vbgov.com</a>,
-        {siteConfig.cityUtilitiesEmergencyPhone}).
-      </p>
+      <div>
+        <h2 class="footer-heading">Resources</h2>
+        <ul>
+          {
+            footerGuideLinks.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer-heading">Service area</h2>
+        <p class="muted footer-area-copy">
+          Coverage is focused on Virginia Beach, VA. Neighborhoods we commonly work in include:
+        </p>
+        <ul class="footer-area-list">
+          {areaPreview.map((name) => <li>{name}</li>)}
+        </ul>
+        <p class="muted small">
+          <a href="/service-areas/">Full service area details</a>
+        </p>
+        <p class="footer-emergency">24/7 Emergency</p>
+        <p class="muted">
+          Burst pipes, major leaks, and sewer backups.
+          <a href="/emergency-plumber/">Emergency plumbing</a>
+          ·
+          <a href={phone} data-track="emergency_call" data-track-location="footer">{siteConfig.phoneDisplay}</a>
+        </p>
+        <p class="muted small">
+          City water or sewer emergencies may belong to Virginia Beach Public Utilities
+          (<a href={siteConfig.cityUtilitiesEmergencyUrl} rel="noopener noreferrer" target="_blank">vbgov.com</a>,
+          {siteConfig.cityUtilitiesEmergencyPhone}).
+        </p>
+      </div>
     </div>
   </div>
 
@@ -99,6 +125,37 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
     box-shadow: inset 0 3px 0 var(--color-cta);
   }
 
+  .footer-top {
+    display: grid;
+    gap: var(--space-7);
+  }
+
+  @media (min-width: 980px) {
+    .footer-top {
+      grid-template-columns: minmax(16rem, 1.15fr) minmax(0, 2.4fr);
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+
+  .footer-cols {
+    display: grid;
+    gap: var(--space-6);
+  }
+
+  @media (min-width: 640px) {
+    .footer-cols {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 980px) {
+    .footer-cols {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+  }
+
   .footer-logo {
     display: inline-flex;
     text-decoration: none;
@@ -108,14 +165,39 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
 
   .footer-tag {
     color: rgba(247, 244, 239, 0.72);
-    max-width: 36ch;
+    max-width: 38ch;
     margin-bottom: var(--space-5);
   }
 
+  .footer-nap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: var(--space-5);
+  }
+
+  .footer-nap__label,
   .footer-hours {
-    margin: 0.35rem 0 0;
     color: rgba(247, 244, 239, 0.6);
     font-size: 0.92rem;
+  }
+
+  .footer-nap__phone {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.2rem;
+    font-family: var(--font-body);
+    text-decoration: none;
+  }
+
+  .footer-nap__phone:hover {
+    color: #fff;
+  }
+
+  .footer-brand-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
   }
 
   .footer-heading {
@@ -130,7 +212,7 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
 
   .footer-emergency {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #fff;
     letter-spacing: -0.02em;
@@ -138,16 +220,23 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
     line-height: 1.2;
   }
 
-  .footer-grid {
-    display: grid;
-    gap: var(--space-7);
+  .footer-area-copy {
+    margin: 0 0 var(--space-3);
   }
 
-  @media (min-width: 900px) {
-    .footer-grid {
-      grid-template-columns: 1.35fr 0.85fr 0.85fr 1.15fr;
-      gap: var(--space-7);
-    }
+  .footer-area-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-3);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 0.75rem;
+  }
+
+  .footer-area-list li {
+    color: rgba(247, 244, 239, 0.72);
+    font-size: 0.92rem;
+    margin: 0;
   }
 
   .site-footer ul {
@@ -167,13 +256,6 @@ const footerNav = primaryNav.filter((item) => !item.highlight);
 
   .site-footer a:hover {
     color: #fff;
-  }
-
-  .footer-nap a {
-    font-weight: 700;
-    color: #fff;
-    font-size: 1.15rem;
-    font-family: var(--font-body);
   }
 
   .muted {

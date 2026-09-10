@@ -100,6 +100,7 @@ export function plumberContractorNode(origin: string, variant: 'full' | 'lean' =
       'Trenchless sewer repair',
       'Water heater repair',
       'Tankless water heater installation',
+      'Tankless water heater repair',
       'Leak detection',
       'Slab leak repair',
       'Commercial plumbing',

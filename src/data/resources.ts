@@ -225,12 +225,22 @@ export const resources: ResourceGuide[] = [
         heading: 'Kitchen grease vs a single hair clog',
         html: `<p>A bathroom sink that slows after hair buildup often responds to snaking. Restaurant and kitchen lines with grease may need a more thorough clearing method when the pipe can take it. Multiple fixtures backing up at once is more likely a main-line or sewer issue than a job for either method at a single trap.</p>`,
       },
+      {
+        heading: 'Limits of hydro jetting',
+        html: `<p>High pressure is not safe for every pipe condition. Collapsed sections, fragile laterals, or unknown pipe material may need a camera look before jetting. Hydro jetting clears buildup. It does not permanently fix a broken joint or a missing section of pipe.</p>
+        <p>Book the service conversation from <a href="/drain-cleaning/">drain cleaning</a>. Recurring backups after clearing may belong with <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
+      },
     ],
     faqs: [
       {
         question: 'Is hydro jetting always better?',
         answer:
           'No. Snaking solves many household clogs. Jetting can help with grease and heavy buildup when the pipe condition supports it. The clog and the pipe decide the method.',
+      },
+      {
+        question: 'Do I need a camera first?',
+        answer:
+          'Not always for a first-time simple clog. Recurring main-line problems, commercial grease lines, or unknown pipe condition are when camera inspection before high pressure is more useful.',
       },
     ],
   },
@@ -397,8 +407,53 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'Useful next pages',
-        html: `<p><a href="/repiping/">Repiping</a> for aging supply lines · <a href="/gas-line-services/">gas line services</a> for outdoor piping safety · <a href="/sump-pump/">sump pumps</a> for groundwater · <a href="/leak-detection/">leak detection</a> when moisture appears without an obvious source.</p>`,
+        html: `<p><a href="/repiping/">Repiping</a> for aging supply lines · <a href="/gas-line-services/">gas line services</a> for outdoor piping safety · <a href="/sump-pump/">sump pumps</a> for groundwater · <a href="/leak-detection/">leak detection</a> when moisture appears without an obvious source · <a href="/tankless-water-heaters/">tankless water heaters</a> when scale and humid mechanical rooms matter for on-demand units.</p>`,
       },
+      {
+        heading: 'What this page is not claiming',
+        html: `<p>Coastal conditions raise risk patterns. They do not diagnose your house from a webpage. Salt air near the Oceanfront is different from an inland subdivision a few miles west. Share the ZIP and what failed when you request service.</p>`,
+      },
+    ],
+  },
+  {
+    slug: 'no-hot-water',
+    title: 'No Hot Water | What to Check Before You Call',
+    description:
+      'What to check when a Virginia Beach home has no hot water, how to tell tank vs tankless issues, and when to call a plumber.',
+    h1: 'No Hot Water: What to Check',
+    moneyLink: { label: 'Water heater services', href: '/water-heaters/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'Start with the simple checks',
+        html: `<ul>
+          <li>Confirm other fixtures also lack hot water (not just one faucet)</li>
+          <li>Electric tank: check the breaker for the water heater</li>
+          <li>Gas tank: confirm the control has power or a working ignition/pilot path and that the gas supply is on</li>
+          <li>Look for water on the floor around the unit</li>
+        </ul>`,
+      },
+      {
+        heading: 'Tank vs tankless symptoms',
+        html: `<p>A conventional tank that is completely cold often points to power, gas, a failed element, or a thermostat. A tank that runs out quickly can be sediment or undersized recovery. Tankless units more often show error codes, lukewarm water, or ignition faults.</p>
+        <p>Tank service: <a href="/water-heaters/">water heaters</a>. Tankless service: <a href="/tankless-water-heaters/">tankless water heaters</a>.</p>`,
+      },
+      {
+        heading: 'When it is urgent',
+        html: `<p>Water spreading across the floor, scalding discharge, or a T&amp;P valve dumping heavily is urgent. Shut power or gas if safe, shut the cold supply, and call. See <a href="/resources/water-heater-leaking/">water heater leaking</a> and <a href="/emergency-plumber/">emergency plumbing</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is no hot water always an emergency?',
+        answer:
+          'Usually no, if the floor is dry. It is still worth scheduling quickly. Treat leaking or flooding as urgent.',
+      },
+    ],
+    related: [
+      { label: 'Water heaters', href: '/water-heaters/' },
+      { label: 'Tankless water heaters', href: '/tankless-water-heaters/' },
+      { label: 'Repair vs replace', href: '/resources/repair-or-replace-water-heater/' },
     ],
   },
   {

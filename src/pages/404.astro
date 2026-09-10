@@ -1,29 +1,60 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Logo from '../components/Logo.astro';
+import { siteConfig, telHref } from '../config/site';
+
+const phone = telHref();
 ---
 
 <BaseLayout
-  title="Page Not Found"
-  description="The page you requested could not be found."
+  title="Page Not Found | Virginia Beach Plumbing"
+  description="That page is not on this site. Browse plumbing services or call Virginia Beach Plumbing."
   canonicalPath="/"
   omitCanonical={true}
   noindex={true}
   stickyVariant="none"
 >
   <section class="section">
-    <div class="container" style="max-width:40rem;text-align:center">
+    <div class="container not-found">
+      <a class="not-found__logo" href="/" aria-label="Virginia Beach Plumbing home">
+        <Logo />
+      </a>
       <h1>Page not found</h1>
-      <p class="lead" style="margin-inline:auto">
-        That URL is not part of this site. Try one of these useful pages:
+      <p class="lead">
+        That URL is not part of this site. Use the links below, or call
+        <a href={phone}>{siteConfig.phoneDisplay}</a>.
       </p>
-      <ul class="related-links" style="justify-content:center">
+      <div class="btn-group" style="justify-content:center">
+        <a class="btn btn--primary" href={phone}>Call {siteConfig.phoneDisplay}</a>
+        <a class="btn btn--secondary" href="/contact/">Request Service</a>
+      </div>
+      <ul class="related-links" style="justify-content:center;margin-top:var(--space-6)">
         <li><a href="/">Home</a></li>
         <li><a href="/plumbing-services/">Services</a></li>
         <li><a href="/emergency-plumber/">Emergency</a></li>
         <li><a href="/drain-cleaning/">Drain cleaning</a></li>
         <li><a href="/water-heaters/">Water heaters</a></li>
+        <li><a href="/tankless-water-heaters/">Tankless</a></li>
+        <li><a href="/resources/">Guides</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .not-found {
+    max-width: 40rem;
+    text-align: center;
+  }
+
+  .not-found__logo {
+    display: inline-flex;
+    margin-bottom: var(--space-5);
+    text-decoration: none;
+  }
+
+  .not-found .lead {
+    margin-inline: auto;
+  }
+</style>

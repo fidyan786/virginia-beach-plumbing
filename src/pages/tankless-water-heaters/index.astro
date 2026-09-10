@@ -1,0 +1,12 @@
+---
+import ServicePage from '../../components/ServicePage.astro';
+import { servicePages } from '../../data/services';
+
+const page = servicePages['tankless-water-heaters'];
+---
+
+<ServicePage
+  page={page}
+  image="/images/water-heater.jpg"
+  imageAlt="Residential water heater equipment (illustrative stock photo)"
+/>

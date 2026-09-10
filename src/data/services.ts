@@ -159,7 +159,7 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Coastal and older-housing notes',
-        html: `<p>Some Virginia Beach laterals run through sandy soils, mature tree roots, or older clay/cast-iron pipe. Camera inspection is more useful than guessing from a single backup. Properties in areas such as Pungo may have septic systems rather than city sewer. We do not treat this page as septic pumping service.</p>
+        html: `<p>Some Virginia Beach laterals run through sandy soils, mature tree roots, or older clay/cast-iron pipe. Camera inspection is more useful than guessing from a single backup. Parts of the city, including areas such as Pungo, may use septic systems rather than city sewer. This page covers private sewer laterals connected to municipal systems. It is not a septic pumping or septic tank service page.</p>
         <p>More symptoms: <a href="/resources/signs-of-sewer-line-problems/">signs of a sewer line problem</a>.</p>`,
       },
       {
@@ -273,12 +273,12 @@ export const servicePages: Record<string, ServicePageData> = {
   },
 
   'water-heaters': {
-    title: 'Water Heater Repair & Replacement Virginia Beach | Tank & Tankless',
+    title: 'Water Heater Repair & Replacement Virginia Beach | Tank Service',
     description:
-      'Water heater repair, replacement, and installation in Virginia Beach for tank and tankless units. Call (703) 703-7855 or request service.',
+      'Water heater repair and replacement in Virginia Beach for conventional tanks, plus guidance when tankless is a better fit. Call (703) 703-7855 or request service.',
     canonicalPath: '/water-heaters/',
     h1: 'Water Heater Repair and Replacement in Virginia Beach',
-    lead: 'No hot water, lukewarm showers, or a leaking tank? We help Virginia Beach homes decide whether repair or replacement fits the unit.',
+    lead: 'No hot water, lukewarm showers, or a leaking tank? We help Virginia Beach homes decide whether repair or replacement fits the unit, and when tankless belongs on its own page.',
     primaryCtaLabel: 'Request Water Heater Service',
     primaryCtaHref: '/contact/',
     secondaryCtaLabel: 'Get Estimate',
@@ -294,17 +294,17 @@ export const servicePages: Record<string, ServicePageData> = {
           <li>Leaking tank or fittings</li>
           <li>Rumbling, popping, or unusual noises</li>
           <li>Pilot / ignition issues on gas units</li>
-        </ul>`,
+        </ul>
+        <p>Cold showers: <a href="/resources/no-hot-water/">no hot water guide</a>. Pooling water: <a href="/resources/water-heater-leaking/">water heater leaking</a>.</p>`,
       },
       {
         heading: 'Repair vs replacement',
         html: `<p>Age, leak location, efficiency, and repair cost relative to a new unit all matter. A leaking tank usually points toward replacement. Element, thermostat, or anode issues may be repairable. Use our decision guide: <a href="/resources/repair-or-replace-water-heater/">repair or replace a water heater</a>.</p>`,
       },
       {
-        heading: 'Tank vs tankless',
-        html: `<p>Most Virginia Beach homes still have a tank. Tankless units heat water as it flows, which can help if you run out of hot water during back-to-back showers, but they are not a drop-in swap. Gas tankless usually needs enough gas supply and the right venting. Electric tankless needs electrical capacity the panel may not have.</p>
-        <p>Hard water and mineral scale are a maintenance issue on tankless coils. Periodic descaling matters more than it does on a conventional tank. Coastal humidity does not change that, but it does make a leaking or corroded unit worth catching early.</p>
-        <p>If you already have tankless and it is erroring, producing lukewarm water, or shutting down, say so when you request service. If you are comparing a tank replacement to a tankless conversion, we look at the existing hookups before recommending either. Related: <a href="/gas-line-services/">gas line services</a> when a new gas run is part of the job.</p>`,
+        heading: 'Tank service on this page',
+        html: `<p>Most Virginia Beach homes still have a tank. This page focuses on tank repair, same-type replacement, and early checks that tell you whether the heater is the problem.</p>
+        <p>If you already have tankless, or you are planning a tank-to-tankless conversion, use <a href="/tankless-water-heaters/">tankless water heaters</a>. That work often needs different gas, venting, or electrical capacity than a like-for-like tank swap.</p>`,
       },
       {
         heading: 'No hot water: a short check',
@@ -338,7 +338,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Tank or tankless, which is better?',
         answer:
-          'It depends on fuel type, venting, electrical or gas capacity, and how you use hot water. Tankless is not automatically the right upgrade. We discuss options after looking at the existing setup.',
+          'It depends on fuel type, venting, electrical or gas capacity, and how you use hot water. Tankless is not automatically the right upgrade. Compare options on our <a href="/tankless-water-heaters/">tankless water heaters</a> page after we look at the existing setup.',
       },
       {
         question: 'A leaking tank: repair or replace?',
@@ -348,14 +348,104 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Do you repair tankless water heaters?',
         answer:
-          'Yes. Tank and tankless service stay on this page so you are not sent to a second water-heater URL. Error codes, lukewarm water, ignition faults, and scale-related shutdowns are common tankless calls. Gas supply and venting still matter on gas units. See <a href="/gas-line-services/">gas line services</a> if a new run is part of the job.',
+          'Yes. Tankless install, conversion, and repair details live on the <a href="/tankless-water-heaters/">tankless water heaters</a> page so this page can stay focused on tank problems and like-for-like replacements.',
       },
     ],
     related: [
+      { label: 'Tankless water heaters', href: '/tankless-water-heaters/' },
       { label: 'Gas line services', href: '/gas-line-services/' },
+      { label: 'No hot water guide', href: '/resources/no-hot-water/' },
       { label: 'Leaking water heater guide', href: '/resources/water-heater-leaking/' },
       { label: 'Repair vs replace guide', href: '/resources/repair-or-replace-water-heater/' },
       { label: 'Cost factors', href: '/resources/water-heater-replacement-cost-virginia-beach/' },
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+    ],
+  },
+
+  'tankless-water-heaters': {
+    title: 'Tankless Water Heater Virginia Beach | Install, Convert & Repair',
+    description:
+      'Tankless water heater installation, tank-to-tankless conversion, and tankless repair in Virginia Beach. Gas supply, venting, and electrical capacity matter. Call (703) 703-7855.',
+    canonicalPath: '/tankless-water-heaters/',
+    h1: 'Tankless Water Heaters in Virginia Beach',
+    lead: 'Tankless units heat water on demand. They can solve run-out-of-hot-water problems, but they are not a drop-in swap for every Virginia Beach home. This page covers install, conversion, and repair when capacity and venting allow.',
+    primaryCtaLabel: 'Request Tankless Service',
+    primaryCtaHref: '/contact/',
+    secondaryCtaLabel: 'Call Now',
+    formVariant: 'quote',
+    formHeading: 'Request tankless water heater service',
+    sections: [
+      {
+        heading: 'What tankless is good at',
+        html: `<ul>
+          <li>Continuous hot water when sized correctly for the fixtures you run at once</li>
+          <li>No storage tank that can rust through and flood a garage or closet</li>
+          <li>Smaller footprint than a tall tank in some mechanical rooms</li>
+        </ul>
+        <p>Tankless is not automatically cheaper to own. Hard water and mineral scale matter more on heat exchangers. Periodic descaling is common maintenance, not optional trivia.</p>`,
+      },
+      {
+        heading: 'Why conversions fail as simple replacements',
+        html: `<p>A gas tankless unit often needs far more BTU capacity than a storage tank. The existing gas line may be undersized. Venting is usually different from older B-vent tank setups. Electric tankless can demand electrical capacity the panel does not have.</p>
+        <p>Virginia Beach water heater work commonly needs a plumbing permit for like-for-like swaps, and tank-to-tankless conversions can involve plumbing and gas permits. Confirm current rules with city Building Permits. Related piping: <a href="/gas-line-services/">gas line services</a>.</p>`,
+      },
+      {
+        heading: 'When to stay with a tank',
+        html: `<p>If the gas or electrical infrastructure would need major upgrades, a high-efficiency tank replacement can be the cleaner path. If you only need a failed tank replaced like-for-like, start on <a href="/water-heaters/">water heater repair and replacement</a>.</p>`,
+      },
+      {
+        heading: 'Tankless repair signs',
+        html: `<ul>
+          <li>Error codes or lockouts</li>
+          <li>Lukewarm water or temperature swings</li>
+          <li>Ignition faults on gas units</li>
+          <li>Scale-related shutdowns after hard-water buildup</li>
+          <li>Leaks at fittings or the heat exchanger area</li>
+        </ul>
+        <p>Describe the brand, any code on the display, and whether cold water still flows. That saves time on the visit.</p>`,
+      },
+      {
+        heading: 'What a visit usually covers',
+        html: `<ol>
+          <li>Confirm fuel type, venting, and electrical or gas capacity</li>
+          <li>Inspect the existing unit or the space for a conversion</li>
+          <li>Explain whether repair, like-for-like tankless replacement, or staying with a tank fits better</li>
+          <li>Outline permit-related steps when they apply</li>
+        </ol>
+        <p>We do not quote conversion totals from a chat message. Access, pipe sizes, and venting change the scope.</p>`,
+      },
+      {
+        heading: 'Coastal and hard-water notes',
+        html: `<p>Mineral scale and humid mechanical rooms show up on tankless coils and outdoor-adjacent equipment. That is one reason maintenance intervals matter more than on some tanks. Local context: <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can every home convert to tankless?',
+        answer:
+          'No. Gas supply, venting, clearances, and electrical capacity decide it. Some homes are better served by a modern tank. An on-site look prevents buying the wrong unit.',
+      },
+      {
+        question: 'Do you install and repair tankless units?',
+        answer:
+          'Yes. This page is for tankless install, conversion assessment, and repair. Conventional tank problems stay on the water heaters page.',
+      },
+      {
+        question: 'Is tankless always more efficient?',
+        answer:
+          'It can reduce standby heat loss, but real savings depend on usage patterns, unit sizing, and maintenance. Efficiency claims without looking at your fixtures are marketing, not a plan.',
+      },
+      {
+        question: 'What if my tankless is leaking?',
+        answer:
+          'Shut power or gas if you can do so safely, shut the cold supply, and call if water is spreading. Fitting drips and heat-exchanger issues are different problems. See emergency plumbing when water is on the floor.',
+      },
+    ],
+    related: [
+      { label: 'Water heaters (tank)', href: '/water-heaters/' },
+      { label: 'Gas line services', href: '/gas-line-services/' },
+      { label: 'No hot water guide', href: '/resources/no-hot-water/' },
+      { label: 'Replacement cost factors', href: '/resources/water-heater-replacement-cost-virginia-beach/' },
       { label: 'Emergency plumber', href: '/emergency-plumber/' },
     ],
   },

@@ -80,6 +80,7 @@ export type ServiceSlug =
   | 'sewer-line-repair'
   | 'trenchless-sewer-repair'
   | 'water-heaters'
+  | 'tankless-water-heaters'
   | 'leak-detection'
   | 'slab-leak-repair'
   | 'commercial-plumbing'
@@ -198,6 +199,14 @@ export const p0Services: ServiceCard[] = [
     imageAlt: 'Removed residential water heater tank (illustrative stock photo)',
   },
   {
+    title: 'Tankless Water Heaters',
+    href: '/tankless-water-heaters/',
+    description: 'Tankless install, conversion, and repair when gas or power capacity allows.',
+    priority: 'P0',
+    image: '/images/water-heater.jpg',
+    imageAlt: 'Residential water heater equipment (illustrative stock photo)',
+  },
+  {
     title: 'Leak Detection',
     href: '/leak-detection/',
     description: 'Find hidden pipe and water line leaks before damage spreads.',
@@ -289,9 +298,9 @@ export const footerServiceLinks = [
 /** High-value guides for footer crawl paths (not a keyword dump). */
 export const footerGuideLinks = [
   { label: 'Emergency checklist', href: '/resources/emergency-plumbing-checklist/' },
+  { label: 'No hot water', href: '/resources/no-hot-water/' },
   { label: 'Running toilet', href: '/resources/running-toilet/' },
   { label: 'Leaking water heater', href: '/resources/water-heater-leaking/' },
-  { label: 'Low water pressure', href: '/resources/low-water-pressure/' },
   { label: 'All plumbing guides', href: '/resources/' },
 ] as const;
 
