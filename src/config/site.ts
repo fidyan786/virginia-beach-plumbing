@@ -40,6 +40,16 @@ export const siteConfig = {
     ga4MeasurementId: '[GA4_MEASUREMENT_ID — REQUIRED]',
     gtmContainerId: '[GTM_CONTAINER_ID — OPTIONAL]',
   },
+  /**
+   * Google Business Profile — leave empty until a real, eligible profile exists.
+   * Do not invent a Maps URL. Paste the live profile and review links after verification.
+   * Owner setup checklist: /local-presence/ (noindex).
+   */
+  googleBusinessProfile: {
+    profileUrl: '',
+    reviewUrl: '',
+    mapsUrl: '',
+  },
   canonicalDomainNote: '[CANONICAL-DOMAIN — REQUIRED]',
   formEndpoint: '[FORM_ENDPOINT — REQUIRED]',
   /**
@@ -124,7 +134,7 @@ export const homepageServices: ServiceCard[] = [
   {
     title: 'Water Heaters',
     href: '/water-heaters/',
-    description: 'Repair, replacement, and installation for tank and tankless systems.',
+    description: 'Tank repair, replacement, and installation. Tankless has its own page.',
     priority: 'P0',
   },
   {
@@ -193,7 +203,7 @@ export const p0Services: ServiceCard[] = [
   {
     title: 'Water Heaters',
     href: '/water-heaters/',
-    description: 'Repair, replacement, and installation for tank and tankless.',
+    description: 'Tank water heater repair, replacement, and installation.',
     priority: 'P0',
     image: '/images/water-heater.jpg',
     imageAlt: 'Removed residential water heater tank (illustrative stock photo)',
@@ -299,10 +309,26 @@ export const footerServiceLinks = [
 export const footerGuideLinks = [
   { label: 'Emergency checklist', href: '/resources/emergency-plumbing-checklist/' },
   { label: 'No hot water', href: '/resources/no-hot-water/' },
-  { label: 'Running toilet', href: '/resources/running-toilet/' },
+  { label: 'Recurring drain clogs', href: '/resources/recurring-drain-clogs/' },
   { label: 'Leaking water heater', href: '/resources/water-heater-leaking/' },
   { label: 'All plumbing guides', href: '/resources/' },
 ] as const;
+
+/** True when a real GA4 ID is configured (not a placeholder). */
+export function hasRealAnalytics(): boolean {
+  return !String(siteConfig.analytics.ga4MeasurementId).includes('REQUIRED');
+}
+
+/** True when a real form endpoint is configured (not a placeholder). */
+export function hasRealFormEndpoint(): boolean {
+  const endpoint = String(siteConfig.formEndpoint || '');
+  return Boolean(endpoint) && !endpoint.includes('REQUIRED') && !endpoint.includes('[');
+}
+
+/** True when a Google Business Profile URL has been pasted in after verification. */
+export function hasGoogleBusinessProfile(): boolean {
+  return Boolean(siteConfig.googleBusinessProfile.profileUrl?.trim());
+}
 
 /** Single source for desktop dropdown + mobile accordion — no extra URLs. */
 export const navServiceGroups = [

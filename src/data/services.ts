@@ -76,7 +76,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         heading: 'Kitchen, bath, and main-line clogs',
         html: `<p>Kitchen lines often collect grease and food waste. Bathroom drains more often collect hair and soap film. When several fixtures slow at once, the issue may be the main line rather than a single trap.</p>
-        <p>Older Virginia Beach housing and coastal properties can also see root intrusion and grease buildup that returns after a single snake. Sandy soils and mature trees along laterals make recurring main-line clogs more than a “hair in the trap” problem. Recurring clogs are a reason to inspect rather than keep punching through the same blockage.</p>`
+        <p>Older Virginia Beach housing and coastal properties can also see root intrusion and grease buildup that returns after a single snake. Sandy soils and mature trees along laterals make recurring main-line clogs more than a “hair in the trap” problem. Recurring clogs are a reason to inspect rather than keep punching through the same blockage. See <a href="/resources/recurring-drain-clogs/">drain keeps clogging</a>.</p>`
       },
       {
         heading: 'Residential and commercial drain cleaning',
@@ -101,7 +101,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'When is a clog actually a sewer problem?',
         answer:
-          'If more than one fixture backs up, you smell sewage, or a floor drain overflows, the issue may be the sewer lateral. See our sewer line repair page and consider camera inspection.',
+          'If more than one fixture backs up, you smell sewage, or a floor drain overflows, the issue may be the sewer lateral. See our sewer line repair page and consider camera inspection. Sewage in living space: <a href="/resources/sewer-backup/">sewer backup guide</a>.',
       },
       {
         question: 'Do you hydro jet drains in Virginia Beach?',
@@ -115,6 +115,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
       { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
       { label: 'Hydro jetting vs snaking', href: '/resources/hydro-jetting-vs-snaking/' },
+      { label: 'Recurring drain clogs', href: '/resources/recurring-drain-clogs/' },
     ],
   },
 
@@ -964,7 +965,7 @@ export const servicePages: Record<string, ServicePageData> = {
         html: `<p>Common toilet calls in Virginia Beach homes include a toilet that keeps running, a weak or incomplete flush, a clog that will not clear with a plunger, leaking at the base, or a fill valve that never shuts off.</p>
         <ul>
           <li><strong>Running toilet:</strong> Usually a flapper, fill valve, or chain issue. It wastes water even when nobody is in the bathroom. See the <a href="/resources/running-toilet/">running toilet guide</a>.</li>
-          <li><strong>Clogged toilet:</strong> A single clogged toilet is often a fixture or branch-line issue. If the tub or shower backs up when you flush, treat it as a drain or sewer problem.</li>
+          <li><strong>Clogged toilet:</strong> A single clogged toilet is often a fixture or branch-line issue. Safe steps: <a href="/resources/clogged-toilet/">clogged toilet guide</a>. If the tub or shower backs up when you flush, treat it as a drain or sewer problem.</li>
           <li><strong>Overflowing toilet:</strong> Shut the supply valve at the wall if you can do so safely. Step-by-step: <a href="/resources/toilet-overflowing/">toilet overflowing</a>. If water is spreading, use <a href="/emergency-plumber/">emergency plumbing</a>.</li>
         </ul>`,
       },
@@ -1012,7 +1013,7 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Is a clogged toilet drain cleaning or a toilet repair?',
         answer:
-          'A single toilet that will not flush after plunging is usually a toilet or nearby branch-line issue. If multiple fixtures back up, go to drain cleaning or sewer line repair.',
+          'A single toilet that will not flush after plunging is usually a toilet or nearby branch-line issue. Start with the <a href="/resources/clogged-toilet/">clogged toilet guide</a>. If multiple fixtures back up, go to drain cleaning or sewer line repair.',
       },
       {
         question: 'Do you serve rentals and landlords in Virginia Beach?',
@@ -1023,6 +1024,7 @@ export const servicePages: Record<string, ServicePageData> = {
     related: [
       { label: 'Residential plumbing', href: '/residential-plumbing/' },
       { label: 'Running toilet guide', href: '/resources/running-toilet/' },
+      { label: 'Clogged toilet guide', href: '/resources/clogged-toilet/' },
       { label: 'Toilet overflowing', href: '/resources/toilet-overflowing/' },
       { label: 'Drain cleaning', href: '/drain-cleaning/' },
       { label: 'Leak detection', href: '/leak-detection/' },

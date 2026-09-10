@@ -1,4 +1,4 @@
-import { allServices, siteConfig, schemaTelephone } from '../config/site';
+import { allServices, hasGoogleBusinessProfile, siteConfig, schemaTelephone } from '../config/site';
 import { resolveSiteOrigin } from './site-url';
 
 export const PHONE_E164 = schemaTelephone();
@@ -65,6 +65,14 @@ export function plumberContractorNode(origin: string, variant: 'full' | 'lean' =
       addressCountry: 'US',
     },
     areaServed: areaServedCity(),
+    ...(hasGoogleBusinessProfile()
+      ? {
+          sameAs: [
+            siteConfig.googleBusinessProfile.profileUrl,
+            siteConfig.googleBusinessProfile.mapsUrl,
+          ].filter(Boolean),
+        }
+      : {}),
   };
 
   if (variant === 'lean') {

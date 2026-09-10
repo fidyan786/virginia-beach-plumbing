@@ -1,0 +1,229 @@
+---
+/**
+ * Owner/operator kit for GBP, Search Console, citations, and reviews.
+ * noindex — not a customer SEO landing page.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig, hasGoogleBusinessProfile } from '../../config/site';
+import {
+  gbpEligibilityGate,
+  gbpSetupSteps,
+  gbpDescription,
+  gbpServices,
+  verificationChecklist,
+  photoChecklist,
+  reviewRequestTemplates,
+  reviewResponseTemplates,
+  citationTargets,
+  searchConsoleSteps,
+  intentMap,
+} from '../../data/local-presence';
+
+const hasGbp = hasGoogleBusinessProfile();
+---
+
+<BaseLayout
+  title="Local Presence Kit | Virginia Beach Plumbing"
+  description="Internal checklist for Google Business Profile, Search Console, citations, and reviews."
+  canonicalPath="/local-presence/"
+  noindex={true}
+  stickyVariant="none"
+>
+  <section class="section">
+    <div class="container kit">
+      <p class="eyebrow">Owner / operator only</p>
+      <h1>Local presence kit</h1>
+      <p class="lead">
+        This page is <strong>noindex</strong>. Use it to finish the off-site work the website cannot do alone.
+        Customer-facing pages stay free of SEO-ops language.
+      </p>
+
+      <div class="callout">
+        <h2>{gbpEligibilityGate.title}</h2>
+        <ul>
+          {gbpEligibilityGate.rules.map((rule) => <li>{rule}</li>)}
+        </ul>
+      </div>
+
+      <h2>NAP to keep consistent</h2>
+      <ul>
+        <li><strong>Name:</strong> {siteConfig.brandName}</li>
+        <li><strong>Phone:</strong> {siteConfig.phoneDisplay}</li>
+        <li><strong>Address:</strong> Service-area business (no public storefront on this site)</li>
+        <li><strong>Website:</strong> Final custom domain when ready; current prod is temporary</li>
+        <li>
+          <strong>GBP URL wired in code:</strong>
+          {hasGbp ? siteConfig.googleBusinessProfile.profileUrl : 'Not set yet (paste into siteConfig.googleBusinessProfile after verification)'}
+        </li>
+      </ul>
+
+      <h2>Google Business Profile setup</h2>
+      <ol>
+        {gbpSetupSteps.map((step) => <li>{step}</li>)}
+      </ol>
+
+      <h2>Suggested GBP description (copy after eligibility confirmed)</h2>
+      <pre class="copy-block">{gbpDescription}</pre>
+
+      <h2>GBP services to add (only if offered)</h2>
+      <ul>
+        {
+          gbpServices.map((s) => (
+            <li>
+              <strong>{s.name}:</strong> {s.blurb}
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Verification checklist</h2>
+      <ul>
+        {verificationChecklist.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2>Real photo checklist</h2>
+      <ul>
+        {
+          photoChecklist.map((item) => (
+            <li>
+              <code>{item.fileHint}</code>: {item.note}
+            </li>
+          ))
+        }
+      </ul>
+
+      <h2>Review request templates</h2>
+      <p>{reviewRequestTemplates.timing}</p>
+      <h3>SMS</h3>
+      <pre class="copy-block">{reviewRequestTemplates.sms}</pre>
+      <h3>Email</h3>
+      <pre class="copy-block">{reviewRequestTemplates.emailSubject}
+
+{reviewRequestTemplates.emailBody}</pre>
+
+      <h2>Review response templates</h2>
+      <ul>
+        <li><strong>Positive:</strong> {reviewResponseTemplates.positive}</li>
+        <li><strong>Neutral:</strong> {reviewResponseTemplates.neutral}</li>
+        <li><strong>Complaint:</strong> {reviewResponseTemplates.complaint}</li>
+        <li><strong>Pricing:</strong> {reviewResponseTemplates.pricing}</li>
+        <li><strong>Spam:</strong> {reviewResponseTemplates.spam}</li>
+      </ul>
+
+      <h2>Search Console</h2>
+      <ol>
+        {searchConsoleSteps.map((step) => <li>{step}</li>)}
+      </ol>
+
+      <h2>Citation targets (quality over quantity)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Directory</th>
+              <th>URL</th>
+              <th>Eligibility</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              citationTargets.map((row) => (
+                <tr>
+                  <td>{row.directory}</td>
+                  <td>
+                    {row.url.startsWith('http') ? (
+                      <a href={row.url} rel="noopener noreferrer" target="_blank">
+                        {row.url}
+                      </a>
+                    ) : (
+                      row.url
+                    )}
+                  </td>
+                  <td>{row.eligibility}</td>
+                  <td>{row.status}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Intent → URL map (already implemented on site)</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Intent</th>
+              <th>Primary URL</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              intentMap.map((row) => (
+                <tr>
+                  <td>{row.intent}</td>
+                  <td>
+                    <a href={row.url}>{row.url}</a>
+                  </td>
+                  <td>{row.notes}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .kit {
+    max-width: 48rem;
+  }
+  .kit h2 {
+    margin-top: 2.25rem;
+  }
+  .kit h3 {
+    margin-top: 1.25rem;
+    font-size: 1.05rem;
+  }
+  .callout {
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.35rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  .callout h2 {
+    margin-top: 0;
+  }
+  .copy-block {
+    white-space: pre-wrap;
+    word-break: break-word;
+    padding: 1rem 1.1rem;
+    background: #0f1720;
+    color: #f4efe6;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    overflow-x: auto;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  th,
+  td {
+    border: 1px solid var(--color-border);
+    padding: 0.55rem 0.65rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: var(--color-surface);
+  }
+</style>

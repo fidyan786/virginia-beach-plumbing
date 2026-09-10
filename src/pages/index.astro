@@ -46,20 +46,20 @@ const featured = [
 
 const principles = [
   {
-    title: 'Clear Communication',
-    copy: 'You should know what we are looking at, what we recommend, and why.',
+    title: 'Plain explanations',
+    copy: 'You hear what we are looking at, what we recommend, and why, without jargon for its own sake.',
   },
   {
-    title: 'Problem-Focused Service',
-    copy: 'We start with the issue in front of us: the leak, the clog, the heater, the backup. Then we talk through the right next step.',
+    title: 'Start with the problem',
+    copy: 'We begin with the leak, the clog, the heater, or the backup in front of us, then decide the next useful step.',
   },
   {
     title: 'Homes and businesses',
-    copy: 'Homes, rentals, restaurants, offices, hospitality, and property managers all need plumbing that works. We serve both.',
+    copy: 'Homeowners, landlords, restaurants, offices, hospitality sites, and property managers can all request help.',
   },
   {
-    title: 'Virginia Beach Focus',
-    copy: 'This is a local service company. Coverage is focused on Virginia Beach.',
+    title: 'Virginia Beach coverage',
+    copy: 'We serve Virginia Beach. Confirm your ZIP when you call or send a request.',
   },
 ];
 
@@ -90,9 +90,9 @@ const homeGuides = [
     copy: 'Shutoff, safety, and when to call versus waiting.',
   },
   {
-    href: '/resources/running-toilet/',
-    title: 'Toilet keeps running',
-    copy: 'Flapper, fill valve, and when a quiet runner still needs a visit.',
+    href: '/resources/no-hot-water/',
+    title: 'No hot water',
+    copy: 'Power, gas, and tank vs tankless checks before you replace anything.',
   },
   {
     href: '/resources/water-heater-leaking/',
@@ -100,9 +100,9 @@ const homeGuides = [
     copy: 'Bottom leak vs fitting drip, and when to shut the unit off.',
   },
   {
-    href: '/resources/low-water-pressure/',
-    title: 'Low water pressure',
-    copy: 'One fixture vs whole house, and when leak detection matters.',
+    href: '/resources/recurring-drain-clogs/',
+    title: 'Drain keeps clogging',
+    copy: 'When a snake is not enough and inspection makes more sense.',
   },
 ];
 
@@ -119,7 +119,7 @@ const faqs = [
   {
     question: 'How much does a plumber cost in Virginia Beach?',
     answer:
-      'It depends on urgency, access, parts, and what we find. We do not publish fake prices. Read the <a href="/resources/plumber-cost-virginia-beach/">cost factors</a> guide, then call or request a visit so the number matches the job.',
+      'It depends on urgency, access, parts, and what we find on site. The <a href="/resources/plumber-cost-virginia-beach/">cost factors</a> guide explains what changes the number. Call or request a visit for a quote that matches the actual job.',
   },
   {
     question: 'Do you work with commercial properties?',
@@ -197,8 +197,8 @@ const faqSchema = withContext(faqPage(faqs));
     <div class="container trust-strip__grid">
       <p>24/7 Emergency Support</p>
       <p>Residential &amp; Commercial</p>
-      <p>Virginia Beach Focused</p>
-      <p>Clear Communication</p>
+      <p>Serving Virginia Beach</p>
+      <p>Clear Next Steps</p>
     </div>
   </section>
 
@@ -288,7 +288,7 @@ const faqSchema = withContext(faqPage(faqs));
       <div class="split-panel__content">
         <p class="eyebrow eyebrow--on-dark">Homes &amp; rentals</p>
         <h2>Residential Plumbing</h2>
-        <p>Reliable plumbing support for homes, rentals, and property owners.</p>
+        <p>Toilets, drains, water heaters, leaks, and the fixture repairs homes and rentals need.</p>
         <span class="split-panel__cta">Residential Services</span>
       </div>
     </a>
@@ -314,9 +314,9 @@ const faqSchema = withContext(faqPage(faqs));
     <div class="container home-why__grid">
       <div data-reveal>
         <p class="eyebrow">Why choose us</p>
-        <h2>Clear Work. Straight Answers.</h2>
+        <h2>Clear work. Straight answers.</h2>
         <p class="lead">
-          Plumbing problems are stressful enough. We keep the conversation honest: what we can do, what we need from you, and how to get started in Virginia Beach.
+          When something breaks, you need a useful next step. Tell us the ZIP and what is going wrong. We will say whether it looks urgent, what to shut off if safe, and how to request a visit.
         </p>
       </div>
       <ol class="principle-list">
@@ -369,9 +369,9 @@ const faqSchema = withContext(faqPage(faqs));
       </div>
       <div class="home-local__copy" data-reveal>
         <p class="eyebrow">Service area</p>
-        <h2>Plumbing Help, Focused on Virginia Beach</h2>
+        <h2>Plumbing help across Virginia Beach</h2>
         <p>
-          We work with Virginia Beach homeowners, landlords, businesses, and property managers. Coastal homes, established neighborhoods, and everyday rentals all need plumbing help that is local and specific to this city.
+          We work with homeowners, landlords, businesses, and property managers in Virginia Beach. Coastal exposure, older housing stock, and storm-season drainage issues show up often here. Neighborhoods below are common call areas, not separate landing pages.
         </p>
         <ul class="place-list">
           {siteConfig.neighborhoods.map((place) => <li>{place}</li>)}

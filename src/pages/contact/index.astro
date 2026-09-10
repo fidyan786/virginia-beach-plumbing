@@ -2,13 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LeadForm from '../../components/LeadForm.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import { siteConfig, telHref } from '../../config/site';
+import { siteConfig, telHref, hasGoogleBusinessProfile, hasRealFormEndpoint } from '../../config/site';
 import { originFromSite, plumberContractorNode, breadcrumbList, withContext } from '../../lib/schema';
 
 const phone = telHref();
 const title = 'Contact Virginia Beach Plumbing | Request Service';
 const description =
   `Contact Virginia Beach Plumbing. Call ${siteConfig.phoneDisplay} anytime (open 24/7) or request service online. Serving Virginia Beach, VA.`;
+const hasGbp = hasGoogleBusinessProfile();
+const formLive = hasRealFormEndpoint();
 
 const origin = originFromSite(Astro.site);
 const schemas = [
@@ -56,6 +58,36 @@ const schemas = [
           <p>{siteConfig.addressLine2}</p>
           <p class="muted">We come to you throughout Virginia Beach. There is no public storefront on this site.</p>
         </div>
+
+        {
+          hasGbp && siteConfig.googleBusinessProfile.reviewUrl ? (
+            <div class="contact-block">
+              <h2>Google reviews</h2>
+              <p class="muted">If we already completed a job for you, a short review helps neighbors choose a plumber.</p>
+              <p>
+                <a
+                  class="btn btn--secondary"
+                  href={siteConfig.googleBusinessProfile.reviewUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  data-track="cta_click"
+                  data-track-label="contact_google_review"
+                >
+                  Leave a Google review
+                </a>
+              </p>
+            </div>
+          ) : null
+        }
+
+        {
+          !formLive ? (
+            <p class="muted small">
+              Online requests need a live form endpoint. Until that is connected, calling {siteConfig.phoneDisplay} is the
+              surest path.
+            </p>
+          ) : null
+        }
 
         <figure class="prose-figure">
           <img

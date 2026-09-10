@@ -77,7 +77,17 @@ function resourceSlugs() {
 /** Also include service page folders under src/pages as a safety net. */
 function serviceFolders() {
   const pages = join(root, 'src/pages');
-  const skip = new Set(['about', 'contact', 'privacy', 'terms', 'thank-you', 'resources', 'service-areas', 'plumbing-services']);
+  const skip = new Set([
+    'about',
+    'contact',
+    'privacy',
+    'terms',
+    'thank-you',
+    'resources',
+    'service-areas',
+    'plumbing-services',
+    'local-presence',
+  ]);
   return readdirSync(pages, { withFileTypes: true })
     .filter((d) => d.isDirectory() && !skip.has(d.name))
     .map((d) => `/${d.name}/`);

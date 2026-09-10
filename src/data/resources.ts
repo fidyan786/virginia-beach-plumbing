@@ -728,4 +728,168 @@ export const resources: ResourceGuide[] = [
       { label: 'Drain cleaning', href: '/drain-cleaning/' },
     ],
   },
+  {
+    slug: 'recurring-drain-clogs',
+    title: 'Drain Keeps Clogging | Causes and Next Steps',
+    description:
+      'Why the same drain keeps clogging, when snaking is not enough, and when camera inspection or hydro jetting may help in Virginia Beach.',
+    h1: 'Why the Same Drain Keeps Clogging',
+    moneyLink: { label: 'Drain cleaning', href: '/drain-cleaning/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'One clog vs a pattern',
+        html: `<p>A single kitchen sink clog after a greasy meal is common. The same fixture clogging every few weeks, or several fixtures slowing together, usually means buildup, roots, or a damaged section farther down the line.</p>`,
+      },
+      {
+        heading: 'Common causes of repeat clogs',
+        html: `<ul>
+          <li>Grease and soap film coating the pipe walls</li>
+          <li>Hair and debris catching on rough spots</li>
+          <li>Root intrusion in older laterals</li>
+          <li>Offset joints, belly (sag), or partial collapse</li>
+          <li>Wrong pipe pitch or a foreign object stuck in the line</li>
+        </ul>
+        <p>Snaking can punch a temporary hole through soft buildup. If the walls stay coated or the pipe is damaged, the clog returns.</p>`,
+      },
+      {
+        heading: 'What to try before another emergency call',
+        html: `<p>Note which fixtures are affected, how often it happens, and whether outdoor cleanouts or floor drains gurgle. Avoid repeated chemical drain openers. They rarely fix structural issues and can make later work harder.</p>
+        <p>Method comparison: <a href="/resources/hydro-jetting-vs-snaking/">hydro jetting vs snaking</a>.</p>`,
+      },
+      {
+        heading: 'When inspection matters',
+        html: `<p>If the same main-line backup returns, a camera look is often smarter than another blind clear. Inspection can show whether jetting, spot repair, or a sewer lateral fix is the honest next step.</p>
+        <p>Related: <a href="/drain-cleaning/">drain cleaning</a> · <a href="/sewer-line-repair/">sewer line repair</a> · <a href="/resources/signs-of-sewer-line-problems/">signs of sewer line problems</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can hydro jetting stop recurring clogs?',
+        answer:
+          'It can help when grease and sludge coat the pipe and the line is otherwise sound. It will not permanently fix roots in a cracked pipe or a collapsed section. Camera findings decide that.',
+      },
+      {
+        question: 'Is a recurring clog an emergency?',
+        answer:
+          'Not if drains are slow but usable. If sewage is backing into living space, treat it as urgent and call. See emergency plumbing and the sewer backup guide.',
+      },
+    ],
+    related: [
+      { label: 'Drain cleaning', href: '/drain-cleaning/' },
+      { label: 'Hydro jetting vs snaking', href: '/resources/hydro-jetting-vs-snaking/' },
+      { label: 'Sewer line repair', href: '/sewer-line-repair/' },
+      { label: 'Sewer backup guide', href: '/resources/sewer-backup/' },
+    ],
+  },
+  {
+    slug: 'clogged-toilet',
+    title: 'Clogged Toilet | Safe Steps and When to Call',
+    description:
+      'What to do for a clogged toilet in Virginia Beach, when plunging is enough, and when overflow or multi-fixture backups need a plumber.',
+    h1: 'Clogged Toilet: What to Do Next',
+    moneyLink: { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'Stop making it worse',
+        html: `<ol>
+          <li>Do not keep flushing. Extra water can overflow onto the floor.</li>
+          <li>If the bowl is rising, shut the supply valve at the wall.</li>
+          <li>Keep kids and pets away from standing water.</li>
+        </ol>
+        <p>If water is already on the floor, see <a href="/resources/toilet-overflowing/">toilet overflowing</a>.</p>`,
+      },
+      {
+        heading: 'When a plunger may work',
+        html: `<p>A simple clog from paper or a soft obstruction often clears with a flange plunger and steady pressure. Stop if the bowl keeps rising or sewage smell comes from other drains.</p>`,
+      },
+      {
+        heading: 'When it is more than the toilet',
+        html: `<p>If the tub or shower rises when you flush, or other toilets slow at the same time, the blockage may be in a shared branch or the main line. That is drain or sewer work, not only a toilet rebuild.</p>
+        <p>Paths: <a href="/plumbing-repairs/">plumbing repairs</a> for a single fixture · <a href="/drain-cleaning/">drain cleaning</a> · <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
+      },
+      {
+        heading: 'Avoid these shortcuts',
+        html: `<p>Do not pour chemical drain bombs into a full toilet. Do not force a closet auger if you do not know the trap layout. If a foreign object may be stuck (toys, wipes packaging), call rather than grinding it farther down.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is a clogged toilet an emergency?',
+        answer:
+          'It is urgent if it is overflowing or the only toilet and sewage is spreading. A single clogged toilet with water contained can often wait for a same-day repair visit.',
+      },
+      {
+        question: 'Why does my toilet clog keep coming back?',
+        answer:
+          'Partial main-line restriction, flushable wipes, or a failing wax seal and flange can all play a role. Recurring clogs deserve inspection rather than endless plunging. See the recurring drain clogs guide.',
+      },
+    ],
+    related: [
+      { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+      { label: 'Toilet overflowing', href: '/resources/toilet-overflowing/' },
+      { label: 'Drain cleaning', href: '/drain-cleaning/' },
+      { label: 'Recurring drain clogs', href: '/resources/recurring-drain-clogs/' },
+    ],
+  },
+  {
+    slug: 'sewer-backup',
+    title: 'Sewer Backup | What to Do and Who to Call',
+    description:
+      'Safe steps for a sewer backup in Virginia Beach, how to tell private vs city issues, and when to call an emergency plumber.',
+    h1: 'Sewer Backup: Immediate Steps',
+    moneyLink: { label: 'Emergency plumber', href: '/emergency-plumber/' },
+    group: 'emergency',
+    sections: [
+      {
+        heading: 'Protect people first',
+        html: `<ol>
+          <li>Keep everyone away from sewage. Do not vacuum it with a household vacuum.</li>
+          <li>Avoid electrical outlets and appliances near standing water.</li>
+          <li>If you can do so safely, shut off the main water valve to limit more flow into the system.</li>
+          <li>Do not keep flushing toilets or running drains.</li>
+        </ol>
+        <p>Checklist: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a> · main shutoff: <a href="/resources/shut-off-main-water-valve/">shut off the main water valve</a>.</p>`,
+      },
+      {
+        heading: 'Private lateral vs city main',
+        html: `<p>Backups inside the home or at a private cleanout are often the property owner's lateral. Street flooding from a municipal main, or a hydrant break, may belong to Virginia Beach Public Utilities (757-385-3111).</p>
+        <p>Sort that distinction here: <a href="/resources/city-vs-private-plumbing-emergency/">city vs private emergency</a>.</p>`,
+      },
+      {
+        heading: 'What usually causes private backups',
+        html: `<ul>
+          <li>Roots in older clay or cast-iron laterals</li>
+          <li>Grease and debris restricting the line</li>
+          <li>Collapsed or offset pipe sections</li>
+          <li>Heavy rain overwhelming a compromised line</li>
+        </ul>
+        <p>After the emergency is contained, camera inspection helps decide between clearing, repair, trenchless options, or replacement. See <a href="/sewer-line-repair/">sewer line repair</a> and <a href="/resources/signs-of-sewer-line-problems/">signs of sewer line problems</a>.</p>`,
+      },
+      {
+        heading: 'Call path',
+        html: `<p>For sewage in living space, call (703) 703-7855. We are open 24/7. Describe which fixtures backed up, whether outdoors are flooding, and whether water is still rising.</p>
+        <p>Service pages: <a href="/emergency-plumber/">emergency plumbing</a> · <a href="/drain-cleaning/">drain cleaning</a> · <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should I use a chemical cleaner during a sewer backup?',
+        answer:
+          'No. Chemicals do not fix a blocked or broken lateral and can create hazards for anyone opening the line later.',
+      },
+      {
+        question: 'Is every backup a full sewer replacement?',
+        answer:
+          'No. Some backups clear with professional cleaning. Others need repair or replacement after inspection. Do not assume the most expensive option from one event.',
+      },
+    ],
+    related: [
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+      { label: 'Sewer line repair', href: '/sewer-line-repair/' },
+      { label: 'Drain cleaning', href: '/drain-cleaning/' },
+      { label: 'City vs private emergency', href: '/resources/city-vs-private-plumbing-emergency/' },
+    ],
+  },
 ];
