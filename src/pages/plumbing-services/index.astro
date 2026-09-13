@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import FaqList from '../../components/FaqList.astro';
-import { siteConfig, p0Services, p1Services, telHref } from '../../config/site';
+import { siteConfig, p0Services, p1Services, telHref, serviceCtaLabel } from '../../config/site';
 import {
   breadcrumbList,
   faqPage,
@@ -101,7 +101,7 @@ const schemas = [
               <div class="service-card__body">
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
-                <span class="card-cta">See details</span>
+                <span class="card-cta">{serviceCtaLabel(s.title)}</span>
               </div>
             </a>
           ))
@@ -121,7 +121,7 @@ const schemas = [
               <div class="service-card__body">
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
-                <span class="card-cta">See details</span>
+                <span class="card-cta">{serviceCtaLabel(s.title)}</span>
               </div>
             </a>
           ))

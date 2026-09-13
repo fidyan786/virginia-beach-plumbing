@@ -1,3 +1,5 @@
+import { siteConfig } from '../config/site';
+
 export type ResourceGroup = 'emergency' | 'cost' | 'decision' | 'local';
 
 export interface ResourceGuide {
@@ -43,7 +45,7 @@ export const resources: ResourceGuide[] = [
           <li>A major leak you cannot stop at a fixture</li>
           <li>A water heater tank dumping water on the floor</li>
         </ul>
-        <p>A slow drain or a dripping faucet can usually wait for scheduled service. If water is damaging the home, call (703) 703-7855. We are open 24/7.</p>`,
+        <p>A slow drain or a dripping faucet can usually wait for scheduled service. If water is damaging the home, call ${siteConfig.phoneDisplay}. We are open 24/7.</p>`,
       },
     ],
     related: [
@@ -64,12 +66,12 @@ export const resources: ResourceGuide[] = [
       {
         heading: 'What drives plumbing costs',
         html: `<ul><li>Urgency (emergency vs scheduled)</li><li>Access and diagnosis time</li><li>Parts and fixtures</li><li>Permits for some installs</li><li>Restoration after invasive repairs</li></ul>
-        <p>Emergency after-hours work usually costs more than scheduled visits because of overtime and dispatch. For a scoped job, <a href="/contact/">request an estimate</a> or call (703) 703-7855.</p>
+        <p>Emergency after-hours work usually costs more than scheduled visits because of overtime and dispatch. For a scoped job, <a href="/contact/">request an estimate</a> or call ${siteConfig.phoneDisplay}.</p>
         <p>Related: <a href="/resources/water-heater-replacement-cost-virginia-beach/">water heater replacement cost factors</a> and <a href="/resources/sewer-line-repair-cost-virginia-beach/">sewer line repair cost factors</a>.</p>`,
       },
       {
         heading: 'What a useful quote needs',
-        html: `<p>A phone or chat description is not a bid. Access, pipe material, fixture type, and whether the issue is one fixture or a main line all change the work. Bring the ZIP, a short description, and whether water is currently off or backing up. Call (703) 703-7855 for emergencies instead of waiting on a form.</p>`,
+        html: `<p>A phone or chat description is not a bid. Access, pipe material, fixture type, and whether the issue is one fixture or a main line all change the work. Bring the ZIP, a short description, and whether water is currently off or backing up. Call ${siteConfig.phoneDisplay} for emergencies instead of waiting on a form.</p>`,
       },
       {
         heading: 'How to compare local options without guessing',
@@ -271,7 +273,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'If you cannot find the valve',
-        html: `<p>Do not stand in water to hunt for a stuck valve. Keep people away from electrical outlets and call (703) 703-7855. We are open 24/7. Do not use the water heater or other appliances sitting in standing water.</p>`,
+        html: `<p>Do not stand in water to hunt for a stuck valve. Keep people away from electrical outlets and call ${siteConfig.phoneDisplay}. We are open 24/7. Do not use the water heater or other appliances sitting in standing water.</p>`,
       },
     ],
     related: [
@@ -320,7 +322,7 @@ export const resources: ResourceGuide[] = [
           <li>Major leaks at water heaters, supply lines, or under slabs</li>
           <li>No water caused by a closed valve or failed private piping</li>
         </ul>
-        <p>For those, call <a href="/emergency-plumber/">emergency plumbing</a> at (703) 703-7855.</p>`,
+        <p>For those, call <a href="/emergency-plumber/">emergency plumbing</a> at ${siteConfig.phoneDisplay}.</p>`,
       },
       {
         heading: 'Usually a city / utility issue',
@@ -377,7 +379,7 @@ export const resources: ResourceGuide[] = [
     sections: [
       {
         heading: 'Why this matters in an emergency',
-        html: `<p>Stopping the water supply limits damage while you wait for help. If you cannot find the valve or it will not turn, call (703) 703-7855 and keep people away from standing water near electricity.</p>`,
+        html: `<p>Stopping the water supply limits damage while you wait for help. If you cannot find the valve or it will not turn, call ${siteConfig.phoneDisplay} and keep people away from standing water near electricity.</p>`,
       },
       {
         heading: 'Where the valve often is',
@@ -418,7 +420,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'Useful next pages',
-        html: `<p><a href="/repiping/">Repiping</a> for aging supply lines · <a href="/gas-line-services/">gas line services</a> for outdoor piping safety · <a href="/sump-pump/">sump pumps</a> for groundwater · <a href="/leak-detection/">leak detection</a> when moisture appears without an obvious source · <a href="/tankless-water-heaters/">tankless water heaters</a> when scale and humid mechanical rooms matter for on-demand units.</p>`,
+        html: `<p><a href="/repiping/">Repiping</a> for aging supply lines · <a href="/gas-line-services/">gas line services</a> for outdoor piping safety · <a href="/sump-pump/">sump pumps</a> for groundwater · <a href="/leak-detection/">leak detection</a> when moisture appears without an obvious source · <a href="/tankless-water-heaters/">tankless water heaters</a> when scale and humid mechanical rooms matter for on-demand units · <a href="/resources/vacation-rental-plumbing-virginia-beach/">vacation rental plumbing</a> for Oceanfront STRs.</p>`,
       },
       {
         heading: 'What this page is not claiming',
@@ -491,7 +493,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'After hours',
-        html: `<p>We are open 24/7. If a backup is putting the kitchen out of service, call (703) 703-7855. For planned work, use the commercial request form on <a href="/commercial-plumbing/">commercial plumbing</a>.</p>`,
+        html: `<p>We are open 24/7. If a backup is putting the kitchen out of service, call ${siteConfig.phoneDisplay}. For planned work, use the commercial request form on <a href="/commercial-plumbing/">commercial plumbing</a>.</p>`,
       },
     ],
   },
@@ -723,7 +725,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'Sewage on the floor',
-        html: `<p>Limit contact. Do not use a household vacuum on sewage. Call (703) 703-7855. We are open 24/7. Full safety list: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a>.</p>`,
+        html: `<p>Limit contact. Do not use a household vacuum on sewage. Call ${siteConfig.phoneDisplay}. We are open 24/7. Full safety list: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a>.</p>`,
       },
     ],
     faqs: [
@@ -880,7 +882,7 @@ export const resources: ResourceGuide[] = [
       },
       {
         heading: 'Call path',
-        html: `<p>For sewage in living space, call (703) 703-7855. We are open 24/7. Describe which fixtures backed up, whether outdoors are flooding, and whether water is still rising.</p>
+        html: `<p>For sewage in living space, call ${siteConfig.phoneDisplay}. We are open 24/7. Describe which fixtures backed up, whether outdoors are flooding, and whether water is still rising.</p>
         <p>Service pages: <a href="/emergency-plumber/">emergency plumbing</a> · <a href="/drain-cleaning/">drain cleaning</a> · <a href="/sewer-line-repair/">sewer line repair</a>.</p>`,
       },
     ],
@@ -1103,6 +1105,77 @@ export const resources: ResourceGuide[] = [
       { label: 'Burst pipe guide', href: '/resources/what-to-do-when-a-pipe-bursts/' },
       { label: 'Repiping', href: '/repiping/' },
       { label: 'Slab leak repair', href: '/slab-leak-repair/' },
+    ],
+  },
+  {
+    slug: 'vacation-rental-plumbing-virginia-beach',
+    title: 'Vacation Rental Plumbing Virginia Beach | STR & Guest Issues',
+    description:
+      'Plumbing for Virginia Beach vacation rentals and short-term rentals: guest clogs, no hot water, after-hours leaks, and Oceanfront access notes for owners and property managers.',
+    h1: 'Vacation Rental Plumbing in Virginia Beach',
+    moneyLink: { label: 'Request residential or commercial service', href: '/contact/' },
+    group: 'local',
+    sections: [
+      {
+        heading: 'Why rental plumbing fails differently',
+        html: `<p>Short-term rentals in Virginia Beach, especially near the Oceanfront, turn over guests weekly. Toilets, showers, disposals, and water heaters take more hits than a typical house. Vacant days let P-traps dry out. Salt air wears outdoor hose bibbs and exposed valves. None of that diagnoses a specific unit from a webpage, but it is why a “small” guest complaint often is not a one-off DIY.</p>
+        <p>This page is for homeowners, landlords, and managers who need a plumber for a rental. It is not a hotel operations manual and does not claim a dedicated STR contract. For restaurants and larger hospitality sites, start on <a href="/commercial-plumbing/">commercial plumbing</a>.</p>`,
+      },
+      {
+        heading: 'Guest-impacting problems to treat as urgent',
+        html: `<ul>
+          <li>Active leaking, spraying supply lines, or water on the floor</li>
+          <li>Sewage backup or a toilet that will not stop overflowing</li>
+          <li>No water, or a water heater dumping water</li>
+        </ul>
+        <p>Call ${siteConfig.phoneDisplay}. We are open 24/7. Guests cannot wait on a next-day form when the unit is flooding. Safety steps: <a href="/resources/emergency-plumbing-checklist/">emergency plumbing checklist</a> · <a href="/emergency-plumber/">emergency plumber</a>.</p>
+        <p>No hot water with a dry floor is usually a scheduled <a href="/water-heaters/">water heater</a> visit, but it still takes the unit out of service. Same-day vs next-day depends on the job, not a website promise.</p>`,
+      },
+      {
+        heading: 'Common rental calls that can often wait for a visit',
+        html: `<ul>
+          <li>One slow shower or sink: <a href="/drain-cleaning/">drain cleaning</a> and <a href="/resources/recurring-drain-clogs/">recurring clogs</a></li>
+          <li>Running or clogged toilet that is not overflowing: <a href="/plumbing-repairs/">plumbing repairs</a></li>
+          <li>Dripping faucet: <a href="/resources/dripping-faucet/">dripping faucet guide</a></li>
+          <li>Disposal jam or leak at the flange: <a href="/resources/garbage-disposal-repair/">garbage disposal repair</a></li>
+          <li>Sewer smell in a unit that sat empty: often a dry trap. Run water in unused baths, then see <a href="/resources/foul-drain-odor/">foul drain odor</a> if it continues</li>
+        </ul>
+        <p>Oceanfront and Sandbridge units also see coastal wear on outdoor plumbing. Context: <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>`,
+      },
+      {
+        heading: 'What to send so we can actually get in',
+        html: `<p>A lockbox code, unit number, parking note, and whether guests are still in the unit matter more than a long description of brand names. If the HOA or building has a dock or service elevator window, include that. Property managers should say who can authorize a repair over a replacement.</p>
+        <p>Owners handling turnover themselves can start on <a href="/residential-plumbing/">residential plumbing</a>. Managers running multiple units or hospitality buildings should use the commercial request so we get business name and property type.</p>`,
+      },
+      {
+        heading: 'Storms, vacancy, and older housing',
+        html: `<p>Heavy rain and coastal storms load drains and laterals. Prep: <a href="/resources/storm-plumbing-prep-virginia-beach/">storm plumbing prep</a>. Older cottages and converted homes around the oceanfront may have galvanized lines, aging heaters, and laterals under mature trees. Those jobs route to <a href="/repiping/">repiping</a>, <a href="/sewer-line-repair/">sewer line repair</a>, or <a href="/leak-detection/">leak detection</a> after we see the property. This site does not invent a “vacation rental package” price.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you work on Airbnb and Vrbo units in Virginia Beach?',
+        answer:
+          'Yes. We serve homes and rentals in Virginia Beach, including short-term rentals. Share the ZIP, unit access, and whether guests are present. Flooding or sewage is emergency plumbing; a slow drain can be scheduled.',
+      },
+      {
+        question: 'Can a property manager request service for several units?',
+        answer:
+          'Yes. Use the commercial request and describe the property type. Recurring work can be discussed when you submit a request. This page does not claim a pre-set maintenance contract.',
+      },
+      {
+        question: 'Should I send a plumber while guests are still in the unit?',
+        answer:
+          'If water is damaging the unit, yes — after it is safe to shut the water off. Tell us whether guests will be home and how to reach the lockbox. A dripping faucet can usually wait until turnover.',
+      },
+    ],
+    related: [
+      { label: 'Residential plumbing', href: '/residential-plumbing/' },
+      { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+      { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+      { label: 'Coastal plumbing notes', href: '/resources/coastal-plumbing-challenges-virginia-beach/' },
+      { label: 'Service area', href: '/service-areas/' },
     ],
   },
 ];

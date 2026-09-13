@@ -1,0 +1,15 @@
+# WordPress network is not part of the Astro Vercel deployment
+sites/
+starter/
+markets/
+wordpress-network/
+
+# Local / generated
+node_modules/
+dist/
+.astro/
+.vercel
+.git
+*.log
+.env
+.env.*

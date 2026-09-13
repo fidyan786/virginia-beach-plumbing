@@ -109,7 +109,8 @@ const aboutSchema = [
         <p>
           Coastal housing, older supply lines, and hospitality properties near the ocean can fail differently than a
           brand-new inland house. That context lives on the relevant service pages and guides, including
-          <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a> and
+          <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>,
+          <a href="/resources/vacation-rental-plumbing-virginia-beach/">vacation rental plumbing</a>, and
           <a href="/resources/pipe-repair/">pipe repair</a>.
         </p>
 
@@ -134,10 +135,32 @@ const aboutSchema = [
           <a class="btn btn--secondary" href="/contact/">Request Service</a>
         </div>
 
-        <h2>Frequently asked questions</h2>
         <FaqList items={faqs} />
       </div>
-      <div>
+      <div class="about-aside">
+        <div class="about-card">
+          <h2>At a glance</h2>
+          <p>
+            <strong>Phone</strong>
+            <a href={phone}>{siteConfig.phoneDisplay}</a>
+          </p>
+          <p>
+            <strong>Hours</strong>
+            {siteConfig.hoursDisplay}
+          </p>
+          <p>
+            <strong>Service area</strong>
+            Virginia Beach, VA
+          </p>
+          <p>
+            <strong>How we work</strong>
+            We come to the property. There is no public storefront listed on this site.
+          </p>
+          <div class="btn-group">
+            <a class="btn btn--primary" href={phone}>Call now</a>
+            <a class="btn btn--secondary" href="/contact/">Request Service</a>
+          </div>
+        </div>
         <figure class="prose-figure" style="margin:0">
           <img
             src="/images/about-plumbing.jpg"
@@ -152,3 +175,62 @@ const aboutSchema = [
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .about-aside {
+    display: grid;
+    gap: var(--space-5);
+    align-content: start;
+  }
+
+  .about-card {
+    background: var(--color-primary);
+    color: var(--color-on-dark);
+    padding: 1.5rem 1.4rem;
+    border-radius: var(--radius-card);
+  }
+
+  .about-card h2 {
+    color: #fff;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .about-card p {
+    margin: 0 0 1rem;
+    color: var(--color-on-dark-muted);
+  }
+
+  .about-card strong {
+    display: block;
+    color: #e0b08a;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+  }
+
+  .about-card a {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .about-card a:hover {
+    color: #fff;
+  }
+
+  .about-card .btn--secondary {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.7);
+    color: #fff;
+  }
+
+  .about-card .btn--secondary:hover {
+    background: #fff;
+    color: var(--color-primary);
+  }
+</style>
+

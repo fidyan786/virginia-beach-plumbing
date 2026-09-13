@@ -28,7 +28,7 @@ export const servicePages: Record<string, ServicePageData> = {
   'drain-cleaning': {
     title: 'Drain Cleaning Virginia Beach | Clogged Drains & Hydro Jetting',
     description:
-      'Clogged drain cleaning for kitchens, baths, and main lines in Virginia Beach. Snaking, hydro jetting when appropriate, and camera diagnostics when needed. Call (703) 703-7855.',
+      `Clogged drain cleaning for kitchens, baths, and main lines in Virginia Beach. Snaking, hydro jetting when appropriate, and camera diagnostics when needed. Call ${siteConfig.phoneDisplay}.`,
     canonicalPath: '/drain-cleaning/',
     h1: 'Drain Cleaning in Virginia Beach',
     lead: 'Slow or clogged drains need the right method, not guesswork. We help Virginia Beach homes and businesses clear fixtures and main lines, and explain when snaking or hydro jetting may fit.',
@@ -283,7 +283,7 @@ export const servicePages: Record<string, ServicePageData> = {
   'water-heaters': {
     title: 'Water Heater Repair & Replacement Virginia Beach | Tank Service',
     description:
-      'Water heater repair and replacement in Virginia Beach for conventional tanks, plus guidance when tankless is a better fit. Call (703) 703-7855 or request service.',
+      `Water heater repair and replacement in Virginia Beach for conventional tanks, plus guidance when tankless is a better fit. Call ${siteConfig.phoneDisplay} or request service.`,
     canonicalPath: '/water-heaters/',
     h1: 'Water Heater Repair and Replacement in Virginia Beach',
     lead: 'No hot water, lukewarm showers, or a leaking tank? We help Virginia Beach homes decide whether repair or replacement fits the unit, and when tankless belongs on its own page.',
@@ -373,7 +373,7 @@ export const servicePages: Record<string, ServicePageData> = {
   'tankless-water-heaters': {
     title: 'Tankless Water Heater Virginia Beach | Install, Convert & Repair',
     description:
-      'Tankless water heater installation, tank-to-tankless conversion, and tankless repair in Virginia Beach. Gas supply, venting, and electrical capacity matter. Call (703) 703-7855.',
+      `Tankless water heater installation, tank-to-tankless conversion, and tankless repair in Virginia Beach. Gas supply, venting, and electrical capacity matter. Call ${siteConfig.phoneDisplay}.`,
     canonicalPath: '/tankless-water-heaters/',
     h1: 'Tankless Water Heaters in Virginia Beach',
     lead: 'Tankless units heat water on demand. They can solve run-out-of-hot-water problems, but they are not a drop-in swap for every Virginia Beach home. This page covers install, conversion, and repair when capacity and venting allow.',
@@ -629,7 +629,7 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Hospitality and Oceanfront properties',
-        html: `<p>Hotels and short-term rentals near the Oceanfront face guest-impacting failures and coastal wear. Include property access notes when you request commercial service.</p>
+        html: `<p>Hotels and short-term rentals near the Oceanfront face guest-impacting failures and coastal wear. Include property access notes when you request commercial service. Owners and managers of vacation rentals can also use the <a href="/resources/vacation-rental-plumbing-virginia-beach/">vacation rental plumbing</a> guide.</p>
 `,
       },
       {
@@ -666,6 +666,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { label: 'Backflow testing', href: '/backflow-testing/' },
       { label: 'Drain cleaning', href: '/drain-cleaning/' },
       { label: 'Water heaters', href: '/water-heaters/' },
+      { label: 'Vacation rental plumbing', href: '/resources/vacation-rental-plumbing-virginia-beach/' },
       { label: 'Emergency', href: '/emergency-plumber/' },
     ],
   },
@@ -841,7 +842,7 @@ export const servicePages: Record<string, ServicePageData> = {
   'sump-pump': {
     title: 'Sump Pump Installation & Repair Virginia Beach',
     description:
-      'Sump pump installation, repair, and maintenance for Virginia Beach properties. Schedule service or call (703) 703-7855.',
+      `Sump pump installation, repair, and maintenance for Virginia Beach properties. Schedule service or call ${siteConfig.phoneDisplay}.`,
     canonicalPath: '/sump-pump/',
     h1: 'Sump Pump Services in Virginia Beach',
     lead: 'Sump pumps help manage groundwater and storm-related water around foundations. Installation and repair should match the pit, discharge path, and power setup.',
@@ -928,8 +929,8 @@ export const servicePages: Record<string, ServicePageData> = {
       },
       {
         heading: 'Coastal and older Virginia Beach homes',
-        html: `<p>Oceanfront rentals, Kempsville and Lynnhaven ranch homes, and older supply lines around Town Center and Princess Anne fail differently than a brand-new inland build. Salt air, guest-house vacancy (dry traps), hard-water scale on heaters, and mature trees over laterals show up often. We route those jobs to the matching service page rather than treating every call as the same “general plumbing” visit.</p>
-        <p>Neighborhood context without doorway pages: <a href="/service-areas/">service area</a> · <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>`,
+        html: `        <p>Oceanfront rentals, Kempsville and Lynnhaven ranch homes, and older supply lines around Town Center and Princess Anne fail differently than a brand-new inland build. Salt air, guest-house vacancy (dry traps), hard-water scale on heaters, and mature trees over laterals show up often. We route those jobs to the matching service page rather than treating every call as the same “general plumbing” visit.</p>
+        <p>Neighborhood context without doorway pages: <a href="/service-areas/">service area</a> · <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a> · <a href="/resources/vacation-rental-plumbing-virginia-beach/">vacation rental plumbing</a>.</p>`,
       },
       {
         heading: 'Landlords and property turnover',
@@ -967,6 +968,7 @@ export const servicePages: Record<string, ServicePageData> = {
       { label: 'Drain cleaning', href: '/drain-cleaning/' },
       { label: 'Water heaters', href: '/water-heaters/' },
       { label: 'Pipe repair guide', href: '/resources/pipe-repair/' },
+      { label: 'Vacation rental plumbing', href: '/resources/vacation-rental-plumbing-virginia-beach/' },
       { label: 'Plumbing services', href: '/plumbing-services/' },
       { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
       { label: 'Emergency', href: '/emergency-plumber/' },
@@ -976,7 +978,7 @@ export const servicePages: Record<string, ServicePageData> = {
   'plumbing-repairs': {
     title: 'Plumbing Repairs Virginia Beach | Toilets, Faucets & Disposals',
     description:
-      'Toilet repair, faucet repair, and garbage disposal service in Virginia Beach. Call (703) 703-7855 or request a visit for fixture plumbing repairs.',
+      `Toilet repair, faucet repair, and garbage disposal service in Virginia Beach. Call ${siteConfig.phoneDisplay} or request a visit for fixture plumbing repairs.`,
     canonicalPath: '/plumbing-repairs/',
     h1: 'Plumbing Repairs in Virginia Beach',
     lead: 'Running toilets, dripping faucets, and jammed disposals are everyday plumbing jobs until they waste water or overflow. This page covers fixture repairs for Virginia Beach homes and rentals, and points you to emergency help when water will not stop.',

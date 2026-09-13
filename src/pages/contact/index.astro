@@ -39,24 +39,28 @@ const schemas = [
         <h1>Contact Virginia Beach Plumbing</h1>
         <p class="lead">Call for urgent needs anytime. Use the form for scheduled service, quotes, and commercial requests.</p>
 
-        <div class="contact-block">
-          <h2>Phone</h2>
-          <p>
-            <a class="big-phone" href={phone} data-track="phone_click" data-track-location="contact">
-              {siteConfig.phoneDisplay}
-            </a>
-          </p>
-        </div>
+        <div class="contact-cards">
+          <div class="contact-block">
+            <h2>Phone</h2>
+            <p>
+              <a class="big-phone" href={phone} data-track="phone_click" data-track-location="contact">
+                {siteConfig.phoneDisplay}
+              </a>
+            </p>
+            <p class="muted">Call anytime. We are open 24/7 for plumbing help.</p>
+          </div>
 
-        <div class="contact-block">
-          <h2>Hours</h2>
-          <p><span class="hours-badge">{siteConfig.hoursDisplay}</span></p>
-        </div>
+          <div class="contact-block">
+            <h2>Hours</h2>
+            <p><span class="hours-badge">{siteConfig.hoursDisplay}</span></p>
+            <p class="muted">Emergency plumbing is included after hours.</p>
+          </div>
 
-        <div class="contact-block">
-          <h2>Service area</h2>
-          <p>{siteConfig.addressLine2}</p>
-          <p class="muted">We come to you throughout Virginia Beach. There is no public storefront on this site.</p>
+          <div class="contact-block">
+            <h2>Service area</h2>
+            <p>{siteConfig.addressLine2}</p>
+            <p class="muted">We come to you throughout Virginia Beach. There is no public storefront on this site.</p>
+          </div>
         </div>
 
         {
@@ -112,13 +116,28 @@ const schemas = [
 </BaseLayout>
 
 <style>
-  .contact-block {
-    margin-bottom: var(--space-5);
+  .contact-cards {
+    display: grid;
+    gap: var(--space-4);
+    margin: var(--space-5) 0 var(--space-6);
   }
+
+  .contact-block {
+    margin: 0;
+    padding: 1.15rem 1.2rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-cta);
+    border-radius: var(--radius-card);
+  }
+
   .contact-block h2 {
-    font-size: 1.05rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     margin-bottom: var(--space-2);
   }
+
   .big-phone {
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3vw, 1.85rem);
@@ -126,7 +145,12 @@ const schemas = [
     color: var(--color-primary);
     text-decoration: none;
   }
+
   .big-phone:hover {
     color: var(--color-cta);
+  }
+
+  .contact-block .muted {
+    margin-bottom: 0;
   }
 </style>

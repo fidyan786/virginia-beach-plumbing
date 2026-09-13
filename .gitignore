@@ -2,6 +2,16 @@
 dist/
 build/
 
+# WordPress network local artifacts
+sites/*/wordpress/
+starter/wordpress/wp-config.php
+starter/wordpress/wp-content/uploads/
+**/wp-content/uploads/
+**/*.sql
+**/database.sqlite
+**/.env
+wordpress-network/.cache/
+
 # generated types
 .astro/
 
@@ -39,3 +49,4 @@ Desktop.ini
 .vscode/*
 !.vscode/extensions.json
 !.vscode/launch.json
+.env*

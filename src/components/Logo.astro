@@ -1,4 +1,6 @@
 ---
+import BrandMark from './BrandMark.astro';
+
 interface Props {
   variant?: 'default' | 'on-dark';
   compact?: boolean;
@@ -10,26 +12,7 @@ const onDark = variant === 'on-dark';
 ---
 
 <span class:list={['brand-logo', onDark && 'brand-logo--on-dark', compact && 'brand-logo--compact', className]}>
-  <svg
-    class="brand-logo__mark"
-    viewBox="0 0 48 48"
-    width="42"
-    height="42"
-    role="presentation"
-    aria-hidden="true"
-    focusable="false"
-  >
-    <rect class="brand-logo__plate" x="0" y="0" width="48" height="48" rx="9" />
-    <!-- Pipe elbow with end flanges + compression collar -->
-    <rect class="brand-logo__pipe" x="17.2" y="7.2" width="13.6" height="3.4" rx="1" />
-    <rect class="brand-logo__pipe" x="19.8" y="9.8" width="8.4" height="17.2" rx="1.6" />
-    <rect class="brand-logo__pipe" x="19.8" y="19.8" width="18.4" height="8.4" rx="1.6" />
-    <rect class="brand-logo__pipe" x="37.4" y="17.2" width="3.4" height="13.6" rx="1" />
-    <circle class="brand-logo__union" cx="24" cy="24" r="7.6" />
-    <circle class="brand-logo__ring" cx="24" cy="24" r="7.6" />
-    <circle class="brand-logo__bore" cx="24" cy="24" r="2.55" />
-  </svg>
-  <span class="brand-logo__rule" aria-hidden="true"></span>
+  <BrandMark variant={variant} size={44} class="brand-logo__mark" />
   <span class="brand-logo__wordmark">
     <span class="brand-logo__name">Virginia Beach</span>
     <span class="brand-logo__trade">Plumbing</span>
@@ -40,64 +23,19 @@ const onDark = variant === 'on-dark';
   .brand-logo {
     display: inline-flex;
     align-items: center;
-    gap: 0.65rem;
+    gap: 0.7rem;
     min-width: 0;
     color: var(--color-primary);
     text-decoration: none;
   }
 
-  .brand-logo__mark {
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-    display: block;
-  }
-
-  .brand-logo__plate,
-  .brand-logo__union {
-    fill: var(--color-primary);
-  }
-
-  .brand-logo__pipe,
-  .brand-logo__bore {
-    fill: #f4efe6;
-  }
-
-  .brand-logo__ring {
-    fill: none;
-    stroke: var(--color-cta);
-    stroke-width: 2.6;
-  }
-
-  .brand-logo__rule {
-    width: 1px;
-    height: 1.85rem;
-    flex-shrink: 0;
-    background: var(--color-cta);
-    opacity: 0.85;
+  .brand-logo :global(.brand-logo__mark) {
+    width: 44px;
+    height: 44px;
   }
 
   .brand-logo--on-dark {
-    color: #f7f4ef;
-  }
-
-  .brand-logo--on-dark .brand-logo__plate,
-  .brand-logo--on-dark .brand-logo__union {
-    fill: #f4efe6;
-  }
-
-  .brand-logo--on-dark .brand-logo__pipe,
-  .brand-logo--on-dark .brand-logo__bore {
-    fill: #15202b;
-  }
-
-  .brand-logo--on-dark .brand-logo__ring {
-    stroke: var(--color-cta);
-  }
-
-  .brand-logo--on-dark .brand-logo__rule {
-    background: var(--color-cta);
-    opacity: 0.9;
+    color: #f4efe6;
   }
 
   .brand-logo__wordmark {
@@ -109,65 +47,54 @@ const onDark = variant === 'on-dark';
 
   .brand-logo__name {
     font-family: var(--font-body);
-    font-size: 0.68rem;
+    font-size: 0.66rem;
     font-weight: 700;
-    letter-spacing: 0.16em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--color-muted);
     white-space: nowrap;
   }
 
   .brand-logo--on-dark .brand-logo__name {
-    color: rgba(247, 244, 239, 0.72);
+    color: rgba(244, 239, 230, 0.72);
   }
 
   .brand-logo__trade {
     font-family: var(--font-heading);
-    font-size: 1.14rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
+    font-size: 1.28rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
     color: currentColor;
     white-space: nowrap;
+    text-transform: uppercase;
   }
 
-  .brand-logo--compact {
-    gap: 0.5rem;
-  }
-
-  .brand-logo--compact .brand-logo__mark {
-    width: 36px;
-    height: 36px;
-  }
-
-  .brand-logo--compact .brand-logo__rule {
-    height: 1.55rem;
+  .brand-logo--compact :global(.brand-logo__mark) {
+    width: 38px;
+    height: 38px;
   }
 
   .brand-logo--compact .brand-logo__trade {
-    font-size: 1.02rem;
+    font-size: 1.12rem;
   }
 
   @media (max-width: 400px) {
     .brand-logo {
-      gap: 0.45rem;
+      gap: 0.5rem;
     }
 
-    .brand-logo__mark {
+    .brand-logo :global(.brand-logo__mark) {
       width: 36px;
       height: 36px;
     }
 
-    .brand-logo__rule {
-      display: none;
-    }
-
     .brand-logo__trade {
-      font-size: 1rem;
+      font-size: 1.08rem;
     }
 
     .brand-logo__name {
       font-size: 0.58rem;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
     }
   }
 </style>

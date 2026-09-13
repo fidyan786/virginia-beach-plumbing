@@ -22,6 +22,7 @@ const isCommercial = variant === 'commercial';
   id={formId}
   method="post"
   action={Astro.url.pathname}
+  novalidate
   data-lead-form
   data-variant={variant}
   data-endpoint={siteConfig.formEndpoint}
@@ -57,14 +58,14 @@ const isCommercial = variant === 'commercial';
   <div class="form-row">
     <div class="form-field" data-field="name">
       <label for={`${formId}-name`}>Name <span aria-hidden="true">*</span></label>
-      <input id={`${formId}-name`} name="name" type="text" autocomplete="name" required />
-      <p class="error">Please enter your name.</p>
+      <input id={`${formId}-name`} name="name" type="text" autocomplete="name" required aria-required="true" aria-describedby={`${formId}-name-error`} />
+      <p class="error" id={`${formId}-name-error`}>Please enter your name.</p>
     </div>
 
     <div class="form-field" data-field="phone">
       <label for={`${formId}-phone`}>Phone <span aria-hidden="true">*</span></label>
-      <input id={`${formId}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" required />
-      <p class="error">Please enter a valid phone number.</p>
+      <input id={`${formId}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-required="true" aria-describedby={`${formId}-phone-error`} />
+      <p class="error" id={`${formId}-phone-error`}>Please enter a valid phone number.</p>
     </div>
   </div>
 
@@ -80,8 +81,9 @@ const isCommercial = variant === 'commercial';
           type="email"
           autocomplete="email"
           required={isCommercial}
+          aria-describedby={`${formId}-email-error`}
         />
-        <p class="error">Please enter a valid email.</p>
+        <p class="error" id={`${formId}-email-error`}>Please enter a valid email.</p>
       </div>
     )
   }
@@ -93,23 +95,24 @@ const isCommercial = variant === 'commercial';
           <label for={`${formId}-business`}>
             Business name <span aria-hidden="true">*</span>
           </label>
-          <input id={`${formId}-business`} name="business_name" type="text" required />
-          <p class="error">Please enter your business name.</p>
+          <input id={`${formId}-business`} name="business_name" type="text" autocomplete="organization" required aria-required="true" aria-describedby={`${formId}-business-error`} />
+          <p class="error" id={`${formId}-business-error`}>Please enter your business name.</p>
         </div>
         <div class="form-field" data-field="property_type">
           <label for={`${formId}-property`}>
             Property type <span aria-hidden="true">*</span>
           </label>
-          <select id={`${formId}-property`} name="property_type" required>
+          <select id={`${formId}-property`} name="property_type" required aria-required="true" aria-describedby={`${formId}-property-error`}>
             <option value="">Select…</option>
             <option>Restaurant / kitchen</option>
             <option>Hotel / hospitality</option>
             <option>Office / retail</option>
             <option>Multi-unit / apartments</option>
+            <option>Vacation rental / short-term rental</option>
             <option>Property management</option>
             <option>Other commercial</option>
           </select>
-          <p class="error">Please select a property type.</p>
+          <p class="error" id={`${formId}-property-error`}>Please select a property type.</p>
         </div>
       </>
     )
@@ -129,8 +132,10 @@ const isCommercial = variant === 'commercial';
       pattern="[0-9]{5}"
       maxlength="5"
       required
+      aria-required="true"
+      aria-describedby={`${formId}-zip-error`}
     />
-    <p class="error">Enter a 5-digit ZIP code.</p>
+    <p class="error" id={`${formId}-zip-error`}>Enter a 5-digit ZIP code.</p>
     <p class="zip-note muted" data-zip-note hidden>
       We primarily serve Virginia Beach. If this ZIP is outside the city, we may not be able to take the job.
     </p>
@@ -140,7 +145,7 @@ const isCommercial = variant === 'commercial';
     <label for={`${formId}-service`}>
       {isEmergency ? 'Emergency type' : 'Service needed'} <span aria-hidden="true">*</span>
     </label>
-    <select id={`${formId}-service`} name="service_needed" required>
+    <select id={`${formId}-service`} name="service_needed" required aria-required="true" aria-describedby={`${formId}-service-error`}>
       <option value="">Select…</option>
       {
         isEmergency ? (
@@ -180,7 +185,7 @@ const isCommercial = variant === 'commercial';
         )
       }
     </select>
-    <p class="error">Please select an option.</p>
+    <p class="error" id={`${formId}-service-error`}>Please select an option.</p>
   </div>
 
   <div class="form-field" data-field="message">
@@ -206,8 +211,10 @@ const isCommercial = variant === 'commercial';
 
 <style>
   .form-heading {
-    font-size: 1.28rem;
+    font-size: 1.35rem;
     margin-bottom: var(--space-2);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
   .form-intro {
     margin-bottom: var(--space-5);
@@ -284,6 +291,9 @@ const isCommercial = variant === 'commercial';
 
       let ok = true;
       form.querySelectorAll('.form-field').forEach((field) => field.classList.remove('is-invalid'));
+      form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+        'input, select, textarea'
+      ).forEach((el) => el.removeAttribute('aria-invalid'));
 
       const name = form.querySelector<HTMLInputElement>('[name="name"]');
       const phone = form.querySelector<HTMLInputElement>('[name="phone"]');
@@ -302,30 +312,37 @@ const isCommercial = variant === 'commercial';
 
       if (!name?.value.trim()) {
         name?.closest('.form-field')?.classList.add('is-invalid');
+        name?.setAttribute('aria-invalid', 'true');
         ok = false;
       }
       if (!phone || !validPhone(phone.value)) {
         phone?.closest('.form-field')?.classList.add('is-invalid');
+        phone?.setAttribute('aria-invalid', 'true');
         ok = false;
       }
       if (!zip || !/^\d{5}$/.test(zip.value.trim())) {
         zip?.closest('.form-field')?.classList.add('is-invalid');
+        zip?.setAttribute('aria-invalid', 'true');
         ok = false;
       }
       if (!service?.value) {
         service?.closest('.form-field')?.classList.add('is-invalid');
+        service?.setAttribute('aria-invalid', 'true');
         ok = false;
       }
       if (email?.required && (!email.value || !validEmail(email.value))) {
         email.closest('.form-field')?.classList.add('is-invalid');
+        email.setAttribute('aria-invalid', 'true');
         ok = false;
       }
       if (business?.required && !business.value.trim()) {
         business.closest('.form-field')?.classList.add('is-invalid');
+        business.setAttribute('aria-invalid', 'true');
         ok = false;
       }
       if (property?.required && !property.value) {
         property.closest('.form-field')?.classList.add('is-invalid');
+        property.setAttribute('aria-invalid', 'true');
         ok = false;
       }
 
@@ -375,7 +392,12 @@ const isCommercial = variant === 'commercial';
         return;
       }
 
-      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.setAttribute('aria-busy', 'true');
+        if (!submitBtn.dataset.label) submitBtn.dataset.label = submitBtn.textContent || '';
+        submitBtn.textContent = 'Sending…';
+      }
       try {
         const res = await fetch(endpoint, {
           method: 'POST',
@@ -391,7 +413,11 @@ const isCommercial = variant === 'commercial';
         showError(`The request could not be delivered. Please call ${callLink} so we do not miss you.`);
         return;
       } finally {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.removeAttribute('aria-busy');
+          if (submitBtn.dataset.label) submitBtn.textContent = submitBtn.dataset.label;
+        }
       }
 
       window.trackEvent?.('lead_form_submit', {

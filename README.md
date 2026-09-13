@@ -2,6 +2,8 @@
 
 Production Astro SSG site for Rank & Rent local plumbing lead generation.
 
+> **WordPress 15-market network** lives alongside this Astro site in `wordpress-network/`, `starter/`, `markets/`, and `sites/`. See [wordpress-network/README.md](wordpress-network/README.md). It is isolated from this Vercel Astro deployment.
+
 ## Quick start
 
 ```bash
@@ -9,6 +11,13 @@ npm install
 npm run dev
 npm run build
 npm run preview
+```
+
+### WordPress network QA
+
+```bash
+npm run wp:qa
+npm run wp:qa:zips
 ```
 
 ## Business config

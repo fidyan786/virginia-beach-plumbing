@@ -1,13 +1,29 @@
 /**
  * Site configuration — Virginia Beach Plumbing
  * Phone and hours provided by operator. No fabricated address, email, licenses, or reviews.
+ * Do not replace the 703 number with an invented 757 (or any) number.
+ * Optional Vercel env: PUBLIC_PHONE_DISPLAY + PUBLIC_PHONE_TEL when a verified number changes.
  */
+
+function envText(value: string | undefined): string {
+  const trimmed = String(value || '').trim();
+  if (!trimmed) return '';
+  if (/[\[\]]|REQUIRED|OPTIONAL|XXXX/i.test(trimmed)) return '';
+  return trimmed;
+}
+
+const phoneDisplay =
+  envText(import.meta.env.PUBLIC_PHONE_DISPLAY) || '(703) 703-7855';
+const phoneTelDigits =
+  envText(import.meta.env.PUBLIC_PHONE_TEL).replace(/\D/g, '') ||
+  phoneDisplay.replace(/\D/g, '') ||
+  '7037037855';
 
 export const siteConfig = {
   brandName: 'Virginia Beach Plumbing',
   legalName: 'Virginia Beach Plumbing',
-  phoneDisplay: '(703) 703-7855',
-  phoneTel: '7037037855',
+  phoneDisplay,
+  phoneTel: phoneTelDigits,
   /** No verified email — omit from UI */
   email: '',
   /** No street address — service-area messaging only */
@@ -131,36 +147,42 @@ export const homepageServices: ServiceCard[] = [
     href: '/emergency-plumber/',
     description: 'Burst pipes, major leaks, and sewer backups when the problem cannot wait.',
     priority: 'P0',
+    linkLabel: 'Emergency plumbing services',
   },
   {
     title: 'Drain Cleaning',
     href: '/drain-cleaning/',
     description: 'Slow sinks, stubborn clogs, and main-line backups cleared with the right method.',
     priority: 'P0',
+    linkLabel: 'Drain cleaning services',
   },
   {
     title: 'Water Heaters',
     href: '/water-heaters/',
     description: 'Tank repair, replacement, and installation. Tankless has its own page.',
     priority: 'P0',
+    linkLabel: 'Water heater services',
   },
   {
     title: 'Sewer Line Repair',
     href: '/sewer-line-repair/',
     description: 'Inspection, repair, and replacement options when a sewer line is failing.',
     priority: 'P0',
+    linkLabel: 'Sewer line services',
   },
   {
     title: 'Leak Detection',
     href: '/leak-detection/',
     description: 'Find hidden pipe and water-line leaks before damage has a chance to spread.',
     priority: 'P0',
+    linkLabel: 'Leak detection services',
   },
   {
     title: 'Plumbing Repairs',
     href: '/plumbing-repairs/',
     description: 'Toilets, faucets, disposals, and the fixture repairs that keep a home running.',
     priority: 'P1',
+    linkLabel: 'Plumbing repair services',
   },
 ];
 
@@ -172,6 +194,11 @@ export interface ServiceCard {
   gated?: boolean;
   image?: string;
   imageAlt?: string;
+  linkLabel?: string;
+}
+
+export function serviceCtaLabel(title: string): string {
+  return `${title} services`;
 }
 
 export const p0Services: ServiceCard[] = [
@@ -317,7 +344,7 @@ export const footerGuideLinks = [
   { label: 'Emergency checklist', href: '/resources/emergency-plumbing-checklist/' },
   { label: 'No hot water', href: '/resources/no-hot-water/' },
   { label: 'Recurring drain clogs', href: '/resources/recurring-drain-clogs/' },
-  { label: 'Leaking water heater', href: '/resources/water-heater-leaking/' },
+  { label: 'Vacation rental plumbing', href: '/resources/vacation-rental-plumbing-virginia-beach/' },
   { label: 'All plumbing guides', href: '/resources/' },
 ] as const;
 

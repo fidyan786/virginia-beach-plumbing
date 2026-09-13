@@ -18,6 +18,7 @@ interface Props {
   omitCanonical?: boolean;
   stickyVariant?: 'default' | 'emergency' | 'none';
   schemaJson?: object | object[];
+  lcpImage?: string;
 }
 
 const {
@@ -31,6 +32,7 @@ const {
   omitCanonical = false,
   stickyVariant = 'default',
   schemaJson,
+  lcpImage,
 } = Astro.props;
 
 const siteOrigin = resolveSiteOrigin(Astro.site);
@@ -69,27 +71,17 @@ const googleSiteVerification = envVerification || configVerification;
     <meta property="og:image:alt" content={ogImageAlt} />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content={siteConfig.brandName} />
-    <meta name="theme-color" content="#15202b" />
+    <meta name="theme-color" content="#0b2545" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageAbs} />
     <meta name="twitter:image:alt" content={ogImageAlt} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+    {lcpImage && <link rel="preload" as="image" href={lcpImage} fetchpriority="high" />}
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#15202b" />
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0b2545" />
     {
       schemas.map((schema) => (
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />

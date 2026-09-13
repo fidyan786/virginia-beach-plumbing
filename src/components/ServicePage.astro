@@ -76,6 +76,7 @@ const secondaryLabel =
   ogImageAlt={imageAlt || 'Illustrative plumbing photography, not a photo of our staff or a specific job'}
   stickyVariant={page.stickyVariant || 'default'}
   schemaJson={schemas}
+  lcpImage={image}
 >
   <section class="section section--tight hero-service">
     <Breadcrumb items={crumbs} />
@@ -170,7 +171,7 @@ const secondaryLabel =
 
 <style>
   .hero-service {
-    background: #e8eef3;
+    background: var(--color-bg-alt);
     border-bottom: 1px solid var(--color-border);
   }
   .hero-fig {

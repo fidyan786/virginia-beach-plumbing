@@ -3,14 +3,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqList from '../components/FaqList.astro';
 import LeadForm from '../components/LeadForm.astro';
 import ServiceIcon from '../components/ServiceIcon.astro';
-import { siteConfig, homepageServices, allServices, telHref } from '../config/site';
+import { siteConfig, homepageServices, allServices, telHref, serviceCtaLabel } from '../config/site';
 import { faqPage, originFromSite, plumberContractorNode, websiteNode, withContext, offerCatalogNode } from '../lib/schema';
 
 const phone = telHref();
 const origin = originFromSite(Astro.site);
-const title = 'Plumber Virginia Beach VA | Local Plumbing Company & 24/7 Help';
+const title = 'Virginia Beach Plumber | 24/7 Emergency, Drains & Water Heaters';
 const description =
-  `Local plumbing company in Virginia Beach for clogged drains, water heaters, leaks, sewer work, fixture repairs, and 24/7 emergency plumbing. Call ${siteConfig.phoneDisplay} or request service.`;
+  `Local plumber in Virginia Beach for clogged drains, water heaters, leaks, sewer work, fixture repairs, and 24/7 emergency plumbing. Call ${siteConfig.phoneDisplay} or request service.`;
 
 const orgSchema = withContext({
   ...plumberContractorNode(origin),
@@ -77,7 +77,7 @@ const steps = [
   {
     num: '03',
     title: 'Get Clear Next Steps',
-    copy: 'You hear back about scheduling or emergency help based on what you described.',
+    copy: 'You hear back about scheduling or, when it is urgent, how to reach us right away.',
   },
 ];
 
@@ -100,9 +100,9 @@ const homeGuides = [
     copy: 'Cartridge vs supply leaks, and when a drip can wait.',
   },
   {
-    href: '/resources/garbage-disposal-repair/',
-    title: 'Garbage disposal repair',
-    copy: 'Jams, resets, flange leaks, and drain vs motor issues.',
+    href: '/resources/vacation-rental-plumbing-virginia-beach/',
+    title: 'Vacation rental plumbing',
+    copy: 'Guest-impacting leaks, clogs, and no-hot-water calls for Oceanfront and city STRs.',
   },
 ];
 
@@ -161,24 +161,24 @@ const faqSchema = withContext(faqPage(faqs));
   title={title}
   description={description}
   canonicalPath="/"
+  ogImage="/images/hero-plumbing.jpg"
+  ogImageAlt="Plumber working on copper supply lines under a kitchen sink (illustrative photo)"
+  lcpImage="/images/hero-plumbing.jpg"
   schemaJson={[orgSchema, websiteSchema, webPageSchema, faqSchema]}
 >
   <section class="home-hero" aria-label="Virginia Beach plumbing hero">
     <div class="home-hero__copy">
       <div class="home-hero__copy-inner">
-        <p class="hero-eyebrow">Virginia Beach • Residential &amp; Commercial</p>
-        <h1>
-          <span>Plumber in&nbsp;</span>
-          <span>Virginia Beach</span>
-        </h1>
+        <p class="hero-eyebrow">Virginia Beach · Residential &amp; Commercial</p>
+        <h1>Plumber in Virginia Beach</h1>
         <p class="hero-lead">
-          Local help for emergency leaks, clogged drains, water heaters, sewer work, and everyday fixture repairs. Call or send a short request. We will tell you the next step.
+          Emergency leaks, clogged drains, water heaters, sewer work, and fixture repairs for homes and businesses in Virginia Beach. Call or send a short request with your ZIP and the problem.
         </p>
         <div class="btn-group hero-ctas">
           <a class="btn btn--primary btn--hero" href={phone} data-track="phone_click" data-track-location="home_hero">
             Call {siteConfig.phoneDisplay}
           </a>
-          <a class="btn btn--secondary btn--hero" href="#request-form" data-track="cta_click" data-track-label="home_hero_request">
+          <a class="btn btn--ghost btn--hero" href="#request-form" data-track="cta_click" data-track-label="home_hero_request">
             Request Service
           </a>
         </div>
@@ -191,6 +191,7 @@ const faqSchema = withContext(faqPage(faqs));
         alt="Plumber working on copper supply lines under a kitchen sink (illustrative photo)"
         width="1800"
         height="1200"
+        sizes="(min-width: 980px) 50vw, 100vw"
         fetchpriority="high"
         decoding="async"
       />
@@ -199,10 +200,22 @@ const faqSchema = withContext(faqPage(faqs));
 
   <section class="trust-strip" aria-label="What you can count on">
     <div class="container trust-strip__grid">
-      <p>24/7 Emergency Support</p>
-      <p>Residential &amp; Commercial</p>
-      <p>Serving Virginia Beach</p>
-      <p>Clear Next Steps</p>
+      <article>
+        <strong>24/7 emergency</strong>
+        <p>Burst pipes, major leaks, and sewer backups.</p>
+      </article>
+      <article>
+        <strong>Homes &amp; businesses</strong>
+        <p>Residential, rental, and commercial plumbing.</p>
+      </article>
+      <article>
+        <strong>Virginia Beach coverage</strong>
+        <p>We come to you across the city. Confirm your ZIP.</p>
+      </article>
+      <article>
+        <strong>How to start</strong>
+        <p>Call or send a request with your ZIP and the problem.</p>
+      </article>
     </div>
   </section>
 
@@ -225,7 +238,7 @@ const faqSchema = withContext(faqPage(faqs));
                 </span>
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
-                <span class="card-cta">See details</span>
+                <span class="card-cta">{s.linkLabel || serviceCtaLabel(s.title)}</span>
               </a>
             </li>
           ))
@@ -320,7 +333,7 @@ const faqSchema = withContext(faqPage(faqs));
         <p class="eyebrow">Why choose us</p>
         <h2>Clear work. Straight answers.</h2>
         <p class="lead">
-          When something breaks, you need a useful next step. Tell us the ZIP and what is going wrong. We will say whether it looks urgent, what to shut off if safe, and how to request a visit.
+          When something breaks, you need a useful next step. Share the ZIP and what is going wrong. We will say whether it looks urgent, what to shut off if it is safe, and how to request a visit.
         </p>
       </div>
       <ol class="principle-list">
@@ -412,15 +425,20 @@ const faqSchema = withContext(faqPage(faqs));
     </div>
   </section>
 
-  <section class="section section--surface" id="request-form">
+  <section class="section home-contact" id="request-form">
     <div class="container home-form">
-      <div data-reveal>
-        <p class="eyebrow">Request service</p>
-        <p class="lead">
+      <div class="home-form__intro" data-reveal>
+        <p class="eyebrow eyebrow--on-dark">Request service</p>
+        <h2>Need a plumber in Virginia Beach?</h2>
+        <p>
           Share your name, phone, ZIP, and the plumbing problem. For flooding, burst pipes, or sewer backups, calling is faster.
         </p>
-        <a class="btn btn--primary" href={phone} data-track="phone_click" data-track-location="home_form">
-          Call {siteConfig.phoneDisplay}
+        <p class="home-form__phone">
+          <a href={phone} data-track="phone_click" data-track-location="home_form">{siteConfig.phoneDisplay}</a>
+        </p>
+        <p class="home-form__hours">{siteConfig.hoursDisplay} · Serving Virginia Beach, VA</p>
+        <a class="btn btn--primary" href={phone} data-track="phone_click" data-track-location="home_form_btn">
+          Call now
         </a>
       </div>
       <LeadForm variant="routine" heading="Request service" formId="home-lead-form" />
@@ -450,63 +468,47 @@ const faqSchema = withContext(faqPage(faqs));
 <style>
   .home-hero {
     display: grid;
-    background: var(--color-bg);
+    background: var(--color-primary);
     overflow: hidden;
   }
 
   .home-hero__copy {
-    position: relative;
     display: flex;
     align-items: center;
-    padding: 2.4rem 0 2.2rem;
-  }
-
-  .home-hero__copy::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.45;
-    background:
-      radial-gradient(ellipse at 0% 100%, rgba(61, 111, 130, 0.12), transparent 55%),
-      linear-gradient(180deg, rgba(21, 32, 43, 0.03), transparent 40%);
+    padding: 2.4rem 0 2.35rem;
+    background: var(--color-primary);
+    color: var(--color-on-dark);
   }
 
   .home-hero__copy-inner {
-    position: relative;
     width: min(100% - 2rem, var(--container));
     margin-inline: auto;
   }
 
   .hero-eyebrow {
     margin: 0 0 1rem;
-    font-family: var(--font-body);
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--color-secondary);
+    color: #e0b08a;
   }
 
   .home-hero h1 {
-    margin: 0 0 1.1rem;
-    font-size: clamp(2.15rem, 1rem + 4.1vw, 3.85rem);
-    font-weight: 600;
-    line-height: 1.02;
-    letter-spacing: -0.035em;
-    color: var(--color-primary);
-  }
-
-  .home-hero h1 span {
-    display: block;
+    margin: 0 0 1.05rem;
+    font-size: clamp(2.15rem, 1.15rem + 3.2vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: 0.01em;
+    color: #fff;
   }
 
   .hero-lead {
-    margin: 0 0 1.6rem;
+    margin: 0 0 1.5rem;
     max-width: 36rem;
-    font-size: clamp(1.05rem, 0.98rem + 0.35vw, 1.2rem);
+    font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.18rem);
     line-height: 1.6;
-    color: var(--color-muted);
+    color: var(--color-on-dark-muted);
   }
 
   .hero-ctas {
@@ -522,42 +524,55 @@ const faqSchema = withContext(faqPage(faqs));
   .hero-note {
     margin: 0;
     font-size: 0.92rem;
-    color: var(--color-muted);
+    color: rgba(244, 239, 230, 0.72);
   }
 
   .home-hero__media {
-    min-height: 18rem;
-    background: #1a2430;
+    min-height: 16.5rem;
+    background: #163a5c;
   }
 
   .home-hero__media img {
     width: 100%;
     height: 100%;
-    min-height: 18rem;
-    max-height: 28rem;
+    min-height: 16.5rem;
+    max-height: 26rem;
     object-fit: cover;
     object-position: 62% 40%;
   }
 
   .trust-strip {
-    background: var(--color-primary);
-    color: var(--color-on-dark);
-    padding: 1.15rem 0;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 1.5rem 0;
   }
 
   .trust-strip__grid {
     display: grid;
-    gap: 0.85rem 1.5rem;
-    grid-template-columns: 1fr 1fr;
+    gap: 1.15rem 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .trust-strip article {
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--color-cta);
+  }
+
+  .trust-strip strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
   }
 
   .trust-strip p {
     margin: 0;
-    font-size: 0.82rem;
-    font-weight: 650;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(247, 244, 239, 0.88);
+    font-size: 0.92rem;
+    color: var(--color-muted);
   }
 
   .section-intro {
@@ -570,60 +585,61 @@ const faqSchema = withContext(faqPage(faqs));
     margin: 0;
     padding: 0;
     display: grid;
-    gap: 0;
-    border-top: 1px solid var(--color-border);
+    gap: 1.15rem;
   }
 
   .featured-card {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto auto;
-    column-gap: 1rem;
-    row-gap: 0.35rem;
-    padding: 1.45rem 0.15rem;
-    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.35rem 1.25rem 1.2rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-sm);
     text-decoration: none;
     color: inherit;
-    transition: background-color 0.18s ease;
   }
 
   .featured-card:hover {
     color: inherit;
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.55);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-md);
   }
 
   .featured-card__icon {
-    grid-row: 1 / span 3;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
-    margin-top: 0.1rem;
-    border-radius: 10px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.9rem;
+    border-radius: 4px;
     background: var(--color-primary);
     color: #f4efe6;
   }
 
   .featured-card h3 {
-    margin: 0;
-    font-size: 1.35rem;
-    font-weight: 600;
+    margin: 0 0 0.45rem;
+    font-size: 1.22rem;
+    letter-spacing: 0.02em;
   }
 
   .featured-card p {
-    margin: 0;
+    margin: 0 0 1rem;
     color: var(--color-muted);
-    font-size: 0.98rem;
+    font-size: 0.96rem;
+    flex: 1;
   }
 
   .featured-card .card-cta {
-    font-family: var(--font-body);
-    font-weight: 650;
-    font-size: 0.88rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.82rem;
     color: var(--color-cta);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .featured-card:hover .card-cta {
@@ -631,10 +647,12 @@ const faqSchema = withContext(faqPage(faqs));
   }
 
   .text-link {
+    font-family: var(--font-heading);
     font-weight: 700;
     color: var(--color-primary);
     text-decoration: none;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .text-link:hover {
@@ -656,6 +674,7 @@ const faqSchema = withContext(faqPage(faqs));
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
+    border-radius: var(--radius-card);
   }
 
   .home-split {
@@ -664,7 +683,7 @@ const faqSchema = withContext(faqPage(faqs));
 
   .split-panel {
     position: relative;
-    min-height: 28rem;
+    min-height: 26rem;
     overflow: hidden;
     color: #fff;
     text-decoration: none;
@@ -682,27 +701,20 @@ const faqSchema = withContext(faqPage(faqs));
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .split-panel::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(16, 24, 32, 0.1) 20%, rgba(16, 24, 32, 0.78) 100%);
+    background: rgba(11, 37, 69, 0.62);
     z-index: 1;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .split-panel:hover img {
-      transform: scale(1.04);
-    }
   }
 
   .split-panel__content {
     position: relative;
     z-index: 2;
-    min-height: 28rem;
+    min-height: 26rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -712,19 +724,21 @@ const faqSchema = withContext(faqPage(faqs));
   .split-panel h2 {
     color: #fff;
     margin-bottom: 0.6rem;
-    font-size: clamp(1.8rem, 1.4rem + 1.4vw, 2.6rem);
+    font-size: clamp(1.7rem, 1.4rem + 1.2vw, 2.4rem);
+    text-transform: uppercase;
   }
 
   .split-panel p {
-    color: rgba(247, 244, 239, 0.88);
+    color: rgba(244, 239, 230, 0.9);
     max-width: 34ch;
     margin-bottom: 1.1rem;
   }
 
   .split-panel__cta {
+    font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 0.92rem;
-    letter-spacing: 0.04em;
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #fff;
   }
@@ -738,27 +752,32 @@ const faqSchema = withContext(faqPage(faqs));
     list-style: none;
     margin: 0;
     padding: 0;
-    border-top: 1px solid var(--color-border);
   }
 
   .principle-list li {
     display: grid;
     grid-template-columns: 3.2rem 1fr;
     gap: 1rem;
-    padding: 1.35rem 0;
+    padding: 1.2rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .principle-list li:last-child {
     border-bottom: 1px solid var(--color-border);
   }
 
   .principle-list__num {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
-    color: var(--color-secondary);
-    letter-spacing: -0.03em;
+    font-size: 1.2rem;
+    color: var(--color-cta);
+    letter-spacing: 0.04em;
   }
 
   .principle-list h3 {
     margin: 0 0 0.35rem;
-    font-size: 1.35rem;
+    font-size: 1.22rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 
   .principle-list p {
@@ -771,29 +790,36 @@ const faqSchema = withContext(faqPage(faqs));
     margin: 0;
     padding: 0;
     display: grid;
-    gap: var(--space-6);
+    gap: var(--space-5);
+  }
+
+  .process-grid li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.4rem 1.3rem 1.35rem;
   }
 
   .process-grid__num {
     display: block;
     font-family: var(--font-heading);
-    font-size: clamp(3.2rem, 2rem + 4vw, 5.2rem);
-    line-height: 0.9;
-    letter-spacing: -0.06em;
-    color: var(--color-primary);
-    margin-bottom: 0.85rem;
-    opacity: 0.92;
+    font-size: 1.7rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: var(--color-cta);
+    margin-bottom: 0.75rem;
   }
 
   .process-grid h3 {
     margin-bottom: 0.5rem;
-    font-size: 1.45rem;
+    font-size: 1.28rem;
+    text-transform: uppercase;
   }
 
   .process-grid p {
     margin: 0;
     color: var(--color-muted);
-    max-width: 32ch;
+    max-width: 34ch;
   }
 
   .home-local__grid {
@@ -807,6 +833,7 @@ const faqSchema = withContext(faqPage(faqs));
     aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
+    border-radius: var(--radius-card);
   }
 
   .place-list {
@@ -815,26 +842,19 @@ const faqSchema = withContext(faqPage(faqs));
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.45rem 0.35rem;
+    gap: 0.45rem;
   }
 
   .place-list li {
-    font-size: 0.82rem;
-    font-weight: 650;
-    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--color-primary);
-    border-right: 1px solid var(--color-border);
-    padding-right: 0.7rem;
-    margin-right: 0.35rem;
-  }
-
-  .place-list li:last-child {
-    border-right: 0;
-  }
-
-  .home-final {
-    text-align: left;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 0.4rem 0.7rem;
+    border-radius: 3px;
   }
 
   .home-final__inner {
@@ -842,27 +862,73 @@ const faqSchema = withContext(faqPage(faqs));
   }
 
   .home-final h2 {
-    font-size: clamp(2rem, 1.3rem + 2.2vw, 3.3rem);
+    font-size: clamp(1.9rem, 1.3rem + 1.8vw, 2.8rem);
+    text-transform: uppercase;
+  }
+
+  .home-contact {
+    background: var(--color-bg-alt);
   }
 
   .home-form {
     display: grid;
-    gap: var(--space-7);
+    gap: var(--space-6);
     align-items: start;
+  }
+
+  .home-form__intro {
+    background: var(--color-primary);
+    color: var(--color-on-dark);
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius-card);
+  }
+
+  .home-form__intro .eyebrow {
+    color: #e0b08a;
+  }
+
+  .home-form__intro h2 {
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  .home-form__intro p {
+    color: var(--color-on-dark-muted);
+  }
+
+  .home-form__phone {
+    margin: 1.1rem 0 0.25rem;
+  }
+
+  .home-form__phone a {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 1.9rem);
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+
+  .home-form__phone a:hover {
+    color: #fff;
+  }
+
+  .home-form__hours {
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
   }
 
   .more-services {
     margin-top: var(--space-6);
     padding-top: var(--space-5);
-    border-top: 1px solid var(--color-border);
   }
 
   .more-services h3 {
     margin: 0 0 0.85rem;
-    font-size: 1.05rem;
-    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-family: var(--font-heading);
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
@@ -872,20 +938,17 @@ const faqSchema = withContext(faqPage(faqs));
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem 0.35rem;
-  }
-
-  .more-services li {
-    border-right: 1px solid var(--color-border);
-    padding-right: 0.75rem;
-    margin-right: 0.4rem;
-  }
-
-  .more-services li:last-child {
-    border-right: 0;
+    gap: 0.5rem;
   }
 
   .more-services a {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 3px;
     font-weight: 650;
     color: var(--color-primary);
     text-decoration: none;
@@ -893,6 +956,7 @@ const faqSchema = withContext(faqPage(faqs));
 
   .more-services a:hover {
     color: var(--color-cta);
+    border-color: var(--color-cta);
   }
 
   .guide-grid {
@@ -908,19 +972,20 @@ const faqSchema = withContext(faqPage(faqs));
     padding: 1.2rem 1.15rem;
     background: var(--color-surface);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
     text-decoration: none;
     color: inherit;
   }
 
   .guide-grid a:hover {
-    border-color: var(--color-secondary);
+    border-color: var(--color-primary);
     color: inherit;
     text-decoration: none;
   }
 
   .guide-grid h3 {
     margin: 0 0 0.35rem;
-    font-size: 1.2rem;
+    font-size: 1.18rem;
   }
 
   .guide-grid p {
@@ -933,28 +998,15 @@ const faqSchema = withContext(faqPage(faqs));
     .guide-grid {
       grid-template-columns: 1fr 1fr;
     }
-  }
 
-  @media (min-width: 900px) {
-    .home-form {
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: var(--space-8);
-    }
-  }
-
-  @media (min-width: 700px) {
-    .home-hero__media img {
-      max-height: 36rem;
-      min-height: 24rem;
-    }
-
-    .trust-strip__grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
+    .trust-strip__grid,
     .featured-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 0 2.5rem;
+    }
+
+    .home-hero__media img {
+      max-height: 34rem;
+      min-height: 22rem;
     }
 
     .home-split {
@@ -962,33 +1014,38 @@ const faqSchema = withContext(faqPage(faqs));
     }
   }
 
+  @media (min-width: 900px) {
+    .home-form {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: var(--space-7);
+    }
+
+    .home-form :global(.form) {
+      min-height: 28rem;
+    }
+
+    .home-form__intro {
+      padding: 2.1rem 1.85rem;
+    }
+  }
+
   @media (min-width: 980px) {
     .home-hero {
-      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      min-height: calc(100svh - var(--header-h));
-      min-height: calc(100vh - var(--header-h));
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      min-height: 36rem;
     }
 
     .home-hero__copy {
-      padding: 4.5rem 0 4.75rem;
-      align-items: center;
-    }
-
-    .home-hero h1 span {
-      white-space: nowrap;
+      padding: 4.2rem 0;
     }
 
     .home-hero__copy-inner {
-      width: min(100% - 2rem, 42rem);
+      width: min(100% - 2rem, 40rem);
       margin-left: max(1rem, calc((100vw - var(--container)) / 2));
       margin-right: 2rem;
-      padding-bottom: 1.5rem;
     }
 
-    .home-hero__media {
-      min-height: 100%;
-    }
-
+    .home-hero__media,
     .home-hero__media img {
       min-height: 100%;
       max-height: none;
@@ -997,20 +1054,15 @@ const faqSchema = withContext(faqPage(faqs));
 
     .trust-strip__grid {
       grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
     }
 
-    .trust-strip p {
-      padding-right: 1rem;
-      border-right: 1px solid rgba(255, 255, 255, 0.16);
-    }
-
-    .trust-strip p:last-child {
-      border-right: 0;
+    .featured-grid {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .process-grid {
       grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-7);
     }
 
     .home-emergency__grid,
@@ -1028,11 +1080,11 @@ const faqSchema = withContext(faqPage(faqs));
 
     .split-panel,
     .split-panel__content {
-      min-height: 34rem;
+      min-height: 32rem;
     }
 
     .split-panel__content {
-      padding: 2.6rem;
+      padding: 2.4rem;
     }
   }
 
@@ -1045,42 +1097,6 @@ const faqSchema = withContext(faqPage(faqs));
 
     .hero-ctas .btn {
       width: 100%;
-    }
-
-    .trust-strip__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .home-hero__copy-inner {
-      animation: heroCopy 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-
-    .home-hero__media img {
-      animation: heroImage 1s cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-  }
-
-  @keyframes heroCopy {
-    from {
-      opacity: 0;
-      transform: translateY(14px);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes heroImage {
-    from {
-      opacity: 0;
-      transform: scale(1.04);
-    }
-    to {
-      opacity: 1;
-      transform: none;
     }
   }
 </style>

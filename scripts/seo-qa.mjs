@@ -53,6 +53,7 @@ const requiredRoutes = [
   '/resources/dripping-faucet/',
   '/resources/garbage-disposal-repair/',
   '/resources/pipe-repair/',
+  '/resources/vacation-rental-plumbing-virginia-beach/',
 ];
 
 function routeToFile(route) {
@@ -162,10 +163,17 @@ for (const [desc, files] of descriptions) {
   }
 }
 
-const sitemapPath = join(dist, 'sitemap.xml');
-const publicSitemap = join(root, 'public', 'sitemap.xml');
-const smFile = existsSync(sitemapPath) ? sitemapPath : publicSitemap;
-if (existsSync(smFile)) {
+function findSitemap() {
+  const candidates = [
+    join(dist, 'sitemap.xml'),
+    join(dist, 'sitemap.xml', 'index.html'),
+    join(root, 'public', 'sitemap.xml'),
+  ];
+  return candidates.find((p) => existsSync(p));
+}
+
+const smFile = findSitemap();
+if (smFile) {
   const sm = readFileSync(smFile, 'utf8');
   if (/\/thank-you\//.test(sm)) errors.push('sitemap includes /thank-you/');
   if (/\/local-presence\//.test(sm)) errors.push('sitemap includes /local-presence/');

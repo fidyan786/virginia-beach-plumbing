@@ -1,12 +1,25 @@
 ---
 import Logo from './Logo.astro';
-import { telHref, primaryNav, phoneLabel, navServiceGroups } from '../config/site';
+import { siteConfig, telHref, primaryNav, phoneLabel, navServiceGroups } from '../config/site';
 
 const phone = telHref();
 const callText = phoneLabel();
 ---
 
 <header class="site-header" data-site-header>
+  <div class="utility-bar">
+    <div class="container utility-bar__inner">
+      <p class="utility-bar__meta">
+        <span>Serving Virginia Beach, VA</span>
+        <span class="utility-bar__dot" aria-hidden="true">·</span>
+        <span>{siteConfig.hoursDisplay}</span>
+      </p>
+      <a class="utility-bar__phone" href={phone} data-track="phone_click" data-track-location="utility_bar">
+        {siteConfig.phoneDisplay}
+      </a>
+    </div>
+  </div>
+
   <div class="header-bar">
     <div class="container header-inner">
       <a class="logo" href="/" aria-label="Virginia Beach Plumbing home">
@@ -24,7 +37,7 @@ const callText = phoneLabel();
                     type="button"
                     class="nav-services-toggle"
                     aria-expanded="false"
-                    aria-haspopup="menu"
+                    aria-haspopup="true"
                     aria-controls="services-menu"
                     data-services-trigger
                   >
@@ -86,6 +99,7 @@ const callText = phoneLabel();
           class="menu-toggle"
           aria-expanded="false"
           aria-controls="mobile-menu"
+          aria-haspopup="true"
           data-menu-toggle
         >
           <span class="visually-hidden" data-menu-label>Open menu</span>
@@ -141,7 +155,7 @@ const callText = phoneLabel();
         }
       </ul>
       <a
-        class="btn btn--text btn--block mobile-call"
+        class="btn btn--secondary btn--block mobile-call"
         href={phone}
         data-track="phone_click"
         data-track-location="mobile_menu"
@@ -161,55 +175,83 @@ const callText = phoneLabel();
 </header>
 
 <style>
+  .utility-bar {
+    background: var(--color-primary);
+    color: var(--color-on-dark);
+    border-bottom: 3px solid var(--color-cta);
+  }
+
+  .utility-bar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    min-height: var(--utility-h);
+    padding-block: 0.35rem;
+  }
+
+  .utility-bar__meta {
+    margin: 0;
+    min-width: 0;
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(244, 239, 230, 0.86);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .utility-bar__dot {
+    margin: 0 0.45rem;
+    color: var(--color-cta);
+  }
+
+  .utility-bar__phone {
+    flex-shrink: 0;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .utility-bar__phone:hover {
+    color: #fff;
+  }
+
   .header-bar {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #f6f4f0;
-    border-bottom: 1px solid transparent;
-    box-shadow: inset 0 3px 0 var(--color-cta);
-    transition:
-      background-color 0.25s ease,
-      border-color 0.25s ease,
-      box-shadow 0.25s ease;
-  }
-
-  @media (min-width: 900px) {
-    .header-bar {
-      background: rgba(246, 244, 240, 0.92);
-      backdrop-filter: saturate(1.2) blur(14px);
-    }
+    background: #fff;
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 0 rgba(11, 37, 69, 0.04);
   }
 
   .site-header.is-compact .header-bar {
-    background: rgba(255, 255, 255, 0.96);
-    border-bottom-color: var(--color-border);
-    box-shadow:
-      inset 0 3px 0 var(--color-cta),
-      0 8px 24px rgba(21, 32, 43, 0.06);
+    box-shadow: 0 8px 20px rgba(11, 37, 69, 0.08);
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     gap: var(--space-4);
-    min-height: 84px;
-    padding-block: 0.7rem;
-    transition: min-height 0.25s ease, padding 0.25s ease;
+    min-height: var(--header-h);
+    padding-block: 0.55rem;
   }
 
   .site-header.is-compact .header-inner {
     min-height: 64px;
-    padding-block: 0.4rem;
+    padding-block: 0.35rem;
   }
 
   .site-header.is-compact :global(.brand-logo__mark) {
-    width: 36px;
-    height: 36px;
-  }
-
-  .site-header.is-compact :global(.brand-logo__rule) {
-    height: 1.5rem;
+    width: 38px;
+    height: 38px;
   }
 
   .logo {
@@ -232,7 +274,7 @@ const callText = phoneLabel();
   .nav-list {
     display: flex;
     align-items: center;
-    gap: 0.15rem 0.15rem;
+    gap: 0.05rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -245,28 +287,16 @@ const callText = phoneLabel();
   .nav-top-link {
     text-decoration: none;
     color: var(--color-text);
-    font-weight: 600;
-    font-size: 0.9rem;
-    letter-spacing: 0.01em;
-    padding: 0.45rem 0.7rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.45rem 0.65rem;
     min-height: 44px;
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
-    position: relative;
-  }
-
-  .nav-top-link::after {
-    content: '';
-    position: absolute;
-    left: 0.7rem;
-    right: 0.7rem;
-    bottom: 0.55rem;
-    height: 1px;
-    background: var(--color-primary);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.2s ease;
   }
 
   .nav-top-link:hover,
@@ -274,17 +304,8 @@ const callText = phoneLabel();
     color: var(--color-primary);
   }
 
-  .nav-top-link:hover::after,
-  .nav-top-link:focus-visible::after {
-    transform: scaleX(1);
-  }
-
   .nav-emergency {
     color: var(--color-cta) !important;
-  }
-
-  .nav-emergency::after {
-    background: var(--color-cta);
   }
 
   .has-services {
@@ -335,11 +356,12 @@ const callText = phoneLabel();
     top: 100%;
     left: 0;
     z-index: 120;
-    width: min(38rem, calc(100vw - 2rem));
-    padding: 1rem 1.1rem 1.05rem;
+    width: min(28rem, calc(100vw - 2rem));
+    padding: 0.85rem 1rem 0.9rem;
     margin: 0;
     background: #fff;
     border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-cta);
     box-shadow: var(--shadow-md);
     opacity: 0;
     visibility: hidden;
@@ -377,7 +399,7 @@ const callText = phoneLabel();
     margin: 0 0 0.45rem;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-muted);
   }
@@ -409,31 +431,31 @@ const callText = phoneLabel();
   }
 
   .nav-dropdown__title {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     font-weight: 700;
     line-height: 1.25;
   }
 
   .nav-dropdown__desc {
-    font-size: 0.78rem;
-    font-weight: 500;
-    line-height: 1.35;
-    color: var(--color-muted);
+    display: none;
   }
 
   .nav-dropdown__all {
     display: inline-flex;
     margin-top: 0.75rem;
     padding: 0.4rem 0.5rem;
-    font-size: 0.9rem;
+    font-family: var(--font-heading);
+    font-size: 0.88rem;
     font-weight: 700;
-    color: var(--color-secondary);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-cta);
     text-decoration: none;
   }
 
   .nav-dropdown__all:hover,
   .nav-dropdown__all:focus-visible {
-    color: var(--color-primary);
+    color: var(--color-cta-hover);
   }
 
   .mobile-menu .nav-emergency {
@@ -451,22 +473,23 @@ const callText = phoneLabel();
     display: none;
     min-height: 44px;
     height: 44px;
-    padding-inline: 0.85rem;
-    font-size: 0.9rem;
+    padding-inline: 0.7rem;
+    font-size: 0.92rem;
   }
 
   .header-cta {
     min-height: 44px;
     height: 44px;
     padding-inline: 1rem;
-    font-size: 0.88rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
   }
 
   .menu-toggle {
     width: 44px;
     height: 44px;
     border: 1px solid var(--color-border);
-    border-radius: 4px;
+    border-radius: 3px;
     background: #fff;
     display: inline-flex;
     flex-direction: column;
@@ -493,6 +516,12 @@ const callText = phoneLabel();
   }
 
   .mobile-menu {
+    position: sticky;
+    top: var(--header-h);
+    z-index: 99;
+    max-height: calc(100dvh - var(--header-h));
+    overflow-y: auto;
+    overflow-x: hidden;
     border-top: 1px solid var(--color-border);
     background: #fff;
     padding: var(--space-4) 0 var(--space-6);
@@ -520,9 +549,11 @@ const callText = phoneLabel();
     border-bottom: 1px solid var(--color-border);
     background: transparent;
     color: var(--color-text);
-    font-family: inherit;
-    font-weight: 600;
+    font-family: var(--font-heading);
+    font-weight: 700;
     font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
     text-align: left;
     text-decoration: none;
     cursor: pointer;
@@ -552,11 +583,17 @@ const callText = phoneLabel();
     color: var(--color-text);
     font-weight: 600;
     font-size: 1rem;
+    text-transform: none;
+    letter-spacing: 0;
+    font-family: var(--font-body);
     border-bottom: 1px solid var(--color-border);
   }
 
   .mobile-services__all {
-    color: var(--color-secondary) !important;
+    color: var(--color-cta) !important;
+    font-family: var(--font-heading) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
   }
 
   .mobile-call {
@@ -568,21 +605,29 @@ const callText = phoneLabel();
     justify-content: center;
   }
 
-  @media (min-width: 720px) {
+  @media (max-width: 419px) {
+    .utility-bar__meta span:first-child,
+    .utility-bar__dot {
+      display: none;
+    }
+  }
+
+  @media (min-width: 900px) {
     .header-call {
       display: inline-flex;
+      white-space: nowrap;
     }
   }
 
   @media (min-width: 720px) and (max-width: 1279px) {
     .header-call {
       font-size: 0.82rem;
-      padding-inline: 0.55rem;
+      padding-inline: 0.45rem;
     }
 
     .header-cta {
-      font-size: 0.82rem;
-      padding-inline: 0.75rem;
+      font-size: 0.78rem;
+      padding-inline: 0.7rem;
     }
   }
 
@@ -592,28 +637,25 @@ const callText = phoneLabel();
     }
 
     .menu-toggle,
-    .mobile-menu {
+    .mobile-menu,
+    .header-call {
       display: none !important;
     }
 
     .header-actions {
       margin-left: var(--space-3);
     }
-
-    .nav-list {
-      gap: 0.1rem 0.2rem;
-    }
   }
 
   @media (min-width: 1280px) and (max-width: 1439px) {
     .nav-top-link {
-      padding: 0.45rem 0.45rem;
-      font-size: 0.84rem;
+      padding: 0.45rem 0.42rem;
+      font-size: 0.86rem;
     }
 
     .header-call {
       font-size: 0.84rem;
-      padding-inline: 0.6rem;
+      padding-inline: 0.55rem;
     }
   }
 
@@ -739,6 +781,9 @@ const callText = phoneLabel();
       servicesTrigger.focus();
       return;
     }
-    setMobileMenuOpen(false);
+    if (menuToggle?.getAttribute('aria-expanded') === 'true') {
+      setMobileMenuOpen(false);
+      menuToggle.focus();
+    }
   });
 </script>

@@ -154,6 +154,14 @@ export const SERVICE_HINTS: ServiceHint[] = [
   },
   {
     intent: 'service',
+    keywords: ['airbnb', 'vrbo', 'vacation rental', 'short-term rental', 'short term rental', 'guest unit'],
+    service: 'residential plumbing',
+    serviceKey: 'residential_plumbing',
+    reply: 'We handle plumbing for homes and vacation rentals in Virginia Beach, including Oceanfront short-term rentals.',
+    followUp: 'Is it a leak, a clog, no hot water, or something else — and are guests in the unit?',
+  },
+  {
+    intent: 'service',
     keywords: ['toilet', 'running toilet', "won't flush", 'wont flush', 'fill valve', 'clogged toilet', 'garbage disposal', 'disposal jammed'],
     service: 'plumbing repairs',
     serviceKey: 'toilet',
@@ -227,7 +235,8 @@ export function detectCustomerType(text: string): CustomerType | null {
   if (/\b(restaurant|office|hotel|hospitality|business|commercial|property manager|apartments?|retail)\b/.test(t)) {
     return 'commercial';
   }
-  if (/\b(home|house|homeowner|renter|residential|landlord)\b/.test(t)) return 'residential';
+  if (/\b(airbnb|vrbo|vacation rental|short-term rental|landlord)\b/.test(t)) return 'residential';
+  if (/\b(home|house|homeowner|renter|residential)\b/.test(t)) return 'residential';
   if (/^(home|house|residential)$/i.test(t.trim())) return 'residential';
   if (/^(business|commercial)$/i.test(t.trim())) return 'commercial';
   return null;

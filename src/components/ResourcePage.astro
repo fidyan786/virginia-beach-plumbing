@@ -92,13 +92,13 @@ const schemas = [
           </>
         )
       }
-      <div class="section section--tight section--primary" style="border-radius:12px;padding:1.75rem;margin-top:2rem">
-        <h2 style="margin:0 0 0.75rem">Need help in Virginia Beach?</h2>
-        <p style="margin-bottom:1rem">
-          Next step: <a href={meta.moneyLink.href} style="color:#d7ecf7">{meta.moneyLink.label}</a>
+      <div class="section section--tight section--primary resource-cta">
+        <h2>Need help in Virginia Beach?</h2>
+        <p>
+          Next step: <a href={meta.moneyLink.href}>{meta.moneyLink.label}</a>
           or call anytime.
         </p>
-        <div class="btn-group" style="margin-top:0">
+        <div class="btn-group">
           <a class="btn btn--on-dark" href={phone}>Call {siteConfig.phoneDisplay}</a>
           <a class="btn btn--ghost" href="/contact/">Request Service</a>
         </div>
@@ -107,3 +107,27 @@ const schemas = [
   </section>
   {meta.faqs && meta.faqs.length > 0 && <FaqList items={meta.faqs} />}
 </BaseLayout>
+
+<style>
+  .resource-cta {
+    border-radius: var(--radius-card);
+    padding: 1.75rem;
+    margin-top: 2rem;
+  }
+
+  .resource-cta h2 {
+    margin: 0 0 0.75rem;
+  }
+
+  .resource-cta p {
+    margin-bottom: 1rem;
+  }
+
+  .resource-cta a:not(.btn) {
+    color: #d7ecf7;
+  }
+
+  .resource-cta .btn-group {
+    margin-top: 0;
+  }
+</style>
