@@ -523,6 +523,7 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     related: [
       { label: 'Slab leak repair', href: '/slab-leak-repair/' },
+      { label: 'Pipe repair guide', href: '/resources/pipe-repair/' },
       { label: 'Repiping', href: '/repiping/' },
       { label: 'Emergency plumber', href: '/emergency-plumber/' },
       { label: 'Low water pressure', href: '/resources/low-water-pressure/' },
@@ -891,7 +892,7 @@ export const servicePages: Record<string, ServicePageData> = {
   'residential-plumbing': {
     title: 'Residential Plumber Virginia Beach | Home Plumbing Services',
     description:
-      'Residential plumbing for Virginia Beach homeowners and landlords - drains, water heaters, leaks, and more. Call or request service.',
+      'Residential plumbing for Virginia Beach homeowners and landlords - drains, water heaters, toilets, faucets, leaks, and emergencies. Call or request service.',
     canonicalPath: '/residential-plumbing/',
     h1: 'Residential Plumber in Virginia Beach',
     lead: 'Fixture issues, drain clogs, water heaters, and larger repairs all fall under residential plumbing. Pick the service that matches the problem, or request help and we will route it.',
@@ -915,13 +916,28 @@ export const servicePages: Record<string, ServicePageData> = {
         </ul>`,
       },
       {
+        heading: 'Fixture and pipe problem guides',
+        html: `<p>Short guides for common home calls:</p>
+        <ul>
+          <li><a href="/resources/dripping-faucet/">Dripping faucet</a></li>
+          <li><a href="/resources/garbage-disposal-repair/">Garbage disposal repair</a></li>
+          <li><a href="/resources/pipe-repair/">Pipe repair (leaks, pinholes, bursts)</a></li>
+          <li><a href="/resources/running-toilet/">Running toilet</a> · <a href="/resources/clogged-toilet/">clogged toilet</a></li>
+          <li><a href="/resources/no-hot-water/">No hot water</a> · <a href="/resources/low-water-pressure/">low water pressure</a></li>
+        </ul>`,
+      },
+      {
+        heading: 'Coastal and older Virginia Beach homes',
+        html: `<p>Oceanfront rentals, Kempsville and Lynnhaven ranch homes, and older supply lines around Town Center and Princess Anne fail differently than a brand-new inland build. Salt air, guest-house vacancy (dry traps), hard-water scale on heaters, and mature trees over laterals show up often. We route those jobs to the matching service page rather than treating every call as the same “general plumbing” visit.</p>
+        <p>Neighborhood context without doorway pages: <a href="/service-areas/">service area</a> · <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a>.</p>`,
+      },
+      {
         heading: 'Landlords and property turnover',
-        html: `<p>Rental turnovers, move-outs, and military PCS seasons can stack toilet, faucet, disposal, and water-heater punch-list items in a short window. Share gate codes, unit numbers, and whether tenants will be home. This page does not advertise a military discount. We simply serve Virginia Beach homes, including areas near NAS Oceana and Little Creek, when you need a plumber.</p>
-`,
+        html: `<p>Rental turnovers, move-outs, and military PCS seasons can stack toilet, faucet, disposal, and water-heater punch-list items in a short window. Share gate codes, unit numbers, and whether tenants will be home. This page does not advertise a military discount. We simply serve Virginia Beach homes, including areas near NAS Oceana and Little Creek, when you need a plumber.</p>`,
       },
       {
         heading: 'Urgent residential problems',
-        html: `<p>For burst pipes, major leaks, or sewer backups, go to <a href="/emergency-plumber/">emergency plumbing</a>.</p>`,
+        html: `<p>For burst pipes, major leaks, or sewer backups, go to <a href="/emergency-plumber/">emergency plumbing</a>. Shutoff help: <a href="/resources/shut-off-main-water-valve/">main water valve</a> · <a href="/resources/what-to-do-when-a-pipe-bursts/">burst pipe steps</a>.</p>`,
       },
     ],
     faqs: [
@@ -933,18 +949,24 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         question: 'Do you handle toilets, faucets, and disposals?',
         answer:
-          'Yes. Those fixture jobs live on our plumbing repairs page so this page can stay focused on homeowner and landlord routing.',
+          'Yes. Those fixture jobs live on our plumbing repairs page so this page can stay focused on homeowner and landlord routing. Guides: dripping faucet, garbage disposal repair, and toilet problem pages under Resources.',
       },
       {
         question: 'Can landlords request service for a rental unit?',
         answer:
           'Yes. Include the unit address or ZIP, access notes, and whether tenants will be present. For sewage backup or flooding, call emergency plumbing first.',
       },
+      {
+        question: 'Do you repair pipes as well as fixtures?',
+        answer:
+          'Yes. Fixture drips go to plumbing repairs. Supply-line and hidden pipe leaks go through leak detection or the pipe repair guide, then emergency plumbing if water is actively flooding.',
+      },
     ],
     related: [
       { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
       { label: 'Drain cleaning', href: '/drain-cleaning/' },
       { label: 'Water heaters', href: '/water-heaters/' },
+      { label: 'Pipe repair guide', href: '/resources/pipe-repair/' },
       { label: 'Plumbing services', href: '/plumbing-services/' },
       { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
       { label: 'Emergency', href: '/emergency-plumber/' },
@@ -981,12 +1003,12 @@ export const servicePages: Record<string, ServicePageData> = {
       {
         heading: 'Faucet and fixture leaks',
         html: `<p>Drips at the spout, leaks under the handle, or water at the supply lines can be a washer, cartridge, or connection issue. A slow drip is not always an emergency, but it can stain fixtures and raise the water bill.</p>
-        <p>If you cannot tell whether the leak is the faucet or a pipe in the cabinet or wall, use <a href="/leak-detection/">leak detection</a> instead of guessing.</p>`,
+        <p>Practical checks: <a href="/resources/dripping-faucet/">dripping faucet guide</a>. If you cannot tell whether the leak is the faucet or a pipe in the cabinet or wall, use <a href="/leak-detection/">leak detection</a> or the <a href="/resources/pipe-repair/">pipe repair guide</a> instead of guessing.</p>`,
       },
       {
         heading: 'Garbage disposal repair',
         html: `<p>Humming without spinning, frequent resets, leaks at the sink flange, and persistent odors are typical disposal issues. Reset buttons and hex-key turns can free a jammed impeller, but never put your hand in the chamber, even with the breaker off unless you are sure power is isolated.</p>
-        <p>A disposal that backs water into the other sink bowl is often a drain clog, not a failed motor. That belongs with <a href="/drain-cleaning/">drain cleaning</a>.</p>`,
+        <p>Step-by-step: <a href="/resources/garbage-disposal-repair/">garbage disposal repair guide</a>. A disposal that backs water into the other sink bowl is often a drain clog, not a failed motor. That belongs with <a href="/drain-cleaning/">drain cleaning</a>.</p>`,
       },
       {
         heading: 'When a “small repair” is actually urgent',
@@ -1032,6 +1054,9 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     related: [
       { label: 'Residential plumbing', href: '/residential-plumbing/' },
+      { label: 'Dripping faucet guide', href: '/resources/dripping-faucet/' },
+      { label: 'Garbage disposal guide', href: '/resources/garbage-disposal-repair/' },
+      { label: 'Pipe repair guide', href: '/resources/pipe-repair/' },
       { label: 'Running toilet guide', href: '/resources/running-toilet/' },
       { label: 'Clogged toilet guide', href: '/resources/clogged-toilet/' },
       { label: 'Toilet overflowing', href: '/resources/toilet-overflowing/' },

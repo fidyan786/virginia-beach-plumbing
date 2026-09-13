@@ -8,9 +8,9 @@ import { faqPage, originFromSite, plumberContractorNode, websiteNode, withContex
 
 const phone = telHref();
 const origin = originFromSite(Astro.site);
-const title = 'Plumber Virginia Beach VA | Drains, Water Heaters & 24/7 Help';
+const title = 'Plumber Virginia Beach VA | Local Plumbing Company & 24/7 Help';
 const description =
-  `Local plumber in Virginia Beach for clogged drains, water heaters, leaks, sewer work, fixture repairs, and 24/7 emergencies. Call ${siteConfig.phoneDisplay} or request service.`;
+  `Local plumbing company in Virginia Beach for clogged drains, water heaters, leaks, sewer work, fixture repairs, and 24/7 emergency plumbing. Call ${siteConfig.phoneDisplay} or request service.`;
 
 const orgSchema = withContext({
   ...plumberContractorNode(origin),
@@ -90,23 +90,27 @@ const homeGuides = [
     copy: 'Shutoff, safety, and when to call versus waiting.',
   },
   {
-    href: '/resources/no-hot-water/',
-    title: 'No hot water',
-    copy: 'Power, gas, and tank vs tankless checks before you replace anything.',
+    href: '/resources/pipe-repair/',
+    title: 'Pipe repair guide',
+    copy: 'Pinholes, burst lines, and when leak detection comes first.',
   },
   {
-    href: '/resources/water-heater-leaking/',
-    title: 'Water heater leaking',
-    copy: 'Bottom leak vs fitting drip, and when to shut the unit off.',
+    href: '/resources/dripping-faucet/',
+    title: 'Dripping faucet',
+    copy: 'Cartridge vs supply leaks, and when a drip can wait.',
   },
   {
-    href: '/resources/foul-drain-odor/',
-    title: 'Foul drain smell',
-    copy: 'Dry traps, sewer gas clues, and when odor means a line problem.',
+    href: '/resources/garbage-disposal-repair/',
+    title: 'Garbage disposal repair',
+    copy: 'Jams, resets, flange leaks, and drain vs motor issues.',
   },
 ];
 
 const faqs = [
+  {
+    question: 'Are you a plumbing company or contractor in Virginia Beach?',
+    answer: `Yes. Virginia Beach Plumbing is a local plumbing company and contractor for homes and businesses in Virginia Beach. Learn more on the <a href="/about/">about</a> page or browse <a href="/plumbing-services/">plumbing services</a>.`,
+  },
   {
     question: 'Are you a 24-hour plumber in Virginia Beach?',
     answer: `Yes. We are open 24/7 for emergency plumbing: burst pipes, major leaks, and sewer backups. Call <a href="${phone}">${siteConfig.phoneDisplay}</a> or see the <a href="/emergency-plumber/">emergency plumbing</a> page.`,

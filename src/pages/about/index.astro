@@ -1,13 +1,38 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
+import FaqList from '../../components/FaqList.astro';
 import { siteConfig, telHref } from '../../config/site';
-import { originFromSite, plumberContractorNode, plumberId, breadcrumbList, withContext } from '../../lib/schema';
+import {
+  originFromSite,
+  plumberContractorNode,
+  plumberId,
+  breadcrumbList,
+  faqPage,
+  withContext,
+} from '../../lib/schema';
 
 const phone = telHref();
-const title = 'About Virginia Beach Plumbing | Local Plumber';
+const title = 'Virginia Beach Plumbing Company | Local Plumbing Contractor';
 const description =
-  `Virginia Beach Plumbing helps homes and businesses with drains, water heaters, leaks, sewer work, and emergencies in Virginia Beach, VA. Call ${siteConfig.phoneDisplay}.`;
+  `Virginia Beach Plumbing is a local plumbing company and contractor for homes and businesses — drains, water heaters, leaks, sewer work, and 24/7 emergencies. Call ${siteConfig.phoneDisplay}.`;
+
+const faqs = [
+  {
+    question: 'Are you a plumbing company or just a lead form?',
+    answer: `Virginia Beach Plumbing is a local plumbing company serving Virginia Beach, Virginia. Call <a href="${phone}">${siteConfig.phoneDisplay}</a> or request service with your ZIP and the problem. There is no public storefront listed on this site — we come to the property.`,
+  },
+  {
+    question: 'Do you work as a residential and commercial plumbing contractor?',
+    answer:
+      'Yes. Homeowners, landlords, restaurants, offices, hospitality sites, and property managers can request help. Start on <a href="/residential-plumbing/">residential</a> or <a href="/commercial-plumbing/">commercial</a>, or browse <a href="/plumbing-services/">all services</a>.',
+  },
+  {
+    question: 'Where do you serve in Virginia Beach?',
+    answer:
+      'Across Virginia Beach, including areas such as Oceanfront, Kempsville, Lynnhaven, Town Center, Princess Anne, Great Neck, Pungo, Bayside, Red Mill, and Sandbridge. Confirm the ZIP on the <a href="/service-areas/">service area</a> page.',
+  },
+];
 
 const origin = originFromSite(Astro.site);
 const aboutSchema = [
@@ -25,6 +50,7 @@ const aboutSchema = [
     ])
   ),
   withContext(plumberContractorNode(origin)),
+  withContext(faqPage(faqs)),
 ];
 ---
 
@@ -33,11 +59,11 @@ const aboutSchema = [
     <Breadcrumb items={[{ label: 'Home', href: '/' }, { label: 'About' }]} />
     <div class="container two-col">
       <div class="prose">
-        <h1>About {siteConfig.brandName}</h1>
+        <h1>Virginia Beach Plumbing Company</h1>
         <p>
-          Virginia Beach Plumbing is a local plumbing company for homes, rentals, and businesses in Virginia Beach,
-          Virginia. We handle the work people actually call about: clogged drains, water heaters, leaks, sewer lines,
-          fixture repairs, and after-hours emergencies.
+          Virginia Beach Plumbing is a local plumbing company and plumbing contractor for homes, rentals, and
+          businesses in Virginia Beach, Virginia. We handle the work people actually call about: clogged drains, water
+          heaters, leaks, sewer lines, fixture repairs, and after-hours emergencies.
         </p>
         <p>
           Call <a href={phone}>{siteConfig.phoneDisplay}</a> or send a short request with your ZIP and the problem.
@@ -82,7 +108,9 @@ const aboutSchema = [
         </p>
         <p>
           Coastal housing, older supply lines, and hospitality properties near the ocean can fail differently than a
-          brand-new inland house. That context lives on the relevant service pages and guides.
+          brand-new inland house. That context lives on the relevant service pages and guides, including
+          <a href="/resources/coastal-plumbing-challenges-virginia-beach/">coastal plumbing challenges</a> and
+          <a href="/resources/pipe-repair/">pipe repair</a>.
         </p>
 
         <h2>Coming to you</h2>
@@ -105,6 +133,9 @@ const aboutSchema = [
           <a class="btn btn--primary" href={phone}>Call {siteConfig.phoneDisplay}</a>
           <a class="btn btn--secondary" href="/contact/">Request Service</a>
         </div>
+
+        <h2>Frequently asked questions</h2>
+        <FaqList items={faqs} />
       </div>
       <div>
         <figure class="prose-figure" style="margin:0">

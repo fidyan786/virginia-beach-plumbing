@@ -50,6 +50,9 @@ const requiredRoutes = [
   '/resources/foul-drain-odor/',
   '/resources/recurring-drain-clogs/',
   '/resources/sewer-backup/',
+  '/resources/dripping-faucet/',
+  '/resources/garbage-disposal-repair/',
+  '/resources/pipe-repair/',
 ];
 
 function routeToFile(route) {

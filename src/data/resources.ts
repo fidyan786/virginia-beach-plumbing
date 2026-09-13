@@ -71,6 +71,17 @@ export const resources: ResourceGuide[] = [
         heading: 'What a useful quote needs',
         html: `<p>A phone or chat description is not a bid. Access, pipe material, fixture type, and whether the issue is one fixture or a main line all change the work. Bring the ZIP, a short description, and whether water is currently off or backing up. Call (703) 703-7855 for emergencies instead of waiting on a form.</p>`,
       },
+      {
+        heading: 'How to compare local options without guessing',
+        html: `<p>Franchise and local Virginia Beach plumbers may list trip fees, flat rates, or time-and-materials. Ask what is included, whether diagnosis is credited toward repair, and whether after-hours rates apply. This site does not publish invented price tables.</p>
+        <p>If you are choosing a company rather than a single service, start with <a href="/about/">about Virginia Beach Plumbing</a> and the <a href="/plumbing-services/">services hub</a>.</p>`,
+      },
+    ],
+    related: [
+      { label: 'Request an estimate', href: '/contact/' },
+      { label: 'Plumbing services', href: '/plumbing-services/' },
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+      { label: 'Water heater cost factors', href: '/resources/water-heater-replacement-cost-virginia-beach/' },
     ],
   },
   {
@@ -942,6 +953,156 @@ export const resources: ResourceGuide[] = [
       { label: 'Recurring drain clogs', href: '/resources/recurring-drain-clogs/' },
       { label: 'Sewer line repair', href: '/sewer-line-repair/' },
       { label: 'Commercial plumbing', href: '/commercial-plumbing/' },
+    ],
+  },
+  {
+    slug: 'dripping-faucet',
+    title: 'Dripping Faucet Repair Virginia Beach | When to Call',
+    description:
+      'Why faucets drip, what you can safely check, and when to call a plumber in Virginia Beach for faucet repair.',
+    h1: 'Dripping Faucet: What to Check Before You Call',
+    moneyLink: { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'Why faucets drip',
+        html: `<p>A drip at the spout is often a worn washer, cartridge, O-ring, or seat. A drip at the handle or under the deck can be a packing nut, supply connection, or failed cartridge. Hard water common in coastal Hampton Roads areas can wear cartridges faster and leave mineral buildup that keeps a valve from sealing.</p>`,
+      },
+      {
+        heading: 'Safe checks first',
+        html: `<ul>
+          <li>Confirm the drip is the faucet, not a supply line or drain under the sink.</li>
+          <li>Shut the under-sink angle stops if you need to stop water before a visit.</li>
+          <li>Note whether the drip is cold, hot, or both — that helps narrow the failed side.</li>
+          <li>Avoid overtightening the handle; that can crush seats and stems.</li>
+        </ul>
+        <p>If water is spraying from a supply line or the cabinet is flooding, treat it as urgent: shut the stops or the main, then call <a href="/emergency-plumber/">emergency plumbing</a>.</p>`,
+      },
+      {
+        heading: 'Repair vs replace',
+        html: `<p>Many cartridge and washer leaks are repairable. Replacement makes more sense when the finish is failing, parts are discontinued, the body is cracked, or the fixture is already near end of life. Bring a brand or photo if you already chose a replacement faucet.</p>
+        <p>Service path: <a href="/plumbing-repairs/">plumbing repairs</a>. If you cannot tell faucet vs pipe in the wall, see <a href="/leak-detection/">leak detection</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is a dripping faucet an emergency?',
+        answer:
+          'Usually no. It wastes water and can stain fixtures, but it can wait for a scheduled repair unless water is spraying or pooling under the cabinet.',
+      },
+      {
+        question: 'Can I fix a dripping faucet myself?',
+        answer:
+          'Some cartridge swaps are DIY for people comfortable shutting water and reassembling parts. If you are unsure of the model, lack shutoffs, or see corrosion at the valve body, request a plumber so the leak does not turn into a cabinet flood.',
+      },
+    ],
+    related: [
+      { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+      { label: 'Leak detection', href: '/leak-detection/' },
+      { label: 'Residential plumbing', href: '/residential-plumbing/' },
+      { label: 'Pipe repair guide', href: '/resources/pipe-repair/' },
+    ],
+  },
+  {
+    slug: 'garbage-disposal-repair',
+    title: 'Garbage Disposal Repair Virginia Beach | Jam, Reset & Leaks',
+    description:
+      'Garbage disposal humming, jammed, leaking, or resetting in Virginia Beach. Safe checks and when to call for disposal repair.',
+    h1: 'Garbage Disposal Problems and Safe Next Steps',
+    moneyLink: { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'Common disposal failures',
+        html: `<ul>
+          <li>Humming without spinning (jammed impeller)</li>
+          <li>Tripped reset button or breaker</li>
+          <li>Leaks at the sink flange, dishwasher inlet, or drain body</li>
+          <li>Persistent odor from trapped food</li>
+          <li>Water backing into the other sink bowl (often a drain clog, not the motor)</li>
+        </ul>`,
+      },
+      {
+        heading: 'Safe checks',
+        html: `<ul>
+          <li>Never put your hand in the chamber.</li>
+          <li>Use the hex key on the bottom center only if the unit design has one and power is off at the switch.</li>
+          <li>Press the red reset on the bottom after clearing a jam.</li>
+          <li>If water backs into the second bowl, treat it as a drain issue: <a href="/drain-cleaning/">drain cleaning</a>.</li>
+        </ul>
+        <p>Do not pour chemical drain openers into a disposal. They can damage the unit and create a hazard for whoever opens it next.</p>`,
+      },
+      {
+        heading: 'When to call',
+        html: `<p>Call for leaks at the flange, repeated trips after a jam is cleared, grinding metal sounds, or a unit that will not start after reset. Many Virginia Beach rentals and kitchens near the Oceanfront see heavy use that wears flanges and seals faster.</p>
+        <p>Fixture path: <a href="/plumbing-repairs/">plumbing repairs</a>. Related odor help: <a href="/resources/foul-drain-odor/">foul drain odor</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Is a humming disposal an emergency?',
+        answer:
+          'Not usually. Power it off, try the reset after a safe jam clear, and schedule repair if it still will not spin. Call sooner if the unit is leaking onto a cabinet floor.',
+      },
+      {
+        question: 'Disposal vs drain cleaning — which page?',
+        answer:
+          'Start with plumbing repairs when the motor, flange, or reset is the issue. Choose drain cleaning when both sink bowls back up or the line beyond the disposal is clogged.',
+      },
+    ],
+    related: [
+      { label: 'Plumbing repairs', href: '/plumbing-repairs/' },
+      { label: 'Drain cleaning', href: '/drain-cleaning/' },
+      { label: 'Foul drain odor', href: '/resources/foul-drain-odor/' },
+      { label: 'Residential plumbing', href: '/residential-plumbing/' },
+    ],
+  },
+  {
+    slug: 'pipe-repair',
+    title: 'Pipe Repair Virginia Beach | Leaks, Pinholes & Burst Lines',
+    description:
+      'Pipe repair guidance for Virginia Beach homes: pinhole leaks, supply line failures, burst pipes, and when to call emergency vs scheduled service.',
+    h1: 'Pipe Repair: Leaks, Pinholes, and Burst Lines',
+    moneyLink: { label: 'Leak detection', href: '/leak-detection/' },
+    group: 'decision',
+    sections: [
+      {
+        heading: 'What “pipe repair” usually means',
+        html: `<p>Pipe repair covers supply and drain lines that leak, crack, freeze, or fail at joints — not a dripping faucet cartridge or a clogged toilet. Common calls include pinhole leaks on copper, failed flex supply lines under sinks, cracked PVC, and burst sections after a freeze or impact.</p>
+        <p>Older Virginia Beach housing stock and coastal humidity make hidden wall and slab leaks more expensive when they sit. Finding the source matters before opening walls.</p>`,
+      },
+      {
+        heading: 'Urgent vs scheduled',
+        html: `<ul>
+          <li><strong>Urgent:</strong> Active spraying, flooding floors, or a burst you cannot isolate → shut the main if safe, then <a href="/emergency-plumber/">emergency plumbing</a>. Steps: <a href="/resources/what-to-do-when-a-pipe-bursts/">when a pipe bursts</a>.</li>
+          <li><strong>Scheduled:</strong> Slow drip at a joint, damp spot that is contained, or a line you already shut off → <a href="/leak-detection/">leak detection</a> or repair after diagnosis.</li>
+          <li><strong>Under slab:</strong> Warm floors, unexplained high usage, or foundation dampness → <a href="/slab-leak-repair/">slab leak repair</a>.</li>
+        </ul>`,
+      },
+      {
+        heading: 'Repair, section replace, or repipe',
+        html: `<p>A localized coupling or short section replace can solve a single failure. Repeated pinholes on the same run, widespread galvanized failure, or failing polybutylene often push the conversation toward larger <a href="/repiping/">repiping</a>. A camera or leak locate helps avoid guessing.</p>
+        <p>Fixture drips stay on <a href="/plumbing-repairs/">plumbing repairs</a>. Whole-home routing: <a href="/residential-plumbing/">residential plumbing</a>.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Should I shut the main for a small pipe drip?',
+        answer:
+          'If you can isolate the fixture with a local shutoff, use that. If water is still spreading or you cannot find a local valve, shut the main until a plumber can look.',
+      },
+      {
+        question: 'Is pipe repair the same as drain cleaning?',
+        answer:
+          'No. Drain cleaning clears clogs. Pipe repair fixes leaks or damaged pipe. Choose based on whether water is escaping the pipe versus failing to drain.',
+      },
+    ],
+    related: [
+      { label: 'Leak detection', href: '/leak-detection/' },
+      { label: 'Emergency plumber', href: '/emergency-plumber/' },
+      { label: 'Burst pipe guide', href: '/resources/what-to-do-when-a-pipe-bursts/' },
+      { label: 'Repiping', href: '/repiping/' },
+      { label: 'Slab leak repair', href: '/slab-leak-repair/' },
     ],
   },
 ];
