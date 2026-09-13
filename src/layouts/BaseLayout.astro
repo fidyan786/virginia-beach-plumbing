@@ -41,6 +41,10 @@ const schemas = schemaJson
     ? schemaJson
     : [schemaJson]
   : [];
+
+const envVerification = String(import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION || '').trim();
+const configVerification = String(siteConfig.googleSiteVerification || '').trim();
+const googleSiteVerification = envVerification || configVerification;
 ---
 
 <!doctype html>
@@ -50,6 +54,11 @@ const schemas = schemaJson
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {
+      googleSiteVerification && (
+        <meta name="google-site-verification" content={googleSiteVerification} />
+      )
+    }
     {!omitCanonical && <link rel="canonical" href={canonical} />}
     {noindex && <meta name="robots" content="noindex, follow" />}
     <meta property="og:title" content={title} />

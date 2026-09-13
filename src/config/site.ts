@@ -41,6 +41,13 @@ export const siteConfig = {
     gtmContainerId: '[GTM_CONTAINER_ID — OPTIONAL]',
   },
   /**
+   * Google Search Console HTML-tag verification.
+   * Prefer PUBLIC_GOOGLE_SITE_VERIFICATION on Vercel (build-time).
+   * Or paste the content= value from Search Console here after Google issues it.
+   * Do not invent a token — Google generates it when you add the property.
+   */
+  googleSiteVerification: '',
+  /**
    * Google Business Profile — leave empty until a real, eligible profile exists.
    * Do not invent a Maps URL. Paste the live profile and review links after verification.
    * Owner setup checklist: /local-presence/ (noindex).
