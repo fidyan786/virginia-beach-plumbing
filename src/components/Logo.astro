@@ -7,12 +7,11 @@ interface Props {
   class?: string;
 }
 
-const { variant = 'default', compact = false, class: className } = Astro.props;
-const onDark = variant === 'on-dark';
+const { compact = false, class: className } = Astro.props;
 ---
 
-<span class:list={['brand-logo', onDark && 'brand-logo--on-dark', compact && 'brand-logo--compact', className]}>
-  <BrandMark variant={variant} size={44} class="brand-logo__mark" />
+<span class:list={['brand-logo', compact && 'brand-logo--compact', className]}>
+  <BrandMark size={44} class="brand-logo__mark" />
   <span class="brand-logo__wordmark">
     <span class="brand-logo__name">Virginia Beach</span>
     <span class="brand-logo__trade">Plumbing</span>
@@ -25,17 +24,13 @@ const onDark = variant === 'on-dark';
     align-items: center;
     gap: 0.7rem;
     min-width: 0;
-    color: var(--color-primary);
+    color: var(--color-text);
     text-decoration: none;
   }
 
   .brand-logo :global(.brand-logo__mark) {
-    width: 44px;
-    height: 44px;
-  }
-
-  .brand-logo--on-dark {
-    color: #f4efe6;
+    width: 42px;
+    height: 42px;
   }
 
   .brand-logo__wordmark {
@@ -46,36 +41,31 @@ const onDark = variant === 'on-dark';
   }
 
   .brand-logo__name {
-    font-family: var(--font-body);
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--color-muted);
     white-space: nowrap;
   }
 
-  .brand-logo--on-dark .brand-logo__name {
-    color: rgba(244, 239, 230, 0.72);
-  }
-
   .brand-logo__trade {
     font-family: var(--font-heading);
-    font-size: 1.28rem;
+    font-size: 1.12rem;
     font-weight: 700;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.03em;
     color: currentColor;
     white-space: nowrap;
-    text-transform: uppercase;
   }
 
   .brand-logo--compact :global(.brand-logo__mark) {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
   }
 
   .brand-logo--compact .brand-logo__trade {
-    font-size: 1.12rem;
+    font-size: 1.02rem;
   }
 
   @media (max-width: 400px) {
@@ -84,17 +74,17 @@ const onDark = variant === 'on-dark';
     }
 
     .brand-logo :global(.brand-logo__mark) {
-      width: 36px;
-      height: 36px;
+      width: 34px;
+      height: 34px;
     }
 
     .brand-logo__trade {
-      font-size: 1.08rem;
+      font-size: 1.02rem;
     }
 
     .brand-logo__name {
-      font-size: 0.58rem;
-      letter-spacing: 0.1em;
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
     }
   }
 </style>

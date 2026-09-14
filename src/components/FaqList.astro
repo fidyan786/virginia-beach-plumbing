@@ -21,7 +21,11 @@ const { items, heading = 'Frequently asked questions' } = Astro.props;
         items.map((item) => (
           <details>
             <summary>{item.question}</summary>
-            <p set:html={item.answer} />
+            <div class="faq-panel">
+              <div class="faq-panel__inner">
+                <p set:html={item.answer} />
+              </div>
+            </div>
           </details>
         ))
       }

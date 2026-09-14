@@ -1,9 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" role="img" aria-labelledby="logoTitle">
   <title id="logoTitle">Virginia Beach Plumbing</title>
-  <rect width="48" height="48" rx="8" fill="#0B2545"/>
-  <circle cx="24" cy="24" r="17" fill="none" stroke="#C05621" stroke-width="1.85"/>
-  <g transform="translate(7.4 7.2) scale(1.38)">
-    <path fill="#F4EFE6" d="M22.7 19.2 13.6 10.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6.1 6.1 9 1.7 4.6C.5 7 .9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
-  </g>
-  <path fill="#C05621" d="M36.2 33.1c0 2.2-1.8 4-4 4s-4-1.8-4-4c0-2.7 4-6.8 4-6.8s4 4.1 4 6.8z"/>
+  <rect width="48" height="48" rx="12" fill="#0C1016"/>
+  <rect x="1" y="1" width="46" height="46" rx="11" fill="none" stroke="rgba(255,255,255,0.12)"/>
+  <path d="M14 32.5V20.2c0-3.1 2.5-5.7 5.7-5.7H34" fill="none" stroke="#5AD4E6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="14" cy="32.5" r="2.4" fill="#3BA8E0"/>
+  <circle cx="34" cy="14.5" r="2.4" fill="#7EE0D6"/>
 </svg>

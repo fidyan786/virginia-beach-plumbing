@@ -44,7 +44,10 @@ const isCommercial = variant === 'commercial';
       to request service.
     </p>
   </noscript>
-  <div class="form-alert" data-form-status role="status" aria-live="assertive" aria-atomic="true" hidden></div>
+  <p class="form-callout">
+    Prefer to call?
+    <a href={`tel:+1${siteConfig.phoneTel}`}>{siteConfig.phoneDisplay}</a>
+  </p>
 
   <input type="hidden" name="form_variant" value={variant} />
   <input type="hidden" name="landing_path" value={Astro.url.pathname} />
@@ -62,7 +65,7 @@ const isCommercial = variant === 'commercial';
       <p class="error" id={`${formId}-name-error`}>Please enter your name.</p>
     </div>
 
-    <div class="form-field" data-field="phone">
+    <div class="form-field form-field--phone" data-field="phone">
       <label for={`${formId}-phone`}>Phone <span aria-hidden="true">*</span></label>
       <input id={`${formId}-phone`} name="phone" type="tel" autocomplete="tel" inputmode="tel" required aria-required="true" aria-describedby={`${formId}-phone-error`} />
       <p class="error" id={`${formId}-phone-error`}>Please enter a valid phone number.</p>
@@ -206,6 +209,7 @@ const isCommercial = variant === 'commercial';
   <p class="muted form-note">
     By submitting, you agree to be contacted about this plumbing request. Prefer to call?
     <a href={`tel:+1${siteConfig.phoneTel}`}>{siteConfig.phoneDisplay}</a>
+    {isEmergency ? ' For burst pipes, major leaks, or sewer backups, calling is faster.' : ''}
   </p>
 </form>
 
@@ -213,12 +217,29 @@ const isCommercial = variant === 'commercial';
   .form-heading {
     font-size: 1.35rem;
     margin-bottom: var(--space-2);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: -0.03em;
   }
   .form-intro {
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-4);
     max-width: none;
+  }
+  .form-callout {
+    margin: 0 0 var(--space-5);
+    padding: 0.8rem 0.95rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: rgba(59, 168, 224, 0.08);
+    font-size: 0.95rem;
+  }
+  .form-callout a {
+    font-weight: 700;
+    color: var(--color-text);
+    text-decoration: none;
+    margin-left: 0.35rem;
+  }
+  .form[data-variant='emergency'] .form-callout {
+    border-color: rgba(217, 164, 65, 0.35);
+    background: rgba(217, 164, 65, 0.1);
   }
   .form-note {
     font-size: 0.85rem;

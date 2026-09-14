@@ -364,10 +364,48 @@ export function hasGoogleBusinessProfile(): boolean {
   return Boolean(siteConfig.googleBusinessProfile.profileUrl?.trim());
 }
 
-/** Single source for desktop dropdown + mobile accordion — no extra URLs. */
+function pickServices(hrefs: readonly string[]): ServiceCard[] {
+  return hrefs.map((href) => {
+    const found = allServices.find((item) => item.href === href);
+    if (!found) {
+      throw new Error(`Missing service for nav group: ${href}`);
+    }
+    return found;
+  });
+}
+
+/** Single source for desktop mega-menu + mobile accordion — existing URLs only. */
 export const navServiceGroups = [
-  { heading: 'Core services', items: p0Services },
-  { heading: 'Additional services', items: p1Services },
+  {
+    heading: 'Emergency',
+    items: pickServices(['/emergency-plumber/']),
+  },
+  {
+    heading: 'Drain & Sewer',
+    items: pickServices([
+      '/drain-cleaning/',
+      '/sewer-line-repair/',
+      '/trenchless-sewer-repair/',
+      '/leak-detection/',
+      '/slab-leak-repair/',
+    ]),
+  },
+  {
+    heading: 'Water',
+    items: pickServices(['/water-heaters/', '/tankless-water-heaters/']),
+  },
+  {
+    heading: 'Property & Systems',
+    items: pickServices([
+      '/commercial-plumbing/',
+      '/residential-plumbing/',
+      '/repiping/',
+      '/gas-line-services/',
+      '/backflow-testing/',
+      '/sump-pump/',
+      '/plumbing-repairs/',
+    ]),
+  },
 ] as const;
 
 export function telHref(): string {
