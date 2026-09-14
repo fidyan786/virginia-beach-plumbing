@@ -12,7 +12,7 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
   <div class="container footer-top">
     <div class="footer-brand-col">
       <a class="footer-logo" href="/" aria-label="Virginia Beach Plumbing home">
-        <Logo variant="on-dark" />
+        <Logo />
       </a>
       <p class="footer-tag">
         Virginia Beach Plumbing serves homes, rentals, and businesses across the city. Call when something breaks, or
@@ -27,7 +27,7 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
       </p>
       <div class="footer-brand-ctas">
         <a class="btn btn--primary" href={phone} data-track="phone_click" data-track-location="footer_cta">Call now</a>
-        <a class="btn btn--ghost" href="/contact/" data-track="cta_click" data-track-label="footer_request"
+        <a class="btn btn--secondary" href="/contact/" data-track="cta_click" data-track-label="footer_request"
           >Request service</a
         >
       </div>
@@ -118,7 +118,7 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
 
 <style>
   .site-footer {
-    background: #05070a;
+    background: #ffffff;
     color: var(--color-muted);
     padding: var(--space-8) 0 var(--space-6);
     margin-top: 0;
@@ -184,7 +184,7 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
 
   .footer-nap__phone {
     font-weight: 700;
-    color: #fff;
+    color: var(--color-text);
     font-size: 1.35rem;
     font-family: var(--font-heading);
     letter-spacing: -0.03em;
@@ -202,7 +202,7 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
   }
 
   .footer-heading {
-    color: #fff;
+    color: var(--color-text);
     font-size: 0.72rem;
     font-family: var(--font-mono);
     font-weight: 500;
@@ -215,7 +215,7 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
     font-family: var(--font-heading);
     font-size: 1.15rem;
     font-weight: 700;
-    color: #e8b781;
+    color: var(--color-emergency);
     letter-spacing: -0.02em;
     margin: var(--space-5) 0 var(--space-3);
     line-height: 1.2;
@@ -251,12 +251,12 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
   }
 
   .site-footer a {
-    color: #c5ccd6;
+    color: var(--color-text-secondary);
     text-decoration: none;
   }
 
   .site-footer a:hover {
-    color: #fff;
+    color: var(--color-cta);
   }
 
   .muted {
@@ -272,7 +272,7 @@ const areaPreview = siteConfig.neighborhoods.slice(0, 6);
     padding-top: var(--space-5);
     border-top: 1px solid var(--color-border);
     font-size: 0.875rem;
-    color: #7d8694;
+    color: var(--color-muted);
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;

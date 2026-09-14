@@ -1,17 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <rect width="1200" height="630" fill="#05070A"/>
-  <circle cx="1080" cy="-40" r="280" fill="#3BA8E0" opacity="0.16"/>
-  <circle cx="160" cy="700" r="220" fill="#7EE0D6" opacity="0.08"/>
+  <rect width="1200" height="630" fill="#F7F9FC"/>
+  <circle cx="1080" cy="-40" r="280" fill="#1264D8" opacity="0.12"/>
+  <circle cx="160" cy="700" r="220" fill="#08A8C7" opacity="0.1"/>
   <g transform="translate(96 214) scale(3.7)">
-    <rect width="48" height="48" rx="12" fill="#0C1016"/>
-    <rect x="1" y="1" width="46" height="46" rx="11" fill="none" stroke="rgba(255,255,255,0.12)"/>
-    <path d="M14 32.5V20.2c0-3.1 2.5-5.7 5.7-5.7H34" fill="none" stroke="#5AD4E6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="14" cy="32.5" r="2.4" fill="#3BA8E0"/>
-    <circle cx="34" cy="14.5" r="2.4" fill="#7EE0D6"/>
+    <rect width="48" height="48" rx="12" fill="#F0F6FF"/>
+    <rect x="1" y="1" width="46" height="46" rx="11" fill="none" stroke="#D5DDE8"/>
+    <path d="M14 32.5V20.2c0-3.1 2.5-5.7 5.7-5.7H34" fill="none" stroke="#1264D8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="14" cy="32.5" r="2.4" fill="#0B4EA2"/>
+    <circle cx="34" cy="14.5" r="2.4" fill="#08A8C7"/>
   </g>
-  <text x="316" y="258" fill="#A7AFBC" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5.4">VIRGINIA BEACH</text>
-  <text x="316" y="344" fill="#F5F7FA" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-1.5">Plumbing</text>
-  <text x="316" y="400" fill="#A7AFBC" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28">Plumber in Virginia Beach, VA</text>
-  <rect x="316" y="428" width="220" height="3" fill="#3BA8E0"/>
-  <text x="316" y="486" fill="#F5F7FA" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="650">Residential  ·  Commercial  ·  Open 24/7</text>
+  <text x="316" y="258" fill="#6B7280" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="5.4">VIRGINIA BEACH</text>
+  <text x="316" y="344" fill="#0B1220" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="78" font-weight="700" letter-spacing="-1.5">Plumbing</text>
+  <text x="316" y="400" fill="#4B5565" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28">Plumber in Virginia Beach, VA</text>
+  <rect x="316" y="428" width="220" height="3" fill="#1264D8"/>
+  <text x="316" y="486" fill="#0B1220" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" font-weight="650">Residential  ·  Commercial  ·  Open 24/7</text>
 </svg>

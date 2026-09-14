@@ -191,7 +191,7 @@ const phone = telHref();
     top: 0;
     z-index: 200;
     padding: 0.7rem 0 0;
-    background: linear-gradient(to bottom, rgba(5, 7, 10, 0.92) 40%, rgba(5, 7, 10, 0));
+    background: linear-gradient(to bottom, rgba(247, 249, 252, 0.92) 42%, rgba(247, 249, 252, 0));
   }
 
   .header-shell {
@@ -208,10 +208,10 @@ const phone = telHref();
     min-height: var(--header-h);
     min-width: 0;
     padding: 0.55rem 0.85rem;
-    background: rgba(8, 11, 16, 0.86);
+    background: rgba(255, 255, 255, 0.78);
     border: 1px solid var(--color-border);
     border-radius: 18px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.28);
+    box-shadow: 0 10px 32px rgba(15, 35, 70, 0.08);
   }
 
   .header-bar::before {
@@ -233,6 +233,9 @@ const phone = telHref();
   .site-header.is-compact .header-bar {
     min-height: 64px;
     padding-block: 0.4rem;
+    background: rgba(255, 255, 255, 0.94);
+    border-color: var(--color-border-strong);
+    box-shadow: 0 12px 32px rgba(15, 35, 70, 0.1);
   }
 
   .logo {
@@ -345,11 +348,11 @@ const phone = telHref();
     overflow: visible;
     padding: 1.2rem 1.2rem 1.05rem;
     margin: 0;
-    background: #0c1016;
+    background: #ffffff;
     color: var(--color-text);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--color-border);
     border-radius: 18px;
-    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(46, 155, 199, 0.08);
+    box-shadow: 0 24px 64px rgba(15, 35, 70, 0.12);
     isolation: isolate;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -433,8 +436,8 @@ const phone = telHref();
     width: 36px;
     height: 36px;
     border-radius: 9px;
-    background: rgba(46, 155, 199, 0.12);
-    color: var(--color-accent-2);
+    background: rgba(18, 100, 216, 0.08);
+    color: var(--color-cta);
   }
 
   .nav-dropdown__title {
@@ -489,7 +492,7 @@ const phone = telHref();
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-muted);
+    color: var(--color-emergency);
     white-space: nowrap;
   }
 
@@ -568,9 +571,10 @@ const phone = telHref();
     width: min(100%, 40rem);
     margin-inline: auto;
     padding: 0.85rem 1rem 1.25rem;
-    background: rgba(10, 14, 20, 0.96);
+    background: rgba(255, 255, 255, 0.96);
     border: 1px solid var(--color-border);
     border-radius: 16px;
+    box-shadow: var(--shadow-md);
     backdrop-filter: blur(20px);
   }
 
@@ -653,8 +657,8 @@ const phone = telHref();
     height: 32px;
     align-items: center;
     justify-content: center;
-    color: var(--color-accent-2);
-    background: rgba(46, 155, 199, 0.12);
+    color: var(--color-cta);
+    background: rgba(18, 100, 216, 0.08);
     border-radius: 8px;
   }
 

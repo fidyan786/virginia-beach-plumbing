@@ -53,18 +53,18 @@ const isEmergency = variant === 'emergency';
     right: 0;
     bottom: 0;
     z-index: 90;
-    background: rgba(8, 11, 16, 0.92);
+    background: rgba(255, 255, 255, 0.94);
     border-top: 1px solid var(--color-border);
     padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
     min-height: var(--sticky-cta-h);
-    box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 -12px 32px rgba(15, 35, 70, 0.08);
     backdrop-filter: blur(16px);
     contain: layout paint;
   }
 
   .sticky-cta--emergency {
-    background: rgba(18, 14, 10, 0.94);
-    border-top-color: rgba(196, 122, 44, 0.4);
+    background: #fff5f5;
+    border-top-color: rgba(217, 72, 72, 0.28);
   }
 
   .sticky-inner {
@@ -83,14 +83,14 @@ const isEmergency = variant === 'emergency';
   }
 
   .sticky-cta--emergency .sticky-secondary {
-    border: 2px solid rgba(255, 255, 255, 0.7);
-    color: #fff;
-    background: transparent;
+    border: 2px solid var(--color-emergency);
+    color: var(--color-emergency);
+    background: #fff;
   }
 
   .sticky-cta--emergency .sticky-secondary:hover {
-    background: #fff;
-    color: #071018;
+    background: var(--color-emergency);
+    color: #fff;
   }
 
   @media (min-width: 900px) {

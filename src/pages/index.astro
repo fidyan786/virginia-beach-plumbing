@@ -181,7 +181,7 @@ const faqSchema = withContext(faqPage(faqs));
     <div class="home-hero__copy">
       <div class="home-hero__copy-inner">
         <p class="hero-eyebrow">Virginia Beach · Residential &amp; Commercial</p>
-        <h1>Plumber in<br />Virginia Beach</h1>
+        <h1>Plumber in<br /><span class="hero-accent">Virginia Beach</span></h1>
         <p class="hero-lead">
           Emergency leaks, clogged drains, water heaters, sewer work, and fixture repairs for homes and businesses in Virginia Beach. Call or send a short request with your ZIP and the problem.
         </p>
@@ -190,7 +190,7 @@ const faqSchema = withContext(faqPage(faqs));
             <Icon name="phone" />
             Call {siteConfig.phoneDisplay}
           </a>
-          <a class="btn btn--ghost btn--hero" href="#request-form" data-track="cta_click" data-track-label="home_hero_request">
+          <a class="btn btn--secondary btn--hero" href="#request-form" data-track="cta_click" data-track-label="home_hero_request">
             Request Service
           </a>
         </div>
@@ -297,7 +297,7 @@ const faqSchema = withContext(faqPage(faqs));
   <section class="section section--emergency home-emergency">
     <div class="container home-emergency__grid">
       <div class="home-emergency__copy" data-reveal>
-        <p class="eyebrow eyebrow--on-dark">Emergency</p>
+        <p class="eyebrow">Emergency</p>
         <h2>When Plumbing Can’t Wait</h2>
         <p>
           Burst pipes, major leaks, and sewer backups cannot wait. A water heater dumping water on the floor is urgent; a tank that simply will not heat is usually a scheduled visit. Call and we will sort it. This site does not quote arrival times.
@@ -336,7 +336,7 @@ const faqSchema = withContext(faqPage(faqs));
         decoding="async"
       />
       <div class="split-panel__content">
-        <p class="eyebrow eyebrow--on-dark">Residential</p>
+        <p class="eyebrow">Residential</p>
         <h2>Homes &amp; rentals</h2>
         <p>Homeowners, landlords, toilets, drains, water heaters, leaks, and fixture repairs.</p>
         <span class="split-panel__cta">Residential Services</span>
@@ -352,7 +352,7 @@ const faqSchema = withContext(faqPage(faqs));
         decoding="async"
       />
       <div class="split-panel__content">
-        <p class="eyebrow eyebrow--on-dark">Commercial</p>
+        <p class="eyebrow">Commercial</p>
         <h2>Businesses</h2>
         <p>Restaurants, offices, hospitality, and property managers — practical commercial plumbing support.</p>
         <span class="split-panel__cta">Commercial Services</span>
@@ -466,7 +466,7 @@ const faqSchema = withContext(faqPage(faqs));
   <section class="section home-contact" id="request-form">
     <div class="container home-form">
       <div class="home-form__intro" data-reveal>
-        <p class="eyebrow eyebrow--on-dark">Request service</p>
+        <p class="eyebrow">Request service</p>
         <h2>Need a plumber in Virginia Beach?</h2>
         <p>
           Share your name, phone, ZIP, and the plumbing problem. For flooding, burst pipes, or sewer backups, calling is faster.
@@ -489,13 +489,13 @@ const faqSchema = withContext(faqPage(faqs));
 
   <section class="section section--primary home-final">
     <div class="container home-final__inner" data-reveal>
-      <p class="eyebrow">Virginia Beach, VA</p>
+      <p class="eyebrow eyebrow--on-dark">Virginia Beach, VA</p>
       <h2>Need a plumber in Virginia Beach?</h2>
       <p>
         Call or send a short request with your ZIP and the problem you’re dealing with.
       </p>
       <div class="btn-group">
-        <a class="btn btn--primary" href={phone} data-track="phone_click" data-track-location="home_final">
+        <a class="btn btn--on-dark" href={phone} data-track="phone_click" data-track-location="home_final">
           <Icon name="phone" />
           Call {siteConfig.phoneDisplay}
         </a>
@@ -518,7 +518,7 @@ const faqSchema = withContext(faqPage(faqs));
     display: flex;
     align-items: center;
     padding: 1.6rem 0 2.2rem;
-    color: var(--color-on-dark);
+    color: var(--color-text);
   }
 
   .home-hero__copy-inner {
@@ -533,7 +533,7 @@ const faqSchema = withContext(faqPage(faqs));
     font-weight: 500;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--color-accent-strong);
+    color: var(--color-cta);
   }
 
   .home-hero h1 {
@@ -542,7 +542,14 @@ const faqSchema = withContext(faqPage(faqs));
     font-weight: 700;
     line-height: 0.96;
     letter-spacing: -0.045em;
-    color: #fff;
+    color: var(--color-text);
+  }
+
+  .hero-accent {
+    background: linear-gradient(90deg, #1264d8 0%, #08a8c7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .hero-lead {
@@ -550,7 +557,7 @@ const faqSchema = withContext(faqPage(faqs));
     max-width: 36rem;
     font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.18rem);
     line-height: 1.6;
-    color: var(--color-on-dark-muted);
+    color: var(--color-text-secondary);
   }
 
   .hero-ctas {
@@ -576,7 +583,8 @@ const faqSchema = withContext(faqPage(faqs));
     border-radius: 22px;
     overflow: hidden;
     border: 1px solid var(--color-border);
-    background: #0c1016;
+    background: #eef5ff;
+    box-shadow: 0 24px 48px rgba(15, 35, 70, 0.12);
     isolation: isolate;
   }
 
@@ -594,8 +602,8 @@ const faqSchema = withContext(faqPage(faqs));
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(180deg, transparent 42%, rgba(5, 7, 10, 0.55) 100%),
-      radial-gradient(ellipse at 80% 20%, rgba(59, 168, 224, 0.18), transparent 45%);
+      linear-gradient(180deg, transparent 48%, rgba(11, 18, 32, 0.28) 100%),
+      radial-gradient(ellipse at 80% 20%, rgba(18, 100, 216, 0.12), transparent 45%);
     pointer-events: none;
   }
 
@@ -607,9 +615,9 @@ const faqSchema = withContext(faqPage(faqs));
     z-index: 2;
     padding: 0.95rem 1.05rem;
     border-radius: 16px;
-    background: rgba(8, 11, 16, 0.9);
-    border: 1px solid rgba(72, 180, 220, 0.28);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 16px 40px rgba(15, 35, 70, 0.14);
     backdrop-filter: blur(16px);
   }
 
@@ -630,7 +638,7 @@ const faqSchema = withContext(faqPage(faqs));
   }
 
   .hero-status__call {
-    color: #fff;
+    color: var(--color-cta);
     font-weight: 650;
     text-decoration: none;
   }
@@ -653,7 +661,8 @@ const faqSchema = withContext(faqPage(faqs));
     padding: 1rem 1.05rem;
     border: 1px solid var(--color-border);
     border-radius: 16px;
-    background: var(--color-surface);
+    background: #fff;
+    box-shadow: var(--shadow-sm);
   }
 
   .trust-strip__icon {
@@ -700,11 +709,12 @@ const faqSchema = withContext(faqPage(faqs));
     flex-direction: column;
     height: 100%;
     padding: 1.4rem 1.3rem 1.25rem;
-    background: var(--color-surface);
+    background: #fff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
     text-decoration: none;
     color: inherit;
+    box-shadow: var(--shadow-sm);
     transition:
       border-color 0.2s ease,
       transform 0.2s ease,
@@ -715,7 +725,7 @@ const faqSchema = withContext(faqPage(faqs));
   .featured-card:hover {
     color: inherit;
     text-decoration: none;
-    border-color: rgba(59, 168, 224, 0.45);
+    border-color: rgba(18, 100, 216, 0.35);
     background: var(--color-surface-hover);
     box-shadow: var(--shadow-glow);
     transform: translateY(-4px);
@@ -729,7 +739,7 @@ const faqSchema = withContext(faqPage(faqs));
     height: 44px;
     margin-bottom: 0.95rem;
     border-radius: 12px;
-    background: rgba(59, 168, 224, 0.12);
+    background: rgba(18, 100, 216, 0.08);
     color: var(--color-accent-strong);
     transition: transform 0.2s ease;
   }
@@ -831,7 +841,7 @@ const faqSchema = withContext(faqPage(faqs));
     padding: 0.35rem 0.1rem;
     color: var(--color-text);
     text-decoration: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .all-services a:hover {
@@ -854,7 +864,7 @@ const faqSchema = withContext(faqPage(faqs));
     object-fit: cover;
     object-position: center;
     border-radius: var(--radius-card);
-    border: 1px solid rgba(196, 122, 44, 0.25);
+    border: 1px solid rgba(217, 72, 72, 0.2);
   }
 
   .home-split {
@@ -869,15 +879,17 @@ const faqSchema = withContext(faqPage(faqs));
     position: relative;
     min-height: 24rem;
     overflow: hidden;
-    color: #fff;
+    color: var(--color-text);
     text-decoration: none;
     isolation: isolate;
     border-radius: var(--radius-card);
     border: 1px solid var(--color-border);
+    background: #fff;
+    box-shadow: var(--shadow-sm);
   }
 
   .split-panel:hover {
-    color: #fff;
+    color: var(--color-text);
     text-decoration: none;
   }
 
@@ -898,14 +910,14 @@ const faqSchema = withContext(faqPage(faqs));
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(5, 7, 10, 0.2) 0%, rgba(5, 7, 10, 0.78) 100%);
+    background: linear-gradient(180deg, rgba(247, 249, 252, 0.04) 0%, rgba(11, 18, 32, 0.28) 100%);
     z-index: 1;
     transition: background 0.25s ease;
   }
 
   .split-panel:hover::after {
-    background: linear-gradient(180deg, rgba(5, 7, 10, 0.08) 0%, rgba(5, 7, 10, 0.7) 100%),
-      radial-gradient(ellipse at 50% 80%, rgba(59, 168, 224, 0.22), transparent 55%);
+    background: linear-gradient(180deg, rgba(247, 249, 252, 0.02) 0%, rgba(11, 18, 32, 0.18) 100%),
+      radial-gradient(ellipse at 50% 80%, rgba(18, 100, 216, 0.16), transparent 55%);
   }
 
   .split-panel__content {
@@ -915,18 +927,19 @@ const faqSchema = withContext(faqPage(faqs));
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 2rem 1.5rem 2.1rem;
+    padding: 1.2rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.08) 38%, rgba(255, 255, 255, 0.96) 68%);
   }
 
   .split-panel h2 {
-    color: #fff;
+    color: var(--color-text);
     margin-bottom: 0.6rem;
     font-size: clamp(1.7rem, 1.4rem + 1.2vw, 2.4rem);
     letter-spacing: -0.03em;
   }
 
   .split-panel p {
-    color: rgba(244, 239, 230, 0.9);
+    color: var(--color-text-secondary);
     max-width: 34ch;
     margin-bottom: 1.1rem;
   }
@@ -937,7 +950,7 @@ const faqSchema = withContext(faqPage(faqs));
     font-size: 0.88rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--color-cta);
   }
 
   .home-why__grid {
@@ -1041,8 +1054,8 @@ const faqSchema = withContext(faqPage(faqs));
       linear-gradient(rgba(90, 212, 230, 0.08) 1px, transparent 1px),
       linear-gradient(90deg, rgba(90, 212, 230, 0.08) 1px, transparent 1px);
     background-size: 28px 28px;
-    mix-blend-mode: screen;
-    opacity: 0.45;
+    mix-blend-mode: multiply;
+    opacity: 0.35;
     mask-image: radial-gradient(ellipse at 50% 50%, #000 30%, transparent 80%);
   }
 
@@ -1095,15 +1108,16 @@ const faqSchema = withContext(faqPage(faqs));
   }
 
   .home-form__intro {
-    background: var(--color-elevated);
-    color: var(--color-on-dark);
+    background: #fff;
+    color: var(--color-text);
     padding: 1.75rem 1.5rem;
     border-radius: var(--radius-card);
     border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
   }
 
   .home-form__intro h2 {
-    color: #fff;
+    color: var(--color-text);
     letter-spacing: -0.03em;
   }
 
@@ -1115,9 +1129,9 @@ const faqSchema = withContext(faqPage(faqs));
     font-family: var(--font-heading);
     font-size: clamp(1.5rem, 3vw, 1.9rem);
     font-weight: 700;
-    color: #fff;
-    text-decoration: none;
+    color: var(--color-cta);
     letter-spacing: -0.03em;
+    text-decoration: none;
   }
 
   .home-form__phone a:hover {
@@ -1143,18 +1157,19 @@ const faqSchema = withContext(faqPage(faqs));
     flex-direction: column;
     height: 100%;
     padding: 1.25rem 1.2rem;
-    background: var(--color-surface);
+    background: #fff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
     text-decoration: none;
     color: inherit;
+    box-shadow: var(--shadow-sm);
     transition:
       border-color 0.2s ease,
       transform 0.2s ease;
   }
 
   .guide-grid a:hover {
-    border-color: rgba(59, 168, 224, 0.4);
+    border-color: rgba(18, 100, 216, 0.35);
     color: inherit;
     text-decoration: none;
     transform: translateY(-3px);
@@ -1312,7 +1327,7 @@ const faqSchema = withContext(faqPage(faqs));
       left: 8%;
       right: 8%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(90, 212, 230, 0.35), transparent);
+      background: linear-gradient(90deg, transparent, rgba(18, 100, 216, 0.28), transparent);
     }
 
     .home-emergency__grid,
