@@ -201,7 +201,6 @@ const phone = telHref();
 
   .header-bar {
     position: relative;
-    isolation: isolate;
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -380,6 +379,15 @@ const phone = telHref();
     visibility: visible;
     pointer-events: auto;
     transform: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .has-services:hover .nav-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: none;
+    }
   }
 
   .nav-dropdown__grid {
@@ -845,13 +853,6 @@ const phone = telHref();
       setDesktopServicesOpen(false);
     });
   }
-
-  servicesRoot?.addEventListener('focusin', () => {
-    if (closedByEscape) return;
-    if (window.matchMedia('(min-width: 1280px)').matches) {
-      setDesktopServicesOpen(true);
-    }
-  });
 
   servicesRoot?.addEventListener('focusout', (event) => {
     if (servicesRoot.contains(event.relatedTarget)) return;
