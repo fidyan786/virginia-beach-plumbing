@@ -47,7 +47,7 @@ const phone = telHref();
                                     <span class="nav-dropdown__icon">
                                       <ServiceIcon href={service.href} />
                                     </span>
-                                    <span>
+                                    <span class="nav-dropdown__copy">
                                       <span class="nav-dropdown__title">{service.title}</span>
                                       <span class="nav-dropdown__desc">{service.description}</span>
                                     </span>
@@ -190,8 +190,8 @@ const phone = telHref();
     position: sticky;
     top: 0;
     z-index: 200;
-    padding: 0.7rem 0 0;
-    background: linear-gradient(to bottom, rgba(247, 249, 252, 0.92) 42%, rgba(247, 249, 252, 0));
+    padding: 0.55rem 0 0;
+    background: #f6f8fb;
   }
 
   .header-shell {
@@ -206,22 +206,15 @@ const phone = telHref();
     gap: 0.75rem;
     min-height: var(--header-h);
     min-width: 0;
-    padding: 0.55rem 0.85rem;
-    background: rgba(255, 255, 255, 0.78);
+    padding: 0.45rem 0.85rem;
+    background: #fff;
     border: 1px solid var(--color-border);
-    border-radius: 18px;
-    box-shadow: 0 10px 32px rgba(15, 35, 70, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(11, 37, 69, 0.08);
   }
 
   .header-bar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    border-radius: inherit;
-    pointer-events: none;
-    backdrop-filter: blur(22px) saturate(1.2);
-    -webkit-backdrop-filter: blur(22px) saturate(1.2);
+    display: none;
   }
 
   .header-bar > * {
@@ -229,12 +222,16 @@ const phone = telHref();
     z-index: 1;
   }
 
+  .header-bar > .nav-desktop {
+    position: static;
+  }
+
   .site-header.is-compact .header-bar {
     min-height: 64px;
-    padding-block: 0.4rem;
-    background: rgba(255, 255, 255, 0.94);
+    padding-block: 0.35rem;
+    background: #fff;
     border-color: var(--color-border-strong);
-    box-shadow: 0 12px 32px rgba(15, 35, 70, 0.1);
+    box-shadow: 0 10px 28px rgba(11, 37, 69, 0.1);
   }
 
   .logo {
@@ -270,7 +267,7 @@ const phone = telHref();
 
   .nav-top-link {
     text-decoration: none;
-    color: var(--color-muted);
+    color: var(--color-navy);
     font-family: var(--font-heading);
     font-weight: 600;
     font-size: 0.9rem;
@@ -290,7 +287,7 @@ const phone = telHref();
   }
 
   .nav-emergency {
-    color: var(--color-emergency-accent) !important;
+    color: var(--color-amber) !important;
   }
 
   .has-services {
@@ -344,14 +341,15 @@ const phone = telHref();
     right: 0.55rem;
     z-index: 120;
     width: auto;
+    min-width: 0;
     overflow: visible;
-    padding: 1.2rem 1.2rem 1.05rem;
+    padding: 1.15rem 1.2rem 1.05rem;
     margin: 0;
     background: #ffffff;
     color: var(--color-text);
     border: 1px solid var(--color-border);
-    border-radius: 18px;
-    box-shadow: 0 24px 64px rgba(15, 35, 70, 0.12);
+    border-radius: 12px;
+    box-shadow: 0 20px 48px rgba(11, 37, 69, 0.14);
     isolation: isolate;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -392,8 +390,8 @@ const phone = telHref();
 
   .nav-dropdown__grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-    gap: 1.15rem 1.35rem;
+    grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr));
+    gap: 1.15rem 1.75rem;
   }
 
   .nav-dropdown__group {
@@ -407,7 +405,7 @@ const phone = telHref();
     font-weight: 500;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-accent-2);
+    color: var(--color-navy);
   }
 
   .nav-dropdown__list {
@@ -444,8 +442,13 @@ const phone = telHref();
     width: 36px;
     height: 36px;
     border-radius: 9px;
-    background: rgba(18, 100, 216, 0.08);
-    color: var(--color-cta);
+    background: var(--color-primary-soft);
+    color: var(--color-navy);
+  }
+
+  .nav-dropdown__copy {
+    display: block;
+    min-width: 0;
   }
 
   .nav-dropdown__title {
@@ -454,6 +457,7 @@ const phone = telHref();
     font-weight: 650;
     line-height: 1.25;
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
   }
 
   .nav-dropdown__desc {
@@ -464,8 +468,12 @@ const phone = telHref();
     overflow: hidden;
     margin-top: 0.12rem;
     font-size: 0.76rem;
-    line-height: 1.35;
+    line-height: 1.45;
     color: var(--color-muted);
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: none;
   }
 
   .nav-dropdown__all {
@@ -476,13 +484,13 @@ const phone = telHref();
     padding: 0.45rem 0.2rem;
     font-size: 0.9rem;
     font-weight: 650;
-    color: var(--color-cta);
+    color: var(--color-navy);
     text-decoration: none;
   }
 
   .nav-dropdown__all:hover,
   .nav-dropdown__all:focus-visible {
-    color: var(--color-cta-hover);
+    color: var(--color-navy-deep);
   }
 
   .header-actions {
@@ -500,7 +508,7 @@ const phone = telHref();
     font-weight: 500;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--color-emergency);
+    color: var(--color-amber);
     white-space: nowrap;
   }
 
@@ -565,7 +573,7 @@ const phone = telHref();
   .mobile-menu {
     position: fixed;
     inset: 0;
-    top: calc(0.7rem + var(--header-h) + 0.35rem);
+    top: calc(0.55rem + var(--header-h) + 0.35rem);
     z-index: 180;
     display: flex;
     flex-direction: column;
@@ -574,8 +582,7 @@ const phone = telHref();
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     padding: 0.25rem 0.75rem calc(1.25rem + env(safe-area-inset-bottom, 0px));
-    background: rgba(247, 249, 252, 0.97);
-    backdrop-filter: blur(18px);
+    background: #fff;
   }
 
   .mobile-menu[hidden] {
@@ -587,11 +594,10 @@ const phone = telHref();
     margin-inline: auto;
     flex: 0 0 auto;
     padding: 0.85rem 1rem 1.25rem;
-    background: rgba(255, 255, 255, 0.96);
+    background: #fff;
     border: 1px solid var(--color-border);
-    border-radius: 16px;
-    box-shadow: var(--shadow-md);
-    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: none;
   }
 
   .mobile-menu ul {
@@ -626,7 +632,7 @@ const phone = telHref();
   }
 
   .mobile-menu .nav-emergency {
-    color: var(--color-emergency-accent);
+    color: var(--color-amber);
   }
 
   .mobile-services__trigger:focus-visible,
@@ -646,7 +652,7 @@ const phone = telHref();
     font-size: 0.68rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--color-accent-2);
+    color: var(--color-navy);
   }
 
   .mobile-services__panel ul {
@@ -674,15 +680,15 @@ const phone = telHref();
     height: 32px;
     align-items: center;
     justify-content: center;
-    color: var(--color-cta);
-    background: rgba(18, 100, 216, 0.08);
+    color: var(--color-navy);
+    background: var(--color-primary-soft);
     border-radius: 8px;
   }
 
   .mobile-services__all {
     display: block;
     margin-top: 0.65rem;
-    color: var(--color-cta) !important;
+    color: var(--color-navy) !important;
     font-weight: 650 !important;
   }
 
@@ -729,12 +735,6 @@ const phone = telHref();
     .header-hours,
     .header-cta {
       display: none;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    .nav-dropdown__grid {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr) minmax(0, 1.2fr) minmax(0, 1.35fr);
     }
   }
 

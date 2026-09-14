@@ -48,6 +48,9 @@ const schemas = [
           <p class="lead">
             We serve Virginia Beach, Virginia. The neighborhoods below are parts of the city we work in.
           </p>
+          <ul class="area-chips">
+            {siteConfig.neighborhoods.map((name) => <li>{name}</li>)}
+          </ul>
           <div class="btn-group">
             <a class="btn btn--primary" href={phone}>Call {siteConfig.phoneDisplay}</a>
             <a class="btn btn--secondary" href="/contact/">Request Service</a>
