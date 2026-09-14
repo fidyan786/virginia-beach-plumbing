@@ -33,9 +33,12 @@ export const siteConfig = {
   serviceAreaNotes: 'Virginia Beach, Virginia',
   hoursDisplay: 'Open 24/7',
   emergencyAvailability: 'Open 24/7 for emergency plumbing help',
-  /** Omit unverified credentials from UI */
-  licenseDisplay: '',
-  insuranceDisplay: '',
+  /**
+   * Credentials stay empty unless a verified string is provided via env.
+   * Do not invent a license number, insurance claim, or years in business.
+   */
+  licenseDisplay: envText(import.meta.env.PUBLIC_LICENSE_DISPLAY),
+  insuranceDisplay: envText(import.meta.env.PUBLIC_INSURANCE_DISPLAY),
   neighborhoods: [
     'Oceanfront',
     'Kempsville',
@@ -374,11 +377,16 @@ function pickServices(hrefs: readonly string[]): ServiceCard[] {
   });
 }
 
-/** Single source for desktop mega-menu + mobile accordion — existing URLs only. */
+/**
+ * Services audit: every item has a live route, copy in src/data/services.ts,
+ * and is treated as a real offering a customer can ask about. Nothing here is
+ * an empty SEO stub. Specialty pages stay listed because they describe actual
+ * work after diagnosis, not placeholder keywords.
+ */
 export const navServiceGroups = [
   {
     heading: 'Emergency',
-    items: pickServices(['/emergency-plumber/']),
+    items: pickServices(['/emergency-plumber/', '/plumbing-repairs/']),
   },
   {
     heading: 'Drain & Sewer',
@@ -386,24 +394,26 @@ export const navServiceGroups = [
       '/drain-cleaning/',
       '/sewer-line-repair/',
       '/trenchless-sewer-repair/',
+    ]),
+  },
+  {
+    heading: 'Water & Leaks',
+    items: pickServices([
+      '/water-heaters/',
+      '/tankless-water-heaters/',
       '/leak-detection/',
       '/slab-leak-repair/',
     ]),
   },
   {
-    heading: 'Water',
-    items: pickServices(['/water-heaters/', '/tankless-water-heaters/']),
-  },
-  {
-    heading: 'Property & Systems',
+    heading: 'Homes & Businesses',
     items: pickServices([
-      '/commercial-plumbing/',
       '/residential-plumbing/',
+      '/commercial-plumbing/',
       '/repiping/',
       '/gas-line-services/',
       '/backflow-testing/',
       '/sump-pump/',
-      '/plumbing-repairs/',
     ]),
   },
 ] as const;

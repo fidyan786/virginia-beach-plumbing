@@ -35,6 +35,10 @@
   --color-on-dark-muted: rgba(255, 255, 255, 0.86);
   --color-warm: #0b1220;
   --color-soft-cyan: #effbfc;
+  --color-navy: #0b2545;
+  --color-navy-deep: #07182e;
+  --color-amber: #c2410c;
+  --color-amber-hover: #9a3412;
 
   --font-heading: 'Inter Variable', Inter, system-ui, sans-serif;
   --font-body: 'Inter Variable', Inter, system-ui, sans-serif;
@@ -67,8 +71,7 @@
 
   --header-h: 72px;
   --utility-h: 0px;
-  --sticky-cta-h: 72px;
-  --chat-fab-size: 56px;
+  --sticky-cta-h: 76px;
   --focus-ring: 0 0 0 3px rgba(18, 100, 216, 0.22);
 }
 
@@ -89,6 +92,7 @@ html {
   overflow-x: hidden;
   overflow-y: scroll;
   scroll-padding-top: 6.5rem;
+  scroll-padding-bottom: calc(var(--sticky-cta-h) + 12px);
   background: #f7f9fc;
 }
 
@@ -106,7 +110,7 @@ body {
     linear-gradient(rgba(18, 100, 216, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(18, 100, 216, 0.035) 1px, transparent 1px);
   background-size: auto, auto, 80px 80px, 80px 80px;
-  padding-bottom: calc(var(--chat-fab-size) + 24px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: 0;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -135,10 +139,9 @@ body::after {
 }
 
 body.has-sticky-cta {
-  padding-bottom: calc(var(--sticky-cta-h) + var(--chat-fab-size) + 16px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(var(--sticky-cta-h) + env(safe-area-inset-bottom, 0px));
 }
 
-body[data-nav-lock] .vb-chat,
 body[data-nav-lock] .sticky-cta {
   opacity: 0;
   visibility: hidden;

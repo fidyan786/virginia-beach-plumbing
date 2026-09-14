@@ -27,15 +27,8 @@ export function resolveSiteOriginFromEnv(
   const vercelProd = normalizeOrigin(env.VERCEL_PROJECT_PRODUCTION_URL);
   if (vercelProd) return vercelProd;
 
-  // Prefer production host over preview deployment URLs when available.
-  if (env.VERCEL_ENV === 'production') {
-    const preview = normalizeOrigin(env.VERCEL_URL);
-    if (preview) return preview;
-  }
-
-  const netlify = normalizeOrigin(env.URL || env.DEPLOY_PRIME_URL);
-  if (netlify) return netlify;
-
+  // Never use VERCEL_URL / preview hosts. Unique deployment URLs must not
+  // appear in canonicals or JSON-LD. Fall back to the verified production alias.
   return DEFAULT_SITE_ORIGIN;
 }
 

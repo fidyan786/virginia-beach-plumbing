@@ -2,7 +2,6 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import StickyCta from '../components/StickyCta.astro';
-import ChatWidget from '../components/ChatWidget.astro';
 import { siteConfig } from '../config/site';
 import { resolveSiteOrigin } from '../lib/site-url';
 import '../styles/global.css';
@@ -138,7 +137,6 @@ const googleSiteVerification = envVerification || configVerification;
     </main>
     <Footer />
     {stickyVariant !== 'none' && <StickyCta variant={stickyVariant === 'emergency' ? 'emergency' : 'default'} />}
-    <ChatWidget />
     <script is:inline>
       document.addEventListener(
         'error',

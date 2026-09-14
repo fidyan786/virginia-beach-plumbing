@@ -65,6 +65,9 @@ export function plumberContractorNode(origin: string, variant: 'full' | 'lean' =
       addressCountry: 'US',
     },
     areaServed: areaServedCity(),
+    ...(siteConfig.licenseDisplay
+      ? { identifier: siteConfig.licenseDisplay }
+      : {}),
     ...(hasGoogleBusinessProfile()
       ? {
           sameAs: [
@@ -237,12 +240,13 @@ export function serviceNode(
 ) {
   return {
     '@type': 'Service',
+    '@id': `${origin}${opts.urlPath}#service`,
     name: opts.name,
     description: opts.description,
     url: `${origin}${opts.urlPath}`,
     areaServed: areaServedCity(),
     provider: { '@id': plumberId(origin) },
-    serviceType: 'Plumbing',
+    serviceType: opts.name,
   };
 }
 

@@ -19,6 +19,8 @@ interface ImportMetaEnv {
    */
   readonly PUBLIC_PHONE_DISPLAY?: string;
   readonly PUBLIC_PHONE_TEL?: string;
+  readonly PUBLIC_LICENSE_DISPLAY?: string;
+  readonly PUBLIC_INSURANCE_DISPLAY?: string;
 }
 
 interface ImportMeta {

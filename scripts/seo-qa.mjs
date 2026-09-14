@@ -127,6 +127,13 @@ for (const file of htmlFiles) {
     errors.push(`${rel}: fabricated review schema suspected`);
   }
 
+  const vercelHosts = [...html.matchAll(/https:\/\/([a-z0-9.-]+\.vercel\.app)/gi)].map((m) => m[1].toLowerCase());
+  for (const host of vercelHosts) {
+    if (host !== 'website-self-nine-84.vercel.app') {
+      errors.push(`${rel}: non-production Vercel host ${host}`);
+    }
+  }
+
   // Internal link existence (site-root paths only)
   const hrefs = [...html.matchAll(/href=["'](\/[^"'#?]*)["']/gi)].map((m) => m[1]);
   for (const href of hrefs) {
@@ -195,6 +202,31 @@ if (existsSync(robotsPath)) {
   if (!/Sitemap:\s*https?:\/\//.test(robots)) errors.push('robots.txt missing Sitemap declaration');
 } else {
   errors.push('robots.txt missing from dist/');
+}
+
+const homeHtml = readFileSync(join(dist, 'index.html'), 'utf8');
+if (!/LocalBusiness/.test(homeHtml)) errors.push('homepage missing LocalBusiness JSON-LD');
+if (!/"@type":"FAQPage"/.test(homeHtml) && !/"@type": "FAQPage"/.test(homeHtml)) {
+  errors.push('homepage missing FAQPage JSON-LD');
+}
+
+const emergencyHtmlPath = join(dist, 'emergency-plumber', 'index.html');
+if (existsSync(emergencyHtmlPath)) {
+  const emergencyHtml = readFileSync(emergencyHtmlPath, 'utf8');
+  if (!/"@type":"Service"/.test(emergencyHtml) && !/"@type": "Service"/.test(emergencyHtml)) {
+    errors.push('emergency page missing Service JSON-LD');
+  }
+  if (!/"@type":"FAQPage"/.test(emergencyHtml) && !/"@type": "FAQPage"/.test(emergencyHtml)) {
+    errors.push('emergency page missing FAQPage JSON-LD');
+  }
+}
+
+const drainHtmlPath = join(dist, 'drain-cleaning', 'index.html');
+if (existsSync(drainHtmlPath)) {
+  const drainHtml = readFileSync(drainHtmlPath, 'utf8');
+  if (!/"@type":"Service"/.test(drainHtml) && !/"@type": "Service"/.test(drainHtml)) {
+    errors.push('drain-cleaning page missing Service JSON-LD');
+  }
 }
 
 console.log(`seo-qa: scanned ${htmlFiles.length} HTML files`);

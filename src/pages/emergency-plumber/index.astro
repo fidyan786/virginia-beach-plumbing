@@ -98,10 +98,10 @@ const schemas = [
     />
     <div class="container emergency-grid">
       <div>
-        <p class="hours-badge hours-badge--on-dark">Open 24/7</p>
+        <p class="hours-badge">Open 24/7</p>
         <h1>Emergency Plumber in Virginia Beach</h1>
         <p class="lead">
-          Call now for burst pipes, major leaks, and sewer backups. We will talk through the situation on the phone and do not quote arrival times on this website.
+          Call now for burst pipes, major leaks, and sewer backups. Every emergency is different. On the phone we will give you a clear timeline based on your situation.
         </p>
         <div class="btn-group">
           <a
@@ -145,8 +145,8 @@ const schemas = [
 
       <figure class="prose-figure">
           <img
-            src="/images/leak-detection.jpg"
-            alt="Kitchen faucet and sink (illustrative photo)"
+            src="/images/residential-plumbing.jpg"
+            alt="Residential bathroom vanity and faucet in a Virginia Beach home (illustrative photo)"
             width="960"
             height="540"
             loading="lazy"
@@ -227,7 +227,7 @@ const schemas = [
   .hero-emergency :global(.breadcrumb),
   .hero-emergency :global(.breadcrumb a),
   .hero-emergency :global(.breadcrumb span) {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-muted);
   }
 
   .emergency-grid {
@@ -241,7 +241,7 @@ const schemas = [
     border-radius: var(--radius-card);
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid var(--color-border);
   }
 
   @media (min-width: 900px) {

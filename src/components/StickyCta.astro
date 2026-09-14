@@ -11,39 +11,20 @@ const phone = telHref();
 const isEmergency = variant === 'emergency';
 ---
 
-<div class:list={['sticky-cta', isEmergency && 'sticky-cta--emergency']} aria-label="Quick contact">
-  <div class="sticky-inner">
-    <a
-      class="btn btn--primary sticky-call"
-      href={phone}
-      data-track={isEmergency ? 'emergency_call' : 'phone_click'}
-      data-track-location="sticky_mobile"
-    >
-      <Icon name="phone" size={16} />
-      {isEmergency ? `Call ${siteConfig.phoneDisplay}` : `Call ${siteConfig.phoneDisplay}`}
-    </a>
-    {
-      isEmergency ? (
-        <a
-          class="btn sticky-secondary"
-          href="#callback-form"
-          data-track="cta_click"
-          data-track-label="emergency_callback"
-        >
-          Request Callback
-        </a>
-      ) : (
-        <a
-          class="btn btn--secondary sticky-secondary"
-          href="/contact/"
-          data-track="cta_click"
-          data-track-label="sticky_request"
-        >
-          Request Service
-        </a>
-      )
-    }
-  </div>
+<div class:list={['sticky-cta', isEmergency && 'sticky-cta--emergency']} aria-label="Call now">
+  <a
+    class="sticky-call"
+    href={phone}
+    data-track={isEmergency ? 'emergency_call' : 'phone_click'}
+    data-track-location="sticky_mobile"
+    aria-label={`Call now ${siteConfig.phoneDisplay}`}
+  >
+    <Icon name="phone" size={18} />
+    <span class="sticky-call__copy">
+      <span class="sticky-call__label">Call now</span>
+      <span class="sticky-call__num">{siteConfig.phoneDisplay}</span>
+    </span>
+  </a>
 </div>
 
 <style>
@@ -53,57 +34,80 @@ const isEmergency = variant === 'emergency';
     right: 0;
     bottom: 0;
     z-index: 90;
-    background: rgba(255, 255, 255, 0.94);
-    border-top: 1px solid var(--color-border);
-    padding: var(--space-3) var(--space-4) calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+    padding: 0.45rem 0.75rem calc(0.45rem + env(safe-area-inset-bottom, 0px));
     min-height: var(--sticky-cta-h);
-    box-shadow: 0 -12px 32px rgba(15, 35, 70, 0.08);
-    backdrop-filter: blur(16px);
-    contain: layout paint;
+    background: #fff;
+    border-top: 1px solid var(--color-border);
+    box-shadow: 0 -12px 32px rgba(15, 35, 70, 0.1);
   }
 
   .sticky-cta--emergency {
-    background: #fff5f5;
-    border-top-color: rgba(217, 72, 72, 0.28);
+    background: #fff8f6;
+    border-top-color: rgba(194, 65, 12, 0.28);
   }
 
-  .sticky-inner {
-    display: grid;
-    grid-template-columns: 1.35fr 1fr;
-    gap: var(--space-2);
+  .sticky-call {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
     width: min(100%, var(--container));
+    min-height: 52px;
     margin-inline: auto;
-  }
-
-  .sticky-call,
-  .sticky-secondary {
-    min-height: 48px;
-    font-size: 0.88rem;
-    padding-inline: 0.65rem;
-  }
-
-  .sticky-cta--emergency .sticky-secondary {
-    border: 2px solid var(--color-emergency);
-    color: var(--color-emergency);
-    background: #fff;
-  }
-
-  .sticky-cta--emergency .sticky-secondary:hover {
-    background: var(--color-emergency);
+    padding: 0.45rem 1rem;
+    border-radius: 12px;
+    background: var(--color-cta);
     color: #fff;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(18, 100, 216, 0.28);
+  }
+
+  .sticky-cta--emergency .sticky-call {
+    background: var(--color-amber);
+    box-shadow: 0 10px 22px rgba(194, 65, 12, 0.3);
+  }
+
+  .sticky-call:hover,
+  .sticky-call:focus-visible {
+    color: #fff;
+    text-decoration: none;
+    background: var(--color-cta-hover);
+  }
+
+  .sticky-cta--emergency .sticky-call:hover,
+  .sticky-cta--emergency .sticky-call:focus-visible {
+    background: var(--color-amber-hover);
+  }
+
+  .sticky-call:focus-visible {
+    outline: 2px solid var(--color-navy);
+    outline-offset: 3px;
+  }
+
+  .sticky-call__copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.15;
+  }
+
+  .sticky-call__label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .sticky-call__num {
+    font-size: clamp(0.95rem, 4.2vw, 1.08rem);
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
   }
 
   @media (min-width: 900px) {
     .sticky-cta {
       display: none;
-    }
-  }
-
-  @media (max-width: 380px) {
-    .sticky-call,
-    .sticky-secondary {
-      font-size: 0.78rem;
-      padding-inline: 0.45rem;
     }
   }
 </style>
