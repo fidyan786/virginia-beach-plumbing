@@ -138,6 +138,13 @@ body.has-sticky-cta {
   padding-bottom: calc(var(--sticky-cta-h) + var(--chat-fab-size) + 16px + env(safe-area-inset-bottom, 0px));
 }
 
+body[data-nav-lock] .vb-chat,
+body[data-nav-lock] .sticky-cta {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 @media (min-width: 900px) {
   body,
   body.has-sticky-cta {

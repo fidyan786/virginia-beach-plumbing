@@ -214,14 +214,22 @@ const aboutSchema = [
     margin-bottom: 0.2rem;
   }
 
-  .about-card a {
+  .about-card a:not(.btn) {
     color: var(--color-cta);
     font-weight: 700;
     text-decoration: none;
   }
 
-  .about-card a:hover {
+  .about-card a:not(.btn):hover {
     color: var(--color-cta-hover);
+  }
+
+  .about-card .btn--primary {
+    color: var(--color-cta-text);
+  }
+
+  .about-card .btn--primary:hover {
+    color: #fff;
   }
 
   .about-card .btn--secondary {
